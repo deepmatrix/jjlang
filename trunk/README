@@ -1,0 +1,15 @@
+
+ JJLang
+ ======
+ 
+  
+This is an automated Java converter from Java Language to any other target.
+Code is self-explanatory if one is aware of ANTLRv3 related project
+and beyond. Code is based on many developers work, especially of ANTLR
+community. Underling principle is to have Java grammar which is used for basic
+scanning and parsing, and after that to exploit Generator grammar together
+with respective StringTemplateGroup of a target language:
+
+  Java.g -> Generator.g -> <Target.stg> 
+
+For comment mail to eugeny.yakimovitch(at)gmail.com  
