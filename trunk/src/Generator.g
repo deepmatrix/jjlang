@@ -222,7 +222,8 @@ classScopeDeclarations
     |   ^(CLASS_STATIC_INITIALIZER block)
     |   ^(FUNCTION_METHOD_DECL modifierList genericTypeParameterList? type IDENT formalParameterList arrayDeclaratorList? throwsClause? block?)
           -> functionDeclaration(modifiers={$modifierList.lst}, type={$type.st}, ident={$IDENT.text}, parameters={$formalParameterList.lst}, block={$block.st})
-    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)
+    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)         
+          -> methodDeclaration(modifiers={$modifierList.lst}, ident={$IDENT.text}, parameters={$formalParameterList.lst}, block={$block.st})
     |   ^(VAR_DECLARATION modifierList type variableDeclaratorList)
           -> varDeclaration(modifiers={$modifierList.lst}, type={$type.st}, declarators={$variableDeclaratorList.lst}) 
     |   ^(CONSTRUCTOR_DECL modifierList genericTypeParameterList? formalParameterList throwsClause? block)
@@ -386,13 +387,13 @@ genericWildcardBoundType
 formalParameterList returns[List<StringTemplate> lst]
 @init {
   $lst = new ArrayList<StringTemplate>();
-}
+} 
     // TODO: handle formalParameterVarargDecl 
-    :   ^(FORMAL_PARAM_LIST (formalParameterStandardDecl {if ($formalParameterStandardDecl.st!=null) $lst.add($formalParameterStandardDecl.st); })* formalParameterVarargDecl?) 
-    ;
+    :   ^(FORMAL_PARAM_LIST (formalParameterStandardDecl {if ($formalParameterStandardDecl.st!=null) $lst.add($formalParameterStandardDecl.st); })* formalParameterVarargDecl?)   
+    ; 
     
 formalParameterStandardDecl
-    :   ^(FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId) -> template(type={$type.st}, variableDeclaratorId={$variableDeclaratorId.st}) "$if(type)$ $type$ $variableDeclaratorId$$else$$variableDeclaratorId$$endif$"
+    :   ^(FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId) -> template(type={$type.st}, id={$variableDeclaratorId.st}) "<id>"
     ;
     
 formalParameterVarargDecl
@@ -471,22 +472,35 @@ localVariableDeclaration
     
         
 statement
-    :   block
-    |   ^(ASSERT expression expression?)
-    |   ^(IF parenthesizedExpression statement statement?)
-    |   ^(FOR forInit forCondition forUpdater statement)
-    |   ^(FOR_EACH localModifierList type IDENT expression statement) 
-    |   ^(WHILE parenthesizedExpression statement)
-    |   ^(DO statement parenthesizedExpression)
-    |   ^(TRY block catches? block?)  // The second optional block is the optional finally block.
+    :   block {$statement.st = $block.st;}
+    |   ^(ASSERT a1=expression b1=expression?)
+        -> assert(expressionA={$a1.st},expressionB={$b1.st})
+    |   ^(IF parenthesizedExpression a2=statement b2=statement?)
+        -> if(parenthesizedExpression={$parenthesizedExpression.st}, statement={$a2.st}, elsestatement={$b2.st})
+    |   ^(FOR forInit forCondition forUpdater stmnt=statement)
+        -> for(forInit={$forInit.st}, forCondition={$forCondition.st}, forUpdater={$forUpdater.st}, statement={$stmnt.st})
+    |   ^(FOR_EACH localModifierList type IDENT expression stmnt=statement)
+        -> foreach(modifiers={$localModifierList.st}, type={$type.st}, id={$IDENT.text}, expression={$expression.st}, statement={$stmnt.st}) 
+    |   ^(WHILE parenthesizedExpression stmnt=statement)
+        -> while(parenthesizedExpression={$parenthesizedExpression.st}, statement={$stmnt.st})
+    |   ^(DO stmnt=statement parenthesizedExpression)
+        -> do(statement={$stmnt.st}, parenthesizedExpression={$parenthesizedExpression.st})
+    |   ^(TRY tryblock=block catches? restblock=block?)  // The second optional block is the optional finally block.
+        -> try(tryblock={$tryblock.st},catches={$catches.st},restblock={$restblock.st}) 
     |   ^(SWITCH parenthesizedExpression switchBlockLabels)
     |   ^(SYNCHRONIZED parenthesizedExpression block)
+        -> template(block={$block.st}) "/*synchronized*/ <block>"
     |   ^(RETURN expression?)
+        -> return(expression={$expression.st})
     |   ^(THROW expression)
+        -> throw(expression={$expression.st})
     |   ^(BREAK IDENT?)
+        -> break(ident={$IDENT.text})
     |   ^(CONTINUE IDENT?)
-    |   ^(LABELED_STATEMENT IDENT statement)
-    |   expression
+        -> continue(ident={$IDENT.text})
+    |   ^(LABELED_STATEMENT IDENT stmnt=statement)
+        -> template(statement={$stmnt.st}) "/*labeled*/ <statement>"
+    |   expression -> statement(expression={$expression.st})
     |   SEMI // Empty statement.
     ;
         
@@ -526,54 +540,55 @@ forUpdater
 
 parenthesizedExpression
     :   ^(PARENTESIZED_EXPR expression)
+        ->parenthesizedExpression(expression={$expression.st})
     ;
     
 expression
-    :   ^(EXPR expr)
+    :   ^(EXPR expr {$expression.st = $expr.st;})
     ;
 
 expr
-    :   ^(ASSIGN expr expr)
-    |   ^(PLUS_ASSIGN expr expr)
-    |   ^(MINUS_ASSIGN expr expr)
-    |   ^(STAR_ASSIGN expr expr)
-    |   ^(DIV_ASSIGN expr expr)
-    |   ^(AND_ASSIGN expr expr)
-    |   ^(OR_ASSIGN expr expr)
-    |   ^(XOR_ASSIGN expr expr)
-    |   ^(MOD_ASSIGN expr expr)
-    |   ^(BIT_SHIFT_RIGHT_ASSIGN expr expr)
-    |   ^(SHIFT_RIGHT_ASSIGN expr expr)
-    |   ^(SHIFT_LEFT_ASSIGN expr expr)
-    |   ^(QUESTION expr expr expr)
-    |   ^(LOGICAL_OR expr expr)
-    |   ^(LOGICAL_AND expr expr)
-    |   ^(OR expr expr)
-    |   ^(XOR expr expr)
-    |   ^(AND expr expr)
-    |   ^(EQUAL expr expr)
-    |   ^(NOT_EQUAL expr expr)
+    :   ^(ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"="},b={$b.st})
+    |   ^(PLUS_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"+="},b={$b.st})
+    |   ^(MINUS_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"-="},b={$b.st})
+    |   ^(STAR_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"*="},b={$b.st})
+    |   ^(DIV_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"/="},b={$b.st})
+    |   ^(AND_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"&="},b={$b.st})
+    |   ^(OR_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"|="},b={$b.st})
+    |   ^(XOR_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"^="},b={$b.st})
+    |   ^(MOD_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"\%="},b={$b.st})
+    |   ^(BIT_SHIFT_RIGHT_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={">>>="},b={$b.st})
+    |   ^(SHIFT_RIGHT_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={">>="},b={$b.st})
+    |   ^(SHIFT_LEFT_ASSIGN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"<<="},b={$b.st})
+    |   ^(QUESTION a=expr b=expr expr) 
+    |   ^(LOGICAL_OR a=expr b=expr)  -> infix_binary_expr(a={$a.st},op={"||"},b={$b.st})
+    |   ^(LOGICAL_AND a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"&&"},b={$b.st})
+    |   ^(OR a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"|"},b={$b.st})
+    |   ^(XOR a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"^"},b={$b.st})
+    |   ^(AND a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"&"},b={$b.st})
+    |   ^(EQUAL a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"=="},b={$b.st})
+    |   ^(NOT_EQUAL a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"!="},b={$b.st})
     |   ^(INSTANCEOF expr type)
-    |   ^(LESS_OR_EQUAL expr expr)
-    |   ^(GREATER_OR_EQUAL expr expr)
-    |   ^(BIT_SHIFT_RIGHT expr expr)
-    |   ^(SHIFT_RIGHT expr expr)
-    |   ^(GREATER_THAN expr expr)
-    |   ^(SHIFT_LEFT expr expr)
-    |   ^(LESS_THAN expr expr)
-    |   ^(PLUS expr expr)
-    |   ^(MINUS expr expr)
-    |   ^(STAR expr expr)
-    |   ^(DIV expr expr)
-    |   ^(MOD expr expr)
-    |   ^(UNARY_PLUS expr)
-    |   ^(UNARY_MINUS expr)
-    |   ^(PRE_INC expr)
-    |   ^(PRE_DEC expr)
-    |   ^(POST_INC expr)
-    |   ^(POST_DEC expr)
-    |   ^(NOT expr)
-    |   ^(LOGICAL_NOT expr)
+    |   ^(LESS_OR_EQUAL a=expr b=expr)  -> infix_binary_expr(a={$a.st},op={"<="},b={$b.st})
+    |   ^(GREATER_OR_EQUAL a=expr b=expr) -> infix_binary_expr(a={$a.st},op={">="},b={$b.st})
+    |   ^(BIT_SHIFT_RIGHT a=expr b=expr) -> infix_binary_expr(a={$a.st},op={">>>"},b={$b.st})
+    |   ^(SHIFT_RIGHT a=expr b=expr) -> infix_binary_expr(a={$a.st},op={">>"},b={$b.st})
+    |   ^(GREATER_THAN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={">"},b={$b.st})
+    |   ^(SHIFT_LEFT a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"<<"},b={$b.st})
+    |   ^(LESS_THAN a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"<"},b={$b.st})
+    |   ^(PLUS a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"+"},b={$b.st})
+    |   ^(MINUS a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"-"},b={$b.st})
+    |   ^(STAR a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"*"},b={$b.st})
+    |   ^(DIV a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"/"},b={$b.st})
+    |   ^(MOD a=expr b=expr) -> infix_binary_expr(a={$a.st},op={"\%"},b={$b.st})
+    |   ^(UNARY_PLUS a=expr) -> prefix_unary_expr(op={"+"},a={$a.st})
+    |   ^(UNARY_MINUS a=expr) -> prefix_unary_expr(op={"-"},a={$a.st}) 
+    |   ^(PRE_INC a=expr) -> prefix_unary_expr(op={"++"},a={$a.st})
+    |   ^(PRE_DEC a=expr) -> prefix_unary_expr(op={"--"},a={$a.st})
+    |   ^(POST_INC a=expr) -> postfix_unary_expr(op={"++"},a={$a.st})
+    |   ^(POST_DEC a=expr) -> postfix_unary_expr(op={"--"},a={$a.st})
+    |   ^(NOT a=expr) -> prefix_unary_expr(op={"!"},a={$a.st})
+    |   ^(LOGICAL_NOT a=expr)
     |   ^(CAST_EXPR type expr)
     |   primaryExpression
     ;

@@ -63,16 +63,79 @@ varDeclaration(modifiers, type, declarators) ::= <<
 variableDeclarator(id, initializer) ::= "<id>"
 
 functionDeclaration(modifiers, type, ident, parameters, block) ::= <<
-  <modifiers; separator=" "> function <ident>(<parameters:{p|$p}; separator=", ">)
+  <modifiers; separator=" "> function <ident>(<parameters:{p|$<p>}; separator=", ">)
   <block>
 >>
+
+methodDeclaration(modifiers, ident, parameters, block) ::= <<
+  <modifiers; separator=" "> function <ident>(<parameters:{p|$<p>};separator=", ">)
+  <block>
+>>
+
 
 // S T A T E M E N T S  /  B L O C K S 
 
 block(statements) ::= <<
 {
-<statements; separator="\n">"
+<statements; separator="\n">
 }
 >>
 
 // E X P R E S S I O N S
+
+statement(expression) ::= "<expression>;"
+
+assert(expressionA,expressionB) ::= "/*assert*/ <expressionA> <expressionB>"
+
+if(parenthesizedExpression, statement, elsestatement) ::= <<
+if <parenthesizedExpression> {
+  <statement>
+}<if(elsestatement)> else {
+  <elsestatement>
+}
+<endif>
+>>
+
+for(forInit, forCondition, forUpdater, statement) ::= <<
+for (<forInit>; <forCondition>; <forUpdater>) {
+  <statement>
+}
+>>
+
+foreach(modifiers, type, id, expression, statement) ::= <<
+foreach (<expression> as $<id>) {
+  <statement>
+}
+>>
+
+while(parenthesizedExpression, statement) ::= <<
+while <parenthesizedExpression> {
+  <statement>
+}
+>>
+
+do(statement, parenthesizedExpression) ::= <<
+do {
+  <statement>
+} while <parenthesizedExpression>;
+>>
+
+try(tryblock,catches,restblock) ::= <<
+  try <tryblock> 
+  <catches>
+  <restblock>
+>>
+
+return(expression) ::= "return <expression>;"
+
+throw(expression) ::= "throw <expression>;"
+
+break(ident) ::= "break;" //"break <ident>;"
+
+continue(ident) ::= "continue;"
+
+parenthesizedExpression(expression) ::= "( <expression> )"
+
+prefix_unary_expr(op,a) ::= "<op><a>"
+postfix_unary_expr(op,a) ::= "<a><op>"
+infix_binary_expr(a,op,b) ::= "<a> <op> <b>"
