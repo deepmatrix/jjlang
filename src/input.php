@@ -3,44 +3,43 @@ class Main {
   public static function main($args)
   {
     try {
-  if (  >  ) {
+  if ( args->length > 0 ) 
     {
-    for (; ; ) {
+    for ( $i = 0  ; i < args->length; i++) 
       {
-      ;
+      $this->doFile();
       }
     }
-    }
-  } else {
+   else 
     {
-    ;
+    System->err->println("Usage: java Main <directory or file name>");
     }
-  }
   } 
 
   }
   public static function doFile($f)
   {
-  if (  ) {
+  if ( f->isDirectory() ) 
     {
-    for (; ; ) {
-      ;
+      $files = f->list() 
+    for ( $i = 0  ; i < files->length; i++) 
+      $this->doFile();
     }
-    }
-  } else {
-    if (  &&  ) {
+   else 
+    if ( ( f->getName()->length() > 5 ) && f->getName()->substring(f->getName()->length() - 5)->equals(".java") ) 
       {
-      ;
-      ;
+      System->err->println("   " + f->getAbsolutePath());
+      $this->parseFile(f->getAbsolutePath());
       }
-    }
-  }
+
   }
   public static function parseFile($f)
   {
     try {
-  ;
-  ;
+    $lexer 
+  $this->tokens->setTokenSource(lexer);
+    $parser 
+  parser->compilationUnit();
   } 
 
   }

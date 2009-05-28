@@ -2,6 +2,8 @@ package org.javajavalang;
 
 import java.util.HashMap;
 
+import org.javajavalang.JavaImprinting.JSource;
+
 
 public class GenerationObserver {
 	
@@ -9,12 +11,15 @@ public class GenerationObserver {
 	
 	private Generator generator; 
 	
+	private JSource grammarImprint;
+	
 	private HashMap<String,RuleHandler> handlers = new HashMap<String, RuleHandler>();
 	
-	public GenerationObserver(Generator treeParser, Target target) throws Exception {
+	public GenerationObserver(Generator treeParser, Target target, JSource sourceImprint) throws Exception {
 		this.generator = treeParser;		
 		this.target = target;
 		this.target.registerTargetHandlers(this);
+		this.grammarImprint = sourceImprint;
 	}
 
 	public Generator getGenerator(){
@@ -28,6 +33,10 @@ public class GenerationObserver {
 	public String getTargetName()
 	{
 		return target.getName();
+	}
+	
+	public JSource getGrammarImprint(){
+		return grammarImprint;		
 	}
 	
 	public void registerRuleHandler(RuleHandler handler) throws Exception

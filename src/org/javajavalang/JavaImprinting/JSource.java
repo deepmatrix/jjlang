@@ -1,8 +1,15 @@
 package org.javajavalang.JavaImprinting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JSource {
+	
+	public JSource() {}
+	public JSource(String packageName)
+	{
+		this.packageName = packageName;
+	}
 	
 	private String packageName;
 	
@@ -20,66 +27,67 @@ public class JSource {
 		return packageName;
 	}
 	
-	private List<JTypeDeclaration> importDeclaration;
+	private List<JImportDeclaration> importDeclarations = new ArrayList<JImportDeclaration>();
 	/**
 	 * @param importDeclaration the importDeclaration to set
 	 */
-	public void setImportDeclaration(List<JTypeDeclaration> importDeclaration) {
-		this.importDeclaration = importDeclaration;
+	public void setImportDeclarations(List<JImportDeclaration> importDeclarations) {
+		this.importDeclarations = importDeclarations;
 	}	
 	/**
 	 * @return the importDeclaration
 	 */
-	public List<JTypeDeclaration> getImportDeclaration() {
-		return importDeclaration;
+	public List<JImportDeclaration> getImportDeclarations() {
+		return importDeclarations;
 	}
 	
-	private List<JTypeDeclaration> typeDeclaration;
+	public void addImportDeclaration(JImportDeclaration decl)
+	{
+		this.importDeclarations.add(decl);
+	}
+	
+	private List<JTypeDeclaration> typeDeclarations = new ArrayList<JTypeDeclaration>();
 
 	/**
 	 * @param typeDeclaration the typeDeclaration to set
 	 */
-	public void setTypeDeclaration(List<JTypeDeclaration> typeDeclaration) {
-		this.typeDeclaration = typeDeclaration;
+	public void setTypeDeclarations(List<JTypeDeclaration> typeDeclarations) {
+		this.typeDeclarations = typeDeclarations;
 	}
 	
 	/**
 	 * @return the typeDeclaration
 	 */
-	public List<JTypeDeclaration> getTypeDeclaration() {
-		return typeDeclaration;
-	}
-		
-	private List<JClass> classDeclarations;
-
-	/**
-	 * @param classDeclarations the classDeclarations to set
-	 */
-	public void setClassDeclarations(List<JClass> classDeclarations) {
-		this.classDeclarations = classDeclarations;
-	}
-
-	/**
-	 * @return the classDeclarations
-	 */
-	public List<JClass> getClassDeclarations() {
-		return classDeclarations;
+	public List<JTypeDeclaration> getTypeDeclarations() {
+		return typeDeclarations;
 	}
 	
-	private List<JInterface> interfaceDeclarations;
+	public void addTypeDeclaration(JTypeDeclaration typeDeclaration) {
+		this.typeDeclarations.add(typeDeclaration);
+	}
 	
-	/**
-	 * @param interfaceDeclarations the interfaceDeclarations to set
-	 */
-	public void setInterfaceDeclarations(List<JInterface> interfaceDeclarations) {
-		this.interfaceDeclarations = interfaceDeclarations;
+	public List<JClassDeclaration> getClassDeclarations(){
+		List<JClassDeclaration> result = new ArrayList<JClassDeclaration>();
+		for (JTypeDeclaration decl : this.typeDeclarations){
+			if (decl instanceof JClassDeclaration) result.add((JClassDeclaration)decl);			
+		}
+		return result;
 	}
 
-	/**
-	 * @return the interfaceDeclarations
-	 */
-	public List<JInterface> getInterfaceDeclarations() {
-		return interfaceDeclarations;
+	public List<JInterfaceDeclaration> getInterfaceDeclarations(){
+		List<JInterfaceDeclaration> result = new ArrayList<JInterfaceDeclaration>();
+		for (JTypeDeclaration decl : this.typeDeclarations){
+			if (decl instanceof JInterfaceDeclaration) result.add((JInterfaceDeclaration)decl);			
+		}
+		return result;
 	}
-
+	
+	public JClassDeclaration getClassDeclaration(String id) {
+		List<JClassDeclaration> classes = this.getClassDeclarations();
+		for (JClassDeclaration decl : classes){
+			if (decl.ident == id)
+				return decl;
+		}
+		return null;
+	}
 }

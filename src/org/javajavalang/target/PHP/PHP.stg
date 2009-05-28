@@ -60,7 +60,7 @@ varDeclaration(modifiers, type, declarators) ::= <<
   <declarators:{d|<modifiers; separator=" "> var $<d>;}>
 >>
 
-variableDeclarator(id, initializer) ::= "<id>"
+variableDeclarator(id, initializer) ::= "<id><if(initializer)> = <initializer><endif>"
 
 functionDeclaration(modifiers, type, ident, parameters, block) ::= <<
   <modifiers; separator=" "> function <ident>(<parameters:{p|$<p>}; separator=", ">)
@@ -75,32 +75,32 @@ methodDeclaration(modifiers, ident, parameters, block) ::= <<
 
 // S T A T E M E N T S  /  B L O C K S 
 
-block(statements) ::= <<
-{
+block(statements) ::= <<{
 <statements; separator="\n">
-}
->>
+}>>
 
-// E X P R E S S I O N S
 
 statement(expression) ::= "<expression>;"
+
+localVariableDeclaration(modifiers, type, declarators) ::= << <declarators:{d|<modifiers; separator=" "> $<d>}; separator="; "> >>
 
 assert(expressionA,expressionB) ::= "/*assert*/ <expressionA> <expressionB>"
 
 if(parenthesizedExpression, statement, elsestatement) ::= <<
-if <parenthesizedExpression> {
+if <parenthesizedExpression> 
   <statement>
-}<if(elsestatement)> else {
+<if(elsestatement)> else 
   <elsestatement>
-}
 <endif>
 >>
 
 for(forInit, forCondition, forUpdater, statement) ::= <<
-for (<forInit>; <forCondition>; <forUpdater>) {
+for (<forInit>; <forCondition>; <forUpdater>) 
   <statement>
-}
 >>
+
+forinit(localVariableDeclaration, expressions) ::= << <localVariableDeclaration><if(expressions)>, <expressions; separator=", "><endif> >>
+forUpdater(expressions) ::= "<expressions; separator=\", \">"
 
 foreach(modifiers, type, id, expression, statement) ::= <<
 foreach (<expression> as $<id>) {
@@ -134,8 +134,12 @@ break(ident) ::= "break;" //"break <ident>;"
 
 continue(ident) ::= "continue;"
 
+// E X P R E S S I O N S
+
 parenthesizedExpression(expression) ::= "( <expression> )"
 
 prefix_unary_expr(op,a) ::= "<op><a>"
 postfix_unary_expr(op,a) ::= "<a><op>"
 infix_binary_expr(a,op,b) ::= "<a> <op> <b>"
+
+methodcall(primaryExpression, genericTypeArgumentList, arguments) ::= <<<primaryExpression>(<genericTypeArgumentList><arguments; separator=", ">)>>
