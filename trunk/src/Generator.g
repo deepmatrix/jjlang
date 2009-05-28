@@ -44,13 +44,15 @@ options {
 
 @treeparser::header {
 package org.javajavalang;
+
+import org.javajavalang.JavaImprinting.*;
 }
 
 @treeparser::members {
     
     GenerationObserver observer;
     
-    public void SetObserver(GenerationObserver observer) {
+    public void setObserver(GenerationObserver observer) {
       this.observer = observer;
     }
     
@@ -160,19 +162,21 @@ scope{
 List gtypList;
 List extClause;
 List implClause;
+
+String identText;
 }
 @init {
   $typeDeclaration::gtypList = new ArrayList();
   $typeDeclaration::extClause = new ArrayList();
   $typeDeclaration::implClause = new ArrayList();  
 }
-    :   ^(CLASS modifierList IDENT (genericTypeParameterList)? (extendsClause)? (implementsClause)? classTopLevelScope)
+    :   ^(CLASS modifierList IDENT {$typeDeclaration::identText = $IDENT.text;} (genericTypeParameterList)? (extendsClause)? (implementsClause)? classTopLevelScope)
           -> classDeclaration(modifiers={$modifierList.lst}, name={$IDENT.text}, genericTypeParameters={$typeDeclaration::gtypList}, extendsClause={$typeDeclaration::extClause}, implementsClause={$typeDeclaration::implClause}, classTopLevelScope={$classTopLevelScope.st})
-    |   ^(INTERFACE modifierList IDENT (genericTypeParameterList)? (extendsClause)? interfaceTopLevelScope)
+    |   ^(INTERFACE modifierList IDENT {$typeDeclaration::identText = $IDENT.text;} (genericTypeParameterList)? (extendsClause)? interfaceTopLevelScope)
           -> interfaceDeclaration(modifiers={$modifierList.lst}, name={$IDENT.text}, genericTypeParameters={$typeDeclaration::gtypList}, extendsClause={$typeDeclaration::extClause}, interfaceTopLevelScope={$interfaceTopLevelScope.st})
-    |   ^(ENUM modifierList IDENT implementsClause? enumTopLevelScope)
+    |   ^(ENUM modifierList IDENT {$typeDeclaration::identText = $IDENT.text;} implementsClause? enumTopLevelScope)
           -> enumDeclaration(modifiers={$modifierList.lst}, name={$IDENT.text}, implementsClause={$typeDeclaration::implClause}, enumTopLevelScope={$enumTopLevelScope.st})
-    |   ^(AT modifierList IDENT annotationTopLevelScope)
+    |   ^(AT modifierList IDENT {$typeDeclaration::identText = $IDENT.text;} annotationTopLevelScope)
           -> atDeclaration(modifiers={$modifierList.lst}, name={$IDENT.text}, annotationTopLevelScope={$annotationTopLevelScope.st})
     ;
 
@@ -262,7 +266,7 @@ variableDeclaratorId
 
 variableInitializer
     :   arrayInitializer
-    |   expression
+    |   expression {$variableInitializer.st = $expression.st;}
     ;
 
 arrayDeclarator
@@ -468,6 +472,7 @@ blockStatement
     
 localVariableDeclaration
     :   ^(VAR_DECLARATION localModifierList type variableDeclaratorList)
+        -> localVariableDeclaration(modifiers={$localModifierList.st}, type={$type.st}, declarators={$variableDeclaratorList.lst})
     ;
     
         
@@ -525,15 +530,22 @@ switchDefaultLabel
     ;
     
 forInit
-    :   ^(FOR_INIT (localVariableDeclaration | expression*)?)
+    :   ^(FOR_INIT 
+          (
+             localVariableDeclaration 
+          | (expressions+=expression)*
+          )
+        ?)
+        -> forinit(localVariableDeclaration={$localVariableDeclaration.st}, expressions={$expressions})
     ;
     
 forCondition
-    :   ^(FOR_CONDITION expression?)
+    :   ^(FOR_CONDITION (expression {$forCondition.st = $expression.st;})?)
     ;
     
 forUpdater
-    :   ^(FOR_UPDATE expression*)
+    :   ^(FOR_UPDATE (expressions+=expression)*)
+        -> forUpdater(expressions={$expressions})
     ;
     
 // EXPRESSIONS
@@ -590,30 +602,46 @@ expr
     |   ^(NOT a=expr) -> prefix_unary_expr(op={"!"},a={$a.st})
     |   ^(LOGICAL_NOT a=expr)
     |   ^(CAST_EXPR type expr)
-    |   primaryExpression
+    |   primaryExpression { $expr.st = $primaryExpression.st;}
     ;
     
 primaryExpression
     :   ^(  DOT
-            (   primaryExpression
-                (   IDENT
-                |   THIS
-                |   SUPER
-                |   innerNewExpression
-                |   CLASS
+            (   pexr=primaryExpression       
+                (   IDENT                    -> template(exp={$pexr.st},id={$IDENT.text}) "<exp>-><id>"
+                |   THIS                     -> template(exp={$pexr.st})                  "<exp>.this"
+                |   SUPER                    -> template(exp={$pexr.st},id={$IDENT.text}) "<exp>.super"
+                |   iexp=innerNewExpression  -> template(pexp={$pexr.st},iexp={$iexp.st}) "<pexp>-><iexp>"
+                |   CLASS                    -> template(exp={$pexr.st},id={$IDENT.text}) "<exp>.class"
                 )
             |   primitiveType CLASS
             |   VOID CLASS
             )
         )
-    |   parenthesizedExpression
-    |   IDENT
-    |   ^(METHOD_CALL primaryExpression genericTypeArgumentList? arguments)
+    |   parenthesizedExpression {$primaryExpression.st = $parenthesizedExpression.st;}
+    |   IDENT 
+        {
+          String _ident = $IDENT.text;
+          JSource imprint = this.observer.getGrammarImprint();
+          JClassDeclaration cls = imprint.getClassDeclaration($typeDeclaration::identText);
+        
+          if (cls != null) {
+            //check if ident was declared inside the current class             
+            if (cls.hasVariable(_ident)){ 
+              _ident = "\$this->" + _ident;              
+            } else if (cls.hasMethod(_ident)) {
+              _ident = "\$this->" + _ident;
+            }
+          }
+          retval.st = new StringTemplate(templateLib,_ident);
+        }                          
+    |   ^(METHOD_CALL pexp=primaryExpression genericTypeArgumentList? arguments)
+        -> methodcall(primaryExpression={$pexp.st}, genericTypeArgumentList={$genericTypeArgumentList.st}, arguments={$arguments.lst})
     |   explicitConstructorCall
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
-    |   literal
+    |   literal {$primaryExpression.st = $literal.st;}
     |   newExpression
-    |   THIS
+    |   THIS -> template() "this"
     |   arrayTypeDeclarator
     |   SUPER
     ;
@@ -645,18 +673,21 @@ newArrayConstruction
     |   expression+ arrayDeclaratorList?
     ;
 
-arguments
-    :   ^(ARGUMENT_LIST expression*)
+arguments returns[List<StringTemplate> lst]
+@init{
+  $lst = new ArrayList<StringTemplate>();
+}
+    :   ^(ARGUMENT_LIST (expression {if ($expression.st!=null) $lst.add($expression.st);})*)
     ;
 
 literal 
-    :   HEX_LITERAL
-    |   OCTAL_LITERAL
-    |   DECIMAL_LITERAL
-    |   FLOATING_POINT_LITERAL
-    |   CHARACTER_LITERAL
-    |   STRING_LITERAL
-    |   TRUE
-    |   FALSE
-    |   NULL
+    :   HEX_LITERAL -> template(v={$HEX_LITERAL.text}) "<v>"
+    |   OCTAL_LITERAL -> template(v={$OCTAL_LITERAL.text}) "<v>"
+    |   DECIMAL_LITERAL -> template(v={$DECIMAL_LITERAL.text}) "<v>"
+    |   FLOATING_POINT_LITERAL -> template(v={$FLOATING_POINT_LITERAL.text}) "<v>"
+    |   CHARACTER_LITERAL -> template(v={$CHARACTER_LITERAL.text}) "<v>"
+    |   STRING_LITERAL -> template(v={$STRING_LITERAL.text}) "<v>"
+    |   TRUE -> template(v={$TRUE.text}) "<v>"
+    |   FALSE -> template(v={$FALSE.text}) "<v>"
+    |   NULL -> template(v={$NULL.text}) "<v>"
     ;

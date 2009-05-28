@@ -12,9 +12,10 @@ import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.stringtemplate.StringTemplate;
 import org.antlr.stringtemplate.StringTemplateGroup;
+import org.javajavalang.JavaImprinting.JSource;
 import org.javajavalang.target.PHP.PhpTarget;
 
-public class LanguageLanguageTranslator {
+public class JJLangTool {
 
 	public static boolean debugTree = true;
 
@@ -127,10 +128,8 @@ public class LanguageLanguageTranslator {
 			if (debugTree)
 				PrintTree.printTree(tree);
 
-			CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
-
 			// finally walk grammar to emit code
-			walkGrammar(filename, tokens, nodes);
+			walkGrammar(filename, tokens, tree);
 		} catch (Exception e) {
 			System.err.println("parser exception: " + e);
 			e.printStackTrace(); // so we can get stack trace
@@ -140,13 +139,28 @@ public class LanguageLanguageTranslator {
 	public static StringTemplateGroup templates;
 
 	public static void walkGrammar(String filename, CommonTokenStream tokens,
-			CommonTreeNodeStream nodes) {
-		// WALK TREE
-		Generator generator = null;
+			CommonTree tree) {
+		// IMPRINT TREE
+		CommonTreeNodeStream imprinterNodes = new CommonTreeNodeStream(tree);
+		JSource sourceImprint = null;
 		try {
-			nodes.setTokenStream(tokens);
-			generator = new Generator(nodes);
-			generator.SetObserver(new GenerationObserver(generator, target));
+			imprinterNodes.setTokenStream(tokens);
+			Imprinter imprinter = new Imprinter(imprinterNodes);
+			Imprinter.targetSource_return r1 = imprinter.targetSource();
+			assert (r1.value!=null);
+			sourceImprint = r1.value;
+		} catch (Exception e) {
+			System.err.println("Error trying to set up imprinter and imprint the grammar: "+e);
+			e.printStackTrace();
+			return;
+		}
+		// WALK TREE
+		CommonTreeNodeStream generatorNodes = new CommonTreeNodeStream(tree);		
+		Generator generator = null;
+		try {			
+			generatorNodes.setTokenStream(tokens);
+			generator = new Generator(generatorNodes);
+			generator.setObserver(new GenerationObserver(generator, target, sourceImprint));
 			generator.setTemplateLib(templates); // link templates
 		} catch (Exception e) {
 			System.err.println("Error trying to set up generator and generation observer: "+e);
@@ -155,9 +169,9 @@ public class LanguageLanguageTranslator {
 		}
 
 		// invoke central rule, passing in information from parser
-		Generator.targetSource_return r;
+		Generator.targetSource_return r2;
 		try {
-			r = generator.targetSource();
+			r2 = generator.targetSource();
 		} catch (RecognitionException e1) {
 			System.err.println("Error parsing target source: "+e1);
 			e1.printStackTrace();
@@ -172,7 +186,7 @@ public class LanguageLanguageTranslator {
 			FileWriter outFile = null;
 			outFile = new FileWriter(outputFilename);
 			PrintWriter out = new PrintWriter(outFile);
-			StringTemplate template = (StringTemplate) r.getTemplate();
+			StringTemplate template = (StringTemplate) r2.getTemplate();
 			if (template == null) {
 				System.err.println("No template was generated.");
 			} else {
