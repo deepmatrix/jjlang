@@ -3,9 +3,9 @@ class Main {
   public static function main($args)
   {
     try {
-  if ( args->length > 0 ) 
+  if ( $args->length > 0 ) 
     {
-    for ( $i = 0  ; i < args->length; i++) 
+    for ( $i = 0  ; $i < $args->length; $i++) 
       {
       $this->doFile();
       }
@@ -19,17 +19,17 @@ class Main {
   }
   public static function doFile($f)
   {
-  if ( f->isDirectory() ) 
+  if ( $f->isDirectory() ) 
     {
-      $files = f->list() 
-    for ( $i = 0  ; i < files->length; i++) 
+      $files = $f->list() 
+    for ( $i = 0  ; $i < $files->length; $i++) 
       $this->doFile();
     }
    else 
-    if ( ( f->getName()->length() > 5 ) && f->getName()->substring(f->getName()->length() - 5)->equals(".java") ) 
+    if ( ( $f->getName()->length() > 5 ) && $f->getName()->substring($f->getName()->length() - 5)->equals(".java") ) 
       {
-      System->err->println("   " + f->getAbsolutePath());
-      $this->parseFile(f->getAbsolutePath());
+      System->err->println("   " + $f->getAbsolutePath());
+      $this->parseFile($f->getAbsolutePath());
       }
 
   }
@@ -37,9 +37,9 @@ class Main {
   {
     try {
     $lexer 
-  $this->tokens->setTokenSource(lexer);
+  $this->tokens->setTokenSource($lexer);
     $parser 
-  parser->compilationUnit();
+  $parser->compilationUnit();
   } 
 
   }

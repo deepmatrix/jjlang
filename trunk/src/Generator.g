@@ -222,11 +222,17 @@ $classTopLevelScope::decls = new ArrayList();
     ;
     
 classScopeDeclarations
+scope{
+  String methodname;
+}
+@init {
+  $classScopeDeclarations::methodname = null;
+}
     :   ^(CLASS_INSTANCE_INITIALIZER block)
     |   ^(CLASS_STATIC_INITIALIZER block)
-    |   ^(FUNCTION_METHOD_DECL modifierList genericTypeParameterList? type IDENT formalParameterList arrayDeclaratorList? throwsClause? block?)
+    |   ^(FUNCTION_METHOD_DECL modifierList genericTypeParameterList? type IDENT {$classScopeDeclarations::methodname = $IDENT.text;} formalParameterList arrayDeclaratorList? throwsClause? block?)
           -> functionDeclaration(modifiers={$modifierList.lst}, type={$type.st}, ident={$IDENT.text}, parameters={$formalParameterList.lst}, block={$block.st})
-    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)         
+    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT {$classScopeDeclarations::methodname = $IDENT.text;} formalParameterList throwsClause? block?)
           -> methodDeclaration(modifiers={$modifierList.lst}, ident={$IDENT.text}, parameters={$formalParameterList.lst}, block={$block.st})
     |   ^(VAR_DECLARATION modifierList type variableDeclaratorList)
           -> varDeclaration(modifiers={$modifierList.lst}, type={$type.st}, declarators={$variableDeclaratorList.lst}) 
@@ -624,14 +630,26 @@ primaryExpression
           String _ident = $IDENT.text;
           JSource imprint = this.observer.getGrammarImprint();
           JClassDeclaration cls = imprint.getClassDeclaration($typeDeclaration::identText);
+          JMethodDeclaration mtd = ($classScopeDeclarations::methodname!=null) ? cls.findDefinedMethod($classScopeDeclarations::methodname) : null;
         
           if (cls != null) {
-            //check if ident was declared inside the current class             
+            //check if ident was declared inside the current class as method or property            
             if (cls.hasVariable(_ident)){ 
               _ident = "\$this->" + _ident;              
             } else if (cls.hasMethod(_ident)) {
               _ident = "\$this->" + _ident;
             }
+            //check if ident is a locally defined variable or bypassed method's parameter 
+            else if ( mtd != null) {
+              if (mtd.hasLocalVariable(_ident)) {
+                _ident = "\$" + _ident;
+              } else if(mtd.hasFormalParameter(_ident)) {
+                _ident = "\$" + _ident;
+              } else {
+                // maybe a static call - do nothing
+              }
+            }
+            
           }
           retval.st = new StringTemplate(templateLib,_ident);
         }                          
@@ -641,9 +659,9 @@ primaryExpression
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
     |   literal {$primaryExpression.st = $literal.st;}
     |   newExpression
-    |   THIS -> template() "this"
+    |   THIS -> template() "$this->"
     |   arrayTypeDeclarator
-    |   SUPER
+    |   SUPER -> template() "parent::"
     ;
     
 explicitConstructorCall
