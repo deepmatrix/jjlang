@@ -10,7 +10,6 @@ public class JCodeBlock {
 		// ignore
 	}
 	public void addLocalVariables(List<JVariableDeclaration> lst) {
-		this.localVariables.addAll(lst);
-		System.out.println("yo!");
+		this.localVariables.addAll(lst);		
 	}
 }

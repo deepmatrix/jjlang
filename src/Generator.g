@@ -154,7 +154,7 @@ importDeclaration
     ;
 
 typeDeclarations
-  : (tdecl+=typeDeclaration)* {$targetSource::typeStatements.addAll($tdecl);}
+  : (tdecl+=typeDeclaration)* {if ($tdecl!=null) $targetSource::typeStatements.addAll($tdecl);}
   ;  
   
 typeDeclaration
@@ -658,6 +658,7 @@ primaryExpression
     |   explicitConstructorCall
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
     |   literal {$primaryExpression.st = $literal.st;}
+    |   comment
     |   newExpression
     |   THIS -> template() "$this->"
     |   arrayTypeDeclarator
@@ -708,4 +709,9 @@ literal
     |   TRUE -> template(v={$TRUE.text}) "<v>"
     |   FALSE -> template(v={$FALSE.text}) "<v>"
     |   NULL -> template(v={$NULL.text}) "<v>"
+    ;
+    
+comment
+    :   COMMENT
+    |   LINE_COMMENT
     ;

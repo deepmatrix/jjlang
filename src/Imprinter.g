@@ -564,6 +564,7 @@ primaryExpression
     |   explicitConstructorCall
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
     |   literal
+    |   comment
     |   newExpression
     |   THIS
     |   arrayTypeDeclarator
@@ -611,4 +612,9 @@ literal
     |   TRUE
     |   FALSE
     |   NULL
+    ;
+    
+comment
+    :   COMMENT
+    |   LINE_COMMENT
     ;
