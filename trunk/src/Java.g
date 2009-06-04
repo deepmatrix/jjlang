@@ -22,12 +22,10 @@
  *
  * BSD licence
  * 
+ * Copyright (c) 2009 by Yauhen Yakimovich 
  * Copyright (c) 2007-2008 by HABELITZ Software Developments
  *
  * All rights reserved.
- * 
- * http://www.habelitz.com
- *
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -318,7 +316,8 @@ package org.javajavalang;
  *  needed forever the lexer part of the grammar should be changed by replacing 
  *  the 'if-else' stuff within the approprate lexer grammar actions.
  */
-public boolean preserveWhitespacesAndComments = false;
+public boolean preserveWhitespaces = false;
+public boolean preserveComments = true;
 }
 
 // Starting point for parsing a Java file.
@@ -331,7 +330,7 @@ compilationUnit
     :   annotationList 
         packageDeclaration? 
         importDeclaration* 
-        typeDecls*
+        typeDecls*        
     ;
 
 typeDecls
@@ -987,6 +986,7 @@ postfixedExpression
 primaryExpression
     :   parenthesizedExpression
     |   literal
+    |   comment
     |   newExpression
     |   qualifiedIdentExpression
     |   genericTypeArgumentListSimplified 
@@ -1079,6 +1079,11 @@ literal
     |   NULL
     ;
 
+comment
+    :   COMMENT
+    |   LINE_COMMENT
+    ;
+
 // LEXER
 
 HEX_LITERAL : '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
@@ -1165,7 +1170,7 @@ JAVA_ID_PART
 
 WS  :  (' '|'\r'|'\t'|'\u000C'|'\n') 
     {   
-        if (!preserveWhitespacesAndComments) {
+        if (!preserveWhitespaces) {
             skip();
         } else {
             $channel = HIDDEN;
@@ -1176,7 +1181,7 @@ WS  :  (' '|'\r'|'\t'|'\u000C'|'\n')
 COMMENT
     :   '/*' ( options {greedy=false;} : . )* '*/'
     {   
-        if (!preserveWhitespacesAndComments) {
+        if (!preserveComments) {
             skip();
         } else {
             $channel = HIDDEN;
@@ -1187,7 +1192,7 @@ COMMENT
 LINE_COMMENT
     : '//' ~('\n'|'\r')* '\r'? '\n'
     {   
-        if (!preserveWhitespacesAndComments) {
+        if (!preserveComments) {
             skip();
         } else {
             $channel = HIDDEN;

@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g 2009-06-04 18:54:17
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g 2009-06-04 19:28:30
 
 package org.javajavalang;
 
@@ -47,10 +47,10 @@ import java.util.HashMap;
  */
 public class Imprinter extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FALSE", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "IMPLEMENTS", "INSTANCEOF", "INTERFACE", "IMPORT", "INT", "LONG", "NATIVE", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE", "ANNOTATION_INIT_ARRAY_ELEMENT", "ANNOTATION_INIT_BLOCK", "ANNOTATION_INIT_DEFAULT_KEY", "ANNOTATION_INIT_KEY_LIST", "ANNOTATION_LIST", "ANNOTATION_METHOD_DECL", "ANNOTATION_SCOPE", "ANNOTATION_TOP_LEVEL_SCOPE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FORMAL_PARAM_VARARG_DECL", "FUNCTION_METHOD_DECL", "GENERIC_TYPE_ARG_LIST", "GENERIC_TYPE_PARAM_LIST", "INTERFACE_TOP_LEVEL_SCOPE", "IMPLEMENTS_CLAUSE", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "THROWS_CLAUSE", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FALSE", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "IMPLEMENTS", "INSTANCEOF", "INTERFACE", "IMPORT", "INT", "LONG", "NATIVE", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE", "ANNOTATION_INIT_ARRAY_ELEMENT", "ANNOTATION_INIT_BLOCK", "ANNOTATION_INIT_DEFAULT_KEY", "ANNOTATION_INIT_KEY_LIST", "ANNOTATION_LIST", "ANNOTATION_METHOD_DECL", "ANNOTATION_SCOPE", "ANNOTATION_TOP_LEVEL_SCOPE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FORMAL_PARAM_VARARG_DECL", "FUNCTION_METHOD_DECL", "GENERIC_TYPE_ARG_LIST", "GENERIC_TYPE_PARAM_LIST", "INTERFACE_TOP_LEVEL_SCOPE", "IMPLEMENTS_CLAUSE", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "THROWS_CLAUSE", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "COMMENT", "LINE_COMMENT", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS"
     };
     public static final int PACKAGE=84;
-    public static final int EXPONENT=173;
+    public static final int EXPONENT=175;
     public static final int STAR=49;
     public static final int WHILE=103;
     public static final int MOD=32;
@@ -89,15 +89,15 @@ public class Imprinter extends TreeParser {
     public static final int VOID=101;
     public static final int ENUM_TOP_LEVEL_SCOPE=125;
     public static final int SUPER=92;
-    public static final int COMMENT=181;
+    public static final int COMMENT=171;
     public static final int ANNOTATION_INIT_KEY_LIST=107;
-    public static final int JAVA_ID_START=178;
-    public static final int FLOAT_TYPE_SUFFIX=174;
+    public static final int JAVA_ID_START=180;
+    public static final int FLOAT_TYPE_SUFFIX=176;
     public static final int PRE_DEC=149;
     public static final int RBRACK=41;
     public static final int IMPLEMENTS_CLAUSE=140;
     public static final int SWITCH_BLOCK_LABEL_LIST=154;
-    public static final int LINE_COMMENT=182;
+    public static final int LINE_COMMENT=172;
     public static final int PRIVATE=85;
     public static final int STATIC=90;
     public static final int BLOCK_SCOPE=117;
@@ -113,7 +113,7 @@ public class Imprinter extends TreeParser {
     public static final int ANNOTATION_LIST=108;
     public static final int ELLIPSIS=17;
     public static final int NATIVE=81;
-    public static final int OCTAL_ESCAPE=177;
+    public static final int OCTAL_ESCAPE=179;
     public static final int UNARY_MINUS=158;
     public static final int THROWS=97;
     public static final int LCURLY=23;
@@ -124,7 +124,7 @@ public class Imprinter extends TreeParser {
     public static final int TRY=100;
     public static final int INTERFACE_TOP_LEVEL_SCOPE=139;
     public static final int SHIFT_LEFT=45;
-    public static final int WS=180;
+    public static final int WS=182;
     public static final int SHIFT_RIGHT=47;
     public static final int FORMAL_PARAM_STD_DECL=134;
     public static final int LOCAL_MODIFIER_LIST=142;
@@ -135,7 +135,7 @@ public class Imprinter extends TreeParser {
     public static final int JAVA_SOURCE=143;
     public static final int CATCH=59;
     public static final int FALSE=69;
-    public static final int INTEGER_TYPE_SUFFIX=172;
+    public static final int INTEGER_TYPE_SUFFIX=174;
     public static final int DECIMAL_LITERAL=167;
     public static final int THROW=96;
     public static final int FOR_INIT=131;
@@ -161,9 +161,9 @@ public class Imprinter extends TreeParser {
     public static final int IF=74;
     public static final int AT=7;
     public static final int CONSTRUCTOR_DECL=124;
-    public static final int ESCAPE_SEQUENCE=175;
+    public static final int ESCAPE_SEQUENCE=177;
     public static final int LABELED_STATEMENT=141;
-    public static final int UNICODE_ESCAPE=176;
+    public static final int UNICODE_ESCAPE=178;
     public static final int BOOLEAN=55;
     public static final int SYNCHRONIZED=94;
     public static final int EXPR=126;
@@ -189,7 +189,7 @@ public class Imprinter extends TreeParser {
     public static final int ANNOTATION_TOP_LEVEL_SCOPE=111;
     public static final int BYTE=57;
     public static final int XOR=51;
-    public static final int JAVA_ID_PART=179;
+    public static final int JAVA_ID_PART=181;
     public static final int GREATER_THAN=20;
     public static final int VOLATILE=102;
     public static final int PARENTESIZED_EXPR=146;
@@ -198,7 +198,7 @@ public class Imprinter extends TreeParser {
     public static final int CLASS_STATIC_INITIALIZER=122;
     public static final int DEFAULT=63;
     public static final int OCTAL_LITERAL=166;
-    public static final int HEX_DIGIT=171;
+    public static final int HEX_DIGIT=173;
     public static final int SHORT=89;
     public static final int INSTANCEOF=76;
     public static final int MINUS=30;
@@ -239,7 +239,7 @@ public class Imprinter extends TreeParser {
         }
         public Imprinter(TreeNodeStream input, RecognizerSharedState state) {
             super(input, state);
-            this.state.ruleMemo = new HashMap[288+1];
+            this.state.ruleMemo = new HashMap[291+1];
              
              
         }
@@ -10242,6 +10242,8 @@ public class Imprinter extends TreeParser {
             case FLOATING_POINT_LITERAL:
             case CHARACTER_LITERAL:
             case STRING_LITERAL:
+            case COMMENT:
+            case LINE_COMMENT:
                 {
                 alt91=43;
                 }
@@ -12089,7 +12091,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "primaryExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:548:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:548:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | comment | newExpression | THIS | arrayTypeDeclarator | SUPER );
     public final Imprinter.primaryExpression_return primaryExpression() throws RecognitionException {
         Imprinter.primaryExpression_return retval = new Imprinter.primaryExpression_return();
         retval.start = input.LT(1);
@@ -12110,8 +12112,8 @@ public class Imprinter extends TreeParser {
         CommonTree IDENT408=null;
         CommonTree METHOD_CALL409=null;
         CommonTree ARRAY_ELEMENT_ACCESS414=null;
-        CommonTree THIS419=null;
-        CommonTree SUPER421=null;
+        CommonTree THIS420=null;
+        CommonTree SUPER422=null;
         Imprinter.primaryExpression_return primaryExpression397 = null;
 
         Imprinter.innerNewExpression_return innerNewExpression401 = null;
@@ -12134,9 +12136,11 @@ public class Imprinter extends TreeParser {
 
         Imprinter.literal_return literal417 = null;
 
-        Imprinter.newExpression_return newExpression418 = null;
+        Imprinter.comment_return comment418 = null;
 
-        Imprinter.arrayTypeDeclarator_return arrayTypeDeclarator420 = null;
+        Imprinter.newExpression_return newExpression419 = null;
+
+        Imprinter.arrayTypeDeclarator_return arrayTypeDeclarator421 = null;
 
 
         CommonTree DOT396_tree=null;
@@ -12150,13 +12154,13 @@ public class Imprinter extends TreeParser {
         CommonTree IDENT408_tree=null;
         CommonTree METHOD_CALL409_tree=null;
         CommonTree ARRAY_ELEMENT_ACCESS414_tree=null;
-        CommonTree THIS419_tree=null;
-        CommonTree SUPER421_tree=null;
+        CommonTree THIS420_tree=null;
+        CommonTree SUPER422_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:549:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER )
-            int alt95=11;
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:549:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | comment | newExpression | THIS | arrayTypeDeclarator | SUPER )
+            int alt95=12;
             switch ( input.LA(1) ) {
             case DOT:
                 {
@@ -12202,25 +12206,31 @@ public class Imprinter extends TreeParser {
                 alt95=7;
                 }
                 break;
-            case CLASS_CONSTRUCTOR_CALL:
-            case STATIC_ARRAY_CREATOR:
+            case COMMENT:
+            case LINE_COMMENT:
                 {
                 alt95=8;
                 }
                 break;
-            case THIS:
+            case CLASS_CONSTRUCTOR_CALL:
+            case STATIC_ARRAY_CREATOR:
                 {
                 alt95=9;
                 }
                 break;
-            case ARRAY_DECLARATOR:
+            case THIS:
                 {
                 alt95=10;
                 }
                 break;
-            case SUPER:
+            case ARRAY_DECLARATOR:
                 {
                 alt95=11;
+                }
+                break;
+            case SUPER:
+                {
+                alt95=12;
                 }
                 break;
             default:
@@ -12275,6 +12285,8 @@ public class Imprinter extends TreeParser {
                     case FLOATING_POINT_LITERAL:
                     case CHARACTER_LITERAL:
                     case STRING_LITERAL:
+                    case COMMENT:
+                    case LINE_COMMENT:
                         {
                         alt93=1;
                         }
@@ -12681,69 +12693,87 @@ public class Imprinter extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:567:9: newExpression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:567:9: comment
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression4145);
-                    newExpression418=newExpression();
+                    pushFollow(FOLLOW_comment_in_primaryExpression4145);
+                    comment418=comment();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_0, newExpression418.getTree());
+                    adaptor.addChild(root_0, comment418.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
                     }
                     break;
                 case 9 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:568:9: THIS
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:568:9: newExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     _last = (CommonTree)input.LT(1);
-                    THIS419=(CommonTree)match(input,THIS,FOLLOW_THIS_in_primaryExpression4155); if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                    THIS419_tree = (CommonTree)adaptor.dupNode(THIS419);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression4155);
+                    newExpression419=newExpression();
 
-                    adaptor.addChild(root_0, THIS419_tree);
-                    }
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) 
+                    adaptor.addChild(root_0, newExpression419.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
                     }
                     break;
                 case 10 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:569:9: arrayTypeDeclarator
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:569:9: THIS
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression4165);
-                    arrayTypeDeclarator420=arrayTypeDeclarator();
+                    THIS420=(CommonTree)match(input,THIS,FOLLOW_THIS_in_primaryExpression4165); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    THIS420_tree = (CommonTree)adaptor.dupNode(THIS420);
 
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_0, arrayTypeDeclarator420.getTree());
+                    adaptor.addChild(root_0, THIS420_tree);
+                    }
 
                     if ( state.backtracking==0 ) {
                     }
                     }
                     break;
                 case 11 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:570:9: SUPER
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:570:9: arrayTypeDeclarator
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     _last = (CommonTree)input.LT(1);
-                    SUPER421=(CommonTree)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression4175); if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                    SUPER421_tree = (CommonTree)adaptor.dupNode(SUPER421);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression4175);
+                    arrayTypeDeclarator421=arrayTypeDeclarator();
 
-                    adaptor.addChild(root_0, SUPER421_tree);
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) 
+                    adaptor.addChild(root_0, arrayTypeDeclarator421.getTree());
+
+                    if ( state.backtracking==0 ) {
+                    }
+                    }
+                    break;
+                case 12 :
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:571:9: SUPER
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    _last = (CommonTree)input.LT(1);
+                    SUPER422=(CommonTree)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression4185); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    SUPER422_tree = (CommonTree)adaptor.dupNode(SUPER422);
+
+                    adaptor.addChild(root_0, SUPER422_tree);
                     }
 
                     if ( state.backtracking==0 ) {
@@ -12774,7 +12804,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "explicitConstructorCall"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:573:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:574:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
     public final Imprinter.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException {
         Imprinter.explicitConstructorCall_return retval = new Imprinter.explicitConstructorCall_return();
         retval.start = input.LT(1);
@@ -12784,25 +12814,25 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        CommonTree THIS_CONSTRUCTOR_CALL422=null;
-        CommonTree SUPER_CONSTRUCTOR_CALL425=null;
-        Imprinter.genericTypeArgumentList_return genericTypeArgumentList423 = null;
+        CommonTree THIS_CONSTRUCTOR_CALL423=null;
+        CommonTree SUPER_CONSTRUCTOR_CALL426=null;
+        Imprinter.genericTypeArgumentList_return genericTypeArgumentList424 = null;
 
-        Imprinter.arguments_return arguments424 = null;
+        Imprinter.arguments_return arguments425 = null;
 
-        Imprinter.primaryExpression_return primaryExpression426 = null;
+        Imprinter.primaryExpression_return primaryExpression427 = null;
 
-        Imprinter.genericTypeArgumentList_return genericTypeArgumentList427 = null;
+        Imprinter.genericTypeArgumentList_return genericTypeArgumentList428 = null;
 
-        Imprinter.arguments_return arguments428 = null;
+        Imprinter.arguments_return arguments429 = null;
 
 
-        CommonTree THIS_CONSTRUCTOR_CALL422_tree=null;
-        CommonTree SUPER_CONSTRUCTOR_CALL425_tree=null;
+        CommonTree THIS_CONSTRUCTOR_CALL423_tree=null;
+        CommonTree SUPER_CONSTRUCTOR_CALL426_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:574:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:575:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
             int alt99=2;
             int LA99_0 = input.LA(1);
 
@@ -12821,7 +12851,7 @@ public class Imprinter extends TreeParser {
             }
             switch (alt99) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:574:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:575:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -12830,16 +12860,16 @@ public class Imprinter extends TreeParser {
                     CommonTree _save_last_1 = _last;
                     CommonTree _first_1 = null;
                     CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-                    THIS_CONSTRUCTOR_CALL422=(CommonTree)match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall4199); if (state.failed) return retval;
+                    THIS_CONSTRUCTOR_CALL423=(CommonTree)match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall4209); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    THIS_CONSTRUCTOR_CALL422_tree = (CommonTree)adaptor.dupNode(THIS_CONSTRUCTOR_CALL422);
+                    THIS_CONSTRUCTOR_CALL423_tree = (CommonTree)adaptor.dupNode(THIS_CONSTRUCTOR_CALL423);
 
-                    root_1 = (CommonTree)adaptor.becomeRoot(THIS_CONSTRUCTOR_CALL422_tree, root_1);
+                    root_1 = (CommonTree)adaptor.becomeRoot(THIS_CONSTRUCTOR_CALL423_tree, root_1);
                     }
 
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:574:33: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:575:33: ( genericTypeArgumentList )?
                     int alt96=2;
                     int LA96_0 = input.LA(1);
 
@@ -12851,13 +12881,13 @@ public class Imprinter extends TreeParser {
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: genericTypeArgumentList
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4201);
-                            genericTypeArgumentList423=genericTypeArgumentList();
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4211);
+                            genericTypeArgumentList424=genericTypeArgumentList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, genericTypeArgumentList423.getTree());
+                            adaptor.addChild(root_1, genericTypeArgumentList424.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -12867,13 +12897,13 @@ public class Imprinter extends TreeParser {
                     }
 
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall4204);
-                    arguments424=arguments();
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall4214);
+                    arguments425=arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, arguments424.getTree());
+                    adaptor.addChild(root_1, arguments425.getTree());
 
                     match(input, Token.UP, null); if (state.failed) return retval;adaptor.addChild(root_0, root_1);_last = _save_last_1;
                     }
@@ -12884,7 +12914,7 @@ public class Imprinter extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:575:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:576:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -12893,20 +12923,20 @@ public class Imprinter extends TreeParser {
                     CommonTree _save_last_1 = _last;
                     CommonTree _first_1 = null;
                     CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-                    SUPER_CONSTRUCTOR_CALL425=(CommonTree)match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall4216); if (state.failed) return retval;
+                    SUPER_CONSTRUCTOR_CALL426=(CommonTree)match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall4226); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    SUPER_CONSTRUCTOR_CALL425_tree = (CommonTree)adaptor.dupNode(SUPER_CONSTRUCTOR_CALL425);
+                    SUPER_CONSTRUCTOR_CALL426_tree = (CommonTree)adaptor.dupNode(SUPER_CONSTRUCTOR_CALL426);
 
-                    root_1 = (CommonTree)adaptor.becomeRoot(SUPER_CONSTRUCTOR_CALL425_tree, root_1);
+                    root_1 = (CommonTree)adaptor.becomeRoot(SUPER_CONSTRUCTOR_CALL426_tree, root_1);
                     }
 
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:575:34: ( primaryExpression )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:576:34: ( primaryExpression )?
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
-                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
+                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=LINE_COMMENT)) ) {
                         alt97=1;
                     }
                     switch (alt97) {
@@ -12914,13 +12944,13 @@ public class Imprinter extends TreeParser {
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: primaryExpression
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall4218);
-                            primaryExpression426=primaryExpression();
+                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall4228);
+                            primaryExpression427=primaryExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, primaryExpression426.getTree());
+                            adaptor.addChild(root_1, primaryExpression427.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -12929,7 +12959,7 @@ public class Imprinter extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:575:53: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:576:53: ( genericTypeArgumentList )?
                     int alt98=2;
                     int LA98_0 = input.LA(1);
 
@@ -12941,13 +12971,13 @@ public class Imprinter extends TreeParser {
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: genericTypeArgumentList
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4221);
-                            genericTypeArgumentList427=genericTypeArgumentList();
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4231);
+                            genericTypeArgumentList428=genericTypeArgumentList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, genericTypeArgumentList427.getTree());
+                            adaptor.addChild(root_1, genericTypeArgumentList428.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -12957,13 +12987,13 @@ public class Imprinter extends TreeParser {
                     }
 
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall4224);
-                    arguments428=arguments();
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall4234);
+                    arguments429=arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, arguments428.getTree());
+                    adaptor.addChild(root_1, arguments429.getTree());
 
                     match(input, Token.UP, null); if (state.failed) return retval;adaptor.addChild(root_0, root_1);_last = _save_last_1;
                     }
@@ -12997,7 +13027,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "arrayTypeDeclarator"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:578:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
     public final Imprinter.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException {
         Imprinter.arrayTypeDeclarator_return retval = new Imprinter.arrayTypeDeclarator_return();
         retval.start = input.LT(1);
@@ -13007,20 +13037,20 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        CommonTree ARRAY_DECLARATOR429=null;
-        Imprinter.arrayTypeDeclarator_return arrayTypeDeclarator430 = null;
+        CommonTree ARRAY_DECLARATOR430=null;
+        Imprinter.arrayTypeDeclarator_return arrayTypeDeclarator431 = null;
 
-        Imprinter.qualifiedIdentifier_return qualifiedIdentifier431 = null;
+        Imprinter.qualifiedIdentifier_return qualifiedIdentifier432 = null;
 
-        Imprinter.primitiveType_return primitiveType432 = null;
+        Imprinter.primitiveType_return primitiveType433 = null;
 
 
-        CommonTree ARRAY_DECLARATOR429_tree=null;
+        CommonTree ARRAY_DECLARATOR430_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:580:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:580:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -13029,16 +13059,16 @@ public class Imprinter extends TreeParser {
             CommonTree _save_last_1 = _last;
             CommonTree _first_1 = null;
             CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-            ARRAY_DECLARATOR429=(CommonTree)match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator4245); if (state.failed) return retval;
+            ARRAY_DECLARATOR430=(CommonTree)match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator4255); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            ARRAY_DECLARATOR429_tree = (CommonTree)adaptor.dupNode(ARRAY_DECLARATOR429);
+            ARRAY_DECLARATOR430_tree = (CommonTree)adaptor.dupNode(ARRAY_DECLARATOR430);
 
-            root_1 = (CommonTree)adaptor.becomeRoot(ARRAY_DECLARATOR429_tree, root_1);
+            root_1 = (CommonTree)adaptor.becomeRoot(ARRAY_DECLARATOR430_tree, root_1);
             }
 
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:580:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
             int alt100=3;
             switch ( input.LA(1) ) {
             case ARRAY_DECLARATOR:
@@ -13074,48 +13104,48 @@ public class Imprinter extends TreeParser {
 
             switch (alt100) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:29: arrayTypeDeclarator
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:580:29: arrayTypeDeclarator
                     {
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator4248);
-                    arrayTypeDeclarator430=arrayTypeDeclarator();
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator4258);
+                    arrayTypeDeclarator431=arrayTypeDeclarator();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, arrayTypeDeclarator430.getTree());
+                    adaptor.addChild(root_1, arrayTypeDeclarator431.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:51: qualifiedIdentifier
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:580:51: qualifiedIdentifier
                     {
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator4252);
-                    qualifiedIdentifier431=qualifiedIdentifier();
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator4262);
+                    qualifiedIdentifier432=qualifiedIdentifier();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, qualifiedIdentifier431.getTree());
+                    adaptor.addChild(root_1, qualifiedIdentifier432.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:579:73: primitiveType
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:580:73: primitiveType
                     {
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator4256);
-                    primitiveType432=primitiveType();
+                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator4266);
+                    primitiveType433=primitiveType();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, primitiveType432.getTree());
+                    adaptor.addChild(root_1, primitiveType433.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
@@ -13155,7 +13185,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "newExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:582:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:583:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
     public final Imprinter.newExpression_return newExpression() throws RecognitionException {
         Imprinter.newExpression_return retval = new Imprinter.newExpression_return();
         retval.start = input.LT(1);
@@ -13165,33 +13195,33 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        CommonTree STATIC_ARRAY_CREATOR433=null;
-        CommonTree CLASS_CONSTRUCTOR_CALL439=null;
-        Imprinter.primitiveType_return primitiveType434 = null;
+        CommonTree STATIC_ARRAY_CREATOR434=null;
+        CommonTree CLASS_CONSTRUCTOR_CALL440=null;
+        Imprinter.primitiveType_return primitiveType435 = null;
 
-        Imprinter.newArrayConstruction_return newArrayConstruction435 = null;
+        Imprinter.newArrayConstruction_return newArrayConstruction436 = null;
 
-        Imprinter.genericTypeArgumentList_return genericTypeArgumentList436 = null;
+        Imprinter.genericTypeArgumentList_return genericTypeArgumentList437 = null;
 
-        Imprinter.qualifiedTypeIdent_return qualifiedTypeIdent437 = null;
+        Imprinter.qualifiedTypeIdent_return qualifiedTypeIdent438 = null;
 
-        Imprinter.newArrayConstruction_return newArrayConstruction438 = null;
+        Imprinter.newArrayConstruction_return newArrayConstruction439 = null;
 
-        Imprinter.genericTypeArgumentList_return genericTypeArgumentList440 = null;
+        Imprinter.genericTypeArgumentList_return genericTypeArgumentList441 = null;
 
-        Imprinter.qualifiedTypeIdent_return qualifiedTypeIdent441 = null;
+        Imprinter.qualifiedTypeIdent_return qualifiedTypeIdent442 = null;
 
-        Imprinter.arguments_return arguments442 = null;
+        Imprinter.arguments_return arguments443 = null;
 
-        Imprinter.classTopLevelScope_return classTopLevelScope443 = null;
+        Imprinter.classTopLevelScope_return classTopLevelScope444 = null;
 
 
-        CommonTree STATIC_ARRAY_CREATOR433_tree=null;
-        CommonTree CLASS_CONSTRUCTOR_CALL439_tree=null;
+        CommonTree STATIC_ARRAY_CREATOR434_tree=null;
+        CommonTree CLASS_CONSTRUCTOR_CALL440_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:583:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:584:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
             int alt105=2;
             int LA105_0 = input.LA(1);
 
@@ -13210,7 +13240,7 @@ public class Imprinter extends TreeParser {
             }
             switch (alt105) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:583:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:584:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -13219,16 +13249,16 @@ public class Imprinter extends TreeParser {
                     CommonTree _save_last_1 = _last;
                     CommonTree _first_1 = null;
                     CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-                    STATIC_ARRAY_CREATOR433=(CommonTree)match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression4280); if (state.failed) return retval;
+                    STATIC_ARRAY_CREATOR434=(CommonTree)match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression4290); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    STATIC_ARRAY_CREATOR433_tree = (CommonTree)adaptor.dupNode(STATIC_ARRAY_CREATOR433);
+                    STATIC_ARRAY_CREATOR434_tree = (CommonTree)adaptor.dupNode(STATIC_ARRAY_CREATOR434);
 
-                    root_1 = (CommonTree)adaptor.becomeRoot(STATIC_ARRAY_CREATOR433_tree, root_1);
+                    root_1 = (CommonTree)adaptor.becomeRoot(STATIC_ARRAY_CREATOR434_tree, root_1);
                     }
 
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:584:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:585:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
                     int alt102=2;
                     int LA102_0 = input.LA(1);
 
@@ -13247,33 +13277,33 @@ public class Imprinter extends TreeParser {
                     }
                     switch (alt102) {
                         case 1 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:584:17: primitiveType newArrayConstruction
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:585:17: primitiveType newArrayConstruction
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_primitiveType_in_newExpression4298);
-                            primitiveType434=primitiveType();
+                            pushFollow(FOLLOW_primitiveType_in_newExpression4308);
+                            primitiveType435=primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, primitiveType434.getTree());
+                            adaptor.addChild(root_1, primitiveType435.getTree());
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression4300);
-                            newArrayConstruction435=newArrayConstruction();
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression4310);
+                            newArrayConstruction436=newArrayConstruction();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, newArrayConstruction435.getTree());
+                            adaptor.addChild(root_1, newArrayConstruction436.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
                             }
                             break;
                         case 2 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:585:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:586:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
                             {
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:585:17: ( genericTypeArgumentList )?
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:586:17: ( genericTypeArgumentList )?
                             int alt101=2;
                             int LA101_0 = input.LA(1);
 
@@ -13285,13 +13315,13 @@ public class Imprinter extends TreeParser {
                                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: genericTypeArgumentList
                                     {
                                     _last = (CommonTree)input.LT(1);
-                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4318);
-                                    genericTypeArgumentList436=genericTypeArgumentList();
+                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4328);
+                                    genericTypeArgumentList437=genericTypeArgumentList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) 
-                                    adaptor.addChild(root_1, genericTypeArgumentList436.getTree());
+                                    adaptor.addChild(root_1, genericTypeArgumentList437.getTree());
 
                                     if ( state.backtracking==0 ) {
                                     }
@@ -13301,21 +13331,21 @@ public class Imprinter extends TreeParser {
                             }
 
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4321);
-                            qualifiedTypeIdent437=qualifiedTypeIdent();
+                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4331);
+                            qualifiedTypeIdent438=qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, qualifiedTypeIdent437.getTree());
+                            adaptor.addChild(root_1, qualifiedTypeIdent438.getTree());
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression4323);
-                            newArrayConstruction438=newArrayConstruction();
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression4333);
+                            newArrayConstruction439=newArrayConstruction();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, newArrayConstruction438.getTree());
+                            adaptor.addChild(root_1, newArrayConstruction439.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -13334,7 +13364,7 @@ public class Imprinter extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:588:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:589:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -13343,16 +13373,16 @@ public class Imprinter extends TreeParser {
                     CommonTree _save_last_1 = _last;
                     CommonTree _first_1 = null;
                     CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-                    CLASS_CONSTRUCTOR_CALL439=(CommonTree)match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4358); if (state.failed) return retval;
+                    CLASS_CONSTRUCTOR_CALL440=(CommonTree)match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4368); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    CLASS_CONSTRUCTOR_CALL439_tree = (CommonTree)adaptor.dupNode(CLASS_CONSTRUCTOR_CALL439);
+                    CLASS_CONSTRUCTOR_CALL440_tree = (CommonTree)adaptor.dupNode(CLASS_CONSTRUCTOR_CALL440);
 
-                    root_1 = (CommonTree)adaptor.becomeRoot(CLASS_CONSTRUCTOR_CALL439_tree, root_1);
+                    root_1 = (CommonTree)adaptor.becomeRoot(CLASS_CONSTRUCTOR_CALL440_tree, root_1);
                     }
 
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:588:34: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:589:34: ( genericTypeArgumentList )?
                     int alt103=2;
                     int LA103_0 = input.LA(1);
 
@@ -13364,13 +13394,13 @@ public class Imprinter extends TreeParser {
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: genericTypeArgumentList
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4360);
-                            genericTypeArgumentList440=genericTypeArgumentList();
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4370);
+                            genericTypeArgumentList441=genericTypeArgumentList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, genericTypeArgumentList440.getTree());
+                            adaptor.addChild(root_1, genericTypeArgumentList441.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -13380,22 +13410,22 @@ public class Imprinter extends TreeParser {
                     }
 
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4363);
-                    qualifiedTypeIdent441=qualifiedTypeIdent();
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4373);
+                    qualifiedTypeIdent442=qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, qualifiedTypeIdent441.getTree());
+                    adaptor.addChild(root_1, qualifiedTypeIdent442.getTree());
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arguments_in_newExpression4365);
-                    arguments442=arguments();
+                    pushFollow(FOLLOW_arguments_in_newExpression4375);
+                    arguments443=arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, arguments442.getTree());
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:588:88: ( classTopLevelScope )?
+                    adaptor.addChild(root_1, arguments443.getTree());
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:589:88: ( classTopLevelScope )?
                     int alt104=2;
                     int LA104_0 = input.LA(1);
 
@@ -13407,13 +13437,13 @@ public class Imprinter extends TreeParser {
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: classTopLevelScope
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression4367);
-                            classTopLevelScope443=classTopLevelScope();
+                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression4377);
+                            classTopLevelScope444=classTopLevelScope();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_1, classTopLevelScope443.getTree());
+                            adaptor.addChild(root_1, classTopLevelScope444.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -13455,7 +13485,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "innerNewExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:591:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:592:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
     public final Imprinter.innerNewExpression_return innerNewExpression() throws RecognitionException {
         Imprinter.innerNewExpression_return retval = new Imprinter.innerNewExpression_return();
         retval.start = input.LT(1);
@@ -13465,22 +13495,22 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        CommonTree CLASS_CONSTRUCTOR_CALL444=null;
-        CommonTree IDENT446=null;
-        Imprinter.genericTypeArgumentList_return genericTypeArgumentList445 = null;
+        CommonTree CLASS_CONSTRUCTOR_CALL445=null;
+        CommonTree IDENT447=null;
+        Imprinter.genericTypeArgumentList_return genericTypeArgumentList446 = null;
 
-        Imprinter.arguments_return arguments447 = null;
+        Imprinter.arguments_return arguments448 = null;
 
-        Imprinter.classTopLevelScope_return classTopLevelScope448 = null;
+        Imprinter.classTopLevelScope_return classTopLevelScope449 = null;
 
 
-        CommonTree CLASS_CONSTRUCTOR_CALL444_tree=null;
-        CommonTree IDENT446_tree=null;
+        CommonTree CLASS_CONSTRUCTOR_CALL445_tree=null;
+        CommonTree IDENT447_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:592:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:592:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:593:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:593:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -13489,16 +13519,16 @@ public class Imprinter extends TreeParser {
             CommonTree _save_last_1 = _last;
             CommonTree _first_1 = null;
             CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-            CLASS_CONSTRUCTOR_CALL444=(CommonTree)match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4390); if (state.failed) return retval;
+            CLASS_CONSTRUCTOR_CALL445=(CommonTree)match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4400); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            CLASS_CONSTRUCTOR_CALL444_tree = (CommonTree)adaptor.dupNode(CLASS_CONSTRUCTOR_CALL444);
+            CLASS_CONSTRUCTOR_CALL445_tree = (CommonTree)adaptor.dupNode(CLASS_CONSTRUCTOR_CALL445);
 
-            root_1 = (CommonTree)adaptor.becomeRoot(CLASS_CONSTRUCTOR_CALL444_tree, root_1);
+            root_1 = (CommonTree)adaptor.becomeRoot(CLASS_CONSTRUCTOR_CALL445_tree, root_1);
             }
 
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:592:34: ( genericTypeArgumentList )?
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:593:34: ( genericTypeArgumentList )?
             int alt106=2;
             int LA106_0 = input.LA(1);
 
@@ -13510,13 +13540,13 @@ public class Imprinter extends TreeParser {
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: genericTypeArgumentList
                     {
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4392);
-                    genericTypeArgumentList445=genericTypeArgumentList();
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4402);
+                    genericTypeArgumentList446=genericTypeArgumentList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, genericTypeArgumentList445.getTree());
+                    adaptor.addChild(root_1, genericTypeArgumentList446.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
@@ -13526,21 +13556,21 @@ public class Imprinter extends TreeParser {
             }
 
             _last = (CommonTree)input.LT(1);
-            IDENT446=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4395); if (state.failed) return retval;
+            IDENT447=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4405); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            IDENT446_tree = (CommonTree)adaptor.dupNode(IDENT446);
+            IDENT447_tree = (CommonTree)adaptor.dupNode(IDENT447);
 
-            adaptor.addChild(root_1, IDENT446_tree);
+            adaptor.addChild(root_1, IDENT447_tree);
             }
             _last = (CommonTree)input.LT(1);
-            pushFollow(FOLLOW_arguments_in_innerNewExpression4397);
-            arguments447=arguments();
+            pushFollow(FOLLOW_arguments_in_innerNewExpression4407);
+            arguments448=arguments();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) 
-            adaptor.addChild(root_1, arguments447.getTree());
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:592:75: ( classTopLevelScope )?
+            adaptor.addChild(root_1, arguments448.getTree());
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:593:75: ( classTopLevelScope )?
             int alt107=2;
             int LA107_0 = input.LA(1);
 
@@ -13552,13 +13582,13 @@ public class Imprinter extends TreeParser {
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: classTopLevelScope
                     {
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4399);
-                    classTopLevelScope448=classTopLevelScope();
+                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4409);
+                    classTopLevelScope449=classTopLevelScope();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_1, classTopLevelScope448.getTree());
+                    adaptor.addChild(root_1, classTopLevelScope449.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
@@ -13598,7 +13628,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "newArrayConstruction"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:595:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:596:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
     public final Imprinter.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         Imprinter.newArrayConstruction_return retval = new Imprinter.newArrayConstruction_return();
         retval.start = input.LT(1);
@@ -13608,19 +13638,19 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        Imprinter.arrayDeclaratorList_return arrayDeclaratorList449 = null;
+        Imprinter.arrayDeclaratorList_return arrayDeclaratorList450 = null;
 
-        Imprinter.arrayInitializer_return arrayInitializer450 = null;
+        Imprinter.arrayInitializer_return arrayInitializer451 = null;
 
-        Imprinter.expression_return expression451 = null;
+        Imprinter.expression_return expression452 = null;
 
-        Imprinter.arrayDeclaratorList_return arrayDeclaratorList452 = null;
+        Imprinter.arrayDeclaratorList_return arrayDeclaratorList453 = null;
 
 
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:596:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:597:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
             int alt110=2;
             int LA110_0 = input.LA(1);
 
@@ -13639,37 +13669,37 @@ public class Imprinter extends TreeParser {
             }
             switch (alt110) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:596:9: arrayDeclaratorList arrayInitializer
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:597:9: arrayDeclaratorList arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4424);
-                    arrayDeclaratorList449=arrayDeclaratorList();
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4434);
+                    arrayDeclaratorList450=arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_0, arrayDeclaratorList449.getTree());
+                    adaptor.addChild(root_0, arrayDeclaratorList450.getTree());
                     _last = (CommonTree)input.LT(1);
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4426);
-                    arrayInitializer450=arrayInitializer();
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4436);
+                    arrayInitializer451=arrayInitializer();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) 
-                    adaptor.addChild(root_0, arrayInitializer450.getTree());
+                    adaptor.addChild(root_0, arrayInitializer451.getTree());
 
                     if ( state.backtracking==0 ) {
                     }
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:597:9: ( expression )+ ( arrayDeclaratorList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:598:9: ( expression )+ ( arrayDeclaratorList )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:597:9: ( expression )+
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:598:9: ( expression )+
                     int cnt108=0;
                     loop108:
                     do {
@@ -13686,13 +13716,13 @@ public class Imprinter extends TreeParser {
                     	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: expression
                     	    {
                     	    _last = (CommonTree)input.LT(1);
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction4436);
-                    	    expression451=expression();
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction4446);
+                    	    expression452=expression();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) 
-                    	    adaptor.addChild(root_0, expression451.getTree());
+                    	    adaptor.addChild(root_0, expression452.getTree());
 
                     	    if ( state.backtracking==0 ) {
                     	    }
@@ -13709,7 +13739,7 @@ public class Imprinter extends TreeParser {
                         cnt108++;
                     } while (true);
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:597:21: ( arrayDeclaratorList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:598:21: ( arrayDeclaratorList )?
                     int alt109=2;
                     int LA109_0 = input.LA(1);
 
@@ -13721,13 +13751,13 @@ public class Imprinter extends TreeParser {
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: arrayDeclaratorList
                             {
                             _last = (CommonTree)input.LT(1);
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4439);
-                            arrayDeclaratorList452=arrayDeclaratorList();
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4449);
+                            arrayDeclaratorList453=arrayDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) 
-                            adaptor.addChild(root_0, arrayDeclaratorList452.getTree());
+                            adaptor.addChild(root_0, arrayDeclaratorList453.getTree());
 
                             if ( state.backtracking==0 ) {
                             }
@@ -13765,7 +13795,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "arguments"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:600:1: arguments : ^( ARGUMENT_LIST ( expression )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:601:1: arguments : ^( ARGUMENT_LIST ( expression )* ) ;
     public final Imprinter.arguments_return arguments() throws RecognitionException {
         Imprinter.arguments_return retval = new Imprinter.arguments_return();
         retval.start = input.LT(1);
@@ -13775,16 +13805,16 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        CommonTree ARGUMENT_LIST453=null;
-        Imprinter.expression_return expression454 = null;
+        CommonTree ARGUMENT_LIST454=null;
+        Imprinter.expression_return expression455 = null;
 
 
-        CommonTree ARGUMENT_LIST453_tree=null;
+        CommonTree ARGUMENT_LIST454_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:601:5: ( ^( ARGUMENT_LIST ( expression )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:601:9: ^( ARGUMENT_LIST ( expression )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:602:5: ( ^( ARGUMENT_LIST ( expression )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:602:9: ^( ARGUMENT_LIST ( expression )* )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -13793,17 +13823,17 @@ public class Imprinter extends TreeParser {
             CommonTree _save_last_1 = _last;
             CommonTree _first_1 = null;
             CommonTree root_1 = (CommonTree)adaptor.nil();_last = (CommonTree)input.LT(1);
-            ARGUMENT_LIST453=(CommonTree)match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments4460); if (state.failed) return retval;
+            ARGUMENT_LIST454=(CommonTree)match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments4470); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            ARGUMENT_LIST453_tree = (CommonTree)adaptor.dupNode(ARGUMENT_LIST453);
+            ARGUMENT_LIST454_tree = (CommonTree)adaptor.dupNode(ARGUMENT_LIST454);
 
-            root_1 = (CommonTree)adaptor.becomeRoot(ARGUMENT_LIST453_tree, root_1);
+            root_1 = (CommonTree)adaptor.becomeRoot(ARGUMENT_LIST454_tree, root_1);
             }
 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:601:25: ( expression )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:602:25: ( expression )*
                 loop111:
                 do {
                     int alt111=2;
@@ -13819,13 +13849,13 @@ public class Imprinter extends TreeParser {
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:0:0: expression
                 	    {
                 	    _last = (CommonTree)input.LT(1);
-                	    pushFollow(FOLLOW_expression_in_arguments4462);
-                	    expression454=expression();
+                	    pushFollow(FOLLOW_expression_in_arguments4472);
+                	    expression455=expression();
 
                 	    state._fsp--;
                 	    if (state.failed) return retval;
                 	    if ( state.backtracking==0 ) 
-                	    adaptor.addChild(root_1, expression454.getTree());
+                	    adaptor.addChild(root_1, expression455.getTree());
 
                 	    if ( state.backtracking==0 ) {
                 	    }
@@ -13869,7 +13899,7 @@ public class Imprinter extends TreeParser {
     };
 
     // $ANTLR start "literal"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:604:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:605:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
     public final Imprinter.literal_return literal() throws RecognitionException {
         Imprinter.literal_return retval = new Imprinter.literal_return();
         retval.start = input.LT(1);
@@ -13879,26 +13909,26 @@ public class Imprinter extends TreeParser {
         CommonTree _first_0 = null;
         CommonTree _last = null;
 
-        CommonTree set455=null;
+        CommonTree set456=null;
 
-        CommonTree set455_tree=null;
+        CommonTree set456_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:605:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:606:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:
             {
             root_0 = (CommonTree)adaptor.nil();
 
             _last = (CommonTree)input.LT(1);
-            set455=(CommonTree)input.LT(1);
+            set456=(CommonTree)input.LT(1);
             if ( input.LA(1)==FALSE||input.LA(1)==NULL||input.LA(1)==TRUE||(input.LA(1)>=HEX_LITERAL && input.LA(1)<=STRING_LITERAL) ) {
                 input.consume();
 
                 if ( state.backtracking==0 ) {
-                set455_tree = (CommonTree)adaptor.dupNode(set455);
+                set456_tree = (CommonTree)adaptor.dupNode(set456);
 
-                adaptor.addChild(root_0, set455_tree);
+                adaptor.addChild(root_0, set456_tree);
                 }
                 state.errorRecovery=false;state.failed=false;
             }
@@ -13928,6 +13958,72 @@ public class Imprinter extends TreeParser {
         return retval;
     }
     // $ANTLR end "literal"
+
+    public static class comment_return extends TreeRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "comment"
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:617:1: comment : ( COMMENT | LINE_COMMENT );
+    public final Imprinter.comment_return comment() throws RecognitionException {
+        Imprinter.comment_return retval = new Imprinter.comment_return();
+        retval.start = input.LT(1);
+        int comment_StartIndex = input.index();
+        CommonTree root_0 = null;
+
+        CommonTree _first_0 = null;
+        CommonTree _last = null;
+
+        CommonTree set457=null;
+
+        CommonTree set457_tree=null;
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:618:5: ( COMMENT | LINE_COMMENT )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Imprinter.g:
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            _last = (CommonTree)input.LT(1);
+            set457=(CommonTree)input.LT(1);
+            if ( (input.LA(1)>=COMMENT && input.LA(1)<=LINE_COMMENT) ) {
+                input.consume();
+
+                if ( state.backtracking==0 ) {
+                set457_tree = (CommonTree)adaptor.dupNode(set457);
+
+                adaptor.addChild(root_0, set457_tree);
+                }
+                state.errorRecovery=false;state.failed=false;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                throw mse;
+            }
+
+            if ( state.backtracking==0 ) {
+            } 
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 71, comment_StartIndex); }
+        }
+        return retval;
+    }
+    // $ANTLR end "comment"
 
     // $ANTLR start synpred125_Imprinter
     public final void synpred125_Imprinter_fragment() throws RecognitionException {   
@@ -14302,104 +14398,104 @@ public class Imprinter extends TreeParser {
     public static final BitSet FOLLOW_EXPR_in_expression3144 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expression3146 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ASSIGN_in_expr3167 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3169 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3169 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3171 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr3183 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3185 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3185 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3187 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr3199 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3201 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3201 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3203 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_STAR_ASSIGN_in_expr3215 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3217 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3217 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3219 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DIV_ASSIGN_in_expr3231 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3233 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3233 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3235 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_AND_ASSIGN_in_expr3247 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3249 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3249 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3251 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OR_ASSIGN_in_expr3263 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3265 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3265 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3267 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_XOR_ASSIGN_in_expr3279 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3281 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3281 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3283 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_MOD_ASSIGN_in_expr3295 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3297 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3297 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3299 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr3311 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3313 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3313 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3315 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr3327 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3329 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3329 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3331 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr3343 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3345 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3345 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3347 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_QUESTION_in_expr3359 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3361 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3363 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3361 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3363 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3365 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_LOGICAL_OR_in_expr3377 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3379 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3379 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3381 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_LOGICAL_AND_in_expr3393 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3395 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3395 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3397 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OR_in_expr3409 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3411 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3411 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3413 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_XOR_in_expr3425 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3427 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3427 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3429 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_AND_in_expr3441 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3443 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3443 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3445 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_EQUAL_in_expr3457 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3459 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3459 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3461 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_NOT_EQUAL_in_expr3473 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3475 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3475 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3477 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_INSTANCEOF_in_expr3489 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr3491 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_expr3493 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr3505 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3507 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3507 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3509 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr3521 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3523 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3523 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3525 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr3537 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3539 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3539 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3541 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr3553 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3555 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3555 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3557 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_GREATER_THAN_in_expr3569 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3571 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3571 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3573 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SHIFT_LEFT_in_expr3585 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3587 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3587 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3589 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_LESS_THAN_in_expr3601 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3603 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3603 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3605 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_PLUS_in_expr3617 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3619 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3619 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3621 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_MINUS_in_expr3633 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3635 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3635 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3637 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_STAR_in_expr3649 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3651 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3651 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3653 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DIV_in_expr3665 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3667 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3667 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3669 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_MOD_in_expr3681 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3683 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3683 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3685 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_UNARY_PLUS_in_expr3697 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr3699 = new BitSet(new long[]{0x0000000000000008L});
@@ -14418,7 +14514,7 @@ public class Imprinter extends TreeParser {
     public static final BitSet FOLLOW_LOGICAL_NOT_in_expr3795 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr3797 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_CAST_EXPR_in_expr3809 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_expr3811 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_type_in_expr3811 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3813 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_primaryExpression_in_expr3824 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_DOT_in_primaryExpression3850 = new BitSet(new long[]{0x0000000000000004L});
@@ -14443,44 +14539,46 @@ public class Imprinter extends TreeParser {
     public static final BitSet FOLLOW_primaryExpression_in_primaryExpression4122 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
     public static final BitSet FOLLOW_expression_in_primaryExpression4124 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_literal_in_primaryExpression4135 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression4145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression4155 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression4165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression4175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall4199 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4201 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall4204 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall4216 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall4218 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4221 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall4224 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator4245 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator4248 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator4252 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator4256 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression4280 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression4298 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression4300 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4318 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4321 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression4323 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4358 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4360 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4363 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_newExpression4365 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression4367 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4390 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression4392 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression4395 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression4397 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4399 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4424 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction4436 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4460 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments4462 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_comment_in_primaryExpression4145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression4155 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression4165 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression4175 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression4185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall4209 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4211 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall4214 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall4226 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall4228 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall4231 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall4234 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator4255 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator4258 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator4262 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator4266 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression4290 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression4308 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression4310 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4328 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4331 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression4333 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4368 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4370 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4373 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_newExpression4375 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression4377 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4400 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression4402 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression4405 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression4407 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4409 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4434 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4436 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction4446 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4449 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4470 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_arguments4472 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
     public static final BitSet FOLLOW_set_in_literal0 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_comment0 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_Imprinter2926 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expression_in_synpred132_Imprinter3031 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
 
