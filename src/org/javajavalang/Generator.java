@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g 2009-05-28 16:11:17
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g 2009-06-04 18:03:49
 
 package org.javajavalang;
 
@@ -1681,6 +1681,11 @@ public class Generator extends TreeParser {
     }
     // $ANTLR end "classTopLevelScope"
 
+    protected static class classScopeDeclarations_scope {
+        String methodname;
+    }
+    protected Stack classScopeDeclarations_stack = new Stack();
+
     public static class classScopeDeclarations_return extends TreeRuleReturnScope {
         public StringTemplate st;
         public Object getTemplate() { return st; }
@@ -1690,20 +1695,21 @@ public class Generator extends TreeParser {
     // $ANTLR start "classScopeDeclarations"
     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:224:1: classScopeDeclarations : ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) -> functionDeclaration(modifiers=$modifierList.lsttype=$type.stident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) -> methodDeclaration(modifiers=$modifierList.lstident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) -> varDeclaration(modifiers=$modifierList.lsttype=$type.stdeclarators=$variableDeclaratorList.lst) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) | typeDeclaration );
     public final Generator.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
+        classScopeDeclarations_stack.push(new classScopeDeclarations_scope());
         Generator.classScopeDeclarations_return retval = new Generator.classScopeDeclarations_return();
         retval.start = input.LT(1);
         int classScopeDeclarations_StartIndex = input.index();
-        CommonTree IDENT21=null;
-        CommonTree IDENT25=null;
-        Generator.modifierList_return modifierList19 = null;
+        CommonTree IDENT19=null;
+        CommonTree IDENT24=null;
+        Generator.modifierList_return modifierList20 = null;
 
-        Generator.type_return type20 = null;
+        Generator.type_return type21 = null;
 
         Generator.formalParameterList_return formalParameterList22 = null;
 
         Generator.block_return block23 = null;
 
-        Generator.modifierList_return modifierList24 = null;
+        Generator.modifierList_return modifierList25 = null;
 
         Generator.formalParameterList_return formalParameterList26 = null;
 
@@ -1716,9 +1722,12 @@ public class Generator extends TreeParser {
         Generator.variableDeclaratorList_return variableDeclaratorList30 = null;
 
 
+
+          ((classScopeDeclarations_scope)classScopeDeclarations_stack.peek()).methodname = null;
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:225:5: ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) -> functionDeclaration(modifiers=$modifierList.lsttype=$type.stident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) -> methodDeclaration(modifiers=$modifierList.lstident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) -> varDeclaration(modifiers=$modifierList.lsttype=$type.stdeclarators=$variableDeclaratorList.lst) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) | typeDeclaration )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:231:5: ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) -> functionDeclaration(modifiers=$modifierList.lsttype=$type.stident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) -> methodDeclaration(modifiers=$modifierList.lstident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) -> varDeclaration(modifiers=$modifierList.lsttype=$type.stdeclarators=$variableDeclaratorList.lst) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) | typeDeclaration )
             int alt32=7;
             switch ( input.LA(1) ) {
             case CLASS_INSTANCE_INITIALIZER:
@@ -1769,12 +1778,12 @@ public class Generator extends TreeParser {
 
             switch (alt32) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:225:9: ^( CLASS_INSTANCE_INITIALIZER block )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:231:9: ^( CLASS_INSTANCE_INITIALIZER block )
                     {
-                    match(input,CLASS_INSTANCE_INITIALIZER,FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations842); if (state.failed) return retval;
+                    match(input,CLASS_INSTANCE_INITIALIZER,FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations850); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations844);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations852);
                     block();
 
                     state._fsp--;
@@ -1785,12 +1794,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:226:9: ^( CLASS_STATIC_INITIALIZER block )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:232:9: ^( CLASS_STATIC_INITIALIZER block )
                     {
-                    match(input,CLASS_STATIC_INITIALIZER,FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations856); if (state.failed) return retval;
+                    match(input,CLASS_STATIC_INITIALIZER,FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations864); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations858);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations866);
                     block();
 
                     state._fsp--;
@@ -1801,17 +1810,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:227:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
                     {
-                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_classScopeDeclarations870); if (state.failed) return retval;
+                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_classScopeDeclarations878); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations872);
-                    modifierList19=modifierList();
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations880);
+                    modifierList20=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:227:45: ( genericTypeParameterList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:45: ( genericTypeParameterList )?
                     int alt23=2;
                     int LA23_0 = input.LA(1);
 
@@ -1822,7 +1831,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations874);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations882);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -1833,18 +1842,21 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_type_in_classScopeDeclarations877);
-                    type20=type();
+                    pushFollow(FOLLOW_type_in_classScopeDeclarations885);
+                    type21=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    IDENT21=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations879); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations881);
+                    IDENT19=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations887); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                      ((classScopeDeclarations_scope)classScopeDeclarations_stack.peek()).methodname = (IDENT19!=null?IDENT19.getText():null);
+                    }
+                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations891);
                     formalParameterList22=formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:227:102: ( arrayDeclaratorList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:155: ( arrayDeclaratorList )?
                     int alt24=2;
                     int LA24_0 = input.LA(1);
 
@@ -1855,7 +1867,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations883);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations893);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -1866,7 +1878,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:227:123: ( throwsClause )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:176: ( throwsClause )?
                     int alt25=2;
                     int LA25_0 = input.LA(1);
 
@@ -1877,7 +1889,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations886);
+                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations896);
                             throwsClause();
 
                             state._fsp--;
@@ -1888,7 +1900,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:227:137: ( block )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:190: ( block )?
                     int alt26=2;
                     int LA26_0 = input.LA(1);
 
@@ -1899,7 +1911,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: block
                             {
-                            pushFollow(FOLLOW_block_in_classScopeDeclarations889);
+                            pushFollow(FOLLOW_block_in_classScopeDeclarations899);
                             block23=block();
 
                             state._fsp--;
@@ -1916,27 +1928,27 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 228:11: -> functionDeclaration(modifiers=$modifierList.lsttype=$type.stident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st)
+                      // 234:11: -> functionDeclaration(modifiers=$modifierList.lsttype=$type.stident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st)
                       {
                           retval.st = templateLib.getInstanceOf("functionDeclaration",
-                        new STAttrMap().put("modifiers", (modifierList19!=null?modifierList19.lst:null)).put("type", (type20!=null?type20.st:null)).put("ident", (IDENT21!=null?IDENT21.getText():null)).put("parameters", (formalParameterList22!=null?formalParameterList22.lst:null)).put("block", (block23!=null?block23.st:null)));
+                        new STAttrMap().put("modifiers", (modifierList20!=null?modifierList20.lst:null)).put("type", (type21!=null?type21.st:null)).put("ident", (IDENT19!=null?IDENT19.getText():null)).put("parameters", (formalParameterList22!=null?formalParameterList22.lst:null)).put("block", (block23!=null?block23.st:null)));
                       }
 
                     }
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:229:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:235:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
                     {
-                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_classScopeDeclarations941); if (state.failed) return retval;
+                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_classScopeDeclarations951); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations943);
-                    modifierList24=modifierList();
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations953);
+                    modifierList25=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:229:41: ( genericTypeParameterList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:235:41: ( genericTypeParameterList )?
                     int alt27=2;
                     int LA27_0 = input.LA(1);
 
@@ -1947,7 +1959,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations945);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations955);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -1958,13 +1970,16 @@ public class Generator extends TreeParser {
 
                     }
 
-                    IDENT25=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations948); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations950);
+                    IDENT24=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations958); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                      ((classScopeDeclarations_scope)classScopeDeclarations_stack.peek()).methodname = (IDENT24!=null?IDENT24.getText():null);
+                    }
+                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations962);
                     formalParameterList26=formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:229:93: ( throwsClause )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:235:146: ( throwsClause )?
                     int alt28=2;
                     int LA28_0 = input.LA(1);
 
@@ -1975,7 +1990,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations952);
+                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations964);
                             throwsClause();
 
                             state._fsp--;
@@ -1986,7 +2001,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:229:107: ( block )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:235:160: ( block )?
                     int alt29=2;
                     int LA29_0 = input.LA(1);
 
@@ -1997,7 +2012,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: block
                             {
-                            pushFollow(FOLLOW_block_in_classScopeDeclarations955);
+                            pushFollow(FOLLOW_block_in_classScopeDeclarations967);
                             block27=block();
 
                             state._fsp--;
@@ -2014,32 +2029,32 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 230:11: -> methodDeclaration(modifiers=$modifierList.lstident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st)
+                      // 236:11: -> methodDeclaration(modifiers=$modifierList.lstident=$IDENT.textparameters=$formalParameterList.lstblock=$block.st)
                       {
                           retval.st = templateLib.getInstanceOf("methodDeclaration",
-                        new STAttrMap().put("modifiers", (modifierList24!=null?modifierList24.lst:null)).put("ident", (IDENT25!=null?IDENT25.getText():null)).put("parameters", (formalParameterList26!=null?formalParameterList26.lst:null)).put("block", (block27!=null?block27.st:null)));
+                        new STAttrMap().put("modifiers", (modifierList25!=null?modifierList25.lst:null)).put("ident", (IDENT24!=null?IDENT24.getText():null)).put("parameters", (formalParameterList26!=null?formalParameterList26.lst:null)).put("block", (block27!=null?block27.st:null)));
                       }
 
                     }
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:231:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:237:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_classScopeDeclarations1011); if (state.failed) return retval;
+                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_classScopeDeclarations1014); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations1013);
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations1016);
                     modifierList28=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_classScopeDeclarations1015);
+                    pushFollow(FOLLOW_type_in_classScopeDeclarations1018);
                     type29=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_classScopeDeclarations1017);
+                    pushFollow(FOLLOW_variableDeclaratorList_in_classScopeDeclarations1020);
                     variableDeclaratorList30=variableDeclaratorList();
 
                     state._fsp--;
@@ -2050,7 +2065,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 232:11: -> varDeclaration(modifiers=$modifierList.lsttype=$type.stdeclarators=$variableDeclaratorList.lst)
+                      // 238:11: -> varDeclaration(modifiers=$modifierList.lsttype=$type.stdeclarators=$variableDeclaratorList.lst)
                       {
                           retval.st = templateLib.getInstanceOf("varDeclaration",
                         new STAttrMap().put("modifiers", (modifierList28!=null?modifierList28.lst:null)).put("type", (type29!=null?type29.st:null)).put("declarators", (variableDeclaratorList30!=null?variableDeclaratorList30.lst:null)));
@@ -2060,17 +2075,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:9: ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:239:9: ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
                     {
-                    match(input,CONSTRUCTOR_DECL,FOLLOW_CONSTRUCTOR_DECL_in_classScopeDeclarations1059); if (state.failed) return retval;
+                    match(input,CONSTRUCTOR_DECL,FOLLOW_CONSTRUCTOR_DECL_in_classScopeDeclarations1062); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations1061);
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations1064);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:41: ( genericTypeParameterList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:239:41: ( genericTypeParameterList )?
                     int alt30=2;
                     int LA30_0 = input.LA(1);
 
@@ -2081,7 +2096,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations1063);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations1066);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -2092,12 +2107,12 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations1066);
+                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations1069);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:233:87: ( throwsClause )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:239:87: ( throwsClause )?
                     int alt31=2;
                     int LA31_0 = input.LA(1);
 
@@ -2108,7 +2123,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations1068);
+                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations1071);
                             throwsClause();
 
                             state._fsp--;
@@ -2119,7 +2134,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations1071);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations1074);
                     block();
 
                     state._fsp--;
@@ -2130,9 +2145,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:234:9: typeDeclaration
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:240:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations1082);
+                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations1085);
                     typeDeclaration();
 
                     state._fsp--;
@@ -2149,6 +2164,7 @@ public class Generator extends TreeParser {
         }
         finally {
             if ( state.backtracking>0 ) { memoize(input, 14, classScopeDeclarations_StartIndex); }
+            classScopeDeclarations_stack.pop();
         }
         return retval;
     }
@@ -2161,21 +2177,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "interfaceTopLevelScope"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:237:1: interfaceTopLevelScope : ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:243:1: interfaceTopLevelScope : ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) ;
     public final Generator.interfaceTopLevelScope_return interfaceTopLevelScope() throws RecognitionException {
         Generator.interfaceTopLevelScope_return retval = new Generator.interfaceTopLevelScope_return();
         retval.start = input.LT(1);
         int interfaceTopLevelScope_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:238:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:238:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:244:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:244:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
             {
-            match(input,INTERFACE_TOP_LEVEL_SCOPE,FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope1106); if (state.failed) return retval;
+            match(input,INTERFACE_TOP_LEVEL_SCOPE,FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope1109); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:238:37: ( interfaceScopeDeclarations )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:244:37: ( interfaceScopeDeclarations )*
                 loop33:
                 do {
                     int alt33=2;
@@ -2190,7 +2206,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: interfaceScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope1108);
+                	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope1111);
                 	    interfaceScopeDeclarations();
 
                 	    state._fsp--;
@@ -2229,14 +2245,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "interfaceScopeDeclarations"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:241:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:247:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
     public final Generator.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
         Generator.interfaceScopeDeclarations_return retval = new Generator.interfaceScopeDeclarations_return();
         retval.start = input.LT(1);
         int interfaceScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:242:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:248:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
             int alt39=4;
             switch ( input.LA(1) ) {
             case FUNCTION_METHOD_DECL:
@@ -2272,17 +2288,17 @@ public class Generator extends TreeParser {
 
             switch (alt39) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:242:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:248:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                     {
-                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations1134); if (state.failed) return retval;
+                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations1137); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations1136);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations1139);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:242:45: ( genericTypeParameterList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:248:45: ( genericTypeParameterList )?
                     int alt34=2;
                     int LA34_0 = input.LA(1);
 
@@ -2293,7 +2309,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1138);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1141);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -2304,18 +2320,18 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations1141);
+                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations1144);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations1143); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations1145);
+                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations1146); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations1148);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:242:102: ( arrayDeclaratorList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:248:102: ( arrayDeclaratorList )?
                     int alt35=2;
                     int LA35_0 = input.LA(1);
 
@@ -2326,7 +2342,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations1147);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations1150);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -2337,7 +2353,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:242:123: ( throwsClause )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:248:123: ( throwsClause )?
                     int alt36=2;
                     int LA36_0 = input.LA(1);
 
@@ -2348,7 +2364,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations1150);
+                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations1153);
                             throwsClause();
 
                             state._fsp--;
@@ -2365,17 +2381,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:243:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:249:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                     {
-                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations1163); if (state.failed) return retval;
+                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations1166); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations1165);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations1168);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:243:41: ( genericTypeParameterList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:249:41: ( genericTypeParameterList )?
                     int alt37=2;
                     int LA37_0 = input.LA(1);
 
@@ -2386,7 +2402,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1167);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1170);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -2397,13 +2413,13 @@ public class Generator extends TreeParser {
 
                     }
 
-                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations1170); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations1172);
+                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations1173); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations1175);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:243:93: ( throwsClause )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:249:93: ( throwsClause )?
                     int alt38=2;
                     int LA38_0 = input.LA(1);
 
@@ -2414,7 +2430,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations1174);
+                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations1177);
                             throwsClause();
 
                             state._fsp--;
@@ -2431,22 +2447,22 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:247:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:253:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations1265); if (state.failed) return retval;
+                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations1268); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations1267);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations1270);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations1269);
+                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations1272);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations1271);
+                    pushFollow(FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations1274);
                     variableDeclaratorList();
 
                     state._fsp--;
@@ -2457,9 +2473,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:248:9: typeDeclaration
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:254:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations1282);
+                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations1285);
                     typeDeclaration();
 
                     state._fsp--;
@@ -2489,7 +2505,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "variableDeclaratorList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:251:1: variableDeclaratorList returns [List lst] : ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:257:1: variableDeclaratorList returns [List lst] : ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) ;
     public final Generator.variableDeclaratorList_return variableDeclaratorList() throws RecognitionException {
         Generator.variableDeclaratorList_return retval = new Generator.variableDeclaratorList_return();
         retval.start = input.LT(1);
@@ -2502,13 +2518,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:255:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:255:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:261:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:261:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
             {
-            match(input,VAR_DECLARATOR_LIST,FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList1310); if (state.failed) return retval;
+            match(input,VAR_DECLARATOR_LIST,FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList1313); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:255:31: ( variableDeclarator )+
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:261:31: ( variableDeclarator )+
             int cnt40=0;
             loop40:
             do {
@@ -2522,9 +2538,9 @@ public class Generator extends TreeParser {
 
                 switch (alt40) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:255:32: variableDeclarator
+            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:261:32: variableDeclarator
             	    {
-            	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList1313);
+            	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList1316);
             	    variableDeclarator31=variableDeclarator();
 
             	    state._fsp--;
@@ -2570,7 +2586,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "variableDeclarator"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:258:1: variableDeclarator : ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) -> variableDeclarator(id=$variableDeclaratorId.stinitializer=$variableInitializer.st);
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:264:1: variableDeclarator : ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) -> variableDeclarator(id=$variableDeclaratorId.stinitializer=$variableInitializer.st);
     public final Generator.variableDeclarator_return variableDeclarator() throws RecognitionException {
         Generator.variableDeclarator_return retval = new Generator.variableDeclarator_return();
         retval.start = input.LT(1);
@@ -2582,18 +2598,18 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:259:5: ( ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) -> variableDeclarator(id=$variableDeclaratorId.stinitializer=$variableInitializer.st))
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:259:9: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:265:5: ( ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) -> variableDeclarator(id=$variableDeclaratorId.stinitializer=$variableInitializer.st))
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:265:9: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
-            match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator1338); if (state.failed) return retval;
+            match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator1341); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator1340);
+            pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator1343);
             variableDeclaratorId32=variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:259:47: ( variableInitializer )?
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:265:47: ( variableInitializer )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
@@ -2604,7 +2620,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: variableInitializer
                     {
-                    pushFollow(FOLLOW_variableInitializer_in_variableDeclarator1342);
+                    pushFollow(FOLLOW_variableInitializer_in_variableDeclarator1345);
                     variableInitializer33=variableInitializer();
 
                     state._fsp--;
@@ -2621,7 +2637,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 260:9: -> variableDeclarator(id=$variableDeclaratorId.stinitializer=$variableInitializer.st)
+              // 266:9: -> variableDeclarator(id=$variableDeclaratorId.stinitializer=$variableInitializer.st)
               {
                   retval.st = templateLib.getInstanceOf("variableDeclarator",
                 new STAttrMap().put("id", (variableDeclaratorId32!=null?variableDeclaratorId32.st:null)).put("initializer", (variableInitializer33!=null?variableInitializer33.st:null)));
@@ -2649,7 +2665,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "variableDeclaratorId"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:263:1: variableDeclaratorId : ^( IDENT ( arrayDeclaratorList )? ) -> template(v=$IDENT.text) \"<v>\";
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:269:1: variableDeclaratorId : ^( IDENT ( arrayDeclaratorList )? ) -> template(v=$IDENT.text) \"<v>\";
     public final Generator.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
         Generator.variableDeclaratorId_return retval = new Generator.variableDeclaratorId_return();
         retval.start = input.LT(1);
@@ -2658,14 +2674,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:264:5: ( ^( IDENT ( arrayDeclaratorList )? ) -> template(v=$IDENT.text) \"<v>\")
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:264:9: ^( IDENT ( arrayDeclaratorList )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:270:5: ( ^( IDENT ( arrayDeclaratorList )? ) -> template(v=$IDENT.text) \"<v>\")
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:270:9: ^( IDENT ( arrayDeclaratorList )? )
             {
-            IDENT34=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId1391); if (state.failed) return retval;
+            IDENT34=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId1394); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:264:17: ( arrayDeclaratorList )?
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:270:17: ( arrayDeclaratorList )?
                 int alt42=2;
                 int LA42_0 = input.LA(1);
 
@@ -2676,7 +2692,7 @@ public class Generator extends TreeParser {
                     case 1 :
                         // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: arrayDeclaratorList
                         {
-                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId1393);
+                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId1396);
                         arrayDeclaratorList();
 
                         state._fsp--;
@@ -2694,7 +2710,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 264:39: -> template(v=$IDENT.text) \"<v>\"
+              // 270:39: -> template(v=$IDENT.text) \"<v>\"
               {
                   retval.st = new StringTemplate(templateLib, "<v>",
                 new STAttrMap().put("v", (IDENT34!=null?IDENT34.getText():null)));
@@ -2722,7 +2738,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "variableInitializer"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:267:1: variableInitializer : ( arrayInitializer | expression );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:273:1: variableInitializer : ( arrayInitializer | expression );
     public final Generator.variableInitializer_return variableInitializer() throws RecognitionException {
         Generator.variableInitializer_return retval = new Generator.variableInitializer_return();
         retval.start = input.LT(1);
@@ -2732,7 +2748,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:268:5: ( arrayInitializer | expression )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:274:5: ( arrayInitializer | expression )
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -2751,9 +2767,9 @@ public class Generator extends TreeParser {
             }
             switch (alt43) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:268:9: arrayInitializer
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:274:9: arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer1425);
+                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer1428);
                     arrayInitializer();
 
                     state._fsp--;
@@ -2762,9 +2778,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:269:9: expression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:275:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_variableInitializer1435);
+                    pushFollow(FOLLOW_expression_in_variableInitializer1438);
                     expression35=expression();
 
                     state._fsp--;
@@ -2796,18 +2812,18 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arrayDeclarator"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:272:1: arrayDeclarator : LBRACK RBRACK ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:278:1: arrayDeclarator : LBRACK RBRACK ;
     public final Generator.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
         Generator.arrayDeclarator_return retval = new Generator.arrayDeclarator_return();
         retval.start = input.LT(1);
         int arrayDeclarator_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:273:5: ( LBRACK RBRACK )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:273:9: LBRACK RBRACK
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:279:5: ( LBRACK RBRACK )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:279:9: LBRACK RBRACK
             {
-            match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator1456); if (state.failed) return retval;
-            match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator1458); if (state.failed) return retval;
+            match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator1459); if (state.failed) return retval;
+            match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator1461); if (state.failed) return retval;
 
             }
 
@@ -2830,21 +2846,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arrayDeclaratorList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:276:1: arrayDeclaratorList : ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:282:1: arrayDeclaratorList : ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) ;
     public final Generator.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
         Generator.arrayDeclaratorList_return retval = new Generator.arrayDeclaratorList_return();
         retval.start = input.LT(1);
         int arrayDeclaratorList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:277:5: ( ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:277:9: ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:283:5: ( ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:283:9: ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* )
             {
-            match(input,ARRAY_DECLARATOR_LIST,FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1478); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR_LIST,FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1481); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:277:33: ( ARRAY_DECLARATOR )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:283:33: ( ARRAY_DECLARATOR )*
                 loop44:
                 do {
                     int alt44=2;
@@ -2859,7 +2875,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: ARRAY_DECLARATOR
                 	    {
-                	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1480); if (state.failed) return retval;
+                	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1483); if (state.failed) return retval;
 
                 	    }
                 	    break;
@@ -2894,21 +2910,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arrayInitializer"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:280:1: arrayInitializer : ^( ARRAY_INITIALIZER ( variableInitializer )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:286:1: arrayInitializer : ^( ARRAY_INITIALIZER ( variableInitializer )* ) ;
     public final Generator.arrayInitializer_return arrayInitializer() throws RecognitionException {
         Generator.arrayInitializer_return retval = new Generator.arrayInitializer_return();
         retval.start = input.LT(1);
         int arrayInitializer_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:281:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:281:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:287:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:287:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
             {
-            match(input,ARRAY_INITIALIZER,FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1508); if (state.failed) return retval;
+            match(input,ARRAY_INITIALIZER,FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1511); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:281:29: ( variableInitializer )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:287:29: ( variableInitializer )*
                 loop45:
                 do {
                     int alt45=2;
@@ -2923,7 +2939,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: variableInitializer
                 	    {
-                	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1510);
+                	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1513);
                 	    variableInitializer();
 
                 	    state._fsp--;
@@ -2962,20 +2978,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "throwsClause"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:284:1: throwsClause : ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:290:1: throwsClause : ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) ;
     public final Generator.throwsClause_return throwsClause() throws RecognitionException {
         Generator.throwsClause_return retval = new Generator.throwsClause_return();
         retval.start = input.LT(1);
         int throwsClause_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:285:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:285:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:291:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:291:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
             {
-            match(input,THROWS_CLAUSE,FOLLOW_THROWS_CLAUSE_in_throwsClause1532); if (state.failed) return retval;
+            match(input,THROWS_CLAUSE,FOLLOW_THROWS_CLAUSE_in_throwsClause1535); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:285:25: ( qualifiedIdentifier )+
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:291:25: ( qualifiedIdentifier )+
             int cnt46=0;
             loop46:
             do {
@@ -2991,7 +3007,7 @@ public class Generator extends TreeParser {
             	case 1 :
             	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: qualifiedIdentifier
             	    {
-            	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1534);
+            	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1537);
             	    qualifiedIdentifier();
 
             	    state._fsp--;
@@ -3035,7 +3051,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "modifierList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:288:1: modifierList returns [List lst] : ^( MODIFIER_LIST ( modifier )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:294:1: modifierList returns [List lst] : ^( MODIFIER_LIST ( modifier )* ) ;
     public final Generator.modifierList_return modifierList() throws RecognitionException {
         Generator.modifierList_return retval = new Generator.modifierList_return();
         retval.start = input.LT(1);
@@ -3048,14 +3064,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:292:5: ( ^( MODIFIER_LIST ( modifier )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:292:9: ^( MODIFIER_LIST ( modifier )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:298:5: ( ^( MODIFIER_LIST ( modifier )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:298:9: ^( MODIFIER_LIST ( modifier )* )
             {
-            match(input,MODIFIER_LIST,FOLLOW_MODIFIER_LIST_in_modifierList1564); if (state.failed) return retval;
+            match(input,MODIFIER_LIST,FOLLOW_MODIFIER_LIST_in_modifierList1567); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:292:25: ( modifier )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:298:25: ( modifier )*
                 loop47:
                 do {
                     int alt47=2;
@@ -3068,9 +3084,9 @@ public class Generator extends TreeParser {
 
                     switch (alt47) {
                 	case 1 :
-                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:292:26: modifier
+                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:298:26: modifier
                 	    {
-                	    pushFollow(FOLLOW_modifier_in_modifierList1567);
+                	    pushFollow(FOLLOW_modifier_in_modifierList1570);
                 	    modifier36=modifier();
 
                 	    state._fsp--;
@@ -3112,7 +3128,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "modifier"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:295:1: modifier : ( PUBLIC -> template(v=$PUBLIC.text) \"<v>\" | PROTECTED | PRIVATE -> template(v=$PRIVATE.text) \"<v>\" | STATIC -> template(v=$STATIC.text) \"<v>\" | ABSTRACT -> template(v=$ABSTRACT.text) \"<v>\" | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:301:1: modifier : ( PUBLIC -> template(v=$PUBLIC.text) \"<v>\" | PROTECTED | PRIVATE -> template(v=$PRIVATE.text) \"<v>\" | STATIC -> template(v=$STATIC.text) \"<v>\" | ABSTRACT -> template(v=$ABSTRACT.text) \"<v>\" | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
     public final Generator.modifier_return modifier() throws RecognitionException {
         Generator.modifier_return retval = new Generator.modifier_return();
         retval.start = input.LT(1);
@@ -3124,7 +3140,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:296:5: ( PUBLIC -> template(v=$PUBLIC.text) \"<v>\" | PROTECTED | PRIVATE -> template(v=$PRIVATE.text) \"<v>\" | STATIC -> template(v=$STATIC.text) \"<v>\" | ABSTRACT -> template(v=$ABSTRACT.text) \"<v>\" | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:302:5: ( PUBLIC -> template(v=$PUBLIC.text) \"<v>\" | PROTECTED | PRIVATE -> template(v=$PRIVATE.text) \"<v>\" | STATIC -> template(v=$STATIC.text) \"<v>\" | ABSTRACT -> template(v=$ABSTRACT.text) \"<v>\" | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
             int alt48=11;
             switch ( input.LA(1) ) {
             case PUBLIC:
@@ -3193,14 +3209,14 @@ public class Generator extends TreeParser {
 
             switch (alt48) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:296:9: PUBLIC
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:302:9: PUBLIC
                     {
-                    PUBLIC37=(CommonTree)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier1592); if (state.failed) return retval;
+                    PUBLIC37=(CommonTree)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier1595); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 296:16: -> template(v=$PUBLIC.text) \"<v>\"
+                      // 302:16: -> template(v=$PUBLIC.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (PUBLIC37!=null?PUBLIC37.getText():null)));
@@ -3210,21 +3226,21 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:297:9: PROTECTED
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:303:9: PROTECTED
                     {
-                    match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier1613); if (state.failed) return retval;
+                    match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier1616); if (state.failed) return retval;
 
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:298:9: PRIVATE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:304:9: PRIVATE
                     {
-                    PRIVATE38=(CommonTree)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier1624); if (state.failed) return retval;
+                    PRIVATE38=(CommonTree)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier1627); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 298:17: -> template(v=$PRIVATE.text) \"<v>\"
+                      // 304:17: -> template(v=$PRIVATE.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (PRIVATE38!=null?PRIVATE38.getText():null)));
@@ -3234,14 +3250,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:299:9: STATIC
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:305:9: STATIC
                     {
-                    STATIC39=(CommonTree)match(input,STATIC,FOLLOW_STATIC_in_modifier1645); if (state.failed) return retval;
+                    STATIC39=(CommonTree)match(input,STATIC,FOLLOW_STATIC_in_modifier1648); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 299:16: -> template(v=$STATIC.text) \"<v>\"
+                      // 305:16: -> template(v=$STATIC.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (STATIC39!=null?STATIC39.getText():null)));
@@ -3251,14 +3267,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:300:9: ABSTRACT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:306:9: ABSTRACT
                     {
-                    ABSTRACT40=(CommonTree)match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier1666); if (state.failed) return retval;
+                    ABSTRACT40=(CommonTree)match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier1669); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 300:18: -> template(v=$ABSTRACT.text) \"<v>\"
+                      // 306:18: -> template(v=$ABSTRACT.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (ABSTRACT40!=null?ABSTRACT40.getText():null)));
@@ -3268,44 +3284,44 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:301:9: NATIVE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:307:9: NATIVE
                     {
-                    match(input,NATIVE,FOLLOW_NATIVE_in_modifier1687); if (state.failed) return retval;
+                    match(input,NATIVE,FOLLOW_NATIVE_in_modifier1690); if (state.failed) return retval;
 
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:302:9: SYNCHRONIZED
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:308:9: SYNCHRONIZED
                     {
-                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier1698); if (state.failed) return retval;
+                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier1701); if (state.failed) return retval;
 
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:303:9: TRANSIENT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:309:9: TRANSIENT
                     {
-                    match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier1709); if (state.failed) return retval;
+                    match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier1712); if (state.failed) return retval;
 
                     }
                     break;
                 case 9 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:304:9: VOLATILE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:310:9: VOLATILE
                     {
-                    match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier1720); if (state.failed) return retval;
+                    match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier1723); if (state.failed) return retval;
 
                     }
                     break;
                 case 10 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:305:9: STRICTFP
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:311:9: STRICTFP
                     {
-                    match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier1731); if (state.failed) return retval;
+                    match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier1734); if (state.failed) return retval;
 
                     }
                     break;
                 case 11 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:306:9: localModifier
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:312:9: localModifier
                     {
-                    pushFollow(FOLLOW_localModifier_in_modifier1742);
+                    pushFollow(FOLLOW_localModifier_in_modifier1745);
                     localModifier();
 
                     state._fsp--;
@@ -3334,21 +3350,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "localModifierList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:309:1: localModifierList : ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:315:1: localModifierList : ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final Generator.localModifierList_return localModifierList() throws RecognitionException {
         Generator.localModifierList_return retval = new Generator.localModifierList_return();
         retval.start = input.LT(1);
         int localModifierList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:310:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:310:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:316:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:316:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
-            match(input,LOCAL_MODIFIER_LIST,FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1762); if (state.failed) return retval;
+            match(input,LOCAL_MODIFIER_LIST,FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1765); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:310:31: ( localModifier )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:316:31: ( localModifier )*
                 loop49:
                 do {
                     int alt49=2;
@@ -3363,7 +3379,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: localModifier
                 	    {
-                	    pushFollow(FOLLOW_localModifier_in_localModifierList1764);
+                	    pushFollow(FOLLOW_localModifier_in_localModifierList1767);
                 	    localModifier();
 
                 	    state._fsp--;
@@ -3402,14 +3418,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "localModifier"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:313:1: localModifier : ( FINAL | annotation );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:1: localModifier : ( FINAL | annotation );
     public final Generator.localModifier_return localModifier() throws RecognitionException {
         Generator.localModifier_return retval = new Generator.localModifier_return();
         retval.start = input.LT(1);
         int localModifier_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:314:5: ( FINAL | annotation )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:320:5: ( FINAL | annotation )
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -3428,16 +3444,16 @@ public class Generator extends TreeParser {
             }
             switch (alt50) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:314:9: FINAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:320:9: FINAL
                     {
-                    match(input,FINAL,FOLLOW_FINAL_in_localModifier1785); if (state.failed) return retval;
+                    match(input,FINAL,FOLLOW_FINAL_in_localModifier1788); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:315:9: annotation
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:321:9: annotation
                     {
-                    pushFollow(FOLLOW_annotation_in_localModifier1795);
+                    pushFollow(FOLLOW_annotation_in_localModifier1798);
                     annotation();
 
                     state._fsp--;
@@ -3466,7 +3482,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "type"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:318:1: type : ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:324:1: type : ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) ;
     public final Generator.type_return type() throws RecognitionException {
         Generator.type_return retval = new Generator.type_return();
         retval.start = input.LT(1);
@@ -3478,13 +3494,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:325:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:325:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
             {
-            match(input,TYPE,FOLLOW_TYPE_in_type1815); if (state.failed) return retval;
+            match(input,TYPE,FOLLOW_TYPE_in_type1818); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:16: ( primitiveType | qualifiedTypeIdent )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:325:16: ( primitiveType | qualifiedTypeIdent )
             int alt51=2;
             int LA51_0 = input.LA(1);
 
@@ -3503,9 +3519,9 @@ public class Generator extends TreeParser {
             }
             switch (alt51) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:17: primitiveType
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:325:17: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_type1818);
+                    pushFollow(FOLLOW_primitiveType_in_type1821);
                     primitiveType41=primitiveType();
 
                     state._fsp--;
@@ -3514,9 +3530,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:33: qualifiedTypeIdent
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:325:33: qualifiedTypeIdent
                     {
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_type1822);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_type1825);
                     qualifiedTypeIdent42=qualifiedTypeIdent();
 
                     state._fsp--;
@@ -3527,7 +3543,7 @@ public class Generator extends TreeParser {
 
             }
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:319:53: ( arrayDeclaratorList )?
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:325:53: ( arrayDeclaratorList )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -3538,7 +3554,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_type1825);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_type1828);
                     arrayDeclaratorList();
 
                     state._fsp--;
@@ -3597,7 +3613,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "qualifiedTypeIdent"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:355:1: qualifiedTypeIdent returns [List<StringTemplate> lst] : ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:361:1: qualifiedTypeIdent returns [List<StringTemplate> lst] : ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final Generator.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
         Generator.qualifiedTypeIdent_return retval = new Generator.qualifiedTypeIdent_return();
         retval.start = input.LT(1);
@@ -3610,13 +3626,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:359:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:359:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:365:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:365:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
-            match(input,QUALIFIED_TYPE_IDENT,FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1947); if (state.failed) return retval;
+            match(input,QUALIFIED_TYPE_IDENT,FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1950); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:359:32: ( typeIdent )+
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:365:32: ( typeIdent )+
             int cnt53=0;
             loop53:
             do {
@@ -3630,9 +3646,9 @@ public class Generator extends TreeParser {
 
                 switch (alt53) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:359:33: typeIdent
+            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:365:33: typeIdent
             	    {
-            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1950);
+            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1953);
             	    typeIdent43=typeIdent();
 
             	    state._fsp--;
@@ -3678,7 +3694,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "typeIdent"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:362:1: typeIdent : ^( IDENT ( genericTypeArgumentList )? ) -> template(v=$IDENT.text) \"<v>\";
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:368:1: typeIdent : ^( IDENT ( genericTypeArgumentList )? ) -> template(v=$IDENT.text) \"<v>\";
     public final Generator.typeIdent_return typeIdent() throws RecognitionException {
         Generator.typeIdent_return retval = new Generator.typeIdent_return();
         retval.start = input.LT(1);
@@ -3687,14 +3703,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:363:5: ( ^( IDENT ( genericTypeArgumentList )? ) -> template(v=$IDENT.text) \"<v>\")
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:363:9: ^( IDENT ( genericTypeArgumentList )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:369:5: ( ^( IDENT ( genericTypeArgumentList )? ) -> template(v=$IDENT.text) \"<v>\")
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:369:9: ^( IDENT ( genericTypeArgumentList )? )
             {
-            IDENT44=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_typeIdent1977); if (state.failed) return retval;
+            IDENT44=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_typeIdent1980); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:363:17: ( genericTypeArgumentList )?
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:369:17: ( genericTypeArgumentList )?
                 int alt54=2;
                 int LA54_0 = input.LA(1);
 
@@ -3705,7 +3721,7 @@ public class Generator extends TreeParser {
                     case 1 :
                         // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                         {
-                        pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1979);
+                        pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1982);
                         genericTypeArgumentList();
 
                         state._fsp--;
@@ -3723,7 +3739,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 363:43: -> template(v=$IDENT.text) \"<v>\"
+              // 369:43: -> template(v=$IDENT.text) \"<v>\"
               {
                   retval.st = new StringTemplate(templateLib, "<v>",
                 new STAttrMap().put("v", (IDENT44!=null?IDENT44.getText():null)));
@@ -3752,14 +3768,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "primitiveType"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:366:1: primitiveType returns [int tokenNum] : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:372:1: primitiveType returns [int tokenNum] : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
     public final Generator.primitiveType_return primitiveType() throws RecognitionException {
         Generator.primitiveType_return retval = new Generator.primitiveType_return();
         retval.start = input.LT(1);
         int primitiveType_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:367:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:373:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
             int alt55=8;
             switch ( input.LA(1) ) {
             case BOOLEAN:
@@ -3812,9 +3828,9 @@ public class Generator extends TreeParser {
 
             switch (alt55) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:367:9: BOOLEAN
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:373:9: BOOLEAN
                     {
-                    match(input,BOOLEAN,FOLLOW_BOOLEAN_in_primitiveType2015); if (state.failed) return retval;
+                    match(input,BOOLEAN,FOLLOW_BOOLEAN_in_primitiveType2018); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = BOOLEAN;
                     }
@@ -3822,9 +3838,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:368:9: CHAR
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:374:9: CHAR
                     {
-                    match(input,CHAR,FOLLOW_CHAR_in_primitiveType2027); if (state.failed) return retval;
+                    match(input,CHAR,FOLLOW_CHAR_in_primitiveType2030); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = CHAR;
                     }
@@ -3832,9 +3848,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:369:9: BYTE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:375:9: BYTE
                     {
-                    match(input,BYTE,FOLLOW_BYTE_in_primitiveType2039); if (state.failed) return retval;
+                    match(input,BYTE,FOLLOW_BYTE_in_primitiveType2042); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = BYTE;
                     }
@@ -3842,9 +3858,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:370:9: SHORT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:376:9: SHORT
                     {
-                    match(input,SHORT,FOLLOW_SHORT_in_primitiveType2051); if (state.failed) return retval;
+                    match(input,SHORT,FOLLOW_SHORT_in_primitiveType2054); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = SHORT;
                     }
@@ -3852,9 +3868,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:371:9: INT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:377:9: INT
                     {
-                    match(input,INT,FOLLOW_INT_in_primitiveType2063); if (state.failed) return retval;
+                    match(input,INT,FOLLOW_INT_in_primitiveType2066); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = INT;
                     }
@@ -3862,9 +3878,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:372:9: LONG
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:378:9: LONG
                     {
-                    match(input,LONG,FOLLOW_LONG_in_primitiveType2075); if (state.failed) return retval;
+                    match(input,LONG,FOLLOW_LONG_in_primitiveType2078); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = LONG;
                     }
@@ -3872,9 +3888,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:373:9: FLOAT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:379:9: FLOAT
                     {
-                    match(input,FLOAT,FOLLOW_FLOAT_in_primitiveType2087); if (state.failed) return retval;
+                    match(input,FLOAT,FOLLOW_FLOAT_in_primitiveType2090); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = FLOAT;
                     }
@@ -3882,9 +3898,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:374:9: DOUBLE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:380:9: DOUBLE
                     {
-                    match(input,DOUBLE,FOLLOW_DOUBLE_in_primitiveType2099); if (state.failed) return retval;
+                    match(input,DOUBLE,FOLLOW_DOUBLE_in_primitiveType2102); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                       retval.tokenNum = DOUBLE;
                     }
@@ -3912,20 +3928,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "genericTypeArgumentList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:377:1: genericTypeArgumentList : ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:383:1: genericTypeArgumentList : ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) ;
     public final Generator.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
         Generator.genericTypeArgumentList_return retval = new Generator.genericTypeArgumentList_return();
         retval.start = input.LT(1);
         int genericTypeArgumentList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:378:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:378:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:384:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:384:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
             {
-            match(input,GENERIC_TYPE_ARG_LIST,FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList2121); if (state.failed) return retval;
+            match(input,GENERIC_TYPE_ARG_LIST,FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList2124); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:378:33: ( genericTypeArgument )+
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:384:33: ( genericTypeArgument )+
             int cnt56=0;
             loop56:
             do {
@@ -3941,7 +3957,7 @@ public class Generator extends TreeParser {
             	case 1 :
             	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgument
             	    {
-            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList2123);
+            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList2126);
             	    genericTypeArgument();
 
             	    state._fsp--;
@@ -3984,14 +4000,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "genericTypeArgument"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:381:1: genericTypeArgument : ( type | ^( QUESTION ( genericWildcardBoundType )? ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:387:1: genericTypeArgument : ( type | ^( QUESTION ( genericWildcardBoundType )? ) );
     public final Generator.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
         Generator.genericTypeArgument_return retval = new Generator.genericTypeArgument_return();
         retval.start = input.LT(1);
         int genericTypeArgument_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:382:5: ( type | ^( QUESTION ( genericWildcardBoundType )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:388:5: ( type | ^( QUESTION ( genericWildcardBoundType )? ) )
             int alt58=2;
             int LA58_0 = input.LA(1);
 
@@ -4010,9 +4026,9 @@ public class Generator extends TreeParser {
             }
             switch (alt58) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:382:9: type
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:388:9: type
                     {
-                    pushFollow(FOLLOW_type_in_genericTypeArgument2148);
+                    pushFollow(FOLLOW_type_in_genericTypeArgument2151);
                     type();
 
                     state._fsp--;
@@ -4021,13 +4037,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:383:9: ^( QUESTION ( genericWildcardBoundType )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:389:9: ^( QUESTION ( genericWildcardBoundType )? )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument2159); if (state.failed) return retval;
+                    match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument2162); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:383:20: ( genericWildcardBoundType )?
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:389:20: ( genericWildcardBoundType )?
                         int alt57=2;
                         int LA57_0 = input.LA(1);
 
@@ -4038,7 +4054,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericWildcardBoundType
                                 {
-                                pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument2161);
+                                pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument2164);
                                 genericWildcardBoundType();
 
                                 state._fsp--;
@@ -4076,14 +4092,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "genericWildcardBoundType"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:386:1: genericWildcardBoundType : ( ^( EXTENDS type ) | ^( SUPER type ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:392:1: genericWildcardBoundType : ( ^( EXTENDS type ) | ^( SUPER type ) );
     public final Generator.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
         Generator.genericWildcardBoundType_return retval = new Generator.genericWildcardBoundType_return();
         retval.start = input.LT(1);
         int genericWildcardBoundType_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:387:5: ( ^( EXTENDS type ) | ^( SUPER type ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:393:5: ( ^( EXTENDS type ) | ^( SUPER type ) )
             int alt59=2;
             int LA59_0 = input.LA(1);
 
@@ -4102,12 +4118,12 @@ public class Generator extends TreeParser {
             }
             switch (alt59) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:387:9: ^( EXTENDS type )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:393:9: ^( EXTENDS type )
                     {
-                    match(input,EXTENDS,FOLLOW_EXTENDS_in_genericWildcardBoundType2241); if (state.failed) return retval;
+                    match(input,EXTENDS,FOLLOW_EXTENDS_in_genericWildcardBoundType2244); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_genericWildcardBoundType2243);
+                    pushFollow(FOLLOW_type_in_genericWildcardBoundType2246);
                     type();
 
                     state._fsp--;
@@ -4118,12 +4134,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:388:9: ^( SUPER type )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:394:9: ^( SUPER type )
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_genericWildcardBoundType2255); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_genericWildcardBoundType2258); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_genericWildcardBoundType2257);
+                    pushFollow(FOLLOW_type_in_genericWildcardBoundType2260);
                     type();
 
                     state._fsp--;
@@ -4155,7 +4171,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "formalParameterList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:391:1: formalParameterList returns [List<StringTemplate> lst] : ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:397:1: formalParameterList returns [List<StringTemplate> lst] : ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) ;
     public final Generator.formalParameterList_return formalParameterList() throws RecognitionException {
         Generator.formalParameterList_return retval = new Generator.formalParameterList_return();
         retval.start = input.LT(1);
@@ -4168,14 +4184,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:396:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:396:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:402:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:402:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
             {
-            match(input,FORMAL_PARAM_LIST,FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList2292); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_LIST,FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList2295); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:396:29: ( formalParameterStandardDecl )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:402:29: ( formalParameterStandardDecl )*
                 loop60:
                 do {
                     int alt60=2;
@@ -4188,9 +4204,9 @@ public class Generator extends TreeParser {
 
                     switch (alt60) {
                 	case 1 :
-                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:396:30: formalParameterStandardDecl
+                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:402:30: formalParameterStandardDecl
                 	    {
-                	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList2295);
+                	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList2298);
                 	    formalParameterStandardDecl45=formalParameterStandardDecl();
 
                 	    state._fsp--;
@@ -4207,7 +4223,7 @@ public class Generator extends TreeParser {
                     }
                 } while (true);
 
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:396:149: ( formalParameterVarargDecl )?
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:402:149: ( formalParameterVarargDecl )?
                 int alt61=2;
                 int LA61_0 = input.LA(1);
 
@@ -4218,7 +4234,7 @@ public class Generator extends TreeParser {
                     case 1 :
                         // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: formalParameterVarargDecl
                         {
-                        pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList2301);
+                        pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList2304);
                         formalParameterVarargDecl();
 
                         state._fsp--;
@@ -4254,7 +4270,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "formalParameterStandardDecl"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:399:1: formalParameterStandardDecl : ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) -> template(type=$type.stid=$variableDeclaratorId.st) \"<id>\";
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:405:1: formalParameterStandardDecl : ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) -> template(type=$type.stid=$variableDeclaratorId.st) \"<id>\";
     public final Generator.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
         Generator.formalParameterStandardDecl_return retval = new Generator.formalParameterStandardDecl_return();
         retval.start = input.LT(1);
@@ -4266,23 +4282,23 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:400:5: ( ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) -> template(type=$type.stid=$variableDeclaratorId.st) \"<id>\")
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:400:9: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:406:5: ( ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) -> template(type=$type.stid=$variableDeclaratorId.st) \"<id>\")
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:406:9: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
-            match(input,FORMAL_PARAM_STD_DECL,FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl2331); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_STD_DECL,FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl2334); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl2333);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl2336);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_formalParameterStandardDecl2335);
+            pushFollow(FOLLOW_type_in_formalParameterStandardDecl2338);
             type46=type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl2337);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl2340);
             variableDeclaratorId47=variableDeclaratorId();
 
             state._fsp--;
@@ -4293,7 +4309,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 400:78: -> template(type=$type.stid=$variableDeclaratorId.st) \"<id>\"
+              // 406:78: -> template(type=$type.stid=$variableDeclaratorId.st) \"<id>\"
               {
                   retval.st = new StringTemplate(templateLib, "<id>",
                 new STAttrMap().put("type", (type46!=null?type46.st:null)).put("id", (variableDeclaratorId47!=null?variableDeclaratorId47.st:null)));
@@ -4321,30 +4337,30 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "formalParameterVarargDecl"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:403:1: formalParameterVarargDecl : ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:409:1: formalParameterVarargDecl : ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
     public final Generator.formalParameterVarargDecl_return formalParameterVarargDecl() throws RecognitionException {
         Generator.formalParameterVarargDecl_return retval = new Generator.formalParameterVarargDecl_return();
         retval.start = input.LT(1);
         int formalParameterVarargDecl_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:404:5: ( ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:404:9: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:410:5: ( ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:410:9: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
             {
-            match(input,FORMAL_PARAM_VARARG_DECL,FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl2378); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_VARARG_DECL,FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl2381); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_formalParameterVarargDecl2380);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterVarargDecl2383);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_formalParameterVarargDecl2382);
+            pushFollow(FOLLOW_type_in_formalParameterVarargDecl2385);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl2384);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl2387);
             variableDeclaratorId();
 
             state._fsp--;
@@ -4373,14 +4389,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "qualifiedIdentifier"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:407:1: qualifiedIdentifier : ( IDENT | ^( DOT qualifiedIdentifier IDENT ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:413:1: qualifiedIdentifier : ( IDENT | ^( DOT qualifiedIdentifier IDENT ) );
     public final Generator.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
         Generator.qualifiedIdentifier_return retval = new Generator.qualifiedIdentifier_return();
         retval.start = input.LT(1);
         int qualifiedIdentifier_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:408:5: ( IDENT | ^( DOT qualifiedIdentifier IDENT ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:414:5: ( IDENT | ^( DOT qualifiedIdentifier IDENT ) )
             int alt62=2;
             int LA62_0 = input.LA(1);
 
@@ -4399,24 +4415,24 @@ public class Generator extends TreeParser {
             }
             switch (alt62) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:408:9: IDENT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:414:9: IDENT
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier2408); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier2411); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:409:9: ^( DOT qualifiedIdentifier IDENT )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:415:9: ^( DOT qualifiedIdentifier IDENT )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier2419); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier2422); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier2421);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier2424);
                     qualifiedIdentifier();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier2423); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier2426); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
@@ -4443,21 +4459,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationList"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:414:1: annotationList : ^( ANNOTATION_LIST ( annotation )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:420:1: annotationList : ^( ANNOTATION_LIST ( annotation )* ) ;
     public final Generator.annotationList_return annotationList() throws RecognitionException {
         Generator.annotationList_return retval = new Generator.annotationList_return();
         retval.start = input.LT(1);
         int annotationList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:415:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:415:9: ^( ANNOTATION_LIST ( annotation )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:421:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:421:9: ^( ANNOTATION_LIST ( annotation )* )
             {
-            match(input,ANNOTATION_LIST,FOLLOW_ANNOTATION_LIST_in_annotationList2450); if (state.failed) return retval;
+            match(input,ANNOTATION_LIST,FOLLOW_ANNOTATION_LIST_in_annotationList2453); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:415:27: ( annotation )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:421:27: ( annotation )*
                 loop63:
                 do {
                     int alt63=2;
@@ -4472,7 +4488,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: annotation
                 	    {
-                	    pushFollow(FOLLOW_annotation_in_annotationList2452);
+                	    pushFollow(FOLLOW_annotation_in_annotationList2455);
                 	    annotation();
 
                 	    state._fsp--;
@@ -4511,25 +4527,25 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotation"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:418:1: annotation : ^( AT qualifiedIdentifier ( annotationInit )? ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:424:1: annotation : ^( AT qualifiedIdentifier ( annotationInit )? ) ;
     public final Generator.annotation_return annotation() throws RecognitionException {
         Generator.annotation_return retval = new Generator.annotation_return();
         retval.start = input.LT(1);
         int annotation_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:419:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:419:9: ^( AT qualifiedIdentifier ( annotationInit )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:425:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:425:9: ^( AT qualifiedIdentifier ( annotationInit )? )
             {
-            match(input,AT,FOLLOW_AT_in_annotation2474); if (state.failed) return retval;
+            match(input,AT,FOLLOW_AT_in_annotation2477); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation2476);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation2479);
             qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:419:34: ( annotationInit )?
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:425:34: ( annotationInit )?
             int alt64=2;
             int LA64_0 = input.LA(1);
 
@@ -4540,7 +4556,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: annotationInit
                     {
-                    pushFollow(FOLLOW_annotationInit_in_annotation2478);
+                    pushFollow(FOLLOW_annotationInit_in_annotation2481);
                     annotationInit();
 
                     state._fsp--;
@@ -4575,20 +4591,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationInit"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:422:1: annotationInit : ^( ANNOTATION_INIT_BLOCK annotationInitializers ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:428:1: annotationInit : ^( ANNOTATION_INIT_BLOCK annotationInitializers ) ;
     public final Generator.annotationInit_return annotationInit() throws RecognitionException {
         Generator.annotationInit_return retval = new Generator.annotationInit_return();
         retval.start = input.LT(1);
         int annotationInit_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:423:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:423:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:429:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:429:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
             {
-            match(input,ANNOTATION_INIT_BLOCK,FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit2504); if (state.failed) return retval;
+            match(input,ANNOTATION_INIT_BLOCK,FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit2507); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationInitializers_in_annotationInit2506);
+            pushFollow(FOLLOW_annotationInitializers_in_annotationInit2509);
             annotationInitializers();
 
             state._fsp--;
@@ -4617,14 +4633,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationInitializers"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:426:1: annotationInitializers : ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:432:1: annotationInitializers : ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
     public final Generator.annotationInitializers_return annotationInitializers() throws RecognitionException {
         Generator.annotationInitializers_return retval = new Generator.annotationInitializers_return();
         retval.start = input.LT(1);
         int annotationInitializers_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:427:5: ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:433:5: ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
             int alt66=2;
             int LA66_0 = input.LA(1);
 
@@ -4643,12 +4659,12 @@ public class Generator extends TreeParser {
             }
             switch (alt66) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:427:9: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:433:9: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                     {
-                    match(input,ANNOTATION_INIT_KEY_LIST,FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers2527); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_KEY_LIST,FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers2530); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:427:36: ( annotationInitializer )+
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:433:36: ( annotationInitializer )+
                     int cnt65=0;
                     loop65:
                     do {
@@ -4664,7 +4680,7 @@ public class Generator extends TreeParser {
                     	case 1 :
                     	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: annotationInitializer
                     	    {
-                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers2529);
+                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers2532);
                     	    annotationInitializer();
 
                     	    state._fsp--;
@@ -4689,12 +4705,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:428:9: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:434:9: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                     {
-                    match(input,ANNOTATION_INIT_DEFAULT_KEY,FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers2542); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_DEFAULT_KEY,FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers2545); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers2544);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers2547);
                     annotationElementValue();
 
                     state._fsp--;
@@ -4725,20 +4741,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationInitializer"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:431:1: annotationInitializer : ^( IDENT annotationElementValue ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:437:1: annotationInitializer : ^( IDENT annotationElementValue ) ;
     public final Generator.annotationInitializer_return annotationInitializer() throws RecognitionException {
         Generator.annotationInitializer_return retval = new Generator.annotationInitializer_return();
         retval.start = input.LT(1);
         int annotationInitializer_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:432:5: ( ^( IDENT annotationElementValue ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:432:9: ^( IDENT annotationElementValue )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:438:5: ( ^( IDENT annotationElementValue ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:438:9: ^( IDENT annotationElementValue )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer2569); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer2572); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer2571);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer2574);
             annotationElementValue();
 
             state._fsp--;
@@ -4767,14 +4783,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationElementValue"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:435:1: annotationElementValue : ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:441:1: annotationElementValue : ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression );
     public final Generator.annotationElementValue_return annotationElementValue() throws RecognitionException {
         Generator.annotationElementValue_return retval = new Generator.annotationElementValue_return();
         retval.start = input.LT(1);
         int annotationElementValue_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:436:5: ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:442:5: ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression )
             int alt68=3;
             switch ( input.LA(1) ) {
             case ANNOTATION_INIT_ARRAY_ELEMENT:
@@ -4802,13 +4818,13 @@ public class Generator extends TreeParser {
 
             switch (alt68) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:436:9: ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:442:9: ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* )
                     {
-                    match(input,ANNOTATION_INIT_ARRAY_ELEMENT,FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue2596); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_ARRAY_ELEMENT,FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue2599); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:436:41: ( annotationElementValue )*
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:442:41: ( annotationElementValue )*
                         loop67:
                         do {
                             int alt67=2;
@@ -4823,7 +4839,7 @@ public class Generator extends TreeParser {
                         	case 1 :
                         	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: annotationElementValue
                         	    {
-                        	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue2598);
+                        	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue2601);
                         	    annotationElementValue();
 
                         	    state._fsp--;
@@ -4844,9 +4860,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:437:9: annotation
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:443:9: annotation
                     {
-                    pushFollow(FOLLOW_annotation_in_annotationElementValue2610);
+                    pushFollow(FOLLOW_annotation_in_annotationElementValue2613);
                     annotation();
 
                     state._fsp--;
@@ -4855,9 +4871,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:438:9: expression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:444:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_annotationElementValue2620);
+                    pushFollow(FOLLOW_expression_in_annotationElementValue2623);
                     expression();
 
                     state._fsp--;
@@ -4886,21 +4902,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationTopLevelScope"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:441:1: annotationTopLevelScope : ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:447:1: annotationTopLevelScope : ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) ;
     public final Generator.annotationTopLevelScope_return annotationTopLevelScope() throws RecognitionException {
         Generator.annotationTopLevelScope_return retval = new Generator.annotationTopLevelScope_return();
         retval.start = input.LT(1);
         int annotationTopLevelScope_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:442:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:442:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:448:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:448:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
             {
-            match(input,ANNOTATION_TOP_LEVEL_SCOPE,FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2644); if (state.failed) return retval;
+            match(input,ANNOTATION_TOP_LEVEL_SCOPE,FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2647); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:442:38: ( annotationScopeDeclarations )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:448:38: ( annotationScopeDeclarations )*
                 loop69:
                 do {
                     int alt69=2;
@@ -4915,7 +4931,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: annotationScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2646);
+                	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2649);
                 	    annotationScopeDeclarations();
 
                 	    state._fsp--;
@@ -4954,14 +4970,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationScopeDeclarations"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:445:1: annotationScopeDeclarations : ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:451:1: annotationScopeDeclarations : ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
     public final Generator.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
         Generator.annotationScopeDeclarations_return retval = new Generator.annotationScopeDeclarations_return();
         retval.start = input.LT(1);
         int annotationScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:446:5: ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:452:5: ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
             int alt71=3;
             switch ( input.LA(1) ) {
             case ANNOTATION_METHOD_DECL:
@@ -4992,23 +5008,23 @@ public class Generator extends TreeParser {
 
             switch (alt71) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:446:9: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:452:9: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                     {
-                    match(input,ANNOTATION_METHOD_DECL,FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2672); if (state.failed) return retval;
+                    match(input,ANNOTATION_METHOD_DECL,FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2675); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2674);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2677);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2676);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2679);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2678); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:446:58: ( annotationDefaultValue )?
+                    match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2681); if (state.failed) return retval;
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:452:58: ( annotationDefaultValue )?
                     int alt70=2;
                     int LA70_0 = input.LA(1);
 
@@ -5019,7 +5035,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: annotationDefaultValue
                             {
-                            pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2680);
+                            pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2683);
                             annotationDefaultValue();
 
                             state._fsp--;
@@ -5036,22 +5052,22 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:447:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:453:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2693); if (state.failed) return retval;
+                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2696); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2695);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2698);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2697);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2700);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2699);
+                    pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2702);
                     variableDeclaratorList();
 
                     state._fsp--;
@@ -5062,9 +5078,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:448:9: typeDeclaration
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:454:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations2710);
+                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations2713);
                     typeDeclaration();
 
                     state._fsp--;
@@ -5093,20 +5109,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "annotationDefaultValue"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:451:1: annotationDefaultValue : ^( DEFAULT annotationElementValue ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:457:1: annotationDefaultValue : ^( DEFAULT annotationElementValue ) ;
     public final Generator.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
         Generator.annotationDefaultValue_return retval = new Generator.annotationDefaultValue_return();
         retval.start = input.LT(1);
         int annotationDefaultValue_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:452:5: ( ^( DEFAULT annotationElementValue ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:452:9: ^( DEFAULT annotationElementValue )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:458:5: ( ^( DEFAULT annotationElementValue ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:458:9: ^( DEFAULT annotationElementValue )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue2734); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue2737); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue2736);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue2739);
             annotationElementValue();
 
             state._fsp--;
@@ -5140,7 +5156,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "block"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:457:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) -> block(statements=$block::statements);
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:463:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) -> block(statements=$block::statements);
     public final Generator.block_return block() throws RecognitionException {
         block_stack.push(new block_scope());
         Generator.block_return retval = new Generator.block_return();
@@ -5154,14 +5170,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:464:5: ( ^( BLOCK_SCOPE ( blockStatement )* ) -> block(statements=$block::statements))
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:464:9: ^( BLOCK_SCOPE ( blockStatement )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:470:5: ( ^( BLOCK_SCOPE ( blockStatement )* ) -> block(statements=$block::statements))
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:470:9: ^( BLOCK_SCOPE ( blockStatement )* )
             {
-            match(input,BLOCK_SCOPE,FOLLOW_BLOCK_SCOPE_in_block2767); if (state.failed) return retval;
+            match(input,BLOCK_SCOPE,FOLLOW_BLOCK_SCOPE_in_block2770); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:464:23: ( blockStatement )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:470:23: ( blockStatement )*
                 loop72:
                 do {
                     int alt72=2;
@@ -5174,9 +5190,9 @@ public class Generator extends TreeParser {
 
                     switch (alt72) {
                 	case 1 :
-                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:464:24: blockStatement
+                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:470:24: blockStatement
                 	    {
-                	    pushFollow(FOLLOW_blockStatement_in_block2770);
+                	    pushFollow(FOLLOW_blockStatement_in_block2773);
                 	    blockStatement48=blockStatement();
 
                 	    state._fsp--;
@@ -5200,7 +5216,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 464:118: -> block(statements=$block::statements)
+              // 470:118: -> block(statements=$block::statements)
               {
                   retval.st = templateLib.getInstanceOf("block",
                 new STAttrMap().put("statements", ((block_scope)block_stack.peek()).statements));
@@ -5229,7 +5245,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "blockStatement"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:467:1: blockStatement : ( localVariableDeclaration | typeDeclaration | statement );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:473:1: blockStatement : ( localVariableDeclaration | typeDeclaration | statement );
     public final Generator.blockStatement_return blockStatement() throws RecognitionException {
         Generator.blockStatement_return retval = new Generator.blockStatement_return();
         retval.start = input.LT(1);
@@ -5243,7 +5259,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:468:5: ( localVariableDeclaration | typeDeclaration | statement )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:474:5: ( localVariableDeclaration | typeDeclaration | statement )
             int alt73=3;
             switch ( input.LA(1) ) {
             case VAR_DECLARATION:
@@ -5290,9 +5306,9 @@ public class Generator extends TreeParser {
 
             switch (alt73) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:468:9: localVariableDeclaration
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:474:9: localVariableDeclaration
                     {
-                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2807);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2810);
                     localVariableDeclaration49=localVariableDeclaration();
 
                     state._fsp--;
@@ -5304,9 +5320,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:469:9: typeDeclaration
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:475:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement2819);
+                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement2822);
                     typeDeclaration50=typeDeclaration();
 
                     state._fsp--;
@@ -5318,9 +5334,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:470:9: statement
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:476:9: statement
                     {
-                    pushFollow(FOLLOW_statement_in_blockStatement2831);
+                    pushFollow(FOLLOW_statement_in_blockStatement2834);
                     statement51=statement();
 
                     state._fsp--;
@@ -5352,7 +5368,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:473:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst);
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:479:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst);
     public final Generator.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
         Generator.localVariableDeclaration_return retval = new Generator.localVariableDeclaration_return();
         retval.start = input.LT(1);
@@ -5366,23 +5382,23 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:474:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst))
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:474:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:480:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst))
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:480:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
             {
-            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2857); if (state.failed) return retval;
+            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2860); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2859);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2862);
             localModifierList52=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_localVariableDeclaration2861);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration2864);
             type53=type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2863);
+            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2866);
             variableDeclaratorList54=variableDeclaratorList();
 
             state._fsp--;
@@ -5393,7 +5409,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 475:9: -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst)
+              // 481:9: -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst)
               {
                   retval.st = templateLib.getInstanceOf("localVariableDeclaration",
                 new STAttrMap().put("modifiers", (localModifierList52!=null?localModifierList52.st:null)).put("type", (type53!=null?type53.st:null)).put("declarators", (variableDeclaratorList54!=null?variableDeclaratorList54.lst:null)));
@@ -5421,7 +5437,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "statement"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:479:1: statement : ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:485:1: statement : ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI );
     public final Generator.statement_return statement() throws RecognitionException {
         Generator.statement_return retval = new Generator.statement_return();
         retval.start = input.LT(1);
@@ -5476,7 +5492,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:480:5: ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:486:5: ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI )
             int alt81=17;
             switch ( input.LA(1) ) {
             case BLOCK_SCOPE:
@@ -5574,9 +5590,9 @@ public class Generator extends TreeParser {
 
             switch (alt81) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:480:9: block
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:486:9: block
                     {
-                    pushFollow(FOLLOW_block_in_statement2923);
+                    pushFollow(FOLLOW_block_in_statement2926);
                     block55=block();
 
                     state._fsp--;
@@ -5588,17 +5604,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:481:9: ^( ASSERT a1= expression (b1= expression )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:487:9: ^( ASSERT a1= expression (b1= expression )? )
                     {
-                    match(input,ASSERT,FOLLOW_ASSERT_in_statement2936); if (state.failed) return retval;
+                    match(input,ASSERT,FOLLOW_ASSERT_in_statement2939); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement2940);
+                    pushFollow(FOLLOW_expression_in_statement2943);
                     a1=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:481:34: (b1= expression )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:487:34: (b1= expression )?
                     int alt74=2;
                     int LA74_0 = input.LA(1);
 
@@ -5609,7 +5625,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: b1= expression
                             {
-                            pushFollow(FOLLOW_expression_in_statement2944);
+                            pushFollow(FOLLOW_expression_in_statement2947);
                             b1=expression();
 
                             state._fsp--;
@@ -5626,7 +5642,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 482:9: -> assert(expressionA=$a1.stexpressionB=$b1.st)
+                      // 488:9: -> assert(expressionA=$a1.stexpressionB=$b1.st)
                       {
                           retval.st = templateLib.getInstanceOf("assert",
                         new STAttrMap().put("expressionA", (a1!=null?a1.st:null)).put("expressionB", (b1!=null?b1.st:null)));
@@ -5636,22 +5652,22 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:483:9: ^( IF parenthesizedExpression a2= statement (b2= statement )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:489:9: ^( IF parenthesizedExpression a2= statement (b2= statement )? )
                     {
-                    match(input,IF,FOLLOW_IF_in_statement2978); if (state.failed) return retval;
+                    match(input,IF,FOLLOW_IF_in_statement2981); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2980);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2983);
                     parenthesizedExpression56=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2984);
+                    pushFollow(FOLLOW_statement_in_statement2987);
                     a2=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:483:53: (b2= statement )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:489:53: (b2= statement )?
                     int alt75=2;
                     int LA75_0 = input.LA(1);
 
@@ -5662,7 +5678,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: b2= statement
                             {
-                            pushFollow(FOLLOW_statement_in_statement2988);
+                            pushFollow(FOLLOW_statement_in_statement2991);
                             b2=statement();
 
                             state._fsp--;
@@ -5679,7 +5695,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 484:9: -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st)
+                      // 490:9: -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st)
                       {
                           retval.st = templateLib.getInstanceOf("if",
                         new STAttrMap().put("parenthesizedExpression", (parenthesizedExpression56!=null?parenthesizedExpression56.st:null)).put("statement", (a2!=null?a2.st:null)).put("elsestatement", (b2!=null?b2.st:null)));
@@ -5689,27 +5705,27 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:485:9: ^( FOR forInit forCondition forUpdater stmnt= statement )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:491:9: ^( FOR forInit forCondition forUpdater stmnt= statement )
                     {
-                    match(input,FOR,FOLLOW_FOR_in_statement3028); if (state.failed) return retval;
+                    match(input,FOR,FOLLOW_FOR_in_statement3031); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_forInit_in_statement3030);
+                    pushFollow(FOLLOW_forInit_in_statement3033);
                     forInit57=forInit();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_forCondition_in_statement3032);
+                    pushFollow(FOLLOW_forCondition_in_statement3035);
                     forCondition58=forCondition();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_forUpdater_in_statement3034);
+                    pushFollow(FOLLOW_forUpdater_in_statement3037);
                     forUpdater59=forUpdater();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3038);
+                    pushFollow(FOLLOW_statement_in_statement3041);
                     stmnt=statement();
 
                     state._fsp--;
@@ -5720,7 +5736,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 486:9: -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st)
+                      // 492:9: -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st)
                       {
                           retval.st = templateLib.getInstanceOf("for",
                         new STAttrMap().put("forInit", (forInit57!=null?forInit57.st:null)).put("forCondition", (forCondition58!=null?forCondition58.st:null)).put("forUpdater", (forUpdater59!=null?forUpdater59.st:null)).put("statement", (stmnt!=null?stmnt.st:null)));
@@ -5730,28 +5746,28 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:487:9: ^( FOR_EACH localModifierList type IDENT expression stmnt= statement )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:493:9: ^( FOR_EACH localModifierList type IDENT expression stmnt= statement )
                     {
-                    match(input,FOR_EACH,FOLLOW_FOR_EACH_in_statement3082); if (state.failed) return retval;
+                    match(input,FOR_EACH,FOLLOW_FOR_EACH_in_statement3085); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_localModifierList_in_statement3084);
+                    pushFollow(FOLLOW_localModifierList_in_statement3087);
                     localModifierList60=localModifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_statement3086);
+                    pushFollow(FOLLOW_type_in_statement3089);
                     type61=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    IDENT62=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3088); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement3090);
+                    IDENT62=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3091); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expression_in_statement3093);
                     expression63=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3094);
+                    pushFollow(FOLLOW_statement_in_statement3097);
                     stmnt=statement();
 
                     state._fsp--;
@@ -5762,7 +5778,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 488:9: -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st)
+                      // 494:9: -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st)
                       {
                           retval.st = templateLib.getInstanceOf("foreach",
                         new STAttrMap().put("modifiers", (localModifierList60!=null?localModifierList60.st:null)).put("type", (type61!=null?type61.st:null)).put("id", (IDENT62!=null?IDENT62.getText():null)).put("expression", (expression63!=null?expression63.st:null)).put("statement", (stmnt!=null?stmnt.st:null)));
@@ -5772,17 +5788,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:489:9: ^( WHILE parenthesizedExpression stmnt= statement )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:495:9: ^( WHILE parenthesizedExpression stmnt= statement )
                     {
-                    match(input,WHILE,FOLLOW_WHILE_in_statement3144); if (state.failed) return retval;
+                    match(input,WHILE,FOLLOW_WHILE_in_statement3147); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3146);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3149);
                     parenthesizedExpression64=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3150);
+                    pushFollow(FOLLOW_statement_in_statement3153);
                     stmnt=statement();
 
                     state._fsp--;
@@ -5793,7 +5809,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 490:9: -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st)
+                      // 496:9: -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st)
                       {
                           retval.st = templateLib.getInstanceOf("while",
                         new STAttrMap().put("parenthesizedExpression", (parenthesizedExpression64!=null?parenthesizedExpression64.st:null)).put("statement", (stmnt!=null?stmnt.st:null)));
@@ -5803,17 +5819,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:491:9: ^( DO stmnt= statement parenthesizedExpression )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:497:9: ^( DO stmnt= statement parenthesizedExpression )
                     {
-                    match(input,DO,FOLLOW_DO_in_statement3184); if (state.failed) return retval;
+                    match(input,DO,FOLLOW_DO_in_statement3187); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3188);
+                    pushFollow(FOLLOW_statement_in_statement3191);
                     stmnt=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3190);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3193);
                     parenthesizedExpression65=parenthesizedExpression();
 
                     state._fsp--;
@@ -5824,7 +5840,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 492:9: -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st)
+                      // 498:9: -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st)
                       {
                           retval.st = templateLib.getInstanceOf("do",
                         new STAttrMap().put("statement", (stmnt!=null?stmnt.st:null)).put("parenthesizedExpression", (parenthesizedExpression65!=null?parenthesizedExpression65.st:null)));
@@ -5834,17 +5850,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:493:9: ^( TRY tryblock= block ( catches )? (restblock= block )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:499:9: ^( TRY tryblock= block ( catches )? (restblock= block )? )
                     {
-                    match(input,TRY,FOLLOW_TRY_in_statement3224); if (state.failed) return retval;
+                    match(input,TRY,FOLLOW_TRY_in_statement3227); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_statement3228);
+                    pushFollow(FOLLOW_block_in_statement3231);
                     tryblock=block();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:493:30: ( catches )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:499:30: ( catches )?
                     int alt76=2;
                     int LA76_0 = input.LA(1);
 
@@ -5855,7 +5871,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: catches
                             {
-                            pushFollow(FOLLOW_catches_in_statement3230);
+                            pushFollow(FOLLOW_catches_in_statement3233);
                             catches66=catches();
 
                             state._fsp--;
@@ -5866,7 +5882,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:493:48: (restblock= block )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:499:48: (restblock= block )?
                     int alt77=2;
                     int LA77_0 = input.LA(1);
 
@@ -5877,7 +5893,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: restblock= block
                             {
-                            pushFollow(FOLLOW_block_in_statement3235);
+                            pushFollow(FOLLOW_block_in_statement3238);
                             restblock=block();
 
                             state._fsp--;
@@ -5894,7 +5910,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 494:9: -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st)
+                      // 500:9: -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st)
                       {
                           retval.st = templateLib.getInstanceOf("try",
                         new STAttrMap().put("tryblock", (tryblock!=null?tryblock.st:null)).put("catches", (catches66!=null?catches66.st:null)).put("restblock", (restblock!=null?restblock.st:null)));
@@ -5904,17 +5920,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:495:9: ^( SWITCH parenthesizedExpression switchBlockLabels )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:501:9: ^( SWITCH parenthesizedExpression switchBlockLabels )
                     {
-                    match(input,SWITCH,FOLLOW_SWITCH_in_statement3276); if (state.failed) return retval;
+                    match(input,SWITCH,FOLLOW_SWITCH_in_statement3279); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3278);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3281);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_switchBlockLabels_in_statement3280);
+                    pushFollow(FOLLOW_switchBlockLabels_in_statement3283);
                     switchBlockLabels();
 
                     state._fsp--;
@@ -5925,17 +5941,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:496:9: ^( SYNCHRONIZED parenthesizedExpression block )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:502:9: ^( SYNCHRONIZED parenthesizedExpression block )
                     {
-                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement3292); if (state.failed) return retval;
+                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement3295); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3294);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3297);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_statement3296);
+                    pushFollow(FOLLOW_block_in_statement3299);
                     block67=block();
 
                     state._fsp--;
@@ -5946,7 +5962,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 497:9: -> template(block=$block.st) \"/*synchronized*/ <block>\"
+                      // 503:9: -> template(block=$block.st) \"/*synchronized*/ <block>\"
                       {
                           retval.st = new StringTemplate(templateLib, "/*synchronized*/ <block>",
                         new STAttrMap().put("block", (block67!=null?block67.st:null)));
@@ -5956,13 +5972,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:498:9: ^( RETURN ( expression )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:504:9: ^( RETURN ( expression )? )
                     {
-                    match(input,RETURN,FOLLOW_RETURN_in_statement3327); if (state.failed) return retval;
+                    match(input,RETURN,FOLLOW_RETURN_in_statement3330); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:498:18: ( expression )?
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:504:18: ( expression )?
                         int alt78=2;
                         int LA78_0 = input.LA(1);
 
@@ -5973,7 +5989,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: expression
                                 {
-                                pushFollow(FOLLOW_expression_in_statement3329);
+                                pushFollow(FOLLOW_expression_in_statement3332);
                                 expression68=expression();
 
                                 state._fsp--;
@@ -5991,7 +6007,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 499:9: -> return(expression=$expression.st)
+                      // 505:9: -> return(expression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("return",
                         new STAttrMap().put("expression", (expression68!=null?expression68.st:null)));
@@ -6001,12 +6017,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:500:9: ^( THROW expression )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:506:9: ^( THROW expression )
                     {
-                    match(input,THROW,FOLLOW_THROW_in_statement3359); if (state.failed) return retval;
+                    match(input,THROW,FOLLOW_THROW_in_statement3362); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement3361);
+                    pushFollow(FOLLOW_expression_in_statement3364);
                     expression69=expression();
 
                     state._fsp--;
@@ -6017,7 +6033,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 501:9: -> throw(expression=$expression.st)
+                      // 507:9: -> throw(expression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("throw",
                         new STAttrMap().put("expression", (expression69!=null?expression69.st:null)));
@@ -6027,13 +6043,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:502:9: ^( BREAK ( IDENT )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:508:9: ^( BREAK ( IDENT )? )
                     {
-                    match(input,BREAK,FOLLOW_BREAK_in_statement3390); if (state.failed) return retval;
+                    match(input,BREAK,FOLLOW_BREAK_in_statement3393); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:502:17: ( IDENT )?
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:508:17: ( IDENT )?
                         int alt79=2;
                         int LA79_0 = input.LA(1);
 
@@ -6044,7 +6060,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: IDENT
                                 {
-                                IDENT70=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3392); if (state.failed) return retval;
+                                IDENT70=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3395); if (state.failed) return retval;
 
                                 }
                                 break;
@@ -6058,7 +6074,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 503:9: -> break(ident=$IDENT.text)
+                      // 509:9: -> break(ident=$IDENT.text)
                       {
                           retval.st = templateLib.getInstanceOf("break",
                         new STAttrMap().put("ident", (IDENT70!=null?IDENT70.getText():null)));
@@ -6068,13 +6084,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:504:9: ^( CONTINUE ( IDENT )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:510:9: ^( CONTINUE ( IDENT )? )
                     {
-                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement3422); if (state.failed) return retval;
+                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement3425); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:504:20: ( IDENT )?
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:510:20: ( IDENT )?
                         int alt80=2;
                         int LA80_0 = input.LA(1);
 
@@ -6085,7 +6101,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: IDENT
                                 {
-                                IDENT71=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3424); if (state.failed) return retval;
+                                IDENT71=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3427); if (state.failed) return retval;
 
                                 }
                                 break;
@@ -6099,7 +6115,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 505:9: -> continue(ident=$IDENT.text)
+                      // 511:9: -> continue(ident=$IDENT.text)
                       {
                           retval.st = templateLib.getInstanceOf("continue",
                         new STAttrMap().put("ident", (IDENT71!=null?IDENT71.getText():null)));
@@ -6109,13 +6125,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:506:9: ^( LABELED_STATEMENT IDENT stmnt= statement )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:512:9: ^( LABELED_STATEMENT IDENT stmnt= statement )
                     {
-                    match(input,LABELED_STATEMENT,FOLLOW_LABELED_STATEMENT_in_statement3454); if (state.failed) return retval;
+                    match(input,LABELED_STATEMENT,FOLLOW_LABELED_STATEMENT_in_statement3457); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_statement3456); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3460);
+                    match(input,IDENT,FOLLOW_IDENT_in_statement3459); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statement_in_statement3463);
                     stmnt=statement();
 
                     state._fsp--;
@@ -6126,7 +6142,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 507:9: -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\"
+                      // 513:9: -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\"
                       {
                           retval.st = new StringTemplate(templateLib, "/*labeled*/ <statement>",
                         new STAttrMap().put("statement", (stmnt!=null?stmnt.st:null)));
@@ -6136,9 +6152,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 16 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:508:9: expression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:514:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_statement3490);
+                    pushFollow(FOLLOW_expression_in_statement3493);
                     expression72=expression();
 
                     state._fsp--;
@@ -6147,7 +6163,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 508:20: -> statement(expression=$expression.st)
+                      // 514:20: -> statement(expression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("statement",
                         new STAttrMap().put("expression", (expression72!=null?expression72.st:null)));
@@ -6157,9 +6173,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 17 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:509:9: SEMI
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:515:9: SEMI
                     {
-                    match(input,SEMI,FOLLOW_SEMI_in_statement3509); if (state.failed) return retval;
+                    match(input,SEMI,FOLLOW_SEMI_in_statement3512); if (state.failed) return retval;
 
                     }
                     break;
@@ -6184,20 +6200,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "catches"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:512:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:518:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final Generator.catches_return catches() throws RecognitionException {
         Generator.catches_return retval = new Generator.catches_return();
         retval.start = input.LT(1);
         int catches_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:513:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:513:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:519:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:519:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
-            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches3538); if (state.failed) return retval;
+            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches3541); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:513:29: ( catchClause )+
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:519:29: ( catchClause )+
             int cnt82=0;
             loop82:
             do {
@@ -6213,7 +6229,7 @@ public class Generator extends TreeParser {
             	case 1 :
             	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: catchClause
             	    {
-            	    pushFollow(FOLLOW_catchClause_in_catches3540);
+            	    pushFollow(FOLLOW_catchClause_in_catches3543);
             	    catchClause();
 
             	    state._fsp--;
@@ -6256,25 +6272,25 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "catchClause"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:516:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:522:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
     public final Generator.catchClause_return catchClause() throws RecognitionException {
         Generator.catchClause_return retval = new Generator.catchClause_return();
         retval.start = input.LT(1);
         int catchClause_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:517:5: ( ^( CATCH formalParameterStandardDecl block ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:517:9: ^( CATCH formalParameterStandardDecl block )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:523:5: ( ^( CATCH formalParameterStandardDecl block ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:523:9: ^( CATCH formalParameterStandardDecl block )
             {
-            match(input,CATCH,FOLLOW_CATCH_in_catchClause3566); if (state.failed) return retval;
+            match(input,CATCH,FOLLOW_CATCH_in_catchClause3569); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause3568);
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause3571);
             formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_block_in_catchClause3570);
+            pushFollow(FOLLOW_block_in_catchClause3573);
             block();
 
             state._fsp--;
@@ -6303,21 +6319,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "switchBlockLabels"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:520:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:526:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
     public final Generator.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
         Generator.switchBlockLabels_return retval = new Generator.switchBlockLabels_return();
         retval.start = input.LT(1);
         int switchBlockLabels_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
             {
-            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3591); if (state.failed) return retval;
+            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3594); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:35: ( switchCaseLabel )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:35: ( switchCaseLabel )*
                 loop83:
                 do {
                     int alt83=2;
@@ -6338,7 +6354,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3593);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3596);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -6352,7 +6368,7 @@ public class Generator extends TreeParser {
                     }
                 } while (true);
 
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:52: ( switchDefaultLabel )?
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:52: ( switchDefaultLabel )?
                 int alt84=2;
                 int LA84_0 = input.LA(1);
 
@@ -6363,7 +6379,7 @@ public class Generator extends TreeParser {
                     case 1 :
                         // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: switchDefaultLabel
                         {
-                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels3596);
+                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels3599);
                         switchDefaultLabel();
 
                         state._fsp--;
@@ -6374,7 +6390,7 @@ public class Generator extends TreeParser {
 
                 }
 
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:72: ( switchCaseLabel )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:72: ( switchCaseLabel )*
                 loop85:
                 do {
                     int alt85=2;
@@ -6389,7 +6405,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3599);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3602);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -6428,25 +6444,25 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "switchCaseLabel"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:524:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:530:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
     public final Generator.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
         Generator.switchCaseLabel_return retval = new Generator.switchCaseLabel_return();
         retval.start = input.LT(1);
         int switchCaseLabel_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:525:5: ( ^( CASE expression ( blockStatement )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:525:9: ^( CASE expression ( blockStatement )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:531:5: ( ^( CASE expression ( blockStatement )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:531:9: ^( CASE expression ( blockStatement )* )
             {
-            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel3629); if (state.failed) return retval;
+            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel3632); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_switchCaseLabel3631);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel3634);
             expression();
 
             state._fsp--;
             if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:525:27: ( blockStatement )*
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:531:27: ( blockStatement )*
             loop86:
             do {
                 int alt86=2;
@@ -6461,7 +6477,7 @@ public class Generator extends TreeParser {
             	case 1 :
             	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel3633);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel3636);
             	    blockStatement();
 
             	    state._fsp--;
@@ -6499,21 +6515,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "switchDefaultLabel"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:528:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:534:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
     public final Generator.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
         Generator.switchDefaultLabel_return retval = new Generator.switchDefaultLabel_return();
         retval.start = input.LT(1);
         int switchDefaultLabel_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:529:5: ( ^( DEFAULT ( blockStatement )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:529:9: ^( DEFAULT ( blockStatement )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:535:5: ( ^( DEFAULT ( blockStatement )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:535:9: ^( DEFAULT ( blockStatement )* )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel3659); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel3662); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:529:19: ( blockStatement )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:535:19: ( blockStatement )*
                 loop87:
                 do {
                     int alt87=2;
@@ -6528,7 +6544,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: blockStatement
                 	    {
-                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel3661);
+                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel3664);
                 	    blockStatement();
 
                 	    state._fsp--;
@@ -6567,7 +6583,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "forInit"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:532:1: forInit : ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions);
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:538:1: forInit : ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions);
     public final Generator.forInit_return forInit() throws RecognitionException {
         Generator.forInit_return retval = new Generator.forInit_return();
         retval.start = input.LT(1);
@@ -6579,14 +6595,14 @@ public class Generator extends TreeParser {
          expressions = null;
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:533:5: ( ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions))
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:533:9: ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:539:5: ( ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions))
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:539:9: ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? )
             {
-            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit3687); if (state.failed) return retval;
+            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit3690); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:534:11: ( localVariableDeclaration | (expressions+= expression )* )?
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:540:11: ( localVariableDeclaration | (expressions+= expression )* )?
                 int alt89=3;
                 switch ( input.LA(1) ) {
                     case VAR_DECLARATION:
@@ -6612,9 +6628,9 @@ public class Generator extends TreeParser {
 
                 switch (alt89) {
                     case 1 :
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:535:14: localVariableDeclaration
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:541:14: localVariableDeclaration
                         {
-                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit3715);
+                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit3718);
                         localVariableDeclaration73=localVariableDeclaration();
 
                         state._fsp--;
@@ -6623,9 +6639,9 @@ public class Generator extends TreeParser {
                         }
                         break;
                     case 2 :
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:13: (expressions+= expression )*
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: (expressions+= expression )*
                         {
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:13: (expressions+= expression )*
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: (expressions+= expression )*
                         loop88:
                         do {
                             int alt88=2;
@@ -6638,9 +6654,9 @@ public class Generator extends TreeParser {
 
                             switch (alt88) {
                         	case 1 :
-                        	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:14: expressions+= expression
+                        	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:14: expressions+= expression
                         	    {
-                        	    pushFollow(FOLLOW_expression_in_forInit3733);
+                        	    pushFollow(FOLLOW_expression_in_forInit3736);
                         	    expressions=expression();
 
                         	    state._fsp--;
@@ -6670,7 +6686,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 539:9: -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions)
+              // 545:9: -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions)
               {
                   retval.st = templateLib.getInstanceOf("forinit",
                 new STAttrMap().put("localVariableDeclaration", (localVariableDeclaration73!=null?localVariableDeclaration73.st:null)).put("expressions", list_expressions));
@@ -6698,7 +6714,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "forCondition"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:548:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
     public final Generator.forCondition_return forCondition() throws RecognitionException {
         Generator.forCondition_return retval = new Generator.forCondition_return();
         retval.start = input.LT(1);
@@ -6708,14 +6724,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:543:5: ( ^( FOR_CONDITION ( expression )? ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:543:9: ^( FOR_CONDITION ( expression )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:549:5: ( ^( FOR_CONDITION ( expression )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:549:9: ^( FOR_CONDITION ( expression )? )
             {
-            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition3804); if (state.failed) return retval;
+            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition3807); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:543:25: ( expression )?
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:549:25: ( expression )?
                 int alt90=2;
                 int LA90_0 = input.LA(1);
 
@@ -6724,9 +6740,9 @@ public class Generator extends TreeParser {
                 }
                 switch (alt90) {
                     case 1 :
-                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:543:26: expression
+                        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:549:26: expression
                         {
-                        pushFollow(FOLLOW_expression_in_forCondition3807);
+                        pushFollow(FOLLOW_expression_in_forCondition3810);
                         expression74=expression();
 
                         state._fsp--;
@@ -6765,7 +6781,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "forUpdater"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:546:1: forUpdater : ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions);
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:552:1: forUpdater : ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions);
     public final Generator.forUpdater_return forUpdater() throws RecognitionException {
         Generator.forUpdater_return retval = new Generator.forUpdater_return();
         retval.start = input.LT(1);
@@ -6775,14 +6791,14 @@ public class Generator extends TreeParser {
          expressions = null;
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:547:5: ( ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions))
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:547:9: ^( FOR_UPDATE (expressions+= expression )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:553:5: ( ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions))
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:553:9: ^( FOR_UPDATE (expressions+= expression )* )
             {
-            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater3836); if (state.failed) return retval;
+            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater3839); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:547:22: (expressions+= expression )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:553:22: (expressions+= expression )*
                 loop91:
                 do {
                     int alt91=2;
@@ -6795,9 +6811,9 @@ public class Generator extends TreeParser {
 
                     switch (alt91) {
                 	case 1 :
-                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:547:23: expressions+= expression
+                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:553:23: expressions+= expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_forUpdater3841);
+                	    pushFollow(FOLLOW_expression_in_forUpdater3844);
                 	    expressions=expression();
 
                 	    state._fsp--;
@@ -6821,7 +6837,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 548:9: -> forUpdater(expressions=$expressions)
+              // 554:9: -> forUpdater(expressions=$expressions)
               {
                   retval.st = templateLib.getInstanceOf("forUpdater",
                 new STAttrMap().put("expressions", list_expressions));
@@ -6849,7 +6865,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "parenthesizedExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:553:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st);
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:559:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st);
     public final Generator.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
         Generator.parenthesizedExpression_return retval = new Generator.parenthesizedExpression_return();
         retval.start = input.LT(1);
@@ -6859,13 +6875,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:554:5: ( ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st))
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:554:9: ^( PARENTESIZED_EXPR expression )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:560:5: ( ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st))
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:560:9: ^( PARENTESIZED_EXPR expression )
             {
-            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3887); if (state.failed) return retval;
+            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3890); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression3889);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression3892);
             expression75=expression();
 
             state._fsp--;
@@ -6876,7 +6892,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 555:9: -> parenthesizedExpression(expression=$expression.st)
+              // 561:9: -> parenthesizedExpression(expression=$expression.st)
               {
                   retval.st = templateLib.getInstanceOf("parenthesizedExpression",
                 new STAttrMap().put("expression", (expression75!=null?expression75.st:null)));
@@ -6904,7 +6920,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "expression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:558:1: expression : ^( EXPR expr ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:564:1: expression : ^( EXPR expr ) ;
     public final Generator.expression_return expression() throws RecognitionException {
         Generator.expression_return retval = new Generator.expression_return();
         retval.start = input.LT(1);
@@ -6914,13 +6930,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:559:5: ( ^( EXPR expr ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:559:9: ^( EXPR expr )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:565:5: ( ^( EXPR expr ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:565:9: ^( EXPR expr )
             {
-            match(input,EXPR,FOLLOW_EXPR_in_expression3930); if (state.failed) return retval;
+            match(input,EXPR,FOLLOW_EXPR_in_expression3933); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expr_in_expression3932);
+            pushFollow(FOLLOW_expr_in_expression3935);
             expr76=expr();
 
             state._fsp--;
@@ -6952,7 +6968,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "expr"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:562:1: expr : ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:568:1: expr : ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
     public final Generator.expr_return expr() throws RecognitionException {
         Generator.expr_return retval = new Generator.expr_return();
         retval.start = input.LT(1);
@@ -6966,7 +6982,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:563:5: ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:569:5: ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
             int alt92=43;
             switch ( input.LA(1) ) {
             case ASSIGN:
@@ -7214,17 +7230,17 @@ public class Generator extends TreeParser {
 
             switch (alt92) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:563:9: ^( ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:569:9: ^( ASSIGN a= expr b= expr )
                     {
-                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr3955); if (state.failed) return retval;
+                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr3958); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3959);
+                    pushFollow(FOLLOW_expr_in_expr3962);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3963);
+                    pushFollow(FOLLOW_expr_in_expr3966);
                     b=expr();
 
                     state._fsp--;
@@ -7235,7 +7251,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 563:33: -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st)
+                      // 569:33: -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "=").put("b", (b!=null?b.st:null)));
@@ -7245,17 +7261,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:564:9: ^( PLUS_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:570:9: ^( PLUS_ASSIGN a= expr b= expr )
                     {
-                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr3992); if (state.failed) return retval;
+                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr3995); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3996);
+                    pushFollow(FOLLOW_expr_in_expr3999);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4000);
+                    pushFollow(FOLLOW_expr_in_expr4003);
                     b=expr();
 
                     state._fsp--;
@@ -7266,7 +7282,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 564:38: -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st)
+                      // 570:38: -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "+=").put("b", (b!=null?b.st:null)));
@@ -7276,17 +7292,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:565:9: ^( MINUS_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:571:9: ^( MINUS_ASSIGN a= expr b= expr )
                     {
-                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr4029); if (state.failed) return retval;
+                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr4032); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4033);
+                    pushFollow(FOLLOW_expr_in_expr4036);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4037);
+                    pushFollow(FOLLOW_expr_in_expr4040);
                     b=expr();
 
                     state._fsp--;
@@ -7297,7 +7313,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 565:39: -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st)
+                      // 571:39: -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "-=").put("b", (b!=null?b.st:null)));
@@ -7307,17 +7323,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:566:9: ^( STAR_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:572:9: ^( STAR_ASSIGN a= expr b= expr )
                     {
-                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr4066); if (state.failed) return retval;
+                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr4069); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4070);
+                    pushFollow(FOLLOW_expr_in_expr4073);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4074);
+                    pushFollow(FOLLOW_expr_in_expr4077);
                     b=expr();
 
                     state._fsp--;
@@ -7328,7 +7344,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 566:38: -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st)
+                      // 572:38: -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "*=").put("b", (b!=null?b.st:null)));
@@ -7338,17 +7354,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:567:9: ^( DIV_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:573:9: ^( DIV_ASSIGN a= expr b= expr )
                     {
-                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr4103); if (state.failed) return retval;
+                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr4106); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4107);
+                    pushFollow(FOLLOW_expr_in_expr4110);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4111);
+                    pushFollow(FOLLOW_expr_in_expr4114);
                     b=expr();
 
                     state._fsp--;
@@ -7359,7 +7375,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 567:37: -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st)
+                      // 573:37: -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "/=").put("b", (b!=null?b.st:null)));
@@ -7369,17 +7385,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:568:9: ^( AND_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:574:9: ^( AND_ASSIGN a= expr b= expr )
                     {
-                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr4140); if (state.failed) return retval;
+                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr4143); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4144);
+                    pushFollow(FOLLOW_expr_in_expr4147);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4148);
+                    pushFollow(FOLLOW_expr_in_expr4151);
                     b=expr();
 
                     state._fsp--;
@@ -7390,7 +7406,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 568:37: -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st)
+                      // 574:37: -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&=").put("b", (b!=null?b.st:null)));
@@ -7400,17 +7416,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:569:9: ^( OR_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:575:9: ^( OR_ASSIGN a= expr b= expr )
                     {
-                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr4177); if (state.failed) return retval;
+                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr4180); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4181);
+                    pushFollow(FOLLOW_expr_in_expr4184);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4185);
+                    pushFollow(FOLLOW_expr_in_expr4188);
                     b=expr();
 
                     state._fsp--;
@@ -7421,7 +7437,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 569:36: -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st)
+                      // 575:36: -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "|=").put("b", (b!=null?b.st:null)));
@@ -7431,17 +7447,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:570:9: ^( XOR_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:576:9: ^( XOR_ASSIGN a= expr b= expr )
                     {
-                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr4214); if (state.failed) return retval;
+                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr4217); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4218);
+                    pushFollow(FOLLOW_expr_in_expr4221);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4222);
+                    pushFollow(FOLLOW_expr_in_expr4225);
                     b=expr();
 
                     state._fsp--;
@@ -7452,7 +7468,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 570:37: -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st)
+                      // 576:37: -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "^=").put("b", (b!=null?b.st:null)));
@@ -7462,17 +7478,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:571:9: ^( MOD_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:577:9: ^( MOD_ASSIGN a= expr b= expr )
                     {
-                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr4251); if (state.failed) return retval;
+                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr4254); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4255);
+                    pushFollow(FOLLOW_expr_in_expr4258);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4259);
+                    pushFollow(FOLLOW_expr_in_expr4262);
                     b=expr();
 
                     state._fsp--;
@@ -7483,7 +7499,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 571:37: -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st)
+                      // 577:37: -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "%=").put("b", (b!=null?b.st:null)));
@@ -7493,17 +7509,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:572:9: ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:578:9: ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4288); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4291); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4292);
+                    pushFollow(FOLLOW_expr_in_expr4295);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4296);
+                    pushFollow(FOLLOW_expr_in_expr4299);
                     b=expr();
 
                     state._fsp--;
@@ -7514,7 +7530,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 572:49: -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st)
+                      // 578:49: -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>>=").put("b", (b!=null?b.st:null)));
@@ -7524,17 +7540,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:573:9: ^( SHIFT_RIGHT_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:579:9: ^( SHIFT_RIGHT_ASSIGN a= expr b= expr )
                     {
-                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4325); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4328); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4329);
+                    pushFollow(FOLLOW_expr_in_expr4332);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4333);
+                    pushFollow(FOLLOW_expr_in_expr4336);
                     b=expr();
 
                     state._fsp--;
@@ -7545,7 +7561,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 573:45: -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st)
+                      // 579:45: -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>=").put("b", (b!=null?b.st:null)));
@@ -7555,17 +7571,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:574:9: ^( SHIFT_LEFT_ASSIGN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:580:9: ^( SHIFT_LEFT_ASSIGN a= expr b= expr )
                     {
-                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4362); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4365); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4366);
+                    pushFollow(FOLLOW_expr_in_expr4369);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4370);
+                    pushFollow(FOLLOW_expr_in_expr4373);
                     b=expr();
 
                     state._fsp--;
@@ -7576,7 +7592,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 574:44: -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st)
+                      // 580:44: -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<<=").put("b", (b!=null?b.st:null)));
@@ -7586,22 +7602,22 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:575:9: ^( QUESTION a= expr b= expr expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:581:9: ^( QUESTION a= expr b= expr expr )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_expr4399); if (state.failed) return retval;
+                    match(input,QUESTION,FOLLOW_QUESTION_in_expr4402); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4403);
+                    pushFollow(FOLLOW_expr_in_expr4406);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4407);
+                    pushFollow(FOLLOW_expr_in_expr4410);
                     b=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4409);
+                    pushFollow(FOLLOW_expr_in_expr4412);
                     expr();
 
                     state._fsp--;
@@ -7612,17 +7628,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:576:9: ^( LOGICAL_OR a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:582:9: ^( LOGICAL_OR a= expr b= expr )
                     {
-                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr4422); if (state.failed) return retval;
+                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr4425); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4426);
+                    pushFollow(FOLLOW_expr_in_expr4429);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4430);
+                    pushFollow(FOLLOW_expr_in_expr4433);
                     b=expr();
 
                     state._fsp--;
@@ -7633,7 +7649,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 576:38: -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st)
+                      // 582:38: -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "||").put("b", (b!=null?b.st:null)));
@@ -7643,17 +7659,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:577:9: ^( LOGICAL_AND a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:583:9: ^( LOGICAL_AND a= expr b= expr )
                     {
-                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr4460); if (state.failed) return retval;
+                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr4463); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4464);
+                    pushFollow(FOLLOW_expr_in_expr4467);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4468);
+                    pushFollow(FOLLOW_expr_in_expr4471);
                     b=expr();
 
                     state._fsp--;
@@ -7664,7 +7680,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 577:38: -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st)
+                      // 583:38: -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&&").put("b", (b!=null?b.st:null)));
@@ -7674,17 +7690,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 16 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:578:9: ^( OR a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:584:9: ^( OR a= expr b= expr )
                     {
-                    match(input,OR,FOLLOW_OR_in_expr4497); if (state.failed) return retval;
+                    match(input,OR,FOLLOW_OR_in_expr4500); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4501);
+                    pushFollow(FOLLOW_expr_in_expr4504);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4505);
+                    pushFollow(FOLLOW_expr_in_expr4508);
                     b=expr();
 
                     state._fsp--;
@@ -7695,7 +7711,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 578:29: -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st)
+                      // 584:29: -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "|").put("b", (b!=null?b.st:null)));
@@ -7705,17 +7721,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 17 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:579:9: ^( XOR a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:585:9: ^( XOR a= expr b= expr )
                     {
-                    match(input,XOR,FOLLOW_XOR_in_expr4534); if (state.failed) return retval;
+                    match(input,XOR,FOLLOW_XOR_in_expr4537); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4538);
+                    pushFollow(FOLLOW_expr_in_expr4541);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4542);
+                    pushFollow(FOLLOW_expr_in_expr4545);
                     b=expr();
 
                     state._fsp--;
@@ -7726,7 +7742,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 579:30: -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st)
+                      // 585:30: -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "^").put("b", (b!=null?b.st:null)));
@@ -7736,17 +7752,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 18 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:580:9: ^( AND a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:586:9: ^( AND a= expr b= expr )
                     {
-                    match(input,AND,FOLLOW_AND_in_expr4571); if (state.failed) return retval;
+                    match(input,AND,FOLLOW_AND_in_expr4574); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4575);
+                    pushFollow(FOLLOW_expr_in_expr4578);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4579);
+                    pushFollow(FOLLOW_expr_in_expr4582);
                     b=expr();
 
                     state._fsp--;
@@ -7757,7 +7773,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 580:30: -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st)
+                      // 586:30: -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&").put("b", (b!=null?b.st:null)));
@@ -7767,17 +7783,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 19 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:581:9: ^( EQUAL a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:587:9: ^( EQUAL a= expr b= expr )
                     {
-                    match(input,EQUAL,FOLLOW_EQUAL_in_expr4608); if (state.failed) return retval;
+                    match(input,EQUAL,FOLLOW_EQUAL_in_expr4611); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4612);
+                    pushFollow(FOLLOW_expr_in_expr4615);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4616);
+                    pushFollow(FOLLOW_expr_in_expr4619);
                     b=expr();
 
                     state._fsp--;
@@ -7788,7 +7804,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 581:32: -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st)
+                      // 587:32: -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "==").put("b", (b!=null?b.st:null)));
@@ -7798,17 +7814,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 20 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:582:9: ^( NOT_EQUAL a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:588:9: ^( NOT_EQUAL a= expr b= expr )
                     {
-                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr4645); if (state.failed) return retval;
+                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr4648); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4649);
+                    pushFollow(FOLLOW_expr_in_expr4652);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4653);
+                    pushFollow(FOLLOW_expr_in_expr4656);
                     b=expr();
 
                     state._fsp--;
@@ -7819,7 +7835,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 582:36: -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st)
+                      // 588:36: -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "!=").put("b", (b!=null?b.st:null)));
@@ -7829,17 +7845,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 21 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:583:9: ^( INSTANCEOF expr type )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:589:9: ^( INSTANCEOF expr type )
                     {
-                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr4682); if (state.failed) return retval;
+                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr4685); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4684);
+                    pushFollow(FOLLOW_expr_in_expr4687);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr4686);
+                    pushFollow(FOLLOW_type_in_expr4689);
                     type();
 
                     state._fsp--;
@@ -7850,17 +7866,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 22 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:584:9: ^( LESS_OR_EQUAL a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:590:9: ^( LESS_OR_EQUAL a= expr b= expr )
                     {
-                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr4698); if (state.failed) return retval;
+                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr4701); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4702);
+                    pushFollow(FOLLOW_expr_in_expr4705);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4706);
+                    pushFollow(FOLLOW_expr_in_expr4709);
                     b=expr();
 
                     state._fsp--;
@@ -7871,7 +7887,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 584:41: -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st)
+                      // 590:41: -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<=").put("b", (b!=null?b.st:null)));
@@ -7881,17 +7897,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 23 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:585:9: ^( GREATER_OR_EQUAL a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:591:9: ^( GREATER_OR_EQUAL a= expr b= expr )
                     {
-                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr4736); if (state.failed) return retval;
+                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr4739); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4740);
+                    pushFollow(FOLLOW_expr_in_expr4743);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4744);
+                    pushFollow(FOLLOW_expr_in_expr4747);
                     b=expr();
 
                     state._fsp--;
@@ -7902,7 +7918,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 585:43: -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st)
+                      // 591:43: -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">=").put("b", (b!=null?b.st:null)));
@@ -7912,17 +7928,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 24 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:586:9: ^( BIT_SHIFT_RIGHT a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:592:9: ^( BIT_SHIFT_RIGHT a= expr b= expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr4773); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr4776); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4777);
+                    pushFollow(FOLLOW_expr_in_expr4780);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4781);
+                    pushFollow(FOLLOW_expr_in_expr4784);
                     b=expr();
 
                     state._fsp--;
@@ -7933,7 +7949,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 586:42: -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st)
+                      // 592:42: -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>>").put("b", (b!=null?b.st:null)));
@@ -7943,17 +7959,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 25 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:587:9: ^( SHIFT_RIGHT a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:593:9: ^( SHIFT_RIGHT a= expr b= expr )
                     {
-                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr4810); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr4813); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4814);
+                    pushFollow(FOLLOW_expr_in_expr4817);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4818);
+                    pushFollow(FOLLOW_expr_in_expr4821);
                     b=expr();
 
                     state._fsp--;
@@ -7964,7 +7980,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 587:38: -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st)
+                      // 593:38: -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>").put("b", (b!=null?b.st:null)));
@@ -7974,17 +7990,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 26 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:588:9: ^( GREATER_THAN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:594:9: ^( GREATER_THAN a= expr b= expr )
                     {
-                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr4847); if (state.failed) return retval;
+                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr4850); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4851);
+                    pushFollow(FOLLOW_expr_in_expr4854);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4855);
+                    pushFollow(FOLLOW_expr_in_expr4858);
                     b=expr();
 
                     state._fsp--;
@@ -7995,7 +8011,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 588:39: -> infix_binary_expr(a=$a.stop=\">\"b=$b.st)
+                      // 594:39: -> infix_binary_expr(a=$a.stop=\">\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">").put("b", (b!=null?b.st:null)));
@@ -8005,17 +8021,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 27 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:589:9: ^( SHIFT_LEFT a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:595:9: ^( SHIFT_LEFT a= expr b= expr )
                     {
-                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr4884); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr4887); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4888);
+                    pushFollow(FOLLOW_expr_in_expr4891);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4892);
+                    pushFollow(FOLLOW_expr_in_expr4895);
                     b=expr();
 
                     state._fsp--;
@@ -8026,7 +8042,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 589:37: -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st)
+                      // 595:37: -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<<").put("b", (b!=null?b.st:null)));
@@ -8036,17 +8052,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 28 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:590:9: ^( LESS_THAN a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:596:9: ^( LESS_THAN a= expr b= expr )
                     {
-                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr4921); if (state.failed) return retval;
+                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr4924); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4925);
+                    pushFollow(FOLLOW_expr_in_expr4928);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4929);
+                    pushFollow(FOLLOW_expr_in_expr4932);
                     b=expr();
 
                     state._fsp--;
@@ -8057,7 +8073,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 590:36: -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st)
+                      // 596:36: -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<").put("b", (b!=null?b.st:null)));
@@ -8067,17 +8083,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 29 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:591:9: ^( PLUS a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:597:9: ^( PLUS a= expr b= expr )
                     {
-                    match(input,PLUS,FOLLOW_PLUS_in_expr4958); if (state.failed) return retval;
+                    match(input,PLUS,FOLLOW_PLUS_in_expr4961); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4962);
+                    pushFollow(FOLLOW_expr_in_expr4965);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4966);
+                    pushFollow(FOLLOW_expr_in_expr4969);
                     b=expr();
 
                     state._fsp--;
@@ -8088,7 +8104,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 591:31: -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st)
+                      // 597:31: -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "+").put("b", (b!=null?b.st:null)));
@@ -8098,17 +8114,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 30 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:592:9: ^( MINUS a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:598:9: ^( MINUS a= expr b= expr )
                     {
-                    match(input,MINUS,FOLLOW_MINUS_in_expr4995); if (state.failed) return retval;
+                    match(input,MINUS,FOLLOW_MINUS_in_expr4998); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4999);
+                    pushFollow(FOLLOW_expr_in_expr5002);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5003);
+                    pushFollow(FOLLOW_expr_in_expr5006);
                     b=expr();
 
                     state._fsp--;
@@ -8119,7 +8135,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 592:32: -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st)
+                      // 598:32: -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "-").put("b", (b!=null?b.st:null)));
@@ -8129,17 +8145,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 31 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:593:9: ^( STAR a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:599:9: ^( STAR a= expr b= expr )
                     {
-                    match(input,STAR,FOLLOW_STAR_in_expr5032); if (state.failed) return retval;
+                    match(input,STAR,FOLLOW_STAR_in_expr5035); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5036);
+                    pushFollow(FOLLOW_expr_in_expr5039);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5040);
+                    pushFollow(FOLLOW_expr_in_expr5043);
                     b=expr();
 
                     state._fsp--;
@@ -8150,7 +8166,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 593:31: -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st)
+                      // 599:31: -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "*").put("b", (b!=null?b.st:null)));
@@ -8160,17 +8176,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 32 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:594:9: ^( DIV a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:600:9: ^( DIV a= expr b= expr )
                     {
-                    match(input,DIV,FOLLOW_DIV_in_expr5069); if (state.failed) return retval;
+                    match(input,DIV,FOLLOW_DIV_in_expr5072); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5073);
+                    pushFollow(FOLLOW_expr_in_expr5076);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5077);
+                    pushFollow(FOLLOW_expr_in_expr5080);
                     b=expr();
 
                     state._fsp--;
@@ -8181,7 +8197,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 594:30: -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st)
+                      // 600:30: -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "/").put("b", (b!=null?b.st:null)));
@@ -8191,17 +8207,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 33 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:595:9: ^( MOD a= expr b= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:601:9: ^( MOD a= expr b= expr )
                     {
-                    match(input,MOD,FOLLOW_MOD_in_expr5106); if (state.failed) return retval;
+                    match(input,MOD,FOLLOW_MOD_in_expr5109); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5110);
+                    pushFollow(FOLLOW_expr_in_expr5113);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5114);
+                    pushFollow(FOLLOW_expr_in_expr5117);
                     b=expr();
 
                     state._fsp--;
@@ -8212,7 +8228,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 595:30: -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st)
+                      // 601:30: -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "%").put("b", (b!=null?b.st:null)));
@@ -8222,12 +8238,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 34 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:596:9: ^( UNARY_PLUS a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:602:9: ^( UNARY_PLUS a= expr )
                     {
-                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr5143); if (state.failed) return retval;
+                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr5146); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5147);
+                    pushFollow(FOLLOW_expr_in_expr5150);
                     a=expr();
 
                     state._fsp--;
@@ -8238,7 +8254,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 596:30: -> prefix_unary_expr(op=\"+\"a=$a.st)
+                      // 602:30: -> prefix_unary_expr(op=\"+\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "+").put("a", (a!=null?a.st:null)));
@@ -8248,12 +8264,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 35 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:597:9: ^( UNARY_MINUS a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:603:9: ^( UNARY_MINUS a= expr )
                     {
-                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr5172); if (state.failed) return retval;
+                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr5175); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5176);
+                    pushFollow(FOLLOW_expr_in_expr5179);
                     a=expr();
 
                     state._fsp--;
@@ -8264,7 +8280,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 597:31: -> prefix_unary_expr(op=\"-\"a=$a.st)
+                      // 603:31: -> prefix_unary_expr(op=\"-\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "-").put("a", (a!=null?a.st:null)));
@@ -8274,12 +8290,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 36 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:598:9: ^( PRE_INC a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:604:9: ^( PRE_INC a= expr )
                     {
-                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr5202); if (state.failed) return retval;
+                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr5205); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5206);
+                    pushFollow(FOLLOW_expr_in_expr5209);
                     a=expr();
 
                     state._fsp--;
@@ -8290,7 +8306,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 598:27: -> prefix_unary_expr(op=\"++\"a=$a.st)
+                      // 604:27: -> prefix_unary_expr(op=\"++\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "++").put("a", (a!=null?a.st:null)));
@@ -8300,12 +8316,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 37 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:599:9: ^( PRE_DEC a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:605:9: ^( PRE_DEC a= expr )
                     {
-                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr5231); if (state.failed) return retval;
+                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr5234); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5235);
+                    pushFollow(FOLLOW_expr_in_expr5238);
                     a=expr();
 
                     state._fsp--;
@@ -8316,7 +8332,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 599:27: -> prefix_unary_expr(op=\"--\"a=$a.st)
+                      // 605:27: -> prefix_unary_expr(op=\"--\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "--").put("a", (a!=null?a.st:null)));
@@ -8326,12 +8342,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 38 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:600:9: ^( POST_INC a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:606:9: ^( POST_INC a= expr )
                     {
-                    match(input,POST_INC,FOLLOW_POST_INC_in_expr5260); if (state.failed) return retval;
+                    match(input,POST_INC,FOLLOW_POST_INC_in_expr5263); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5264);
+                    pushFollow(FOLLOW_expr_in_expr5267);
                     a=expr();
 
                     state._fsp--;
@@ -8342,7 +8358,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 600:28: -> postfix_unary_expr(op=\"++\"a=$a.st)
+                      // 606:28: -> postfix_unary_expr(op=\"++\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("postfix_unary_expr",
                         new STAttrMap().put("op", "++").put("a", (a!=null?a.st:null)));
@@ -8352,12 +8368,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 39 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:601:9: ^( POST_DEC a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:607:9: ^( POST_DEC a= expr )
                     {
-                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr5289); if (state.failed) return retval;
+                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr5292); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5293);
+                    pushFollow(FOLLOW_expr_in_expr5296);
                     a=expr();
 
                     state._fsp--;
@@ -8368,7 +8384,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 601:28: -> postfix_unary_expr(op=\"--\"a=$a.st)
+                      // 607:28: -> postfix_unary_expr(op=\"--\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("postfix_unary_expr",
                         new STAttrMap().put("op", "--").put("a", (a!=null?a.st:null)));
@@ -8378,12 +8394,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 40 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:602:9: ^( NOT a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:608:9: ^( NOT a= expr )
                     {
-                    match(input,NOT,FOLLOW_NOT_in_expr5318); if (state.failed) return retval;
+                    match(input,NOT,FOLLOW_NOT_in_expr5321); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5322);
+                    pushFollow(FOLLOW_expr_in_expr5325);
                     a=expr();
 
                     state._fsp--;
@@ -8394,7 +8410,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 602:23: -> prefix_unary_expr(op=\"!\"a=$a.st)
+                      // 608:23: -> prefix_unary_expr(op=\"!\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "!").put("a", (a!=null?a.st:null)));
@@ -8404,12 +8420,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 41 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:603:9: ^( LOGICAL_NOT a= expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:609:9: ^( LOGICAL_NOT a= expr )
                     {
-                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr5347); if (state.failed) return retval;
+                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr5350); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5351);
+                    pushFollow(FOLLOW_expr_in_expr5354);
                     a=expr();
 
                     state._fsp--;
@@ -8420,17 +8436,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 42 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:604:9: ^( CAST_EXPR type expr )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:610:9: ^( CAST_EXPR type expr )
                     {
-                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr5363); if (state.failed) return retval;
+                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr5366); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr5365);
+                    pushFollow(FOLLOW_type_in_expr5368);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5367);
+                    pushFollow(FOLLOW_expr_in_expr5370);
                     expr();
 
                     state._fsp--;
@@ -8441,9 +8457,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 43 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:605:9: primaryExpression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:611:9: primaryExpression
                     {
-                    pushFollow(FOLLOW_primaryExpression_in_expr5378);
+                    pushFollow(FOLLOW_primaryExpression_in_expr5381);
                     primaryExpression77=primaryExpression();
 
                     state._fsp--;
@@ -8475,7 +8491,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "primaryExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:608:1: primaryExpression : ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS -> template() \"this\" | arrayTypeDeclarator | SUPER );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:614:1: primaryExpression : ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS -> template() \"$this->\" | arrayTypeDeclarator | SUPER -> template() \"parent::\");
     public final Generator.primaryExpression_return primaryExpression() throws RecognitionException {
         Generator.primaryExpression_return retval = new Generator.primaryExpression_return();
         retval.start = input.LT(1);
@@ -8499,7 +8515,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:609:5: ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS -> template() \"this\" | arrayTypeDeclarator | SUPER )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:615:5: ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS -> template() \"$this->\" | arrayTypeDeclarator | SUPER -> template() \"parent::\")
             int alt96=11;
             switch ( input.LA(1) ) {
             case DOT:
@@ -8577,12 +8593,12 @@ public class Generator extends TreeParser {
 
             switch (alt96) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:609:9: ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:615:9: ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_primaryExpression5406); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_primaryExpression5409); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:610:13: (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:616:13: (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS )
                     int alt94=3;
                     switch ( input.LA(1) ) {
                     case DOT:
@@ -8637,14 +8653,14 @@ public class Generator extends TreeParser {
 
                     switch (alt94) {
                         case 1 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:610:17: pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:616:17: pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression5426);
+                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression5429);
                             pexr=primaryExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:611:17: ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:617:17: ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
                             int alt93=5;
                             switch ( input.LA(1) ) {
                             case IDENT:
@@ -8682,14 +8698,14 @@ public class Generator extends TreeParser {
 
                             switch (alt93) {
                                 case 1 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:611:21: IDENT
+                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:617:21: IDENT
                                     {
-                                    IDENT78=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5455); if (state.failed) return retval;
+                                    IDENT78=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5458); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 611:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\"
+                                      // 617:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>-><id>",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)).put("id", (IDENT78!=null?IDENT78.getText():null)));
@@ -8699,14 +8715,14 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 2 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:612:21: THIS
+                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:618:21: THIS
                                     {
-                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression5511); if (state.failed) return retval;
+                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression5514); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 612:46: -> template(exp=$pexr.st) \"<exp>.this\"
+                                      // 618:46: -> template(exp=$pexr.st) \"<exp>.this\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>.this",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)));
@@ -8716,14 +8732,14 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 3 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:613:21: SUPER
+                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:619:21: SUPER
                                     {
-                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression5581); if (state.failed) return retval;
+                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression5584); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 613:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\"
+                                      // 619:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>.super",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)).put("id", (IDENT78!=null?IDENT78.getText():null)));
@@ -8733,9 +8749,9 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 4 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:614:21: iexp= innerNewExpression
+                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:620:21: iexp= innerNewExpression
                                     {
-                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression5639);
+                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression5642);
                                     iexp=innerNewExpression();
 
                                     state._fsp--;
@@ -8744,7 +8760,7 @@ public class Generator extends TreeParser {
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 614:46: -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\"
+                                      // 620:46: -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<pexp>-><iexp>",
                                         new STAttrMap().put("pexp", (pexr!=null?pexr.st:null)).put("iexp", (iexp!=null?iexp.st:null)));
@@ -8754,14 +8770,14 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 5 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:615:21: CLASS
+                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:621:21: CLASS
                                     {
-                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5677); if (state.failed) return retval;
+                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5680); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 615:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\"
+                                      // 621:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>.class",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)).put("id", (IDENT78!=null?IDENT78.getText():null)));
@@ -8777,22 +8793,22 @@ public class Generator extends TreeParser {
                             }
                             break;
                         case 2 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:617:17: primitiveType CLASS
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:623:17: primitiveType CLASS
                             {
-                            pushFollow(FOLLOW_primitiveType_in_primaryExpression5747);
+                            pushFollow(FOLLOW_primitiveType_in_primaryExpression5750);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5749); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5752); if (state.failed) return retval;
 
                             }
                             break;
                         case 3 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:618:17: VOID CLASS
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:624:17: VOID CLASS
                             {
-                            match(input,VOID,FOLLOW_VOID_in_primaryExpression5767); if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5769); if (state.failed) return retval;
+                            match(input,VOID,FOLLOW_VOID_in_primaryExpression5770); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5772); if (state.failed) return retval;
 
                             }
                             break;
@@ -8805,9 +8821,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:621:9: parenthesizedExpression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:627:9: parenthesizedExpression
                     {
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression5803);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression5806);
                     parenthesizedExpression79=parenthesizedExpression();
 
                     state._fsp--;
@@ -8819,41 +8835,53 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:622:9: IDENT
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:628:9: IDENT
                     {
-                    IDENT80=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5815); if (state.failed) return retval;
+                    IDENT80=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5818); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
 
                                 String _ident = (IDENT80!=null?IDENT80.getText():null);
                                 JSource imprint = this.observer.getGrammarImprint();
                                 JClassDeclaration cls = imprint.getClassDeclaration(((typeDeclaration_scope)typeDeclaration_stack.peek()).identText);
+                                JMethodDeclaration mtd = (((classScopeDeclarations_scope)classScopeDeclarations_stack.peek()).methodname!=null) ? cls.findDefinedMethod(((classScopeDeclarations_scope)classScopeDeclarations_stack.peek()).methodname) : null;
                               
                                 if (cls != null) {
-                                  //check if ident was declared inside the current class             
+                                  //check if ident was declared inside the current class as method or property            
                                   if (cls.hasVariable(_ident)){ 
                                     _ident = "$this->" + _ident;              
                                   } else if (cls.hasMethod(_ident)) {
                                     _ident = "$this->" + _ident;
                                   }
+                                  //check if ident is a locally defined variable or bypassed method's parameter 
+                                  else if ( mtd != null) {
+                                    if (mtd.hasLocalVariable(_ident)) {
+                                      _ident = "$" + _ident;
+                                    } else if(mtd.hasFormalParameter(_ident)) {
+                                      _ident = "$" + _ident;
+                                    } else {
+                                      // maybe a static call - do nothing
+                                    }
+                                  }
+                                  
                                 }
-                                retval.st = new StringTemplate(templateLib,_ident);//new StringTemplate(_ident);
+                                retval.st = new StringTemplate(templateLib,_ident);
                               
                     }
 
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:639:9: ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:9: ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression5846); if (state.failed) return retval;
+                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression5866); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5850);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5870);
                     pexp=primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:639:46: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:46: ( genericTypeArgumentList )?
                     int alt95=2;
                     int LA95_0 = input.LA(1);
 
@@ -8864,7 +8892,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression5852);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression5872);
                             genericTypeArgumentList81=genericTypeArgumentList();
 
                             state._fsp--;
@@ -8875,7 +8903,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression5855);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression5875);
                     arguments82=arguments();
 
                     state._fsp--;
@@ -8886,7 +8914,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 640:9: -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst)
+                      // 657:9: -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst)
                       {
                           retval.st = templateLib.getInstanceOf("methodcall",
                         new STAttrMap().put("primaryExpression", (pexp!=null?pexp.st:null)).put("genericTypeArgumentList", (genericTypeArgumentList81!=null?genericTypeArgumentList81.st:null)).put("arguments", (arguments82!=null?arguments82.lst:null)));
@@ -8896,9 +8924,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:641:9: explicitConstructorCall
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:658:9: explicitConstructorCall
                     {
-                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression5893);
+                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression5913);
                     explicitConstructorCall();
 
                     state._fsp--;
@@ -8907,17 +8935,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:642:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:659:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
                     {
-                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression5904); if (state.failed) return retval;
+                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression5924); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5906);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5926);
                     primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_primaryExpression5908);
+                    pushFollow(FOLLOW_expression_in_primaryExpression5928);
                     expression();
 
                     state._fsp--;
@@ -8928,9 +8956,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:643:9: literal
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:660:9: literal
                     {
-                    pushFollow(FOLLOW_literal_in_primaryExpression5919);
+                    pushFollow(FOLLOW_literal_in_primaryExpression5939);
                     literal83=literal();
 
                     state._fsp--;
@@ -8942,9 +8970,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:644:9: newExpression
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:661:9: newExpression
                     {
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression5931);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression5951);
                     newExpression();
 
                     state._fsp--;
@@ -8953,25 +8981,25 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:645:9: THIS
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:662:9: THIS
                     {
-                    match(input,THIS,FOLLOW_THIS_in_primaryExpression5941); if (state.failed) return retval;
+                    match(input,THIS,FOLLOW_THIS_in_primaryExpression5961); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 645:14: -> template() \"this\"
+                      // 662:14: -> template() \"$this->\"
                       {
-                          retval.st = new StringTemplate(templateLib, "this");
+                          retval.st = new StringTemplate(templateLib, "$this->");
                       }
 
                     }
                     }
                     break;
                 case 10 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:646:9: arrayTypeDeclarator
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:663:9: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression5959);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression5979);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -8980,10 +9008,19 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:647:9: SUPER
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:664:9: SUPER
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression5969); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression5989); if (state.failed) return retval;
 
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 664:15: -> template() \"parent::\"
+                      {
+                          retval.st = new StringTemplate(templateLib, "parent::");
+                      }
+
+                    }
                     }
                     break;
 
@@ -9007,14 +9044,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "explicitConstructorCall"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:650:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:667:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
     public final Generator.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException {
         Generator.explicitConstructorCall_return retval = new Generator.explicitConstructorCall_return();
         retval.start = input.LT(1);
         int explicitConstructorCall_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:651:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:668:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
             int alt100=2;
             int LA100_0 = input.LA(1);
 
@@ -9033,12 +9070,12 @@ public class Generator extends TreeParser {
             }
             switch (alt100) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:651:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:668:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall5993); if (state.failed) return retval;
+                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall6021); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:651:33: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:668:33: ( genericTypeArgumentList )?
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
@@ -9049,7 +9086,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall5995);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6023);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -9060,7 +9097,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall5998);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6026);
                     arguments();
 
                     state._fsp--;
@@ -9071,12 +9108,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:652:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6010); if (state.failed) return retval;
+                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6038); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:652:34: ( primaryExpression )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:34: ( primaryExpression )?
                     int alt98=2;
                     int LA98_0 = input.LA(1);
 
@@ -9087,7 +9124,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: primaryExpression
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall6012);
+                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall6040);
                             primaryExpression();
 
                             state._fsp--;
@@ -9098,7 +9135,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:652:53: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:53: ( genericTypeArgumentList )?
                     int alt99=2;
                     int LA99_0 = input.LA(1);
 
@@ -9109,7 +9146,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6015);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6043);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -9120,7 +9157,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6018);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6046);
                     arguments();
 
                     state._fsp--;
@@ -9151,20 +9188,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arrayTypeDeclarator"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:655:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:672:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
     public final Generator.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException {
         Generator.arrayTypeDeclarator_return retval = new Generator.arrayTypeDeclarator_return();
         retval.start = input.LT(1);
         int arrayTypeDeclarator_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
-            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6039); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6067); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
             int alt101=3;
             switch ( input.LA(1) ) {
             case ARRAY_DECLARATOR:
@@ -9200,9 +9237,9 @@ public class Generator extends TreeParser {
 
             switch (alt101) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:29: arrayTypeDeclarator
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:29: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6042);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6070);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -9211,9 +9248,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:51: qualifiedIdentifier
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:51: qualifiedIdentifier
                     {
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6046);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6074);
                     qualifiedIdentifier();
 
                     state._fsp--;
@@ -9222,9 +9259,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:656:73: primitiveType
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:73: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator6050);
+                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator6078);
                     primitiveType();
 
                     state._fsp--;
@@ -9259,14 +9296,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "newExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:659:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:676:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
     public final Generator.newExpression_return newExpression() throws RecognitionException {
         Generator.newExpression_return retval = new Generator.newExpression_return();
         retval.start = input.LT(1);
         int newExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:660:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:677:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
             int alt106=2;
             int LA106_0 = input.LA(1);
 
@@ -9285,12 +9322,12 @@ public class Generator extends TreeParser {
             }
             switch (alt106) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:660:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:677:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
                     {
-                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6074); if (state.failed) return retval;
+                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6102); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:661:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:678:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
                     int alt103=2;
                     int LA103_0 = input.LA(1);
 
@@ -9309,14 +9346,14 @@ public class Generator extends TreeParser {
                     }
                     switch (alt103) {
                         case 1 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:661:17: primitiveType newArrayConstruction
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:678:17: primitiveType newArrayConstruction
                             {
-                            pushFollow(FOLLOW_primitiveType_in_newExpression6092);
+                            pushFollow(FOLLOW_primitiveType_in_newExpression6120);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6094);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6122);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -9325,9 +9362,9 @@ public class Generator extends TreeParser {
                             }
                             break;
                         case 2 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:662:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:679:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
                             {
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:662:17: ( genericTypeArgumentList )?
+                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:679:17: ( genericTypeArgumentList )?
                             int alt102=2;
                             int LA102_0 = input.LA(1);
 
@@ -9338,7 +9375,7 @@ public class Generator extends TreeParser {
                                 case 1 :
                                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                                     {
-                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6112);
+                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6140);
                                     genericTypeArgumentList();
 
                                     state._fsp--;
@@ -9349,12 +9386,12 @@ public class Generator extends TreeParser {
 
                             }
 
-                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6115);
+                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6143);
                             qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6117);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6145);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -9371,12 +9408,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:665:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:682:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
                     {
-                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6152); if (state.failed) return retval;
+                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6180); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:665:34: ( genericTypeArgumentList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:682:34: ( genericTypeArgumentList )?
                     int alt104=2;
                     int LA104_0 = input.LA(1);
 
@@ -9387,7 +9424,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6154);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6182);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -9398,17 +9435,17 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6157);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6185);
                     qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arguments_in_newExpression6159);
+                    pushFollow(FOLLOW_arguments_in_newExpression6187);
                     arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:665:88: ( classTopLevelScope )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:682:88: ( classTopLevelScope )?
                     int alt105=2;
                     int LA105_0 = input.LA(1);
 
@@ -9419,7 +9456,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: classTopLevelScope
                             {
-                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression6161);
+                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression6189);
                             classTopLevelScope();
 
                             state._fsp--;
@@ -9456,20 +9493,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "innerNewExpression"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:668:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:685:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
     public final Generator.innerNewExpression_return innerNewExpression() throws RecognitionException {
         Generator.innerNewExpression_return retval = new Generator.innerNewExpression_return();
         retval.start = input.LT(1);
         int innerNewExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:686:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:686:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
-            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6184); if (state.failed) return retval;
+            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6212); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:34: ( genericTypeArgumentList )?
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:686:34: ( genericTypeArgumentList )?
             int alt107=2;
             int LA107_0 = input.LA(1);
 
@@ -9480,7 +9517,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: genericTypeArgumentList
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression6186);
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression6214);
                     genericTypeArgumentList();
 
                     state._fsp--;
@@ -9491,13 +9528,13 @@ public class Generator extends TreeParser {
 
             }
 
-            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression6189); if (state.failed) return retval;
-            pushFollow(FOLLOW_arguments_in_innerNewExpression6191);
+            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression6217); if (state.failed) return retval;
+            pushFollow(FOLLOW_arguments_in_innerNewExpression6219);
             arguments();
 
             state._fsp--;
             if (state.failed) return retval;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:669:75: ( classTopLevelScope )?
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:686:75: ( classTopLevelScope )?
             int alt108=2;
             int LA108_0 = input.LA(1);
 
@@ -9508,7 +9545,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression6193);
+                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression6221);
                     classTopLevelScope();
 
                     state._fsp--;
@@ -9543,14 +9580,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "newArrayConstruction"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:672:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:689:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
     public final Generator.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         Generator.newArrayConstruction_return retval = new Generator.newArrayConstruction_return();
         retval.start = input.LT(1);
         int newArrayConstruction_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:690:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
             int alt111=2;
             int LA111_0 = input.LA(1);
 
@@ -9569,14 +9606,14 @@ public class Generator extends TreeParser {
             }
             switch (alt111) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:673:9: arrayDeclaratorList arrayInitializer
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:690:9: arrayDeclaratorList arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6218);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6246);
                     arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction6220);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction6248);
                     arrayInitializer();
 
                     state._fsp--;
@@ -9585,9 +9622,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:674:9: ( expression )+ ( arrayDeclaratorList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:691:9: ( expression )+ ( arrayDeclaratorList )?
                     {
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:674:9: ( expression )+
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:691:9: ( expression )+
                     int cnt109=0;
                     loop109:
                     do {
@@ -9603,7 +9640,7 @@ public class Generator extends TreeParser {
                     	case 1 :
                     	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: expression
                     	    {
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction6230);
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction6258);
                     	    expression();
 
                     	    state._fsp--;
@@ -9622,7 +9659,7 @@ public class Generator extends TreeParser {
                         cnt109++;
                     } while (true);
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:674:21: ( arrayDeclaratorList )?
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:691:21: ( arrayDeclaratorList )?
                     int alt110=2;
                     int LA110_0 = input.LA(1);
 
@@ -9633,7 +9670,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6233);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6261);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -9669,7 +9706,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arguments"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:677:1: arguments returns [List<StringTemplate> lst] : ^( ARGUMENT_LIST ( expression )* ) ;
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:694:1: arguments returns [List<StringTemplate> lst] : ^( ARGUMENT_LIST ( expression )* ) ;
     public final Generator.arguments_return arguments() throws RecognitionException {
         Generator.arguments_return retval = new Generator.arguments_return();
         retval.start = input.LT(1);
@@ -9682,14 +9719,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:681:5: ( ^( ARGUMENT_LIST ( expression )* ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:681:9: ^( ARGUMENT_LIST ( expression )* )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:698:5: ( ^( ARGUMENT_LIST ( expression )* ) )
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:698:9: ^( ARGUMENT_LIST ( expression )* )
             {
-            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments6261); if (state.failed) return retval;
+            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments6289); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:681:25: ( expression )*
+                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:698:25: ( expression )*
                 loop112:
                 do {
                     int alt112=2;
@@ -9702,9 +9739,9 @@ public class Generator extends TreeParser {
 
                     switch (alt112) {
                 	case 1 :
-                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:681:26: expression
+                	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:698:26: expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_arguments6264);
+                	    pushFollow(FOLLOW_expression_in_arguments6292);
                 	    expression84=expression();
 
                 	    state._fsp--;
@@ -9746,7 +9783,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "literal"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:684:1: literal : ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\");
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:701:1: literal : ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\");
     public final Generator.literal_return literal() throws RecognitionException {
         Generator.literal_return retval = new Generator.literal_return();
         retval.start = input.LT(1);
@@ -9763,7 +9800,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:685:5: ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\")
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:702:5: ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\")
             int alt113=9;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -9821,14 +9858,14 @@ public class Generator extends TreeParser {
 
             switch (alt113) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:685:9: HEX_LITERAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:702:9: HEX_LITERAL
                     {
-                    HEX_LITERAL85=(CommonTree)match(input,HEX_LITERAL,FOLLOW_HEX_LITERAL_in_literal6289); if (state.failed) return retval;
+                    HEX_LITERAL85=(CommonTree)match(input,HEX_LITERAL,FOLLOW_HEX_LITERAL_in_literal6317); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 685:21: -> template(v=$HEX_LITERAL.text) \"<v>\"
+                      // 702:21: -> template(v=$HEX_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (HEX_LITERAL85!=null?HEX_LITERAL85.getText():null)));
@@ -9838,14 +9875,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:686:9: OCTAL_LITERAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:703:9: OCTAL_LITERAL
                     {
-                    OCTAL_LITERAL86=(CommonTree)match(input,OCTAL_LITERAL,FOLLOW_OCTAL_LITERAL_in_literal6310); if (state.failed) return retval;
+                    OCTAL_LITERAL86=(CommonTree)match(input,OCTAL_LITERAL,FOLLOW_OCTAL_LITERAL_in_literal6338); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 686:23: -> template(v=$OCTAL_LITERAL.text) \"<v>\"
+                      // 703:23: -> template(v=$OCTAL_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (OCTAL_LITERAL86!=null?OCTAL_LITERAL86.getText():null)));
@@ -9855,14 +9892,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:687:9: DECIMAL_LITERAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:704:9: DECIMAL_LITERAL
                     {
-                    DECIMAL_LITERAL87=(CommonTree)match(input,DECIMAL_LITERAL,FOLLOW_DECIMAL_LITERAL_in_literal6331); if (state.failed) return retval;
+                    DECIMAL_LITERAL87=(CommonTree)match(input,DECIMAL_LITERAL,FOLLOW_DECIMAL_LITERAL_in_literal6359); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 687:25: -> template(v=$DECIMAL_LITERAL.text) \"<v>\"
+                      // 704:25: -> template(v=$DECIMAL_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (DECIMAL_LITERAL87!=null?DECIMAL_LITERAL87.getText():null)));
@@ -9872,14 +9909,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:688:9: FLOATING_POINT_LITERAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:705:9: FLOATING_POINT_LITERAL
                     {
-                    FLOATING_POINT_LITERAL88=(CommonTree)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal6352); if (state.failed) return retval;
+                    FLOATING_POINT_LITERAL88=(CommonTree)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal6380); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 688:32: -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\"
+                      // 705:32: -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (FLOATING_POINT_LITERAL88!=null?FLOATING_POINT_LITERAL88.getText():null)));
@@ -9889,14 +9926,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:689:9: CHARACTER_LITERAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:706:9: CHARACTER_LITERAL
                     {
-                    CHARACTER_LITERAL89=(CommonTree)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal6373); if (state.failed) return retval;
+                    CHARACTER_LITERAL89=(CommonTree)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal6401); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 689:27: -> template(v=$CHARACTER_LITERAL.text) \"<v>\"
+                      // 706:27: -> template(v=$CHARACTER_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (CHARACTER_LITERAL89!=null?CHARACTER_LITERAL89.getText():null)));
@@ -9906,14 +9943,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:690:9: STRING_LITERAL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:707:9: STRING_LITERAL
                     {
-                    STRING_LITERAL90=(CommonTree)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal6394); if (state.failed) return retval;
+                    STRING_LITERAL90=(CommonTree)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal6422); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 690:24: -> template(v=$STRING_LITERAL.text) \"<v>\"
+                      // 707:24: -> template(v=$STRING_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (STRING_LITERAL90!=null?STRING_LITERAL90.getText():null)));
@@ -9923,14 +9960,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:691:9: TRUE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:708:9: TRUE
                     {
-                    TRUE91=(CommonTree)match(input,TRUE,FOLLOW_TRUE_in_literal6415); if (state.failed) return retval;
+                    TRUE91=(CommonTree)match(input,TRUE,FOLLOW_TRUE_in_literal6443); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 691:14: -> template(v=$TRUE.text) \"<v>\"
+                      // 708:14: -> template(v=$TRUE.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (TRUE91!=null?TRUE91.getText():null)));
@@ -9940,14 +9977,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:692:9: FALSE
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:709:9: FALSE
                     {
-                    FALSE92=(CommonTree)match(input,FALSE,FOLLOW_FALSE_in_literal6436); if (state.failed) return retval;
+                    FALSE92=(CommonTree)match(input,FALSE,FOLLOW_FALSE_in_literal6464); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 692:15: -> template(v=$FALSE.text) \"<v>\"
+                      // 709:15: -> template(v=$FALSE.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (FALSE92!=null?FALSE92.getText():null)));
@@ -9957,14 +9994,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:693:9: NULL
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:710:9: NULL
                     {
-                    NULL93=(CommonTree)match(input,NULL,FOLLOW_NULL_in_literal6457); if (state.failed) return retval;
+                    NULL93=(CommonTree)match(input,NULL,FOLLOW_NULL_in_literal6485); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 693:14: -> template(v=$NULL.text) \"<v>\"
+                      // 710:14: -> template(v=$NULL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (NULL93!=null?NULL93.getText():null)));
@@ -9989,10 +10026,10 @@ public class Generator extends TreeParser {
 
     // $ANTLR start synpred125_Generator
     public final void synpred125_Generator_fragment() throws RecognitionException {   
-        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:35: ( switchCaseLabel )
-        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:521:35: switchCaseLabel
+        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:35: ( switchCaseLabel )
+        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:527:35: switchCaseLabel
         {
-        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_Generator3593);
+        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_Generator3596);
         switchCaseLabel();
 
         state._fsp--;
@@ -10007,10 +10044,10 @@ public class Generator extends TreeParser {
         List list_expressions=null;
         Generator.expression_return expressions = null;
          expressions = null;
-        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:13: ( (expressions+= expression )* )
-        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:13: (expressions+= expression )*
+        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: ( (expressions+= expression )* )
+        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: (expressions+= expression )*
         {
-        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:13: (expressions+= expression )*
+        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: (expressions+= expression )*
         loop144:
         do {
             int alt144=2;
@@ -10023,9 +10060,9 @@ public class Generator extends TreeParser {
 
             switch (alt144) {
         	case 1 :
-        	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:536:14: expressions+= expression
+        	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:14: expressions+= expression
         	    {
-        	    pushFollow(FOLLOW_expression_in_synpred132_Generator3733);
+        	    pushFollow(FOLLOW_expression_in_synpred132_Generator3736);
         	    expressions=expression();
 
         	    state._fsp--;
@@ -10134,434 +10171,434 @@ public class Generator extends TreeParser {
     public static final BitSet FOLLOW_classTopLevelScope_in_enumConstant753 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_CLASS_TOP_LEVEL_SCOPE_in_classTopLevelScope791 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_classScopeDeclarations_in_classTopLevelScope794 = new BitSet(new long[]{0x2000000000000088L,0x1600000000002008L,0x0000000900000100L});
-    public static final BitSet FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations842 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations844 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations856 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations858 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_classScopeDeclarations870 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations872 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations874 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations877 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations879 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations881 = new BitSet(new long[]{0x0000000000000008L,0x0024000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations883 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations886 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations889 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_classScopeDeclarations941 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations943 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations945 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations948 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations950 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations952 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations955 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_classScopeDeclarations1011 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations1013 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations1015 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_classScopeDeclarations1017 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CONSTRUCTOR_DECL_in_classScopeDeclarations1059 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations1061 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000420L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations1063 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations1066 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations1068 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations1071 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations1082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope1106 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope1108 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
-    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations1134 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations1136 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1138 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations1141 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations1143 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations1145 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations1147 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations1150 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations1163 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations1165 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1167 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations1170 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations1172 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations1174 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations1265 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations1267 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations1269 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations1271 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations1282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList1310 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableDeclarator_in_variableDeclaratorList1313 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator1338 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator1340 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator1342 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId1391 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId1393 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer1425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_variableInitializer1435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator1456 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator1458 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1478 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1480 = new BitSet(new long[]{0x0000000000000008L,0x0002000000000000L});
-    public static final BitSet FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1508 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer1510 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_THROWS_CLAUSE_in_throwsClause1532 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_throwsClause1534 = new BitSet(new long[]{0x0000000000008008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1564 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifier_in_modifierList1567 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_PUBLIC_in_modifier1592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PROTECTED_in_modifier1613 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRIVATE_in_modifier1624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_modifier1645 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ABSTRACT_in_modifier1666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NATIVE_in_modifier1687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier1698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRANSIENT_in_modifier1709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOLATILE_in_modifier1720 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRICTFP_in_modifier1731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_modifier1742 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1762 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList1764 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_FINAL_in_localModifier1785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_localModifier1795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TYPE_in_type1815 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_type1818 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1822 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_type1825 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1947 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1950 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdent1977 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1979 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BOOLEAN_in_primitiveType2015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHAR_in_primitiveType2027 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BYTE_in_primitiveType2039 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SHORT_in_primitiveType2051 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_primitiveType2063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LONG_in_primitiveType2075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_primitiveType2087 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOUBLE_in_primitiveType2099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList2121 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList2123 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgument2148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument2159 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument2161 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_in_genericWildcardBoundType2241 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType2243 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_genericWildcardBoundType2255 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType2257 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList2292 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList2295 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
-    public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList2301 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl2331 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl2333 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl2335 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl2337 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl2378 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl2380 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterVarargDecl2382 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl2384 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier2408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier2419 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier2421 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier2423 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList2450 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotation_in_annotationList2452 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_AT_in_annotation2474 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation2476 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
-    public static final BitSet FOLLOW_annotationInit_in_annotation2478 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit2504 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit2506 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers2527 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers2529 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers2542 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers2544 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_annotationInitializer2569 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer2571 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue2596 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue2598 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
-    public static final BitSet FOLLOW_annotation_in_annotationElementValue2610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_annotationElementValue2620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2644 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2646 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000100000000L});
-    public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2672 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2674 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2676 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2678 = new BitSet(new long[]{0x8000000000000008L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2680 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2693 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2695 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2697 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2699 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2710 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2734 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2736 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BLOCK_SCOPE_in_block2767 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_block2770 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_blockStatement2831 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2857 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2859 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration2861 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2863 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_block_in_statement2923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASSERT_in_statement2936 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement2940 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement2944 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IF_in_statement2978 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2980 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2984 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2988 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_in_statement3028 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_forInit_in_statement3030 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_forCondition_in_statement3032 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_forUpdater_in_statement3034 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3038 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_EACH_in_statement3082 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_statement3084 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_statement3086 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement3088 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement3090 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3094 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_WHILE_in_statement3144 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3146 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3150 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DO_in_statement3184 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_statement_in_statement3188 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3190 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TRY_in_statement3224 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_statement3228 = new BitSet(new long[]{0x0000000000000008L,0x00A0000000000000L});
-    public static final BitSet FOLLOW_catches_in_statement3230 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_statement3235 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_in_statement3276 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3278 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_switchBlockLabels_in_statement3280 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement3292 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3294 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_statement3296 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_RETURN_in_statement3327 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement3329 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THROW_in_statement3359 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement3361 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BREAK_in_statement3390 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement3392 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement3422 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement3424 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement3454 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement3456 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3460 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_statement3490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement3509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches3538 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_catchClause_in_catches3540 = new BitSet(new long[]{0x0800000000000008L});
-    public static final BitSet FOLLOW_CATCH_in_catchClause3566 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause3568 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_catchClause3570 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3591 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3593 = new BitSet(new long[]{0x8400000000000008L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels3596 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3599 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel3629 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel3631 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel3633 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel3659 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel3661 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_FOR_INIT_in_forInit3687 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit3715 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_forInit3733 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition3804 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forCondition3807 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater3836 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forUpdater3841 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3887 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression3889 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXPR_in_expression3930 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expression3932 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ASSIGN_in_expr3955 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3959 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3963 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr3992 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3996 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4000 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr4029 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4033 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4037 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr4066 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4070 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4074 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr4103 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4107 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4111 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_expr4140 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4144 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4148 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_expr4177 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4181 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4185 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr4214 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4218 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4222 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr4251 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4255 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4259 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4288 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4292 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4296 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4325 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4329 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4333 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4362 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4366 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4370 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUESTION_in_expr4399 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4403 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4407 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4409 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_expr4422 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4426 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4430 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_expr4460 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4464 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4468 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_in_expr4497 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4501 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4505 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_in_expr4534 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4538 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4542 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_in_expr4571 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4575 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4579 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EQUAL_in_expr4608 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4612 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4616 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_expr4645 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4649 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4653 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_expr4682 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4684 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_expr4686 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr4698 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4702 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4706 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr4736 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4740 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4744 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr4773 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4777 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4781 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr4810 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4814 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4818 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_expr4847 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4851 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4855 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr4884 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4888 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4892 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_THAN_in_expr4921 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4925 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4929 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_in_expr4958 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4962 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4966 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_in_expr4995 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4999 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr5003 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_in_expr5032 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5036 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr5040 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_in_expr5069 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5073 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr5077 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_in_expr5106 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5110 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr5114 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_PLUS_in_expr5143 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5147 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_MINUS_in_expr5172 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5176 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_INC_in_expr5202 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5206 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_DEC_in_expr5231 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5235 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_INC_in_expr5260 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5264 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_DEC_in_expr5289 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5293 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_in_expr5318 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5322 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr5347 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5351 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CAST_EXPR_in_expr5363 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_expr5365 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr5367 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primaryExpression_in_expr5378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression5406 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5426 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression5455 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression5511 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression5581 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression5639 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression5677 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression5747 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression5749 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression5767 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression5769 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression5803 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression5815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression5846 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5850 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression5852 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression5855 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression5893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression5904 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5906 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_primaryExpression5908 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression5919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression5931 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression5941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression5959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression5969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall5993 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall5995 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall5998 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6010 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall6012 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6015 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6018 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6039 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6042 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6046 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator6050 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6074 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression6092 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6094 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6112 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6115 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6117 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6152 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6154 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6157 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_newExpression6159 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression6161 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6184 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression6186 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression6189 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression6191 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression6193 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6218 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction6220 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction6230 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments6261 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments6264 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_HEX_LITERAL_in_literal6289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OCTAL_LITERAL_in_literal6310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DECIMAL_LITERAL_in_literal6331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal6352 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal6373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_literal6394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_literal6415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_literal6436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NULL_in_literal6457 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_Generator3593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_synpred132_Generator3733 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
+    public static final BitSet FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations850 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations852 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations864 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations866 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_classScopeDeclarations878 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations880 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations882 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations885 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations887 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations891 = new BitSet(new long[]{0x0000000000000008L,0x0024000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations893 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations896 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations899 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_classScopeDeclarations951 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations953 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations958 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations962 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations964 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations967 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_classScopeDeclarations1014 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations1016 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations1018 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_classScopeDeclarations1020 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CONSTRUCTOR_DECL_in_classScopeDeclarations1062 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations1064 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000420L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations1066 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations1069 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations1071 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations1074 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations1085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope1109 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope1111 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations1137 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations1139 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1141 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations1144 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations1146 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations1148 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations1150 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations1153 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations1166 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations1168 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations1170 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations1173 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations1175 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations1177 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations1268 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations1270 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations1272 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations1274 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations1285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList1313 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableDeclarator_in_variableDeclaratorList1316 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator1341 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator1343 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator1345 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId1394 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId1396 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer1428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_variableInitializer1438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator1459 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator1461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1481 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1483 = new BitSet(new long[]{0x0000000000000008L,0x0002000000000000L});
+    public static final BitSet FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1511 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer1513 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_THROWS_CLAUSE_in_throwsClause1535 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_throwsClause1537 = new BitSet(new long[]{0x0000000000008008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1567 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifier_in_modifierList1570 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_PUBLIC_in_modifier1595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PROTECTED_in_modifier1616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRIVATE_in_modifier1627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_modifier1648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ABSTRACT_in_modifier1669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NATIVE_in_modifier1690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier1701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRANSIENT_in_modifier1712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOLATILE_in_modifier1723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRICTFP_in_modifier1734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_modifier1745 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1765 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList1767 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_FINAL_in_localModifier1788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_localModifier1798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TYPE_in_type1818 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_type1821 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1825 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_type1828 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1950 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1953 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdent1980 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1982 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BOOLEAN_in_primitiveType2018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHAR_in_primitiveType2030 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BYTE_in_primitiveType2042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SHORT_in_primitiveType2054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_primitiveType2066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LONG_in_primitiveType2078 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_primitiveType2090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOUBLE_in_primitiveType2102 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList2124 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList2126 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgument2151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument2162 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument2164 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_in_genericWildcardBoundType2244 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType2246 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_genericWildcardBoundType2258 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType2260 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList2295 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList2298 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList2304 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl2334 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl2336 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl2338 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl2340 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl2381 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl2383 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterVarargDecl2385 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl2387 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier2411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier2422 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier2424 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier2426 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList2453 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotation_in_annotationList2455 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_AT_in_annotation2477 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation2479 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
+    public static final BitSet FOLLOW_annotationInit_in_annotation2481 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit2507 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit2509 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers2530 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers2532 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers2545 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers2547 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_annotationInitializer2572 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer2574 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue2599 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue2601 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
+    public static final BitSet FOLLOW_annotation_in_annotationElementValue2613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_annotationElementValue2623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2647 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2649 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000100000000L});
+    public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2675 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2677 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2679 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2681 = new BitSet(new long[]{0x8000000000000008L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2683 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2696 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2698 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2700 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2702 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2737 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2739 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_SCOPE_in_block2770 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_blockStatement_in_block2773 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2810 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_blockStatement2834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2860 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2862 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration2864 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2866 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_block_in_statement2926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSERT_in_statement2939 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement2943 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_statement2947 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IF_in_statement2981 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2983 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2987 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2991 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_in_statement3031 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_forInit_in_statement3033 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_forCondition_in_statement3035 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_forUpdater_in_statement3037 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3041 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_EACH_in_statement3085 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_statement3087 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_statement3089 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement3091 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_statement3093 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3097 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_WHILE_in_statement3147 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3149 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3153 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DO_in_statement3187 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_statement_in_statement3191 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3193 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TRY_in_statement3227 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_statement3231 = new BitSet(new long[]{0x0000000000000008L,0x00A0000000000000L});
+    public static final BitSet FOLLOW_catches_in_statement3233 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_statement3238 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_in_statement3279 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3281 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_switchBlockLabels_in_statement3283 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement3295 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3297 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_statement3299 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_RETURN_in_statement3330 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement3332 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THROW_in_statement3362 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement3364 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BREAK_in_statement3393 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement3395 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement3425 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement3427 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement3457 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement3459 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3463 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_statement3493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement3512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches3541 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_catchClause_in_catches3543 = new BitSet(new long[]{0x0800000000000008L});
+    public static final BitSet FOLLOW_CATCH_in_catchClause3569 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause3571 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_catchClause3573 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3594 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3596 = new BitSet(new long[]{0x8400000000000008L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels3599 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3602 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel3632 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel3634 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel3636 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel3662 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel3664 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_FOR_INIT_in_forInit3690 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit3718 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_forInit3736 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition3807 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forCondition3810 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater3839 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forUpdater3844 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3890 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression3892 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXPR_in_expression3933 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expression3935 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ASSIGN_in_expr3958 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3962 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3966 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr3995 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3999 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4003 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr4032 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4036 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4040 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr4069 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4073 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4077 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr4106 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4110 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4114 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_expr4143 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4147 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4151 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_expr4180 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4184 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4188 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr4217 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4221 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4225 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr4254 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4258 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4262 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4291 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4295 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4299 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4328 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4332 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4336 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4365 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4369 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4373 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUESTION_in_expr4402 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4406 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4410 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4412 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_expr4425 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4429 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4433 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_expr4463 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4467 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4471 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OR_in_expr4500 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4504 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4508 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_XOR_in_expr4537 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4541 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4545 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AND_in_expr4574 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4578 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4582 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EQUAL_in_expr4611 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4615 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4619 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_expr4648 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4652 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4656 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_expr4685 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4687 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_expr4689 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr4701 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4705 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4709 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr4739 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4743 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4747 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr4776 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4780 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4784 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr4813 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4817 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4821 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_expr4850 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4854 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4858 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr4887 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4891 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4895 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_THAN_in_expr4924 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4928 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4932 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PLUS_in_expr4961 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4965 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4969 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MINUS_in_expr4998 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5002 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5006 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STAR_in_expr5035 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5039 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5043 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIV_in_expr5072 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5076 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5080 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MOD_in_expr5109 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5113 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5117 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_PLUS_in_expr5146 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5150 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_MINUS_in_expr5175 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5179 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_INC_in_expr5205 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5209 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_DEC_in_expr5234 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5238 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_INC_in_expr5263 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5267 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_DEC_in_expr5292 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5296 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_in_expr5321 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5325 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr5350 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5354 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CAST_EXPR_in_expr5366 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_expr5368 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5370 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primaryExpression_in_expr5381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression5409 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5429 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression5458 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression5514 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression5584 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression5642 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression5680 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression5750 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression5752 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression5770 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression5772 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression5806 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression5818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression5866 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5870 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression5872 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression5875 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression5913 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression5924 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5926 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_primaryExpression5928 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression5939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression5951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression5961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression5979 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression5989 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall6021 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6023 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6026 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6038 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall6040 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6043 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6046 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6067 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6070 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6074 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator6078 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6102 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression6120 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6122 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6140 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6143 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6145 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6180 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6182 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6185 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_newExpression6187 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression6189 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6212 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression6214 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression6217 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression6219 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression6221 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6246 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction6248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction6258 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6261 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments6289 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_arguments6292 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_HEX_LITERAL_in_literal6317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OCTAL_LITERAL_in_literal6338 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DECIMAL_LITERAL_in_literal6359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal6380 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal6401 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_literal6422 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_literal6443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_literal6464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NULL_in_literal6485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_Generator3596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_synpred132_Generator3736 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
 
 }

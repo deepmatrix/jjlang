@@ -135,9 +135,10 @@ importDeclaration returns[JImportDeclaration value] @init{ $value = null;}
 typeDeclaration returns[JTypeDeclaration value] @init{ $value = null;}
     :   ^(CLASS modifierList IDENT genericTypeParameterList? extendsClause? implementsClause? classTopLevelScope)
       {
-        $value = new JClassDeclaration();
-        $value.ident = $IDENT.text;
-        $value.scopeDeclarations.addAll($classTopLevelScope.lst);        
+        JClassDeclaration cls = new JClassDeclaration();
+        cls.ident = $IDENT.text;
+        cls.scopeDeclarations.addAll($classTopLevelScope.lst);
+        $value = cls;        
       }
     |   ^(INTERFACE modifierList IDENT genericTypeParameterList? extendsClause? interfaceTopLevelScope)
     |   ^(ENUM modifierList IDENT implementsClause? enumTopLevelScope)
@@ -189,12 +190,28 @@ scope{
     ;
     
 classScopeDeclarations returns[JDeclaration value]
+scope{
+  JCodeBlock block;
+}
+@init {
+  $classScopeDeclarations::block = new JCodeBlock();
+}
     :   ^(CLASS_INSTANCE_INITIALIZER block)
     |   ^(CLASS_STATIC_INITIALIZER block)
     |   ^(FUNCTION_METHOD_DECL modifierList genericTypeParameterList? type IDENT formalParameterList arrayDeclaratorList? throwsClause? block?)
-        { $value = new JMethodDeclaration($IDENT.text);}
-    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)
-        { $value = new JMethodDeclaration($IDENT.text);}
+        { 
+          JMethodDeclaration mtd = new JMethodDeclaration($IDENT.text);
+          mtd.parameters.addAll($formalParameterList.lst);
+          mtd.block = $classScopeDeclarations::block;          
+          $value = mtd;
+        }
+    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)    
+        { 
+          JMethodDeclaration mtd = new JMethodDeclaration($IDENT.text);
+          mtd.parameters.addAll($formalParameterList.lst);
+          mtd.block = $classScopeDeclarations::block;          
+          $value = mtd;
+        }
     |   ^(VAR_DECLARATION modifierList type variableDeclaratorList)
         { $classTopLevelScope::innerList.addAll($variableDeclaratorList.lst); }
     |   ^(CONSTRUCTOR_DECL modifierList genericTypeParameterList? formalParameterList throwsClause? block)
@@ -215,14 +232,14 @@ interfaceScopeDeclarations
     |   typeDeclaration
     ;
 
-variableDeclaratorList returns[List<JDeclaration> lst]
+variableDeclaratorList returns[List<JVariableDeclaration> lst]
 @init {
   $lst = new ArrayList();
 }
     :   ^(VAR_DECLARATOR_LIST (decl=variableDeclarator {if ($decl.value!=null) $lst.add($decl.value);})+)
     ;
 
-variableDeclarator returns[JDeclaration value]
+variableDeclarator returns[JVariableDeclaration value]
     :   ^(VAR_DECLARATOR variableDeclaratorId variableInitializer?)
         { $value = new JVariableDeclaration($variableDeclaratorId.id); }
     ;
@@ -316,16 +333,27 @@ genericWildcardBoundType
     |   ^(SUPER type)
     ;
 
-formalParameterList
-    :   ^(FORMAL_PARAM_LIST formalParameterStandardDecl* formalParameterVarargDecl?) 
+formalParameterList returns[List<JVariableDeclaration> lst]
+@init{
+  $lst = new ArrayList<JVariableDeclaration>();
+}
+    :   ^(FORMAL_PARAM_LIST (formalParameterStandardDecl {if ($formalParameterStandardDecl.value!=null) $lst.add($formalParameterStandardDecl.value);})* formalParameterVarargDecl?) 
     ;
     
-formalParameterStandardDecl
+formalParameterStandardDecl returns[JVariableDeclaration value]
+@init {
+  $value = null;
+}
     :   ^(FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId)
+        { $value = new JVariableDeclaration($variableDeclaratorId.text,true);}
     ;
     
-formalParameterVarargDecl
+formalParameterVarargDecl returns[JVariableDeclaration value]
+@init {
+  $value = null;
+}
     :   ^(FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId)
+        { $value = new JVariableDeclaration($variableDeclaratorId.text,true);}
     ;
     
 qualifiedIdentifier returns[String value]
@@ -378,18 +406,34 @@ annotationDefaultValue
 
 // STATEMENTS / BLOCKS
 
-block
-    :   ^(BLOCK_SCOPE blockStatement*)
+block 
+    :   ^(BLOCK_SCOPE (stm=blockStatement 
+          {
+            if ($stm.value!=null) {              
+              if ($stm.branching.equals("localvar")) {
+                $classScopeDeclarations::block.addLocalVariables((List<JVariableDeclaration>)$stm.value);
+              }
+            }
+          })*)
     ;
     
-blockStatement
+blockStatement returns[String branching, Object value]
+@init {
+  $branching = "default";
+  $value = null;  
+}
     :   localVariableDeclaration
+        { $branching = "localvar"; $value = $localVariableDeclaration.lst;}
     |   typeDeclaration
     |   statement
     ;
     
-localVariableDeclaration
+localVariableDeclaration returns[List<JVariableDeclaration> lst]
+@init{
+  $lst = new ArrayList<JVariableDeclaration>();
+}
     :   ^(VAR_DECLARATION localModifierList type variableDeclaratorList)
+        { if ($variableDeclaratorList.lst!=null) $lst.addAll($variableDeclaratorList.lst); }
     ;
     
         
@@ -434,7 +478,7 @@ switchDefaultLabel
     ;
     
 forInit
-    :   ^(FOR_INIT (localVariableDeclaration | expression*)?)
+    :   ^(FOR_INIT (lvar=localVariableDeclaration {if ($lvar.lst!=null) $classScopeDeclarations::block.addLocalVariables($lvar.lst);} | expression*)?)
     ;
     
 forCondition

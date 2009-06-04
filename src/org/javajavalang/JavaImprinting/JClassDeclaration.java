@@ -27,6 +27,16 @@ public class JClassDeclaration extends JTypeDeclaration {
 		return result;
 	}
 	
+	public JMethodDeclaration findDefinedMethod(String id) {
+		List<JMethodDeclaration> methods = this.getDefinedMethods();
+		for (JMethodDeclaration decl : methods){
+			if (decl.ident.equals(id)) {				
+				return decl;
+			}
+		}
+		return null;
+	}
+	
 	public boolean hasMethod(String id){		
 		List<JMethodDeclaration> methods = this.getDefinedMethods();
 		for (JMethodDeclaration decl : methods){
