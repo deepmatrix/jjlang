@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g 2009-06-04 19:32:43
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g 2009-06-04 19:41:01
 
 package org.javajavalang;
 
@@ -10052,29 +10052,70 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "comment"
-    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:714:1: comment : ( COMMENT | LINE_COMMENT );
+    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:714:1: comment : ( COMMENT -> template(v=$COMMENT.text) \"<v>\" | LINE_COMMENT -> template(v=$LINE_COMMENT.text) \"<v>\");
     public final Generator.comment_return comment() throws RecognitionException {
         Generator.comment_return retval = new Generator.comment_return();
         retval.start = input.LT(1);
         int comment_StartIndex = input.index();
+        CommonTree COMMENT94=null;
+        CommonTree LINE_COMMENT95=null;
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:715:5: ( COMMENT | LINE_COMMENT )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:
-            {
-            if ( (input.LA(1)>=COMMENT && input.LA(1)<=LINE_COMMENT) ) {
-                input.consume();
-                state.errorRecovery=false;state.failed=false;
+            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:715:5: ( COMMENT -> template(v=$COMMENT.text) \"<v>\" | LINE_COMMENT -> template(v=$LINE_COMMENT.text) \"<v>\")
+            int alt114=2;
+            int LA114_0 = input.LA(1);
+
+            if ( (LA114_0==COMMENT) ) {
+                alt114=1;
+            }
+            else if ( (LA114_0==LINE_COMMENT) ) {
+                alt114=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                throw mse;
+                NoViableAltException nvae =
+                    new NoViableAltException("", 114, 0, input);
+
+                throw nvae;
             }
+            switch (alt114) {
+                case 1 :
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:715:9: COMMENT
+                    {
+                    COMMENT94=(CommonTree)match(input,COMMENT,FOLLOW_COMMENT_in_comment6529); if (state.failed) return retval;
 
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 715:17: -> template(v=$COMMENT.text) \"<v>\"
+                      {
+                          retval.st = new StringTemplate(templateLib, "<v>",
+                        new STAttrMap().put("v", (COMMENT94!=null?COMMENT94.getText():null)));
+                      }
+
+                    }
+                    }
+                    break;
+                case 2 :
+                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:716:9: LINE_COMMENT
+                    {
+                    LINE_COMMENT95=(CommonTree)match(input,LINE_COMMENT,FOLLOW_LINE_COMMENT_in_comment6550); if (state.failed) return retval;
+
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 716:22: -> template(v=$LINE_COMMENT.text) \"<v>\"
+                      {
+                          retval.st = new StringTemplate(templateLib, "<v>",
+                        new STAttrMap().put("v", (LINE_COMMENT95!=null?LINE_COMMENT95.getText():null)));
+                      }
+
+                    }
+                    }
+                    break;
 
             }
-
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -10111,17 +10152,17 @@ public class Generator extends TreeParser {
         // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: (expressions+= expression )*
         {
         // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:13: (expressions+= expression )*
-        loop144:
+        loop145:
         do {
-            int alt144=2;
-            int LA144_0 = input.LA(1);
+            int alt145=2;
+            int LA145_0 = input.LA(1);
 
-            if ( (LA144_0==EXPR) ) {
-                alt144=1;
+            if ( (LA145_0==EXPR) ) {
+                alt145=1;
             }
 
 
-            switch (alt144) {
+            switch (alt145) {
         	case 1 :
         	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Generator.g:542:14: expressions+= expression
         	    {
@@ -10138,7 +10179,7 @@ public class Generator extends TreeParser {
         	    break;
 
         	default :
-        	    break loop144;
+        	    break loop145;
             }
         } while (true);
 
@@ -10662,7 +10703,8 @@ public class Generator extends TreeParser {
     public static final BitSet FOLLOW_TRUE_in_literal6453 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FALSE_in_literal6474 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_NULL_in_literal6495 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_comment0 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMENT_in_comment6529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LINE_COMMENT_in_comment6550 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_Generator3596 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expression_in_synpred132_Generator3736 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
 
