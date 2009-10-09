@@ -648,8 +648,7 @@ primaryExpression
               } else {
                 // maybe a static call - do nothing
               }
-            }
-            
+            }            
           }
           retval.st = new StringTemplate(templateLib,_ident);
         }                          
@@ -659,7 +658,7 @@ primaryExpression
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
     |   literal {$primaryExpression.st = $literal.st;}
     |   comment
-    |   newExpression
+    |   newExpression {$primaryExpression.st = $newExpression.st;}
     |   THIS -> template() "$this->"
     |   arrayTypeDeclarator
     |   SUPER -> template() "parent::"
@@ -712,6 +711,6 @@ literal
     ;
     
 comment
-    :   COMMENT
-    |   LINE_COMMENT
+    :   COMMENT -> template(v={$COMMENT.text}) "<v>"
+    |   LINE_COMMENT -> template(v={$LINE_COMMENT.text}) "<v>"
     ;
