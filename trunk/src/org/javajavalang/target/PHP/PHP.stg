@@ -142,4 +142,6 @@ prefix_unary_expr(op,a) ::= "<op><a>"
 postfix_unary_expr(op,a) ::= "<a><op>"
 infix_binary_expr(a,op,b) ::= "<a> <op> <b>"
 
-methodcall(primaryExpression, genericTypeArgumentList, arguments) ::= <<<primaryExpression>(<genericTypeArgumentList><arguments; separator=", ">)>>
+methodcall(primaryExpression, genericTypeArgumentList, arguments) ::= <<<primaryExpression>(<genericTypeArgumentList><arguments; separator=", ">) >>
+
+newExpression(qualifiedTypeIdent, arguments, genericTypeArgumentList, classTopLevelScope) ::= "new <qualifiedTypeIdent>"

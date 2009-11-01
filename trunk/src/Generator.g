@@ -654,7 +654,7 @@ primaryExpression
         }                          
     |   ^(METHOD_CALL pexp=primaryExpression genericTypeArgumentList? arguments)
         -> methodcall(primaryExpression={$pexp.st}, genericTypeArgumentList={$genericTypeArgumentList.st}, arguments={$arguments.lst})
-    |   explicitConstructorCall
+    |   explicitConstructorCall {$primaryExpression.st = $explicitConstructorCall.st;}
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
     |   literal {$primaryExpression.st = $literal.st;}
     |   comment
@@ -663,7 +663,7 @@ primaryExpression
     |   arrayTypeDeclarator
     |   SUPER -> template() "parent::"
     ;
-    
+
 explicitConstructorCall
     :   ^(THIS_CONSTRUCTOR_CALL genericTypeArgumentList? arguments)
     |   ^(SUPER_CONSTRUCTOR_CALL primaryExpression? genericTypeArgumentList? arguments)
@@ -680,8 +680,9 @@ newExpression
             )
         )
     |   ^(CLASS_CONSTRUCTOR_CALL genericTypeArgumentList? qualifiedTypeIdent arguments classTopLevelScope?)
+        -> newExpression(qualifiedTypeIdent={$qualifiedTypeIdent.st}, arguments={$arguments.st}, genericTypeArgumentList={$genericTypeArgumentList.st}, classTopLevelScope={$classTopLevelScope.st})
     ;
-
+    
 innerNewExpression // something like 'InnerType innerType = outer.new InnerType();'
     :   ^(CLASS_CONSTRUCTOR_CALL genericTypeArgumentList? IDENT arguments classTopLevelScope?)
     ;
@@ -690,7 +691,7 @@ newArrayConstruction
     :   arrayDeclaratorList arrayInitializer
     |   expression+ arrayDeclaratorList?
     ;
-
+    
 arguments returns[List<StringTemplate> lst]
 @init{
   $lst = new ArrayList<StringTemplate>();
