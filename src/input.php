@@ -12,24 +12,24 @@ class Main {
     }
    else 
     {
-    System->err->println("Usage: java Main <directory or file name>");
+    System->err->println("Usage: java Main <directory or file name>") ;
     }
   } 
 
   }
   public static function doFile($f)
   {
-  if ( $f->isDirectory() ) 
+  if ( $f->isDirectory()  ) 
     {
-      $files = $f->list() 
+      $files = $f->list()  
     for ( $i = 0  ; $i < $files->length; $i++) 
-      $this->doFile();
+      $this->doFile() ;
     }
    else 
-    if ( ( $f->getName()->length() > 5 ) && $f->getName()->substring($f->getName()->length() - 5)->equals(".java") ) 
+    if ( ( $f->getName() ->length()  > 5 ) && $f->getName() ->substring($f->getName() ->length()  - 5) ->equals(".java")  ) 
       {
-      System->err->println("   " + $f->getAbsolutePath());
-      $this->parseFile($f->getAbsolutePath());
+      System->err->println("   " + $f->getAbsolutePath() ) ;
+      $this->parseFile($f->getAbsolutePath() ) ;
       }
 
   }
@@ -37,9 +37,9 @@ class Main {
   {
     try {
     $lexer 
-  $this->tokens->setTokenSource($lexer);
+  $this->tokens->setTokenSource($lexer) ;
     $parser 
-  $parser->compilationUnit();
+  $parser->compilationUnit() ;
   } 
 
   }

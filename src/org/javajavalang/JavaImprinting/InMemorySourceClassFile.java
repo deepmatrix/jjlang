@@ -1,5 +1,6 @@
 package org.javajavalang.JavaImprinting;
 
+ 
 /*public class InMemorySourceClassFile extends ClassFile
 {
    /*private String filename;
