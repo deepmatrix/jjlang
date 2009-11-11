@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g 2009-06-04 19:33:30
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 Java.g 2009-11-08 11:39:56
 
 package org.javajavalang;
 
@@ -214,15 +214,15 @@ public class JavaLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g"; }
+    public String getGrammarFileName() { return "Java.g"; }
 
     // $ANTLR start "AND"
     public final void mAND() throws RecognitionException {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:20:5: ( '&' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:20:7: '&'
+            // Java.g:20:5: ( '&' )
+            // Java.g:20:7: '&'
             {
             match('&'); 
 
@@ -241,8 +241,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = AND_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:21:12: ( '&=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:21:14: '&='
+            // Java.g:21:12: ( '&=' )
+            // Java.g:21:14: '&='
             {
             match("&="); 
 
@@ -262,8 +262,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:22:8: ( '=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:22:10: '='
+            // Java.g:22:8: ( '=' )
+            // Java.g:22:10: '='
             {
             match('='); 
 
@@ -282,8 +282,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = AT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:23:4: ( '@' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:23:6: '@'
+            // Java.g:23:4: ( '@' )
+            // Java.g:23:6: '@'
             {
             match('@'); 
 
@@ -302,8 +302,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = BIT_SHIFT_RIGHT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:24:17: ( '>>>' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:24:19: '>>>'
+            // Java.g:24:17: ( '>>>' )
+            // Java.g:24:19: '>>>'
             {
             match(">>>"); 
 
@@ -323,8 +323,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = BIT_SHIFT_RIGHT_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:25:24: ( '>>>=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:25:26: '>>>='
+            // Java.g:25:24: ( '>>>=' )
+            // Java.g:25:26: '>>>='
             {
             match(">>>="); 
 
@@ -344,8 +344,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = COLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:26:7: ( ':' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:26:9: ':'
+            // Java.g:26:7: ( ':' )
+            // Java.g:26:9: ':'
             {
             match(':'); 
 
@@ -364,8 +364,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:27:7: ( ',' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:27:9: ','
+            // Java.g:27:7: ( ',' )
+            // Java.g:27:9: ','
             {
             match(','); 
 
@@ -384,8 +384,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DEC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:28:5: ( '--' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:28:7: '--'
+            // Java.g:28:5: ( '--' )
+            // Java.g:28:7: '--'
             {
             match("--"); 
 
@@ -405,8 +405,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:29:5: ( '/' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:29:7: '/'
+            // Java.g:29:5: ( '/' )
+            // Java.g:29:7: '/'
             {
             match('/'); 
 
@@ -425,8 +425,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DIV_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:30:12: ( '/=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:30:14: '/='
+            // Java.g:30:12: ( '/=' )
+            // Java.g:30:14: '/='
             {
             match("/="); 
 
@@ -446,8 +446,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:31:5: ( '.' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:31:7: '.'
+            // Java.g:31:5: ( '.' )
+            // Java.g:31:7: '.'
             {
             match('.'); 
 
@@ -466,8 +466,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DOTSTAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:32:9: ( '.*' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:32:11: '.*'
+            // Java.g:32:9: ( '.*' )
+            // Java.g:32:11: '.*'
             {
             match(".*"); 
 
@@ -487,8 +487,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = ELLIPSIS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:33:10: ( '...' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:33:12: '...'
+            // Java.g:33:10: ( '...' )
+            // Java.g:33:12: '...'
             {
             match("..."); 
 
@@ -508,8 +508,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:34:7: ( '==' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:34:9: '=='
+            // Java.g:34:7: ( '==' )
+            // Java.g:34:9: '=='
             {
             match("=="); 
 
@@ -529,8 +529,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = GREATER_OR_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:35:18: ( '>=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:35:20: '>='
+            // Java.g:35:18: ( '>=' )
+            // Java.g:35:20: '>='
             {
             match(">="); 
 
@@ -550,8 +550,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = GREATER_THAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:36:14: ( '>' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:36:16: '>'
+            // Java.g:36:14: ( '>' )
+            // Java.g:36:16: '>'
             {
             match('>'); 
 
@@ -570,8 +570,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = INC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:37:5: ( '++' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:37:7: '++'
+            // Java.g:37:5: ( '++' )
+            // Java.g:37:7: '++'
             {
             match("++"); 
 
@@ -591,8 +591,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LBRACK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:38:8: ( '[' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:38:10: '['
+            // Java.g:38:8: ( '[' )
+            // Java.g:38:10: '['
             {
             match('['); 
 
@@ -611,8 +611,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LCURLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:39:8: ( '{' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:39:10: '{'
+            // Java.g:39:8: ( '{' )
+            // Java.g:39:10: '{'
             {
             match('{'); 
 
@@ -631,8 +631,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LESS_OR_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:40:15: ( '<=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:40:17: '<='
+            // Java.g:40:15: ( '<=' )
+            // Java.g:40:17: '<='
             {
             match("<="); 
 
@@ -652,8 +652,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LESS_THAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:41:11: ( '<' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:41:13: '<'
+            // Java.g:41:11: ( '<' )
+            // Java.g:41:13: '<'
             {
             match('<'); 
 
@@ -672,8 +672,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LOGICAL_AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:42:13: ( '&&' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:42:15: '&&'
+            // Java.g:42:13: ( '&&' )
+            // Java.g:42:15: '&&'
             {
             match("&&"); 
 
@@ -693,8 +693,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LOGICAL_NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:43:13: ( '!' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:43:15: '!'
+            // Java.g:43:13: ( '!' )
+            // Java.g:43:15: '!'
             {
             match('!'); 
 
@@ -713,8 +713,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LOGICAL_OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:44:12: ( '||' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:44:14: '||'
+            // Java.g:44:12: ( '||' )
+            // Java.g:44:14: '||'
             {
             match("||"); 
 
@@ -734,8 +734,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:45:8: ( '(' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:45:10: '('
+            // Java.g:45:8: ( '(' )
+            // Java.g:45:10: '('
             {
             match('('); 
 
@@ -754,8 +754,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:46:7: ( '-' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:46:9: '-'
+            // Java.g:46:7: ( '-' )
+            // Java.g:46:9: '-'
             {
             match('-'); 
 
@@ -774,8 +774,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = MINUS_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:47:14: ( '-=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:47:16: '-='
+            // Java.g:47:14: ( '-=' )
+            // Java.g:47:16: '-='
             {
             match("-="); 
 
@@ -795,8 +795,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:48:5: ( '%' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:48:7: '%'
+            // Java.g:48:5: ( '%' )
+            // Java.g:48:7: '%'
             {
             match('%'); 
 
@@ -815,8 +815,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = MOD_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:49:12: ( '%=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:49:14: '%='
+            // Java.g:49:12: ( '%=' )
+            // Java.g:49:14: '%='
             {
             match("%="); 
 
@@ -836,8 +836,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:50:5: ( '~' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:50:7: '~'
+            // Java.g:50:5: ( '~' )
+            // Java.g:50:7: '~'
             {
             match('~'); 
 
@@ -856,8 +856,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = NOT_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:51:11: ( '!=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:51:13: '!='
+            // Java.g:51:11: ( '!=' )
+            // Java.g:51:13: '!='
             {
             match("!="); 
 
@@ -877,8 +877,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:52:4: ( '|' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:52:6: '|'
+            // Java.g:52:4: ( '|' )
+            // Java.g:52:6: '|'
             {
             match('|'); 
 
@@ -897,8 +897,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = OR_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:53:11: ( '|=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:53:13: '|='
+            // Java.g:53:11: ( '|=' )
+            // Java.g:53:13: '|='
             {
             match("|="); 
 
@@ -918,8 +918,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:54:6: ( '+' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:54:8: '+'
+            // Java.g:54:6: ( '+' )
+            // Java.g:54:8: '+'
             {
             match('+'); 
 
@@ -938,8 +938,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = PLUS_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:55:13: ( '+=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:55:15: '+='
+            // Java.g:55:13: ( '+=' )
+            // Java.g:55:15: '+='
             {
             match("+="); 
 
@@ -959,8 +959,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = QUESTION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:56:10: ( '?' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:56:12: '?'
+            // Java.g:56:10: ( '?' )
+            // Java.g:56:12: '?'
             {
             match('?'); 
 
@@ -979,8 +979,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = RBRACK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:57:8: ( ']' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:57:10: ']'
+            // Java.g:57:8: ( ']' )
+            // Java.g:57:10: ']'
             {
             match(']'); 
 
@@ -999,8 +999,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = RCURLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:58:8: ( '}' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:58:10: '}'
+            // Java.g:58:8: ( '}' )
+            // Java.g:58:10: '}'
             {
             match('}'); 
 
@@ -1019,8 +1019,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = RPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:59:8: ( ')' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:59:10: ')'
+            // Java.g:59:8: ( ')' )
+            // Java.g:59:10: ')'
             {
             match(')'); 
 
@@ -1039,8 +1039,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SEMI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:60:6: ( ';' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:60:8: ';'
+            // Java.g:60:6: ( ';' )
+            // Java.g:60:8: ';'
             {
             match(';'); 
 
@@ -1059,8 +1059,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SHIFT_LEFT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:61:12: ( '<<' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:61:14: '<<'
+            // Java.g:61:12: ( '<<' )
+            // Java.g:61:14: '<<'
             {
             match("<<"); 
 
@@ -1080,8 +1080,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SHIFT_LEFT_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:62:19: ( '<<=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:62:21: '<<='
+            // Java.g:62:19: ( '<<=' )
+            // Java.g:62:21: '<<='
             {
             match("<<="); 
 
@@ -1101,8 +1101,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SHIFT_RIGHT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:63:13: ( '>>' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:63:15: '>>'
+            // Java.g:63:13: ( '>>' )
+            // Java.g:63:15: '>>'
             {
             match(">>"); 
 
@@ -1122,8 +1122,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SHIFT_RIGHT_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:64:20: ( '>>=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:64:22: '>>='
+            // Java.g:64:20: ( '>>=' )
+            // Java.g:64:22: '>>='
             {
             match(">>="); 
 
@@ -1143,8 +1143,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = STAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:65:6: ( '*' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:65:8: '*'
+            // Java.g:65:6: ( '*' )
+            // Java.g:65:8: '*'
             {
             match('*'); 
 
@@ -1163,8 +1163,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = STAR_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:66:13: ( '*=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:66:15: '*='
+            // Java.g:66:13: ( '*=' )
+            // Java.g:66:15: '*='
             {
             match("*="); 
 
@@ -1184,8 +1184,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = XOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:67:5: ( '^' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:67:7: '^'
+            // Java.g:67:5: ( '^' )
+            // Java.g:67:7: '^'
             {
             match('^'); 
 
@@ -1204,8 +1204,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = XOR_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:68:12: ( '^=' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:68:14: '^='
+            // Java.g:68:12: ( '^=' )
+            // Java.g:68:14: '^='
             {
             match("^="); 
 
@@ -1225,8 +1225,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = ABSTRACT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:69:10: ( 'abstract' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:69:12: 'abstract'
+            // Java.g:69:10: ( 'abstract' )
+            // Java.g:69:12: 'abstract'
             {
             match("abstract"); 
 
@@ -1246,8 +1246,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = ASSERT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:70:8: ( 'assert' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:70:10: 'assert'
+            // Java.g:70:8: ( 'assert' )
+            // Java.g:70:10: 'assert'
             {
             match("assert"); 
 
@@ -1267,8 +1267,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = BOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:71:9: ( 'boolean' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:71:11: 'boolean'
+            // Java.g:71:9: ( 'boolean' )
+            // Java.g:71:11: 'boolean'
             {
             match("boolean"); 
 
@@ -1288,8 +1288,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = BREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:72:7: ( 'break' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:72:9: 'break'
+            // Java.g:72:7: ( 'break' )
+            // Java.g:72:9: 'break'
             {
             match("break"); 
 
@@ -1309,8 +1309,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = BYTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:73:6: ( 'byte' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:73:8: 'byte'
+            // Java.g:73:6: ( 'byte' )
+            // Java.g:73:8: 'byte'
             {
             match("byte"); 
 
@@ -1330,8 +1330,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = CASE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:74:6: ( 'case' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:74:8: 'case'
+            // Java.g:74:6: ( 'case' )
+            // Java.g:74:8: 'case'
             {
             match("case"); 
 
@@ -1351,8 +1351,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = CATCH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:75:7: ( 'catch' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:75:9: 'catch'
+            // Java.g:75:7: ( 'catch' )
+            // Java.g:75:9: 'catch'
             {
             match("catch"); 
 
@@ -1372,8 +1372,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = CHAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:76:6: ( 'char' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:76:8: 'char'
+            // Java.g:76:6: ( 'char' )
+            // Java.g:76:8: 'char'
             {
             match("char"); 
 
@@ -1393,8 +1393,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = CLASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:77:7: ( 'class' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:77:9: 'class'
+            // Java.g:77:7: ( 'class' )
+            // Java.g:77:9: 'class'
             {
             match("class"); 
 
@@ -1414,8 +1414,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = CONTINUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:78:10: ( 'continue' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:78:12: 'continue'
+            // Java.g:78:10: ( 'continue' )
+            // Java.g:78:12: 'continue'
             {
             match("continue"); 
 
@@ -1435,8 +1435,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DEFAULT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:79:9: ( 'default' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:79:11: 'default'
+            // Java.g:79:9: ( 'default' )
+            // Java.g:79:11: 'default'
             {
             match("default"); 
 
@@ -1456,8 +1456,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:80:4: ( 'do' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:80:6: 'do'
+            // Java.g:80:4: ( 'do' )
+            // Java.g:80:6: 'do'
             {
             match("do"); 
 
@@ -1477,8 +1477,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:81:8: ( 'double' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:81:10: 'double'
+            // Java.g:81:8: ( 'double' )
+            // Java.g:81:10: 'double'
             {
             match("double"); 
 
@@ -1498,8 +1498,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:82:6: ( 'else' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:82:8: 'else'
+            // Java.g:82:6: ( 'else' )
+            // Java.g:82:8: 'else'
             {
             match("else"); 
 
@@ -1519,8 +1519,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = ENUM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:83:6: ( 'enum' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:83:8: 'enum'
+            // Java.g:83:6: ( 'enum' )
+            // Java.g:83:8: 'enum'
             {
             match("enum"); 
 
@@ -1540,8 +1540,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = EXTENDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:84:9: ( 'extends' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:84:11: 'extends'
+            // Java.g:84:9: ( 'extends' )
+            // Java.g:84:11: 'extends'
             {
             match("extends"); 
 
@@ -1561,8 +1561,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:85:7: ( 'false' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:85:9: 'false'
+            // Java.g:85:7: ( 'false' )
+            // Java.g:85:9: 'false'
             {
             match("false"); 
 
@@ -1582,8 +1582,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = FINAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:86:7: ( 'final' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:86:9: 'final'
+            // Java.g:86:7: ( 'final' )
+            // Java.g:86:9: 'final'
             {
             match("final"); 
 
@@ -1603,8 +1603,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = FINALLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:87:9: ( 'finally' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:87:11: 'finally'
+            // Java.g:87:9: ( 'finally' )
+            // Java.g:87:11: 'finally'
             {
             match("finally"); 
 
@@ -1624,8 +1624,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:88:7: ( 'float' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:88:9: 'float'
+            // Java.g:88:7: ( 'float' )
+            // Java.g:88:9: 'float'
             {
             match("float"); 
 
@@ -1645,8 +1645,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = FOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:89:5: ( 'for' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:89:7: 'for'
+            // Java.g:89:5: ( 'for' )
+            // Java.g:89:7: 'for'
             {
             match("for"); 
 
@@ -1666,8 +1666,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:90:4: ( 'if' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:90:6: 'if'
+            // Java.g:90:4: ( 'if' )
+            // Java.g:90:6: 'if'
             {
             match("if"); 
 
@@ -1687,8 +1687,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = IMPLEMENTS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:91:12: ( 'implements' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:91:14: 'implements'
+            // Java.g:91:12: ( 'implements' )
+            // Java.g:91:14: 'implements'
             {
             match("implements"); 
 
@@ -1708,8 +1708,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = INSTANCEOF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:92:12: ( 'instanceof' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:92:14: 'instanceof'
+            // Java.g:92:12: ( 'instanceof' )
+            // Java.g:92:14: 'instanceof'
             {
             match("instanceof"); 
 
@@ -1729,8 +1729,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = INTERFACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:93:11: ( 'interface' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:93:13: 'interface'
+            // Java.g:93:11: ( 'interface' )
+            // Java.g:93:13: 'interface'
             {
             match("interface"); 
 
@@ -1750,8 +1750,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = IMPORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:94:8: ( 'import' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:94:10: 'import'
+            // Java.g:94:8: ( 'import' )
+            // Java.g:94:10: 'import'
             {
             match("import"); 
 
@@ -1771,8 +1771,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:95:5: ( 'int' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:95:7: 'int'
+            // Java.g:95:5: ( 'int' )
+            // Java.g:95:7: 'int'
             {
             match("int"); 
 
@@ -1792,8 +1792,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LONG;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:96:6: ( 'long' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:96:8: 'long'
+            // Java.g:96:6: ( 'long' )
+            // Java.g:96:8: 'long'
             {
             match("long"); 
 
@@ -1813,8 +1813,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = NATIVE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:97:8: ( 'native' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:97:10: 'native'
+            // Java.g:97:8: ( 'native' )
+            // Java.g:97:10: 'native'
             {
             match("native"); 
 
@@ -1834,8 +1834,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = NEW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:98:5: ( 'new' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:98:7: 'new'
+            // Java.g:98:5: ( 'new' )
+            // Java.g:98:7: 'new'
             {
             match("new"); 
 
@@ -1855,8 +1855,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = NULL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:99:6: ( 'null' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:99:8: 'null'
+            // Java.g:99:6: ( 'null' )
+            // Java.g:99:8: 'null'
             {
             match("null"); 
 
@@ -1876,8 +1876,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = PACKAGE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:100:9: ( 'package' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:100:11: 'package'
+            // Java.g:100:9: ( 'package' )
+            // Java.g:100:11: 'package'
             {
             match("package"); 
 
@@ -1897,8 +1897,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = PRIVATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:101:9: ( 'private' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:101:11: 'private'
+            // Java.g:101:9: ( 'private' )
+            // Java.g:101:11: 'private'
             {
             match("private"); 
 
@@ -1918,8 +1918,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = PROTECTED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:102:11: ( 'protected' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:102:13: 'protected'
+            // Java.g:102:11: ( 'protected' )
+            // Java.g:102:13: 'protected'
             {
             match("protected"); 
 
@@ -1939,8 +1939,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = PUBLIC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:103:8: ( 'public' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:103:10: 'public'
+            // Java.g:103:8: ( 'public' )
+            // Java.g:103:10: 'public'
             {
             match("public"); 
 
@@ -1960,8 +1960,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = RETURN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:104:8: ( 'return' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:104:10: 'return'
+            // Java.g:104:8: ( 'return' )
+            // Java.g:104:10: 'return'
             {
             match("return"); 
 
@@ -1981,8 +1981,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SHORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:105:7: ( 'short' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:105:9: 'short'
+            // Java.g:105:7: ( 'short' )
+            // Java.g:105:9: 'short'
             {
             match("short"); 
 
@@ -2002,8 +2002,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = STATIC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:106:8: ( 'static' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:106:10: 'static'
+            // Java.g:106:8: ( 'static' )
+            // Java.g:106:10: 'static'
             {
             match("static"); 
 
@@ -2023,8 +2023,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = STRICTFP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:107:10: ( 'strictfp' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:107:12: 'strictfp'
+            // Java.g:107:10: ( 'strictfp' )
+            // Java.g:107:12: 'strictfp'
             {
             match("strictfp"); 
 
@@ -2044,8 +2044,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SUPER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:108:7: ( 'super' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:108:9: 'super'
+            // Java.g:108:7: ( 'super' )
+            // Java.g:108:9: 'super'
             {
             match("super"); 
 
@@ -2065,8 +2065,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SWITCH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:109:8: ( 'switch' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:109:10: 'switch'
+            // Java.g:109:8: ( 'switch' )
+            // Java.g:109:10: 'switch'
             {
             match("switch"); 
 
@@ -2086,8 +2086,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = SYNCHRONIZED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:110:14: ( 'synchronized' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:110:16: 'synchronized'
+            // Java.g:110:14: ( 'synchronized' )
+            // Java.g:110:16: 'synchronized'
             {
             match("synchronized"); 
 
@@ -2107,8 +2107,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = THIS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:111:6: ( 'this' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:111:8: 'this'
+            // Java.g:111:6: ( 'this' )
+            // Java.g:111:8: 'this'
             {
             match("this"); 
 
@@ -2128,8 +2128,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = THROW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:112:7: ( 'throw' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:112:9: 'throw'
+            // Java.g:112:7: ( 'throw' )
+            // Java.g:112:9: 'throw'
             {
             match("throw"); 
 
@@ -2149,8 +2149,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = THROWS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:113:8: ( 'throws' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:113:10: 'throws'
+            // Java.g:113:8: ( 'throws' )
+            // Java.g:113:10: 'throws'
             {
             match("throws"); 
 
@@ -2170,8 +2170,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = TRANSIENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:114:11: ( 'transient' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:114:13: 'transient'
+            // Java.g:114:11: ( 'transient' )
+            // Java.g:114:13: 'transient'
             {
             match("transient"); 
 
@@ -2191,8 +2191,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:115:6: ( 'true' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:115:8: 'true'
+            // Java.g:115:6: ( 'true' )
+            // Java.g:115:8: 'true'
             {
             match("true"); 
 
@@ -2212,8 +2212,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = TRY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:116:5: ( 'try' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:116:7: 'try'
+            // Java.g:116:5: ( 'try' )
+            // Java.g:116:7: 'try'
             {
             match("try"); 
 
@@ -2233,8 +2233,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = VOID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:117:6: ( 'void' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:117:8: 'void'
+            // Java.g:117:6: ( 'void' )
+            // Java.g:117:8: 'void'
             {
             match("void"); 
 
@@ -2254,8 +2254,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = VOLATILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:118:10: ( 'volatile' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:118:12: 'volatile'
+            // Java.g:118:10: ( 'volatile' )
+            // Java.g:118:12: 'volatile'
             {
             match("volatile"); 
 
@@ -2275,8 +2275,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:119:7: ( 'while' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:119:9: 'while'
+            // Java.g:119:7: ( 'while' )
+            // Java.g:119:9: 'while'
             {
             match("while"); 
 
@@ -2296,8 +2296,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1089:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1089:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
+            // Java.g:1089:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
+            // Java.g:1089:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -2309,7 +2309,7 @@ public class JavaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1089:29: ( HEX_DIGIT )+
+            // Java.g:1089:29: ( HEX_DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -2323,7 +2323,7 @@ public class JavaLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1089:29: HEX_DIGIT
+            	    // Java.g:1089:29: HEX_DIGIT
             	    {
             	    mHEX_DIGIT(); 
 
@@ -2339,7 +2339,7 @@ public class JavaLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1089:40: ( INTEGER_TYPE_SUFFIX )?
+            // Java.g:1089:40: ( INTEGER_TYPE_SUFFIX )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -2348,7 +2348,7 @@ public class JavaLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1089:40: INTEGER_TYPE_SUFFIX
+                    // Java.g:1089:40: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2373,10 +2373,10 @@ public class JavaLexer extends Lexer {
         try {
             int _type = DECIMAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:17: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:19: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
+            // Java.g:1091:17: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
+            // Java.g:1091:19: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
             {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:19: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // Java.g:1091:19: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2394,17 +2394,17 @@ public class JavaLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:20: '0'
+                    // Java.g:1091:20: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:26: '1' .. '9' ( '0' .. '9' )*
+                    // Java.g:1091:26: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:35: ( '0' .. '9' )*
+                    // Java.g:1091:35: ( '0' .. '9' )*
                     loop3:
                     do {
                         int alt3=2;
@@ -2417,7 +2417,7 @@ public class JavaLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:35: '0' .. '9'
+                    	    // Java.g:1091:35: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2435,7 +2435,7 @@ public class JavaLexer extends Lexer {
 
             }
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:46: ( INTEGER_TYPE_SUFFIX )?
+            // Java.g:1091:46: ( INTEGER_TYPE_SUFFIX )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2444,7 +2444,7 @@ public class JavaLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1091:46: INTEGER_TYPE_SUFFIX
+                    // Java.g:1091:46: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2469,11 +2469,11 @@ public class JavaLexer extends Lexer {
         try {
             int _type = OCTAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1093:15: ( '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1093:17: '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
+            // Java.g:1093:15: ( '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
+            // Java.g:1093:17: '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1093:21: ( '0' .. '7' )+
+            // Java.g:1093:21: ( '0' .. '7' )+
             int cnt6=0;
             loop6:
             do {
@@ -2487,7 +2487,7 @@ public class JavaLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1093:22: '0' .. '7'
+            	    // Java.g:1093:22: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -2503,7 +2503,7 @@ public class JavaLexer extends Lexer {
                 cnt6++;
             } while (true);
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1093:33: ( INTEGER_TYPE_SUFFIX )?
+            // Java.g:1093:33: ( INTEGER_TYPE_SUFFIX )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2512,7 +2512,7 @@ public class JavaLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1093:33: INTEGER_TYPE_SUFFIX
+                    // Java.g:1093:33: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2535,8 +2535,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "HEX_DIGIT"
     public final void mHEX_DIGIT() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1096:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1096:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // Java.g:1096:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // Java.g:1096:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -2559,8 +2559,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "INTEGER_TYPE_SUFFIX"
     public final void mINTEGER_TYPE_SUFFIX() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1099:21: ( ( 'l' | 'L' ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1099:23: ( 'l' | 'L' )
+            // Java.g:1099:21: ( ( 'l' | 'L' ) )
+            // Java.g:1099:23: ( 'l' | 'L' )
             {
             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                 input.consume();
@@ -2585,7 +2585,7 @@ public class JavaLexer extends Lexer {
         try {
             int _type = FLOATING_POINT_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1102:5: ( ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
+            // Java.g:1102:5: ( ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2603,9 +2603,9 @@ public class JavaLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1102:9: ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // Java.g:1102:9: ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     {
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1102:9: ( '0' .. '9' )+
+                    // Java.g:1102:9: ( '0' .. '9' )+
                     int cnt8=0;
                     loop8:
                     do {
@@ -2619,7 +2619,7 @@ public class JavaLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1102:10: '0' .. '9'
+                    	    // Java.g:1102:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2635,7 +2635,7 @@ public class JavaLexer extends Lexer {
                         cnt8++;
                     } while (true);
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1103:9: ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // Java.g:1103:9: ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     int alt13=3;
                     switch ( input.LA(1) ) {
                     case '.':
@@ -2666,10 +2666,10 @@ public class JavaLexer extends Lexer {
 
                     switch (alt13) {
                         case 1 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:13: DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                            // Java.g:1104:13: DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                             {
                             mDOT(); 
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:17: ( '0' .. '9' )*
+                            // Java.g:1104:17: ( '0' .. '9' )*
                             loop9:
                             do {
                                 int alt9=2;
@@ -2682,7 +2682,7 @@ public class JavaLexer extends Lexer {
 
                                 switch (alt9) {
                             	case 1 :
-                            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:18: '0' .. '9'
+                            	    // Java.g:1104:18: '0' .. '9'
                             	    {
                             	    matchRange('0','9'); 
 
@@ -2694,7 +2694,7 @@ public class JavaLexer extends Lexer {
                                 }
                             } while (true);
 
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:29: ( EXPONENT )?
+                            // Java.g:1104:29: ( EXPONENT )?
                             int alt10=2;
                             int LA10_0 = input.LA(1);
 
@@ -2703,7 +2703,7 @@ public class JavaLexer extends Lexer {
                             }
                             switch (alt10) {
                                 case 1 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:29: EXPONENT
+                                    // Java.g:1104:29: EXPONENT
                                     {
                                     mEXPONENT(); 
 
@@ -2712,7 +2712,7 @@ public class JavaLexer extends Lexer {
 
                             }
 
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:39: ( FLOAT_TYPE_SUFFIX )?
+                            // Java.g:1104:39: ( FLOAT_TYPE_SUFFIX )?
                             int alt11=2;
                             int LA11_0 = input.LA(1);
 
@@ -2721,7 +2721,7 @@ public class JavaLexer extends Lexer {
                             }
                             switch (alt11) {
                                 case 1 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1104:39: FLOAT_TYPE_SUFFIX
+                                    // Java.g:1104:39: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -2734,10 +2734,10 @@ public class JavaLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1105:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
+                            // Java.g:1105:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
                             {
                             mEXPONENT(); 
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1105:22: ( FLOAT_TYPE_SUFFIX )?
+                            // Java.g:1105:22: ( FLOAT_TYPE_SUFFIX )?
                             int alt12=2;
                             int LA12_0 = input.LA(1);
 
@@ -2746,7 +2746,7 @@ public class JavaLexer extends Lexer {
                             }
                             switch (alt12) {
                                 case 1 :
-                                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1105:22: FLOAT_TYPE_SUFFIX
+                                    // Java.g:1105:22: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -2759,7 +2759,7 @@ public class JavaLexer extends Lexer {
                             }
                             break;
                         case 3 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1106:13: FLOAT_TYPE_SUFFIX
+                            // Java.g:1106:13: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -2772,10 +2772,10 @@ public class JavaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                    // Java.g:1108:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                     {
                     mDOT(); 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:13: ( '0' .. '9' )+
+                    // Java.g:1108:13: ( '0' .. '9' )+
                     int cnt14=0;
                     loop14:
                     do {
@@ -2789,7 +2789,7 @@ public class JavaLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:14: '0' .. '9'
+                    	    // Java.g:1108:14: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2805,7 +2805,7 @@ public class JavaLexer extends Lexer {
                         cnt14++;
                     } while (true);
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:25: ( EXPONENT )?
+                    // Java.g:1108:25: ( EXPONENT )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -2814,7 +2814,7 @@ public class JavaLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:25: EXPONENT
+                            // Java.g:1108:25: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -2823,7 +2823,7 @@ public class JavaLexer extends Lexer {
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:35: ( FLOAT_TYPE_SUFFIX )?
+                    // Java.g:1108:35: ( FLOAT_TYPE_SUFFIX )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -2832,7 +2832,7 @@ public class JavaLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1108:35: FLOAT_TYPE_SUFFIX
+                            // Java.g:1108:35: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -2857,8 +2857,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "EXPONENT"
     public final void mEXPONENT() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1112:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1112:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // Java.g:1112:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // Java.g:1112:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -2869,7 +2869,7 @@ public class JavaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1112:22: ( '+' | '-' )?
+            // Java.g:1112:22: ( '+' | '-' )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -2878,7 +2878,7 @@ public class JavaLexer extends Lexer {
             }
             switch (alt18) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:
+                    // Java.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -2895,7 +2895,7 @@ public class JavaLexer extends Lexer {
 
             }
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1112:33: ( '0' .. '9' )+
+            // Java.g:1112:33: ( '0' .. '9' )+
             int cnt19=0;
             loop19:
             do {
@@ -2909,7 +2909,7 @@ public class JavaLexer extends Lexer {
 
                 switch (alt19) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1112:34: '0' .. '9'
+            	    // Java.g:1112:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2937,8 +2937,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "FLOAT_TYPE_SUFFIX"
     public final void mFLOAT_TYPE_SUFFIX() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1115:19: ( ( 'f' | 'F' | 'd' | 'D' ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1115:21: ( 'f' | 'F' | 'd' | 'D' )
+            // Java.g:1115:19: ( ( 'f' | 'F' | 'd' | 'D' ) )
+            // Java.g:1115:21: ( 'f' | 'F' | 'd' | 'D' )
             {
             if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='d'||input.LA(1)=='f' ) {
                 input.consume();
@@ -2963,11 +2963,11 @@ public class JavaLexer extends Lexer {
         try {
             int _type = CHARACTER_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1118:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1118:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
+            // Java.g:1118:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
+            // Java.g:1118:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
             {
             match('\''); 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1118:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
+            // Java.g:1118:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -2985,14 +2985,14 @@ public class JavaLexer extends Lexer {
             }
             switch (alt20) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1118:16: ESCAPE_SEQUENCE
+                    // Java.g:1118:16: ESCAPE_SEQUENCE
                     {
                     mESCAPE_SEQUENCE(); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1118:34: ~ ( '\\'' | '\\\\' )
+                    // Java.g:1118:34: ~ ( '\\'' | '\\\\' )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -3026,11 +3026,11 @@ public class JavaLexer extends Lexer {
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1122:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1122:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
+            // Java.g:1122:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
+            // Java.g:1122:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1122:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
+            // Java.g:1122:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
             loop21:
             do {
                 int alt21=3;
@@ -3046,14 +3046,14 @@ public class JavaLexer extends Lexer {
 
                 switch (alt21) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1122:14: ESCAPE_SEQUENCE
+            	    // Java.g:1122:14: ESCAPE_SEQUENCE
             	    {
             	    mESCAPE_SEQUENCE(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1122:32: ~ ( '\\\\' | '\"' )
+            	    // Java.g:1122:32: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3088,7 +3088,7 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "ESCAPE_SEQUENCE"
     public final void mESCAPE_SEQUENCE() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1127:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
+            // Java.g:1127:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
             int alt22=3;
             int LA22_0 = input.LA(1);
 
@@ -3139,7 +3139,7 @@ public class JavaLexer extends Lexer {
             }
             switch (alt22) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1127:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // Java.g:1127:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -3155,14 +3155,14 @@ public class JavaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1128:9: UNICODE_ESCAPE
+                    // Java.g:1128:9: UNICODE_ESCAPE
                     {
                     mUNICODE_ESCAPE(); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1129:9: OCTAL_ESCAPE
+                    // Java.g:1129:9: OCTAL_ESCAPE
                     {
                     mOCTAL_ESCAPE(); 
 
@@ -3179,7 +3179,7 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "OCTAL_ESCAPE"
     public final void mOCTAL_ESCAPE() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // Java.g:1134:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt23=3;
             int LA23_0 = input.LA(1);
 
@@ -3225,25 +3225,25 @@ public class JavaLexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // Java.g:1134:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:14: ( '0' .. '3' )
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:15: '0' .. '3'
+                    // Java.g:1134:14: ( '0' .. '3' )
+                    // Java.g:1134:15: '0' .. '3'
                     {
                     matchRange('0','3'); 
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:25: ( '0' .. '7' )
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:26: '0' .. '7'
+                    // Java.g:1134:25: ( '0' .. '7' )
+                    // Java.g:1134:26: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:36: ( '0' .. '7' )
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1134:37: '0' .. '7'
+                    // Java.g:1134:36: ( '0' .. '7' )
+                    // Java.g:1134:37: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -3253,18 +3253,18 @@ public class JavaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1135:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                    // Java.g:1135:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1135:14: ( '0' .. '7' )
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1135:15: '0' .. '7'
+                    // Java.g:1135:14: ( '0' .. '7' )
+                    // Java.g:1135:15: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1135:25: ( '0' .. '7' )
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1135:26: '0' .. '7'
+                    // Java.g:1135:25: ( '0' .. '7' )
+                    // Java.g:1135:26: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -3274,11 +3274,11 @@ public class JavaLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1136:9: '\\\\' ( '0' .. '7' )
+                    // Java.g:1136:9: '\\\\' ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1136:14: ( '0' .. '7' )
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1136:15: '0' .. '7'
+                    // Java.g:1136:14: ( '0' .. '7' )
+                    // Java.g:1136:15: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -3298,8 +3298,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "UNICODE_ESCAPE"
     public final void mUNICODE_ESCAPE() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1141:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1141:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+            // Java.g:1141:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+            // Java.g:1141:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
             {
             match('\\'); 
             match('u'); 
@@ -3321,11 +3321,11 @@ public class JavaLexer extends Lexer {
         try {
             int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1145:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1145:9: JAVA_ID_START ( JAVA_ID_PART )*
+            // Java.g:1145:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
+            // Java.g:1145:9: JAVA_ID_START ( JAVA_ID_PART )*
             {
             mJAVA_ID_START(); 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1145:23: ( JAVA_ID_PART )*
+            // Java.g:1145:23: ( JAVA_ID_PART )*
             loop24:
             do {
                 int alt24=2;
@@ -3338,7 +3338,7 @@ public class JavaLexer extends Lexer {
 
                 switch (alt24) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1145:24: JAVA_ID_PART
+            	    // Java.g:1145:24: JAVA_ID_PART
             	    {
             	    mJAVA_ID_PART(); 
 
@@ -3364,8 +3364,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "JAVA_ID_START"
     public final void mJAVA_ID_START() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1150:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:
+            // Java.g:1150:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
+            // Java.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
                 input.consume();
@@ -3388,8 +3388,8 @@ public class JavaLexer extends Lexer {
     // $ANTLR start "JAVA_ID_PART"
     public final void mJAVA_ID_PART() throws RecognitionException {
         try {
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1167:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:
+            // Java.g:1167:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
+            // Java.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
                 input.consume();
@@ -3414,8 +3414,8 @@ public class JavaLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1171:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1171:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // Java.g:1171:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // Java.g:1171:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -3449,12 +3449,12 @@ public class JavaLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1182:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1182:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // Java.g:1182:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // Java.g:1182:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1182:14: ( options {greedy=false; } : . )*
+            // Java.g:1182:14: ( options {greedy=false; } : . )*
             loop25:
             do {
                 int alt25=2;
@@ -3479,7 +3479,7 @@ public class JavaLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1182:42: .
+            	    // Java.g:1182:42: .
             	    {
             	    matchAny(); 
 
@@ -3516,12 +3516,12 @@ public class JavaLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1193:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1193:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // Java.g:1193:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // Java.g:1193:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1193:12: (~ ( '\\n' | '\\r' ) )*
+            // Java.g:1193:12: (~ ( '\\n' | '\\r' ) )*
             loop26:
             do {
                 int alt26=2;
@@ -3534,7 +3534,7 @@ public class JavaLexer extends Lexer {
 
                 switch (alt26) {
             	case 1 :
-            	    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1193:12: ~ ( '\\n' | '\\r' )
+            	    // Java.g:1193:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3554,7 +3554,7 @@ public class JavaLexer extends Lexer {
                 }
             } while (true);
 
-            // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1193:26: ( '\\r' )?
+            // Java.g:1193:26: ( '\\r' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -3563,7 +3563,7 @@ public class JavaLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1193:26: '\\r'
+                    // Java.g:1193:26: '\\r'
                     {
                     match('\r'); 
 
@@ -3592,775 +3592,775 @@ public class JavaLexer extends Lexer {
     // $ANTLR end "LINE_COMMENT"
 
     public void mTokens() throws RecognitionException {
-        // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:8: ( AND | AND_ASSIGN | ASSIGN | AT | BIT_SHIFT_RIGHT | BIT_SHIFT_RIGHT_ASSIGN | COLON | COMMA | DEC | DIV | DIV_ASSIGN | DOT | DOTSTAR | ELLIPSIS | EQUAL | GREATER_OR_EQUAL | GREATER_THAN | INC | LBRACK | LCURLY | LESS_OR_EQUAL | LESS_THAN | LOGICAL_AND | LOGICAL_NOT | LOGICAL_OR | LPAREN | MINUS | MINUS_ASSIGN | MOD | MOD_ASSIGN | NOT | NOT_EQUAL | OR | OR_ASSIGN | PLUS | PLUS_ASSIGN | QUESTION | RBRACK | RCURLY | RPAREN | SEMI | SHIFT_LEFT | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT | SHIFT_RIGHT_ASSIGN | STAR | STAR_ASSIGN | XOR | XOR_ASSIGN | ABSTRACT | ASSERT | BOOLEAN | BREAK | BYTE | CASE | CATCH | CHAR | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | ENUM | EXTENDS | FALSE | FINAL | FINALLY | FLOAT | FOR | IF | IMPLEMENTS | INSTANCEOF | INTERFACE | IMPORT | INT | LONG | NATIVE | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRICTFP | SUPER | SWITCH | SYNCHRONIZED | THIS | THROW | THROWS | TRANSIENT | TRUE | TRY | VOID | VOLATILE | WHILE | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | IDENT | WS | COMMENT | LINE_COMMENT )
+        // Java.g:1:8: ( AND | AND_ASSIGN | ASSIGN | AT | BIT_SHIFT_RIGHT | BIT_SHIFT_RIGHT_ASSIGN | COLON | COMMA | DEC | DIV | DIV_ASSIGN | DOT | DOTSTAR | ELLIPSIS | EQUAL | GREATER_OR_EQUAL | GREATER_THAN | INC | LBRACK | LCURLY | LESS_OR_EQUAL | LESS_THAN | LOGICAL_AND | LOGICAL_NOT | LOGICAL_OR | LPAREN | MINUS | MINUS_ASSIGN | MOD | MOD_ASSIGN | NOT | NOT_EQUAL | OR | OR_ASSIGN | PLUS | PLUS_ASSIGN | QUESTION | RBRACK | RCURLY | RPAREN | SEMI | SHIFT_LEFT | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT | SHIFT_RIGHT_ASSIGN | STAR | STAR_ASSIGN | XOR | XOR_ASSIGN | ABSTRACT | ASSERT | BOOLEAN | BREAK | BYTE | CASE | CATCH | CHAR | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | ENUM | EXTENDS | FALSE | FINAL | FINALLY | FLOAT | FOR | IF | IMPLEMENTS | INSTANCEOF | INTERFACE | IMPORT | INT | LONG | NATIVE | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRICTFP | SUPER | SWITCH | SYNCHRONIZED | THIS | THROW | THROWS | TRANSIENT | TRUE | TRY | VOID | VOLATILE | WHILE | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | IDENT | WS | COMMENT | LINE_COMMENT )
         int alt28=110;
         alt28 = dfa28.predict(input);
         switch (alt28) {
             case 1 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:10: AND
+                // Java.g:1:10: AND
                 {
                 mAND(); 
 
                 }
                 break;
             case 2 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:14: AND_ASSIGN
+                // Java.g:1:14: AND_ASSIGN
                 {
                 mAND_ASSIGN(); 
 
                 }
                 break;
             case 3 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:25: ASSIGN
+                // Java.g:1:25: ASSIGN
                 {
                 mASSIGN(); 
 
                 }
                 break;
             case 4 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:32: AT
+                // Java.g:1:32: AT
                 {
                 mAT(); 
 
                 }
                 break;
             case 5 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:35: BIT_SHIFT_RIGHT
+                // Java.g:1:35: BIT_SHIFT_RIGHT
                 {
                 mBIT_SHIFT_RIGHT(); 
 
                 }
                 break;
             case 6 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:51: BIT_SHIFT_RIGHT_ASSIGN
+                // Java.g:1:51: BIT_SHIFT_RIGHT_ASSIGN
                 {
                 mBIT_SHIFT_RIGHT_ASSIGN(); 
 
                 }
                 break;
             case 7 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:74: COLON
+                // Java.g:1:74: COLON
                 {
                 mCOLON(); 
 
                 }
                 break;
             case 8 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:80: COMMA
+                // Java.g:1:80: COMMA
                 {
                 mCOMMA(); 
 
                 }
                 break;
             case 9 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:86: DEC
+                // Java.g:1:86: DEC
                 {
                 mDEC(); 
 
                 }
                 break;
             case 10 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:90: DIV
+                // Java.g:1:90: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
             case 11 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:94: DIV_ASSIGN
+                // Java.g:1:94: DIV_ASSIGN
                 {
                 mDIV_ASSIGN(); 
 
                 }
                 break;
             case 12 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:105: DOT
+                // Java.g:1:105: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 13 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:109: DOTSTAR
+                // Java.g:1:109: DOTSTAR
                 {
                 mDOTSTAR(); 
 
                 }
                 break;
             case 14 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:117: ELLIPSIS
+                // Java.g:1:117: ELLIPSIS
                 {
                 mELLIPSIS(); 
 
                 }
                 break;
             case 15 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:126: EQUAL
+                // Java.g:1:126: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
             case 16 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:132: GREATER_OR_EQUAL
+                // Java.g:1:132: GREATER_OR_EQUAL
                 {
                 mGREATER_OR_EQUAL(); 
 
                 }
                 break;
             case 17 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:149: GREATER_THAN
+                // Java.g:1:149: GREATER_THAN
                 {
                 mGREATER_THAN(); 
 
                 }
                 break;
             case 18 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:162: INC
+                // Java.g:1:162: INC
                 {
                 mINC(); 
 
                 }
                 break;
             case 19 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:166: LBRACK
+                // Java.g:1:166: LBRACK
                 {
                 mLBRACK(); 
 
                 }
                 break;
             case 20 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:173: LCURLY
+                // Java.g:1:173: LCURLY
                 {
                 mLCURLY(); 
 
                 }
                 break;
             case 21 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:180: LESS_OR_EQUAL
+                // Java.g:1:180: LESS_OR_EQUAL
                 {
                 mLESS_OR_EQUAL(); 
 
                 }
                 break;
             case 22 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:194: LESS_THAN
+                // Java.g:1:194: LESS_THAN
                 {
                 mLESS_THAN(); 
 
                 }
                 break;
             case 23 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:204: LOGICAL_AND
+                // Java.g:1:204: LOGICAL_AND
                 {
                 mLOGICAL_AND(); 
 
                 }
                 break;
             case 24 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:216: LOGICAL_NOT
+                // Java.g:1:216: LOGICAL_NOT
                 {
                 mLOGICAL_NOT(); 
 
                 }
                 break;
             case 25 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:228: LOGICAL_OR
+                // Java.g:1:228: LOGICAL_OR
                 {
                 mLOGICAL_OR(); 
 
                 }
                 break;
             case 26 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:239: LPAREN
+                // Java.g:1:239: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
             case 27 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:246: MINUS
+                // Java.g:1:246: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
             case 28 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:252: MINUS_ASSIGN
+                // Java.g:1:252: MINUS_ASSIGN
                 {
                 mMINUS_ASSIGN(); 
 
                 }
                 break;
             case 29 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:265: MOD
+                // Java.g:1:265: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
             case 30 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:269: MOD_ASSIGN
+                // Java.g:1:269: MOD_ASSIGN
                 {
                 mMOD_ASSIGN(); 
 
                 }
                 break;
             case 31 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:280: NOT
+                // Java.g:1:280: NOT
                 {
                 mNOT(); 
 
                 }
                 break;
             case 32 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:284: NOT_EQUAL
+                // Java.g:1:284: NOT_EQUAL
                 {
                 mNOT_EQUAL(); 
 
                 }
                 break;
             case 33 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:294: OR
+                // Java.g:1:294: OR
                 {
                 mOR(); 
 
                 }
                 break;
             case 34 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:297: OR_ASSIGN
+                // Java.g:1:297: OR_ASSIGN
                 {
                 mOR_ASSIGN(); 
 
                 }
                 break;
             case 35 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:307: PLUS
+                // Java.g:1:307: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
             case 36 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:312: PLUS_ASSIGN
+                // Java.g:1:312: PLUS_ASSIGN
                 {
                 mPLUS_ASSIGN(); 
 
                 }
                 break;
             case 37 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:324: QUESTION
+                // Java.g:1:324: QUESTION
                 {
                 mQUESTION(); 
 
                 }
                 break;
             case 38 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:333: RBRACK
+                // Java.g:1:333: RBRACK
                 {
                 mRBRACK(); 
 
                 }
                 break;
             case 39 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:340: RCURLY
+                // Java.g:1:340: RCURLY
                 {
                 mRCURLY(); 
 
                 }
                 break;
             case 40 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:347: RPAREN
+                // Java.g:1:347: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
             case 41 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:354: SEMI
+                // Java.g:1:354: SEMI
                 {
                 mSEMI(); 
 
                 }
                 break;
             case 42 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:359: SHIFT_LEFT
+                // Java.g:1:359: SHIFT_LEFT
                 {
                 mSHIFT_LEFT(); 
 
                 }
                 break;
             case 43 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:370: SHIFT_LEFT_ASSIGN
+                // Java.g:1:370: SHIFT_LEFT_ASSIGN
                 {
                 mSHIFT_LEFT_ASSIGN(); 
 
                 }
                 break;
             case 44 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:388: SHIFT_RIGHT
+                // Java.g:1:388: SHIFT_RIGHT
                 {
                 mSHIFT_RIGHT(); 
 
                 }
                 break;
             case 45 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:400: SHIFT_RIGHT_ASSIGN
+                // Java.g:1:400: SHIFT_RIGHT_ASSIGN
                 {
                 mSHIFT_RIGHT_ASSIGN(); 
 
                 }
                 break;
             case 46 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:419: STAR
+                // Java.g:1:419: STAR
                 {
                 mSTAR(); 
 
                 }
                 break;
             case 47 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:424: STAR_ASSIGN
+                // Java.g:1:424: STAR_ASSIGN
                 {
                 mSTAR_ASSIGN(); 
 
                 }
                 break;
             case 48 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:436: XOR
+                // Java.g:1:436: XOR
                 {
                 mXOR(); 
 
                 }
                 break;
             case 49 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:440: XOR_ASSIGN
+                // Java.g:1:440: XOR_ASSIGN
                 {
                 mXOR_ASSIGN(); 
 
                 }
                 break;
             case 50 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:451: ABSTRACT
+                // Java.g:1:451: ABSTRACT
                 {
                 mABSTRACT(); 
 
                 }
                 break;
             case 51 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:460: ASSERT
+                // Java.g:1:460: ASSERT
                 {
                 mASSERT(); 
 
                 }
                 break;
             case 52 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:467: BOOLEAN
+                // Java.g:1:467: BOOLEAN
                 {
                 mBOOLEAN(); 
 
                 }
                 break;
             case 53 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:475: BREAK
+                // Java.g:1:475: BREAK
                 {
                 mBREAK(); 
 
                 }
                 break;
             case 54 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:481: BYTE
+                // Java.g:1:481: BYTE
                 {
                 mBYTE(); 
 
                 }
                 break;
             case 55 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:486: CASE
+                // Java.g:1:486: CASE
                 {
                 mCASE(); 
 
                 }
                 break;
             case 56 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:491: CATCH
+                // Java.g:1:491: CATCH
                 {
                 mCATCH(); 
 
                 }
                 break;
             case 57 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:497: CHAR
+                // Java.g:1:497: CHAR
                 {
                 mCHAR(); 
 
                 }
                 break;
             case 58 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:502: CLASS
+                // Java.g:1:502: CLASS
                 {
                 mCLASS(); 
 
                 }
                 break;
             case 59 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:508: CONTINUE
+                // Java.g:1:508: CONTINUE
                 {
                 mCONTINUE(); 
 
                 }
                 break;
             case 60 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:517: DEFAULT
+                // Java.g:1:517: DEFAULT
                 {
                 mDEFAULT(); 
 
                 }
                 break;
             case 61 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:525: DO
+                // Java.g:1:525: DO
                 {
                 mDO(); 
 
                 }
                 break;
             case 62 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:528: DOUBLE
+                // Java.g:1:528: DOUBLE
                 {
                 mDOUBLE(); 
 
                 }
                 break;
             case 63 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:535: ELSE
+                // Java.g:1:535: ELSE
                 {
                 mELSE(); 
 
                 }
                 break;
             case 64 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:540: ENUM
+                // Java.g:1:540: ENUM
                 {
                 mENUM(); 
 
                 }
                 break;
             case 65 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:545: EXTENDS
+                // Java.g:1:545: EXTENDS
                 {
                 mEXTENDS(); 
 
                 }
                 break;
             case 66 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:553: FALSE
+                // Java.g:1:553: FALSE
                 {
                 mFALSE(); 
 
                 }
                 break;
             case 67 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:559: FINAL
+                // Java.g:1:559: FINAL
                 {
                 mFINAL(); 
 
                 }
                 break;
             case 68 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:565: FINALLY
+                // Java.g:1:565: FINALLY
                 {
                 mFINALLY(); 
 
                 }
                 break;
             case 69 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:573: FLOAT
+                // Java.g:1:573: FLOAT
                 {
                 mFLOAT(); 
 
                 }
                 break;
             case 70 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:579: FOR
+                // Java.g:1:579: FOR
                 {
                 mFOR(); 
 
                 }
                 break;
             case 71 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:583: IF
+                // Java.g:1:583: IF
                 {
                 mIF(); 
 
                 }
                 break;
             case 72 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:586: IMPLEMENTS
+                // Java.g:1:586: IMPLEMENTS
                 {
                 mIMPLEMENTS(); 
 
                 }
                 break;
             case 73 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:597: INSTANCEOF
+                // Java.g:1:597: INSTANCEOF
                 {
                 mINSTANCEOF(); 
 
                 }
                 break;
             case 74 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:608: INTERFACE
+                // Java.g:1:608: INTERFACE
                 {
                 mINTERFACE(); 
 
                 }
                 break;
             case 75 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:618: IMPORT
+                // Java.g:1:618: IMPORT
                 {
                 mIMPORT(); 
 
                 }
                 break;
             case 76 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:625: INT
+                // Java.g:1:625: INT
                 {
                 mINT(); 
 
                 }
                 break;
             case 77 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:629: LONG
+                // Java.g:1:629: LONG
                 {
                 mLONG(); 
 
                 }
                 break;
             case 78 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:634: NATIVE
+                // Java.g:1:634: NATIVE
                 {
                 mNATIVE(); 
 
                 }
                 break;
             case 79 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:641: NEW
+                // Java.g:1:641: NEW
                 {
                 mNEW(); 
 
                 }
                 break;
             case 80 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:645: NULL
+                // Java.g:1:645: NULL
                 {
                 mNULL(); 
 
                 }
                 break;
             case 81 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:650: PACKAGE
+                // Java.g:1:650: PACKAGE
                 {
                 mPACKAGE(); 
 
                 }
                 break;
             case 82 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:658: PRIVATE
+                // Java.g:1:658: PRIVATE
                 {
                 mPRIVATE(); 
 
                 }
                 break;
             case 83 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:666: PROTECTED
+                // Java.g:1:666: PROTECTED
                 {
                 mPROTECTED(); 
 
                 }
                 break;
             case 84 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:676: PUBLIC
+                // Java.g:1:676: PUBLIC
                 {
                 mPUBLIC(); 
 
                 }
                 break;
             case 85 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:683: RETURN
+                // Java.g:1:683: RETURN
                 {
                 mRETURN(); 
 
                 }
                 break;
             case 86 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:690: SHORT
+                // Java.g:1:690: SHORT
                 {
                 mSHORT(); 
 
                 }
                 break;
             case 87 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:696: STATIC
+                // Java.g:1:696: STATIC
                 {
                 mSTATIC(); 
 
                 }
                 break;
             case 88 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:703: STRICTFP
+                // Java.g:1:703: STRICTFP
                 {
                 mSTRICTFP(); 
 
                 }
                 break;
             case 89 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:712: SUPER
+                // Java.g:1:712: SUPER
                 {
                 mSUPER(); 
 
                 }
                 break;
             case 90 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:718: SWITCH
+                // Java.g:1:718: SWITCH
                 {
                 mSWITCH(); 
 
                 }
                 break;
             case 91 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:725: SYNCHRONIZED
+                // Java.g:1:725: SYNCHRONIZED
                 {
                 mSYNCHRONIZED(); 
 
                 }
                 break;
             case 92 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:738: THIS
+                // Java.g:1:738: THIS
                 {
                 mTHIS(); 
 
                 }
                 break;
             case 93 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:743: THROW
+                // Java.g:1:743: THROW
                 {
                 mTHROW(); 
 
                 }
                 break;
             case 94 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:749: THROWS
+                // Java.g:1:749: THROWS
                 {
                 mTHROWS(); 
 
                 }
                 break;
             case 95 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:756: TRANSIENT
+                // Java.g:1:756: TRANSIENT
                 {
                 mTRANSIENT(); 
 
                 }
                 break;
             case 96 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:766: TRUE
+                // Java.g:1:766: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
             case 97 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:771: TRY
+                // Java.g:1:771: TRY
                 {
                 mTRY(); 
 
                 }
                 break;
             case 98 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:775: VOID
+                // Java.g:1:775: VOID
                 {
                 mVOID(); 
 
                 }
                 break;
             case 99 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:780: VOLATILE
+                // Java.g:1:780: VOLATILE
                 {
                 mVOLATILE(); 
 
                 }
                 break;
             case 100 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:789: WHILE
+                // Java.g:1:789: WHILE
                 {
                 mWHILE(); 
 
                 }
                 break;
             case 101 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:795: HEX_LITERAL
+                // Java.g:1:795: HEX_LITERAL
                 {
                 mHEX_LITERAL(); 
 
                 }
                 break;
             case 102 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:807: DECIMAL_LITERAL
+                // Java.g:1:807: DECIMAL_LITERAL
                 {
                 mDECIMAL_LITERAL(); 
 
                 }
                 break;
             case 103 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:823: OCTAL_LITERAL
+                // Java.g:1:823: OCTAL_LITERAL
                 {
                 mOCTAL_LITERAL(); 
 
                 }
                 break;
             case 104 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:837: FLOATING_POINT_LITERAL
+                // Java.g:1:837: FLOATING_POINT_LITERAL
                 {
                 mFLOATING_POINT_LITERAL(); 
 
                 }
                 break;
             case 105 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:860: CHARACTER_LITERAL
+                // Java.g:1:860: CHARACTER_LITERAL
                 {
                 mCHARACTER_LITERAL(); 
 
                 }
                 break;
             case 106 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:878: STRING_LITERAL
+                // Java.g:1:878: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
             case 107 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:893: IDENT
+                // Java.g:1:893: IDENT
                 {
                 mIDENT(); 
 
                 }
                 break;
             case 108 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:899: WS
+                // Java.g:1:899: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 109 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:902: COMMENT
+                // Java.g:1:902: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
             case 110 :
-                // C:\\data\\home\\ewger\\development\\java\\jjlang\\src\\Java.g:1:910: LINE_COMMENT
+                // Java.g:1:910: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 

@@ -1,12 +1,17 @@
+package org.javajavalang.JavaReflection;
+
 import sun.reflect.Reflection;
 
+public class JavaDiscovery {
 
-
-public final class JavaDiscovery{
-	
-	public static isStaticMethod(String className, String methodName, Class<?>.. parameterTypes){
-		Class cl = Class.forName(className);
-		cl.getDeclaredMethod(methodName, arg1)
-	}
-	
+	public static void isStaticMethod(String className, String methodName, Class<?> parameterTypes)
+	{
+		try {
+			Class cl = Class.forName(className);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//cl.getDeclaredMethod(methodName, arg1);
+	}	
 }

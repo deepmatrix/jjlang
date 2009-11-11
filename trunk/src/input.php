@@ -1,5 +1,5 @@
 class Main {
-  static var $tokens;
+  static var $tokens =   new CommonTokenStream();
   public static function main($args)
   {
     try {
@@ -7,39 +7,39 @@ class Main {
     {
     for ( $i = 0  ; $i < $args->length; $i++) 
       {
-      $this->doFile();
+      $this->doFile(  new File());
       }
     }
    else 
     {
-    System->err->println("Usage: java Main <directory or file name>") ;
+    System->err->println("Usage: java Main <directory or file name>");
     }
   } 
 
   }
   public static function doFile($f)
   {
-  if ( $f->isDirectory()  ) 
+  if ( $f->isDirectory() ) 
     {
-      $files = $f->list()  
+      $files = $f->list() 
     for ( $i = 0  ; $i < $files->length; $i++) 
-      $this->doFile() ;
+      $this->doFile(  new File($f));
     }
    else 
-    if ( ( $f->getName() ->length()  > 5 ) && $f->getName() ->substring($f->getName() ->length()  - 5) ->equals(".java")  ) 
+    if ( ( $f->getName()->length() > 5 ) && $f->getName()->substring($f->getName()->length() - 5)->equals(".java") ) 
       {
-      System->err->println("   " + $f->getAbsolutePath() ) ;
-      $this->parseFile($f->getAbsolutePath() ) ;
+      System->err->println("   " + $f->getAbsolutePath());
+      $this->parseFile($f->getAbsolutePath());
       }
 
   }
   public static function parseFile($f)
   {
     try {
-    $lexer 
-  $this->tokens->setTokenSource($lexer) ;
-    $parser 
-  $parser->compilationUnit() ;
+    $lexer =   new JavaParserLexer(  new ANTLRFileStream($f)) 
+  $this->tokens->setTokenSource($lexer);
+    $parser =   new JavaParser($this->tokens) 
+  $parser->compilationUnit();
   } 
 
   }
