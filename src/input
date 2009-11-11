@@ -30,7 +30,7 @@ class Main {
 	// This method decides what action to take based on the type of
 	//   file we are looking at
 	public static void doFile(File f)
-							  throws Exception {
+					 		  throws Exception {
 		// If this is a directory, walk each file/dir in that directory
 		if (f.isDirectory()) {
 			String files[] = f.list();

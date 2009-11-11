@@ -55,7 +55,7 @@ import org.javajavalang.JavaImprinting.*;
     public void setObserver(GenerationObserver observer) {
       this.observer = observer;
     }
-    
+
     /************************************************************
      *
      * ERROR REPORTING
@@ -136,11 +136,12 @@ scope {
   $targetSource::importStatements = new ArrayList();
   $targetSource::typeStatements = new ArrayList();
 }
+
     :   ^(JAVA_SOURCE annotationList packageDeclaration? importDeclaration* typeDeclarations)
-    -> targetSource( 
-      packageName={$targetSource::packageName}, 
-      importStms={$targetSource::importStatements}, 
-      typeStms={$targetSource::typeStatements})
+        -> targetSource( 
+          packageName={$targetSource::packageName}, 
+          importStms={$targetSource::importStatements}, 
+          typeStms={$targetSource::typeStatements})
     ;
 
 packageDeclaration
@@ -256,7 +257,7 @@ interfaceScopeDeclarations
 
 variableDeclaratorList returns [List lst]
 @init{
-  $lst = new ArrayList(); 
+  $lst = new ArrayList();   
 }
     :   ^(VAR_DECLARATOR_LIST (variableDeclarator {$lst.add($variableDeclarator.st);})+)
     ;
@@ -674,13 +675,25 @@ arrayTypeDeclarator
     ;
 
 newExpression
+scope {
+  StringTemplate qualifiedTypeIdentST; 
+}
+@init{
+  $newExpression::qualifiedTypeIdentST = null;
+}
     :   ^(  STATIC_ARRAY_CREATOR
             (   primitiveType newArrayConstruction
             |   genericTypeArgumentList? qualifiedTypeIdent newArrayConstruction
             )
         )
     |   ^(CLASS_CONSTRUCTOR_CALL genericTypeArgumentList? qualifiedTypeIdent arguments classTopLevelScope?)
-        -> newExpression(qualifiedTypeIdent={$qualifiedTypeIdent.st}, arguments={$arguments.st}, genericTypeArgumentList={$genericTypeArgumentList.st}, classTopLevelScope={$classTopLevelScope.st})
+      {        
+        if ($qualifiedTypeIdent.lst!= null) {
+          if ($qualifiedTypeIdent.lst.size()>0)
+            $newExpression::qualifiedTypeIdentST = $qualifiedTypeIdent.lst.get(0); 
+        }
+      }
+        -> newExpression(qualifiedTypeIdent={$newExpression::qualifiedTypeIdentST}, arguments={$arguments.lst}, genericTypeArgumentList={$genericTypeArgumentList.st}, classTopLevelScope={$classTopLevelScope.st})
     ;
     
 innerNewExpression // something like 'InnerType innerType = outer.new InnerType();'
