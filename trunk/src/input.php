@@ -1,11 +1,11 @@
 class Main {
-  static var $tokens =   new CommonTokenStream();
+  static var $tokens =   new CommonTokenStream();;
   public static function main($args)
   {
     try {
   if ( $args->length > 0 ) 
     {
-    for ( $i = 0  ; $i < $args->length; $i++) 
+    for ( $i = 0;  ; $i < $args->length; $i++) 
       {
       $this->doFile(  new File($args[$i]));
       }
@@ -21,8 +21,8 @@ class Main {
   {
   if ( $f->isDirectory() ) 
     {
-      $files = $f->list() 
-    for ( $i = 0  ; $i < $files->length; $i++) 
+      $files = $f->list(); 
+    for ( $i = 0;  ; $i < $files->length; $i++) 
       $this->doFile(  new File($f, $files[$i]));
     }
    else 
@@ -36,9 +36,9 @@ class Main {
   public static function parseFile($f)
   {
     try {
-    $lexer =   new JavaParserLexer(  new ANTLRFileStream($f)) 
+    $lexer =   new JavaParserLexer(  new ANTLRFileStream($f)); 
   $this->tokens->setTokenSource($lexer);
-    $parser =   new JavaParser($this->tokens) 
+    $parser =   new JavaParser($this->tokens); 
   $parser->compilationUnit();
   } 
 
