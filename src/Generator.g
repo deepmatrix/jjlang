@@ -273,7 +273,8 @@ variableDeclaratorId
 
 variableInitializer
     :   arrayInitializer
-    |   expression {$variableInitializer.st = $expression.st;}
+    |   expression
+        -> template(v={$expression.st}) "<v>;"
     ;
 
 arrayDeclarator
@@ -513,7 +514,7 @@ statement
     |   ^(LABELED_STATEMENT IDENT stmnt=statement)
         -> template(statement={$stmnt.st}) "/*labeled*/ <statement>"
     |   expression -> statement(expression={$expression.st})
-    |   SEMI // Empty statement.
+    |   SEMI -> template() ";" // Empty statement.
     ;
         
 catches
@@ -726,6 +727,6 @@ literal
     ;
     
 comment
-    :   COMMENT -> template(v={$COMMENT.text}) "<v>"
-    |   LINE_COMMENT -> template(v={$LINE_COMMENT.text}) "<v>"
+    :   COMMENT -> template(v={$COMMENT.text}) "/*<v>*/"
+    |   LINE_COMMENT -> template(v={$LINE_COMMENT.text}) "//<v>"
     ;
