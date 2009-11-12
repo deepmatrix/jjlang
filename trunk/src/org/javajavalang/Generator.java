@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 Generator.g 2009-11-12 01:56:49
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 Generator.g 2009-11-12 23:20:48
 
 package org.javajavalang;
 
@@ -2738,7 +2738,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "variableInitializer"
-    // Generator.g:274:1: variableInitializer : ( arrayInitializer | expression -> template(v=$expression.st) \"<v>;\");
+    // Generator.g:274:1: variableInitializer : ( arrayInitializer | expression -> template(v=$expression.st) \"<v>\");
     public final Generator.variableInitializer_return variableInitializer() throws RecognitionException {
         Generator.variableInitializer_return retval = new Generator.variableInitializer_return();
         retval.start = input.LT(1);
@@ -2748,7 +2748,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // Generator.g:275:5: ( arrayInitializer | expression -> template(v=$expression.st) \"<v>;\")
+            // Generator.g:275:5: ( arrayInitializer | expression -> template(v=$expression.st) \"<v>\")
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -2789,9 +2789,9 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 277:9: -> template(v=$expression.st) \"<v>;\"
+                      // 277:9: -> template(v=$expression.st) \"<v>\"
                       {
-                          retval.st = new StringTemplate(templateLib, "<v>;",
+                          retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (expression35!=null?expression35.st:null)));
                       }
 
@@ -5219,11 +5219,17 @@ public class Generator extends TreeParser {
 
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
+            if ( state.backtracking==0 ) {
+
+                        for(StringTemplate st : ((block_scope)block_stack.peek()).statements)
+                          System.out.println("[["+st.toString()+"]]");
+                      
+            }
 
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 472:118: -> block(statements=$block::statements)
+              // 477:9: -> block(statements=$block::statements)
               {
                   retval.st = templateLib.getInstanceOf("block",
                 new STAttrMap().put("statements", ((block_scope)block_stack.peek()).statements));
@@ -5252,7 +5258,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "blockStatement"
-    // Generator.g:475:1: blockStatement : ( localVariableDeclaration | typeDeclaration | statement );
+    // Generator.g:480:1: blockStatement : ( localVariableDeclaration -> template(v=$localVariableDeclaration.st) \"<v>;\" | typeDeclaration | statement );
     public final Generator.blockStatement_return blockStatement() throws RecognitionException {
         Generator.blockStatement_return retval = new Generator.blockStatement_return();
         retval.start = input.LT(1);
@@ -5266,7 +5272,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // Generator.g:476:5: ( localVariableDeclaration | typeDeclaration | statement )
+            // Generator.g:481:5: ( localVariableDeclaration -> template(v=$localVariableDeclaration.st) \"<v>;\" | typeDeclaration | statement )
             int alt73=3;
             switch ( input.LA(1) ) {
             case VAR_DECLARATION:
@@ -5313,23 +5319,30 @@ public class Generator extends TreeParser {
 
             switch (alt73) {
                 case 1 :
-                    // Generator.g:476:9: localVariableDeclaration
+                    // Generator.g:481:9: localVariableDeclaration
                     {
-                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2844);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2863);
                     localVariableDeclaration49=localVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                      retval.st = (localVariableDeclaration49!=null?localVariableDeclaration49.st:null);
-                    }
 
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 482:9: -> template(v=$localVariableDeclaration.st) \"<v>;\"
+                      {
+                          retval.st = new StringTemplate(templateLib, "<v>;",
+                        new STAttrMap().put("v", (localVariableDeclaration49!=null?localVariableDeclaration49.st:null)));
+                      }
+
+                    }
                     }
                     break;
                 case 2 :
-                    // Generator.g:477:9: typeDeclaration
+                    // Generator.g:483:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement2856);
+                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement2893);
                     typeDeclaration50=typeDeclaration();
 
                     state._fsp--;
@@ -5341,9 +5354,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Generator.g:478:9: statement
+                    // Generator.g:484:9: statement
                     {
-                    pushFollow(FOLLOW_statement_in_blockStatement2868);
+                    pushFollow(FOLLOW_statement_in_blockStatement2905);
                     statement51=statement();
 
                     state._fsp--;
@@ -5375,7 +5388,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // Generator.g:481:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst);
+    // Generator.g:487:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst);
     public final Generator.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
         Generator.localVariableDeclaration_return retval = new Generator.localVariableDeclaration_return();
         retval.start = input.LT(1);
@@ -5389,23 +5402,23 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
-            // Generator.g:482:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst))
-            // Generator.g:482:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
+            // Generator.g:488:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst))
+            // Generator.g:488:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
             {
-            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2894); if (state.failed) return retval;
+            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2931); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2896);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2933);
             localModifierList52=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_localVariableDeclaration2898);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration2935);
             type53=type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2900);
+            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2937);
             variableDeclaratorList54=variableDeclaratorList();
 
             state._fsp--;
@@ -5416,7 +5429,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 483:9: -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst)
+              // 489:9: -> localVariableDeclaration(modifiers=$localModifierList.sttype=$type.stdeclarators=$variableDeclaratorList.lst)
               {
                   retval.st = templateLib.getInstanceOf("localVariableDeclaration",
                 new STAttrMap().put("modifiers", (localModifierList52!=null?localModifierList52.st:null)).put("type", (type53!=null?type53.st:null)).put("declarators", (variableDeclaratorList54!=null?variableDeclaratorList54.lst:null)));
@@ -5444,7 +5457,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "statement"
-    // Generator.g:487:1: statement : ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI -> template() \";\");
+    // Generator.g:493:1: statement : ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI -> template() \";\");
     public final Generator.statement_return statement() throws RecognitionException {
         Generator.statement_return retval = new Generator.statement_return();
         retval.start = input.LT(1);
@@ -5499,7 +5512,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
-            // Generator.g:488:5: ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI -> template() \";\")
+            // Generator.g:494:5: ( block | ^( ASSERT a1= expression (b1= expression )? ) -> assert(expressionA=$a1.stexpressionB=$b1.st) | ^( IF parenthesizedExpression a2= statement (b2= statement )? ) -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st) | ^( FOR forInit forCondition forUpdater stmnt= statement ) -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st) | ^( FOR_EACH localModifierList type IDENT expression stmnt= statement ) -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st) | ^( WHILE parenthesizedExpression stmnt= statement ) -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st) | ^( DO stmnt= statement parenthesizedExpression ) -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st) | ^( TRY tryblock= block ( catches )? (restblock= block )? ) -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) -> template(block=$block.st) \"/*synchronized*/ <block>\" | ^( RETURN ( expression )? ) -> return(expression=$expression.st) | ^( THROW expression ) -> throw(expression=$expression.st) | ^( BREAK ( IDENT )? ) -> break(ident=$IDENT.text) | ^( CONTINUE ( IDENT )? ) -> continue(ident=$IDENT.text) | ^( LABELED_STATEMENT IDENT stmnt= statement ) -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\" | expression -> statement(expression=$expression.st) | SEMI -> template() \";\")
             int alt81=17;
             switch ( input.LA(1) ) {
             case BLOCK_SCOPE:
@@ -5597,9 +5610,9 @@ public class Generator extends TreeParser {
 
             switch (alt81) {
                 case 1 :
-                    // Generator.g:488:9: block
+                    // Generator.g:494:9: block
                     {
-                    pushFollow(FOLLOW_block_in_statement2960);
+                    pushFollow(FOLLOW_block_in_statement2997);
                     block55=block();
 
                     state._fsp--;
@@ -5611,17 +5624,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:489:9: ^( ASSERT a1= expression (b1= expression )? )
+                    // Generator.g:495:9: ^( ASSERT a1= expression (b1= expression )? )
                     {
-                    match(input,ASSERT,FOLLOW_ASSERT_in_statement2973); if (state.failed) return retval;
+                    match(input,ASSERT,FOLLOW_ASSERT_in_statement3010); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement2977);
+                    pushFollow(FOLLOW_expression_in_statement3014);
                     a1=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // Generator.g:489:34: (b1= expression )?
+                    // Generator.g:495:34: (b1= expression )?
                     int alt74=2;
                     int LA74_0 = input.LA(1);
 
@@ -5632,7 +5645,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: b1= expression
                             {
-                            pushFollow(FOLLOW_expression_in_statement2981);
+                            pushFollow(FOLLOW_expression_in_statement3018);
                             b1=expression();
 
                             state._fsp--;
@@ -5649,7 +5662,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 490:9: -> assert(expressionA=$a1.stexpressionB=$b1.st)
+                      // 496:9: -> assert(expressionA=$a1.stexpressionB=$b1.st)
                       {
                           retval.st = templateLib.getInstanceOf("assert",
                         new STAttrMap().put("expressionA", (a1!=null?a1.st:null)).put("expressionB", (b1!=null?b1.st:null)));
@@ -5659,22 +5672,22 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Generator.g:491:9: ^( IF parenthesizedExpression a2= statement (b2= statement )? )
+                    // Generator.g:497:9: ^( IF parenthesizedExpression a2= statement (b2= statement )? )
                     {
-                    match(input,IF,FOLLOW_IF_in_statement3015); if (state.failed) return retval;
+                    match(input,IF,FOLLOW_IF_in_statement3052); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3017);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3054);
                     parenthesizedExpression56=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3021);
+                    pushFollow(FOLLOW_statement_in_statement3058);
                     a2=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // Generator.g:491:53: (b2= statement )?
+                    // Generator.g:497:53: (b2= statement )?
                     int alt75=2;
                     int LA75_0 = input.LA(1);
 
@@ -5685,7 +5698,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: b2= statement
                             {
-                            pushFollow(FOLLOW_statement_in_statement3025);
+                            pushFollow(FOLLOW_statement_in_statement3062);
                             b2=statement();
 
                             state._fsp--;
@@ -5702,7 +5715,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 492:9: -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st)
+                      // 498:9: -> if(parenthesizedExpression=$parenthesizedExpression.ststatement=$a2.stelsestatement=$b2.st)
                       {
                           retval.st = templateLib.getInstanceOf("if",
                         new STAttrMap().put("parenthesizedExpression", (parenthesizedExpression56!=null?parenthesizedExpression56.st:null)).put("statement", (a2!=null?a2.st:null)).put("elsestatement", (b2!=null?b2.st:null)));
@@ -5712,27 +5725,27 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // Generator.g:493:9: ^( FOR forInit forCondition forUpdater stmnt= statement )
+                    // Generator.g:499:9: ^( FOR forInit forCondition forUpdater stmnt= statement )
                     {
-                    match(input,FOR,FOLLOW_FOR_in_statement3065); if (state.failed) return retval;
+                    match(input,FOR,FOLLOW_FOR_in_statement3102); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_forInit_in_statement3067);
+                    pushFollow(FOLLOW_forInit_in_statement3104);
                     forInit57=forInit();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_forCondition_in_statement3069);
+                    pushFollow(FOLLOW_forCondition_in_statement3106);
                     forCondition58=forCondition();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_forUpdater_in_statement3071);
+                    pushFollow(FOLLOW_forUpdater_in_statement3108);
                     forUpdater59=forUpdater();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3075);
+                    pushFollow(FOLLOW_statement_in_statement3112);
                     stmnt=statement();
 
                     state._fsp--;
@@ -5743,7 +5756,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 494:9: -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st)
+                      // 500:9: -> for(forInit=$forInit.stforCondition=$forCondition.stforUpdater=$forUpdater.ststatement=$stmnt.st)
                       {
                           retval.st = templateLib.getInstanceOf("for",
                         new STAttrMap().put("forInit", (forInit57!=null?forInit57.st:null)).put("forCondition", (forCondition58!=null?forCondition58.st:null)).put("forUpdater", (forUpdater59!=null?forUpdater59.st:null)).put("statement", (stmnt!=null?stmnt.st:null)));
@@ -5753,28 +5766,28 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // Generator.g:495:9: ^( FOR_EACH localModifierList type IDENT expression stmnt= statement )
+                    // Generator.g:501:9: ^( FOR_EACH localModifierList type IDENT expression stmnt= statement )
                     {
-                    match(input,FOR_EACH,FOLLOW_FOR_EACH_in_statement3119); if (state.failed) return retval;
+                    match(input,FOR_EACH,FOLLOW_FOR_EACH_in_statement3156); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_localModifierList_in_statement3121);
+                    pushFollow(FOLLOW_localModifierList_in_statement3158);
                     localModifierList60=localModifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_statement3123);
+                    pushFollow(FOLLOW_type_in_statement3160);
                     type61=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    IDENT62=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3125); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement3127);
+                    IDENT62=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3162); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expression_in_statement3164);
                     expression63=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3131);
+                    pushFollow(FOLLOW_statement_in_statement3168);
                     stmnt=statement();
 
                     state._fsp--;
@@ -5785,7 +5798,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 496:9: -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st)
+                      // 502:9: -> foreach(modifiers=$localModifierList.sttype=$type.stid=$IDENT.textexpression=$expression.ststatement=$stmnt.st)
                       {
                           retval.st = templateLib.getInstanceOf("foreach",
                         new STAttrMap().put("modifiers", (localModifierList60!=null?localModifierList60.st:null)).put("type", (type61!=null?type61.st:null)).put("id", (IDENT62!=null?IDENT62.getText():null)).put("expression", (expression63!=null?expression63.st:null)).put("statement", (stmnt!=null?stmnt.st:null)));
@@ -5795,17 +5808,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // Generator.g:497:9: ^( WHILE parenthesizedExpression stmnt= statement )
+                    // Generator.g:503:9: ^( WHILE parenthesizedExpression stmnt= statement )
                     {
-                    match(input,WHILE,FOLLOW_WHILE_in_statement3181); if (state.failed) return retval;
+                    match(input,WHILE,FOLLOW_WHILE_in_statement3218); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3183);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3220);
                     parenthesizedExpression64=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3187);
+                    pushFollow(FOLLOW_statement_in_statement3224);
                     stmnt=statement();
 
                     state._fsp--;
@@ -5816,7 +5829,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 498:9: -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st)
+                      // 504:9: -> while(parenthesizedExpression=$parenthesizedExpression.ststatement=$stmnt.st)
                       {
                           retval.st = templateLib.getInstanceOf("while",
                         new STAttrMap().put("parenthesizedExpression", (parenthesizedExpression64!=null?parenthesizedExpression64.st:null)).put("statement", (stmnt!=null?stmnt.st:null)));
@@ -5826,17 +5839,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // Generator.g:499:9: ^( DO stmnt= statement parenthesizedExpression )
+                    // Generator.g:505:9: ^( DO stmnt= statement parenthesizedExpression )
                     {
-                    match(input,DO,FOLLOW_DO_in_statement3221); if (state.failed) return retval;
+                    match(input,DO,FOLLOW_DO_in_statement3258); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3225);
+                    pushFollow(FOLLOW_statement_in_statement3262);
                     stmnt=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3227);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3264);
                     parenthesizedExpression65=parenthesizedExpression();
 
                     state._fsp--;
@@ -5847,7 +5860,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 500:9: -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st)
+                      // 506:9: -> do(statement=$stmnt.stparenthesizedExpression=$parenthesizedExpression.st)
                       {
                           retval.st = templateLib.getInstanceOf("do",
                         new STAttrMap().put("statement", (stmnt!=null?stmnt.st:null)).put("parenthesizedExpression", (parenthesizedExpression65!=null?parenthesizedExpression65.st:null)));
@@ -5857,17 +5870,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // Generator.g:501:9: ^( TRY tryblock= block ( catches )? (restblock= block )? )
+                    // Generator.g:507:9: ^( TRY tryblock= block ( catches )? (restblock= block )? )
                     {
-                    match(input,TRY,FOLLOW_TRY_in_statement3261); if (state.failed) return retval;
+                    match(input,TRY,FOLLOW_TRY_in_statement3298); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_statement3265);
+                    pushFollow(FOLLOW_block_in_statement3302);
                     tryblock=block();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // Generator.g:501:30: ( catches )?
+                    // Generator.g:507:30: ( catches )?
                     int alt76=2;
                     int LA76_0 = input.LA(1);
 
@@ -5878,7 +5891,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: catches
                             {
-                            pushFollow(FOLLOW_catches_in_statement3267);
+                            pushFollow(FOLLOW_catches_in_statement3304);
                             catches66=catches();
 
                             state._fsp--;
@@ -5889,7 +5902,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // Generator.g:501:48: (restblock= block )?
+                    // Generator.g:507:48: (restblock= block )?
                     int alt77=2;
                     int LA77_0 = input.LA(1);
 
@@ -5900,7 +5913,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: restblock= block
                             {
-                            pushFollow(FOLLOW_block_in_statement3272);
+                            pushFollow(FOLLOW_block_in_statement3309);
                             restblock=block();
 
                             state._fsp--;
@@ -5917,7 +5930,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 502:9: -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st)
+                      // 508:9: -> try(tryblock=$tryblock.stcatches=$catches.strestblock=$restblock.st)
                       {
                           retval.st = templateLib.getInstanceOf("try",
                         new STAttrMap().put("tryblock", (tryblock!=null?tryblock.st:null)).put("catches", (catches66!=null?catches66.st:null)).put("restblock", (restblock!=null?restblock.st:null)));
@@ -5927,17 +5940,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // Generator.g:503:9: ^( SWITCH parenthesizedExpression switchBlockLabels )
+                    // Generator.g:509:9: ^( SWITCH parenthesizedExpression switchBlockLabels )
                     {
-                    match(input,SWITCH,FOLLOW_SWITCH_in_statement3313); if (state.failed) return retval;
+                    match(input,SWITCH,FOLLOW_SWITCH_in_statement3350); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3315);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3352);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_switchBlockLabels_in_statement3317);
+                    pushFollow(FOLLOW_switchBlockLabels_in_statement3354);
                     switchBlockLabels();
 
                     state._fsp--;
@@ -5948,17 +5961,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // Generator.g:504:9: ^( SYNCHRONIZED parenthesizedExpression block )
+                    // Generator.g:510:9: ^( SYNCHRONIZED parenthesizedExpression block )
                     {
-                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement3329); if (state.failed) return retval;
+                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement3366); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3331);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement3368);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_statement3333);
+                    pushFollow(FOLLOW_block_in_statement3370);
                     block67=block();
 
                     state._fsp--;
@@ -5969,7 +5982,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 505:9: -> template(block=$block.st) \"/*synchronized*/ <block>\"
+                      // 511:9: -> template(block=$block.st) \"/*synchronized*/ <block>\"
                       {
                           retval.st = new StringTemplate(templateLib, "/*synchronized*/ <block>",
                         new STAttrMap().put("block", (block67!=null?block67.st:null)));
@@ -5979,13 +5992,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // Generator.g:506:9: ^( RETURN ( expression )? )
+                    // Generator.g:512:9: ^( RETURN ( expression )? )
                     {
-                    match(input,RETURN,FOLLOW_RETURN_in_statement3364); if (state.failed) return retval;
+                    match(input,RETURN,FOLLOW_RETURN_in_statement3401); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // Generator.g:506:18: ( expression )?
+                        // Generator.g:512:18: ( expression )?
                         int alt78=2;
                         int LA78_0 = input.LA(1);
 
@@ -5996,7 +6009,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // Generator.g:0:0: expression
                                 {
-                                pushFollow(FOLLOW_expression_in_statement3366);
+                                pushFollow(FOLLOW_expression_in_statement3403);
                                 expression68=expression();
 
                                 state._fsp--;
@@ -6014,7 +6027,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 507:9: -> return(expression=$expression.st)
+                      // 513:9: -> return(expression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("return",
                         new STAttrMap().put("expression", (expression68!=null?expression68.st:null)));
@@ -6024,12 +6037,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // Generator.g:508:9: ^( THROW expression )
+                    // Generator.g:514:9: ^( THROW expression )
                     {
-                    match(input,THROW,FOLLOW_THROW_in_statement3396); if (state.failed) return retval;
+                    match(input,THROW,FOLLOW_THROW_in_statement3433); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement3398);
+                    pushFollow(FOLLOW_expression_in_statement3435);
                     expression69=expression();
 
                     state._fsp--;
@@ -6040,7 +6053,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 509:9: -> throw(expression=$expression.st)
+                      // 515:9: -> throw(expression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("throw",
                         new STAttrMap().put("expression", (expression69!=null?expression69.st:null)));
@@ -6050,13 +6063,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // Generator.g:510:9: ^( BREAK ( IDENT )? )
+                    // Generator.g:516:9: ^( BREAK ( IDENT )? )
                     {
-                    match(input,BREAK,FOLLOW_BREAK_in_statement3427); if (state.failed) return retval;
+                    match(input,BREAK,FOLLOW_BREAK_in_statement3464); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // Generator.g:510:17: ( IDENT )?
+                        // Generator.g:516:17: ( IDENT )?
                         int alt79=2;
                         int LA79_0 = input.LA(1);
 
@@ -6067,7 +6080,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // Generator.g:0:0: IDENT
                                 {
-                                IDENT70=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3429); if (state.failed) return retval;
+                                IDENT70=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3466); if (state.failed) return retval;
 
                                 }
                                 break;
@@ -6081,7 +6094,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 511:9: -> break(ident=$IDENT.text)
+                      // 517:9: -> break(ident=$IDENT.text)
                       {
                           retval.st = templateLib.getInstanceOf("break",
                         new STAttrMap().put("ident", (IDENT70!=null?IDENT70.getText():null)));
@@ -6091,13 +6104,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // Generator.g:512:9: ^( CONTINUE ( IDENT )? )
+                    // Generator.g:518:9: ^( CONTINUE ( IDENT )? )
                     {
-                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement3459); if (state.failed) return retval;
+                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement3496); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // Generator.g:512:20: ( IDENT )?
+                        // Generator.g:518:20: ( IDENT )?
                         int alt80=2;
                         int LA80_0 = input.LA(1);
 
@@ -6108,7 +6121,7 @@ public class Generator extends TreeParser {
                             case 1 :
                                 // Generator.g:0:0: IDENT
                                 {
-                                IDENT71=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3461); if (state.failed) return retval;
+                                IDENT71=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_statement3498); if (state.failed) return retval;
 
                                 }
                                 break;
@@ -6122,7 +6135,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 513:9: -> continue(ident=$IDENT.text)
+                      // 519:9: -> continue(ident=$IDENT.text)
                       {
                           retval.st = templateLib.getInstanceOf("continue",
                         new STAttrMap().put("ident", (IDENT71!=null?IDENT71.getText():null)));
@@ -6132,13 +6145,13 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // Generator.g:514:9: ^( LABELED_STATEMENT IDENT stmnt= statement )
+                    // Generator.g:520:9: ^( LABELED_STATEMENT IDENT stmnt= statement )
                     {
-                    match(input,LABELED_STATEMENT,FOLLOW_LABELED_STATEMENT_in_statement3491); if (state.failed) return retval;
+                    match(input,LABELED_STATEMENT,FOLLOW_LABELED_STATEMENT_in_statement3528); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_statement3493); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement3497);
+                    match(input,IDENT,FOLLOW_IDENT_in_statement3530); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statement_in_statement3534);
                     stmnt=statement();
 
                     state._fsp--;
@@ -6149,7 +6162,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 515:9: -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\"
+                      // 521:9: -> template(statement=$stmnt.st) \"/*labeled*/ <statement>\"
                       {
                           retval.st = new StringTemplate(templateLib, "/*labeled*/ <statement>",
                         new STAttrMap().put("statement", (stmnt!=null?stmnt.st:null)));
@@ -6159,9 +6172,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 16 :
-                    // Generator.g:516:9: expression
+                    // Generator.g:522:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_statement3527);
+                    pushFollow(FOLLOW_expression_in_statement3564);
                     expression72=expression();
 
                     state._fsp--;
@@ -6170,7 +6183,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 516:20: -> statement(expression=$expression.st)
+                      // 522:20: -> statement(expression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("statement",
                         new STAttrMap().put("expression", (expression72!=null?expression72.st:null)));
@@ -6180,14 +6193,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 17 :
-                    // Generator.g:517:9: SEMI
+                    // Generator.g:523:9: SEMI
                     {
-                    match(input,SEMI,FOLLOW_SEMI_in_statement3546); if (state.failed) return retval;
+                    match(input,SEMI,FOLLOW_SEMI_in_statement3583); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 517:14: -> template() \";\"
+                      // 523:14: -> template() \";\"
                       {
                           retval.st = new StringTemplate(templateLib, ";");
                       }
@@ -6216,20 +6229,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "catches"
-    // Generator.g:520:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
+    // Generator.g:526:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final Generator.catches_return catches() throws RecognitionException {
         Generator.catches_return retval = new Generator.catches_return();
         retval.start = input.LT(1);
         int catches_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
-            // Generator.g:521:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
-            // Generator.g:521:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+            // Generator.g:527:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
+            // Generator.g:527:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
-            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches3583); if (state.failed) return retval;
+            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches3620); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // Generator.g:521:29: ( catchClause )+
+            // Generator.g:527:29: ( catchClause )+
             int cnt82=0;
             loop82:
             do {
@@ -6245,7 +6258,7 @@ public class Generator extends TreeParser {
             	case 1 :
             	    // Generator.g:0:0: catchClause
             	    {
-            	    pushFollow(FOLLOW_catchClause_in_catches3585);
+            	    pushFollow(FOLLOW_catchClause_in_catches3622);
             	    catchClause();
 
             	    state._fsp--;
@@ -6288,25 +6301,25 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "catchClause"
-    // Generator.g:524:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
+    // Generator.g:530:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
     public final Generator.catchClause_return catchClause() throws RecognitionException {
         Generator.catchClause_return retval = new Generator.catchClause_return();
         retval.start = input.LT(1);
         int catchClause_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
-            // Generator.g:525:5: ( ^( CATCH formalParameterStandardDecl block ) )
-            // Generator.g:525:9: ^( CATCH formalParameterStandardDecl block )
+            // Generator.g:531:5: ( ^( CATCH formalParameterStandardDecl block ) )
+            // Generator.g:531:9: ^( CATCH formalParameterStandardDecl block )
             {
-            match(input,CATCH,FOLLOW_CATCH_in_catchClause3611); if (state.failed) return retval;
+            match(input,CATCH,FOLLOW_CATCH_in_catchClause3648); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause3613);
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause3650);
             formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_block_in_catchClause3615);
+            pushFollow(FOLLOW_block_in_catchClause3652);
             block();
 
             state._fsp--;
@@ -6335,21 +6348,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "switchBlockLabels"
-    // Generator.g:528:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
+    // Generator.g:534:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
     public final Generator.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
         Generator.switchBlockLabels_return retval = new Generator.switchBlockLabels_return();
         retval.start = input.LT(1);
         int switchBlockLabels_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
-            // Generator.g:529:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
-            // Generator.g:529:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
+            // Generator.g:535:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
+            // Generator.g:535:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
             {
-            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3636); if (state.failed) return retval;
+            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3673); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // Generator.g:529:35: ( switchCaseLabel )*
+                // Generator.g:535:35: ( switchCaseLabel )*
                 loop83:
                 do {
                     int alt83=2;
@@ -6370,7 +6383,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // Generator.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3638);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3675);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -6384,7 +6397,7 @@ public class Generator extends TreeParser {
                     }
                 } while (true);
 
-                // Generator.g:529:52: ( switchDefaultLabel )?
+                // Generator.g:535:52: ( switchDefaultLabel )?
                 int alt84=2;
                 int LA84_0 = input.LA(1);
 
@@ -6395,7 +6408,7 @@ public class Generator extends TreeParser {
                     case 1 :
                         // Generator.g:0:0: switchDefaultLabel
                         {
-                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels3641);
+                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels3678);
                         switchDefaultLabel();
 
                         state._fsp--;
@@ -6406,7 +6419,7 @@ public class Generator extends TreeParser {
 
                 }
 
-                // Generator.g:529:72: ( switchCaseLabel )*
+                // Generator.g:535:72: ( switchCaseLabel )*
                 loop85:
                 do {
                     int alt85=2;
@@ -6421,7 +6434,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // Generator.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3644);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels3681);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -6460,25 +6473,25 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "switchCaseLabel"
-    // Generator.g:532:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
+    // Generator.g:538:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
     public final Generator.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
         Generator.switchCaseLabel_return retval = new Generator.switchCaseLabel_return();
         retval.start = input.LT(1);
         int switchCaseLabel_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
-            // Generator.g:533:5: ( ^( CASE expression ( blockStatement )* ) )
-            // Generator.g:533:9: ^( CASE expression ( blockStatement )* )
+            // Generator.g:539:5: ( ^( CASE expression ( blockStatement )* ) )
+            // Generator.g:539:9: ^( CASE expression ( blockStatement )* )
             {
-            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel3674); if (state.failed) return retval;
+            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel3711); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_switchCaseLabel3676);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel3713);
             expression();
 
             state._fsp--;
             if (state.failed) return retval;
-            // Generator.g:533:27: ( blockStatement )*
+            // Generator.g:539:27: ( blockStatement )*
             loop86:
             do {
                 int alt86=2;
@@ -6493,7 +6506,7 @@ public class Generator extends TreeParser {
             	case 1 :
             	    // Generator.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel3678);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel3715);
             	    blockStatement();
 
             	    state._fsp--;
@@ -6531,21 +6544,21 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "switchDefaultLabel"
-    // Generator.g:536:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
+    // Generator.g:542:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
     public final Generator.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
         Generator.switchDefaultLabel_return retval = new Generator.switchDefaultLabel_return();
         retval.start = input.LT(1);
         int switchDefaultLabel_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
-            // Generator.g:537:5: ( ^( DEFAULT ( blockStatement )* ) )
-            // Generator.g:537:9: ^( DEFAULT ( blockStatement )* )
+            // Generator.g:543:5: ( ^( DEFAULT ( blockStatement )* ) )
+            // Generator.g:543:9: ^( DEFAULT ( blockStatement )* )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel3704); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel3741); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // Generator.g:537:19: ( blockStatement )*
+                // Generator.g:543:19: ( blockStatement )*
                 loop87:
                 do {
                     int alt87=2;
@@ -6560,7 +6573,7 @@ public class Generator extends TreeParser {
                 	case 1 :
                 	    // Generator.g:0:0: blockStatement
                 	    {
-                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel3706);
+                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel3743);
                 	    blockStatement();
 
                 	    state._fsp--;
@@ -6599,7 +6612,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "forInit"
-    // Generator.g:540:1: forInit : ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions);
+    // Generator.g:546:1: forInit : ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions);
     public final Generator.forInit_return forInit() throws RecognitionException {
         Generator.forInit_return retval = new Generator.forInit_return();
         retval.start = input.LT(1);
@@ -6611,14 +6624,14 @@ public class Generator extends TreeParser {
          expressions = null;
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
-            // Generator.g:541:5: ( ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions))
-            // Generator.g:541:9: ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? )
+            // Generator.g:547:5: ( ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? ) -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions))
+            // Generator.g:547:9: ^( FOR_INIT ( localVariableDeclaration | (expressions+= expression )* )? )
             {
-            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit3732); if (state.failed) return retval;
+            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit3769); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // Generator.g:542:11: ( localVariableDeclaration | (expressions+= expression )* )?
+                // Generator.g:548:11: ( localVariableDeclaration | (expressions+= expression )* )?
                 int alt89=3;
                 switch ( input.LA(1) ) {
                     case VAR_DECLARATION:
@@ -6644,9 +6657,9 @@ public class Generator extends TreeParser {
 
                 switch (alt89) {
                     case 1 :
-                        // Generator.g:543:14: localVariableDeclaration
+                        // Generator.g:549:14: localVariableDeclaration
                         {
-                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit3760);
+                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit3797);
                         localVariableDeclaration73=localVariableDeclaration();
 
                         state._fsp--;
@@ -6655,9 +6668,9 @@ public class Generator extends TreeParser {
                         }
                         break;
                     case 2 :
-                        // Generator.g:544:13: (expressions+= expression )*
+                        // Generator.g:550:13: (expressions+= expression )*
                         {
-                        // Generator.g:544:13: (expressions+= expression )*
+                        // Generator.g:550:13: (expressions+= expression )*
                         loop88:
                         do {
                             int alt88=2;
@@ -6670,9 +6683,9 @@ public class Generator extends TreeParser {
 
                             switch (alt88) {
                         	case 1 :
-                        	    // Generator.g:544:14: expressions+= expression
+                        	    // Generator.g:550:14: expressions+= expression
                         	    {
-                        	    pushFollow(FOLLOW_expression_in_forInit3778);
+                        	    pushFollow(FOLLOW_expression_in_forInit3815);
                         	    expressions=expression();
 
                         	    state._fsp--;
@@ -6702,7 +6715,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 547:9: -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions)
+              // 553:9: -> forinit(localVariableDeclaration=$localVariableDeclaration.stexpressions=$expressions)
               {
                   retval.st = templateLib.getInstanceOf("forinit",
                 new STAttrMap().put("localVariableDeclaration", (localVariableDeclaration73!=null?localVariableDeclaration73.st:null)).put("expressions", list_expressions));
@@ -6730,7 +6743,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "forCondition"
-    // Generator.g:550:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
+    // Generator.g:556:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
     public final Generator.forCondition_return forCondition() throws RecognitionException {
         Generator.forCondition_return retval = new Generator.forCondition_return();
         retval.start = input.LT(1);
@@ -6740,14 +6753,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
-            // Generator.g:551:5: ( ^( FOR_CONDITION ( expression )? ) )
-            // Generator.g:551:9: ^( FOR_CONDITION ( expression )? )
+            // Generator.g:557:5: ( ^( FOR_CONDITION ( expression )? ) )
+            // Generator.g:557:9: ^( FOR_CONDITION ( expression )? )
             {
-            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition3849); if (state.failed) return retval;
+            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition3886); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // Generator.g:551:25: ( expression )?
+                // Generator.g:557:25: ( expression )?
                 int alt90=2;
                 int LA90_0 = input.LA(1);
 
@@ -6756,9 +6769,9 @@ public class Generator extends TreeParser {
                 }
                 switch (alt90) {
                     case 1 :
-                        // Generator.g:551:26: expression
+                        // Generator.g:557:26: expression
                         {
-                        pushFollow(FOLLOW_expression_in_forCondition3852);
+                        pushFollow(FOLLOW_expression_in_forCondition3889);
                         expression74=expression();
 
                         state._fsp--;
@@ -6797,7 +6810,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "forUpdater"
-    // Generator.g:554:1: forUpdater : ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions);
+    // Generator.g:560:1: forUpdater : ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions);
     public final Generator.forUpdater_return forUpdater() throws RecognitionException {
         Generator.forUpdater_return retval = new Generator.forUpdater_return();
         retval.start = input.LT(1);
@@ -6807,14 +6820,14 @@ public class Generator extends TreeParser {
          expressions = null;
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
-            // Generator.g:555:5: ( ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions))
-            // Generator.g:555:9: ^( FOR_UPDATE (expressions+= expression )* )
+            // Generator.g:561:5: ( ^( FOR_UPDATE (expressions+= expression )* ) -> forUpdater(expressions=$expressions))
+            // Generator.g:561:9: ^( FOR_UPDATE (expressions+= expression )* )
             {
-            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater3881); if (state.failed) return retval;
+            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater3918); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // Generator.g:555:22: (expressions+= expression )*
+                // Generator.g:561:22: (expressions+= expression )*
                 loop91:
                 do {
                     int alt91=2;
@@ -6827,9 +6840,9 @@ public class Generator extends TreeParser {
 
                     switch (alt91) {
                 	case 1 :
-                	    // Generator.g:555:23: expressions+= expression
+                	    // Generator.g:561:23: expressions+= expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_forUpdater3886);
+                	    pushFollow(FOLLOW_expression_in_forUpdater3923);
                 	    expressions=expression();
 
                 	    state._fsp--;
@@ -6853,7 +6866,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 556:9: -> forUpdater(expressions=$expressions)
+              // 562:9: -> forUpdater(expressions=$expressions)
               {
                   retval.st = templateLib.getInstanceOf("forUpdater",
                 new STAttrMap().put("expressions", list_expressions));
@@ -6881,7 +6894,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "parenthesizedExpression"
-    // Generator.g:561:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st);
+    // Generator.g:567:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st);
     public final Generator.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
         Generator.parenthesizedExpression_return retval = new Generator.parenthesizedExpression_return();
         retval.start = input.LT(1);
@@ -6891,13 +6904,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
-            // Generator.g:562:5: ( ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st))
-            // Generator.g:562:9: ^( PARENTESIZED_EXPR expression )
+            // Generator.g:568:5: ( ^( PARENTESIZED_EXPR expression ) -> parenthesizedExpression(expression=$expression.st))
+            // Generator.g:568:9: ^( PARENTESIZED_EXPR expression )
             {
-            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3932); if (state.failed) return retval;
+            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3969); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression3934);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression3971);
             expression75=expression();
 
             state._fsp--;
@@ -6908,7 +6921,7 @@ public class Generator extends TreeParser {
 
             // TEMPLATE REWRITE
             if ( state.backtracking==0 ) {
-              // 563:9: -> parenthesizedExpression(expression=$expression.st)
+              // 569:9: -> parenthesizedExpression(expression=$expression.st)
               {
                   retval.st = templateLib.getInstanceOf("parenthesizedExpression",
                 new STAttrMap().put("expression", (expression75!=null?expression75.st:null)));
@@ -6936,7 +6949,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "expression"
-    // Generator.g:566:1: expression : ^( EXPR expr ) ;
+    // Generator.g:572:1: expression : ^( EXPR expr ) ;
     public final Generator.expression_return expression() throws RecognitionException {
         Generator.expression_return retval = new Generator.expression_return();
         retval.start = input.LT(1);
@@ -6946,13 +6959,13 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
-            // Generator.g:567:5: ( ^( EXPR expr ) )
-            // Generator.g:567:9: ^( EXPR expr )
+            // Generator.g:573:5: ( ^( EXPR expr ) )
+            // Generator.g:573:9: ^( EXPR expr )
             {
-            match(input,EXPR,FOLLOW_EXPR_in_expression3975); if (state.failed) return retval;
+            match(input,EXPR,FOLLOW_EXPR_in_expression4012); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expr_in_expression3977);
+            pushFollow(FOLLOW_expr_in_expression4014);
             expr76=expr();
 
             state._fsp--;
@@ -6984,7 +6997,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "expr"
-    // Generator.g:570:1: expr : ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
+    // Generator.g:576:1: expr : ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
     public final Generator.expr_return expr() throws RecognitionException {
         Generator.expr_return retval = new Generator.expr_return();
         retval.start = input.LT(1);
@@ -6998,7 +7011,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // Generator.g:571:5: ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
+            // Generator.g:577:5: ( ^( ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st) | ^( PLUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st) | ^( MINUS_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st) | ^( STAR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st) | ^( DIV_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st) | ^( AND_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st) | ^( OR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st) | ^( XOR_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st) | ^( MOD_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st) | ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st) | ^( SHIFT_RIGHT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st) | ^( SHIFT_LEFT_ASSIGN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st) | ^( QUESTION a= expr b= expr expr ) | ^( LOGICAL_OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st) | ^( LOGICAL_AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st) | ^( OR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st) | ^( XOR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st) | ^( AND a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st) | ^( EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st) | ^( NOT_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st) | ^( GREATER_OR_EQUAL a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st) | ^( BIT_SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st) | ^( SHIFT_RIGHT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st) | ^( GREATER_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\">\"b=$b.st) | ^( SHIFT_LEFT a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st) | ^( LESS_THAN a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st) | ^( PLUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st) | ^( MINUS a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st) | ^( STAR a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st) | ^( DIV a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st) | ^( MOD a= expr b= expr ) -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st) | ^( UNARY_PLUS a= expr ) -> prefix_unary_expr(op=\"+\"a=$a.st) | ^( UNARY_MINUS a= expr ) -> prefix_unary_expr(op=\"-\"a=$a.st) | ^( PRE_INC a= expr ) -> prefix_unary_expr(op=\"++\"a=$a.st) | ^( PRE_DEC a= expr ) -> prefix_unary_expr(op=\"--\"a=$a.st) | ^( POST_INC a= expr ) -> postfix_unary_expr(op=\"++\"a=$a.st) | ^( POST_DEC a= expr ) -> postfix_unary_expr(op=\"--\"a=$a.st) | ^( NOT a= expr ) -> prefix_unary_expr(op=\"!\"a=$a.st) | ^( LOGICAL_NOT a= expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
             int alt92=43;
             switch ( input.LA(1) ) {
             case ASSIGN:
@@ -7248,40 +7261,9 @@ public class Generator extends TreeParser {
 
             switch (alt92) {
                 case 1 :
-                    // Generator.g:571:9: ^( ASSIGN a= expr b= expr )
+                    // Generator.g:577:9: ^( ASSIGN a= expr b= expr )
                     {
-                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr4000); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4004);
-                    a=expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4008);
-                    b=expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
-
-
-                    // TEMPLATE REWRITE
-                    if ( state.backtracking==0 ) {
-                      // 571:33: -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st)
-                      {
-                          retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "=").put("b", (b!=null?b.st:null)));
-                      }
-
-                    }
-                    }
-                    break;
-                case 2 :
-                    // Generator.g:572:9: ^( PLUS_ASSIGN a= expr b= expr )
-                    {
-                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr4037); if (state.failed) return retval;
+                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr4037); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4041);
@@ -7300,19 +7282,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 572:38: -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st)
+                      // 577:33: -> infix_binary_expr(a=$a.stop=\"=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "+=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 3 :
-                    // Generator.g:573:9: ^( MINUS_ASSIGN a= expr b= expr )
+                case 2 :
+                    // Generator.g:578:9: ^( PLUS_ASSIGN a= expr b= expr )
                     {
-                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr4074); if (state.failed) return retval;
+                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr4074); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4078);
@@ -7331,19 +7313,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 573:39: -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st)
+                      // 578:38: -> infix_binary_expr(a=$a.stop=\"+=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "-=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "+=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 4 :
-                    // Generator.g:574:9: ^( STAR_ASSIGN a= expr b= expr )
+                case 3 :
+                    // Generator.g:579:9: ^( MINUS_ASSIGN a= expr b= expr )
                     {
-                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr4111); if (state.failed) return retval;
+                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr4111); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4115);
@@ -7362,19 +7344,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 574:38: -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st)
+                      // 579:39: -> infix_binary_expr(a=$a.stop=\"-=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "*=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "-=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 5 :
-                    // Generator.g:575:9: ^( DIV_ASSIGN a= expr b= expr )
+                case 4 :
+                    // Generator.g:580:9: ^( STAR_ASSIGN a= expr b= expr )
                     {
-                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr4148); if (state.failed) return retval;
+                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr4148); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4152);
@@ -7393,19 +7375,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 575:37: -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st)
+                      // 580:38: -> infix_binary_expr(a=$a.stop=\"*=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "/=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "*=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 6 :
-                    // Generator.g:576:9: ^( AND_ASSIGN a= expr b= expr )
+                case 5 :
+                    // Generator.g:581:9: ^( DIV_ASSIGN a= expr b= expr )
                     {
-                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr4185); if (state.failed) return retval;
+                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr4185); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4189);
@@ -7424,19 +7406,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 576:37: -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st)
+                      // 581:37: -> infix_binary_expr(a=$a.stop=\"/=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "/=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 7 :
-                    // Generator.g:577:9: ^( OR_ASSIGN a= expr b= expr )
+                case 6 :
+                    // Generator.g:582:9: ^( AND_ASSIGN a= expr b= expr )
                     {
-                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr4222); if (state.failed) return retval;
+                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr4222); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4226);
@@ -7455,19 +7437,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 577:36: -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st)
+                      // 582:37: -> infix_binary_expr(a=$a.stop=\"&=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "|=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 8 :
-                    // Generator.g:578:9: ^( XOR_ASSIGN a= expr b= expr )
+                case 7 :
+                    // Generator.g:583:9: ^( OR_ASSIGN a= expr b= expr )
                     {
-                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr4259); if (state.failed) return retval;
+                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr4259); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4263);
@@ -7486,19 +7468,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 578:37: -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st)
+                      // 583:36: -> infix_binary_expr(a=$a.stop=\"|=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "^=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "|=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 9 :
-                    // Generator.g:579:9: ^( MOD_ASSIGN a= expr b= expr )
+                case 8 :
+                    // Generator.g:584:9: ^( XOR_ASSIGN a= expr b= expr )
                     {
-                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr4296); if (state.failed) return retval;
+                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr4296); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4300);
@@ -7517,19 +7499,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 579:37: -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st)
+                      // 584:37: -> infix_binary_expr(a=$a.stop=\"^=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "%=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "^=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 10 :
-                    // Generator.g:580:9: ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr )
+                case 9 :
+                    // Generator.g:585:9: ^( MOD_ASSIGN a= expr b= expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4333); if (state.failed) return retval;
+                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr4333); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4337);
@@ -7548,19 +7530,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 580:49: -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st)
+                      // 585:37: -> infix_binary_expr(a=$a.stop=\"\\%=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>>=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "%=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 11 :
-                    // Generator.g:581:9: ^( SHIFT_RIGHT_ASSIGN a= expr b= expr )
+                case 10 :
+                    // Generator.g:586:9: ^( BIT_SHIFT_RIGHT_ASSIGN a= expr b= expr )
                     {
-                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4370); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4370); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4374);
@@ -7579,19 +7561,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 581:45: -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st)
+                      // 586:49: -> infix_binary_expr(a=$a.stop=\">>>=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>>=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 12 :
-                    // Generator.g:582:9: ^( SHIFT_LEFT_ASSIGN a= expr b= expr )
+                case 11 :
+                    // Generator.g:587:9: ^( SHIFT_RIGHT_ASSIGN a= expr b= expr )
                     {
-                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4407); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4407); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4411);
@@ -7610,19 +7592,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 582:44: -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st)
+                      // 587:45: -> infix_binary_expr(a=$a.stop=\">>=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<<=").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 13 :
-                    // Generator.g:583:9: ^( QUESTION a= expr b= expr expr )
+                case 12 :
+                    // Generator.g:588:9: ^( SHIFT_LEFT_ASSIGN a= expr b= expr )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_expr4444); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4444); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4448);
@@ -7635,7 +7617,38 @@ public class Generator extends TreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4454);
+
+                    match(input, Token.UP, null); if (state.failed) return retval;
+
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 588:44: -> infix_binary_expr(a=$a.stop=\"<<=\"b=$b.st)
+                      {
+                          retval.st = templateLib.getInstanceOf("infix_binary_expr",
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<<=").put("b", (b!=null?b.st:null)));
+                      }
+
+                    }
+                    }
+                    break;
+                case 13 :
+                    // Generator.g:589:9: ^( QUESTION a= expr b= expr expr )
+                    {
+                    match(input,QUESTION,FOLLOW_QUESTION_in_expr4481); if (state.failed) return retval;
+
+                    match(input, Token.DOWN, null); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr4485);
+                    a=expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr4489);
+                    b=expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr4491);
                     expr();
 
                     state._fsp--;
@@ -7646,17 +7659,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // Generator.g:584:9: ^( LOGICAL_OR a= expr b= expr )
+                    // Generator.g:590:9: ^( LOGICAL_OR a= expr b= expr )
                     {
-                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr4467); if (state.failed) return retval;
+                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr4504); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4471);
+                    pushFollow(FOLLOW_expr_in_expr4508);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4475);
+                    pushFollow(FOLLOW_expr_in_expr4512);
                     b=expr();
 
                     state._fsp--;
@@ -7667,7 +7680,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 584:38: -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st)
+                      // 590:38: -> infix_binary_expr(a=$a.stop=\"||\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "||").put("b", (b!=null?b.st:null)));
@@ -7677,40 +7690,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // Generator.g:585:9: ^( LOGICAL_AND a= expr b= expr )
+                    // Generator.g:591:9: ^( LOGICAL_AND a= expr b= expr )
                     {
-                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr4505); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4509);
-                    a=expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4513);
-                    b=expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
-
-
-                    // TEMPLATE REWRITE
-                    if ( state.backtracking==0 ) {
-                      // 585:38: -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st)
-                      {
-                          retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&&").put("b", (b!=null?b.st:null)));
-                      }
-
-                    }
-                    }
-                    break;
-                case 16 :
-                    // Generator.g:586:9: ^( OR a= expr b= expr )
-                    {
-                    match(input,OR,FOLLOW_OR_in_expr4542); if (state.failed) return retval;
+                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr4542); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4546);
@@ -7729,19 +7711,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 586:29: -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st)
+                      // 591:38: -> infix_binary_expr(a=$a.stop=\"&&\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "|").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&&").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 17 :
-                    // Generator.g:587:9: ^( XOR a= expr b= expr )
+                case 16 :
+                    // Generator.g:592:9: ^( OR a= expr b= expr )
                     {
-                    match(input,XOR,FOLLOW_XOR_in_expr4579); if (state.failed) return retval;
+                    match(input,OR,FOLLOW_OR_in_expr4579); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4583);
@@ -7760,19 +7742,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 587:30: -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st)
+                      // 592:29: -> infix_binary_expr(a=$a.stop=\"|\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "^").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "|").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 18 :
-                    // Generator.g:588:9: ^( AND a= expr b= expr )
+                case 17 :
+                    // Generator.g:593:9: ^( XOR a= expr b= expr )
                     {
-                    match(input,AND,FOLLOW_AND_in_expr4616); if (state.failed) return retval;
+                    match(input,XOR,FOLLOW_XOR_in_expr4616); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4620);
@@ -7791,19 +7773,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 588:30: -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st)
+                      // 593:30: -> infix_binary_expr(a=$a.stop=\"^\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "^").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 19 :
-                    // Generator.g:589:9: ^( EQUAL a= expr b= expr )
+                case 18 :
+                    // Generator.g:594:9: ^( AND a= expr b= expr )
                     {
-                    match(input,EQUAL,FOLLOW_EQUAL_in_expr4653); if (state.failed) return retval;
+                    match(input,AND,FOLLOW_AND_in_expr4653); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4657);
@@ -7822,19 +7804,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 589:32: -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st)
+                      // 594:30: -> infix_binary_expr(a=$a.stop=\"&\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "==").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "&").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 20 :
-                    // Generator.g:590:9: ^( NOT_EQUAL a= expr b= expr )
+                case 19 :
+                    // Generator.g:595:9: ^( EQUAL a= expr b= expr )
                     {
-                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr4690); if (state.failed) return retval;
+                    match(input,EQUAL,FOLLOW_EQUAL_in_expr4690); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4694);
@@ -7853,7 +7835,38 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 590:36: -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st)
+                      // 595:32: -> infix_binary_expr(a=$a.stop=\"==\"b=$b.st)
+                      {
+                          retval.st = templateLib.getInstanceOf("infix_binary_expr",
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "==").put("b", (b!=null?b.st:null)));
+                      }
+
+                    }
+                    }
+                    break;
+                case 20 :
+                    // Generator.g:596:9: ^( NOT_EQUAL a= expr b= expr )
+                    {
+                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr4727); if (state.failed) return retval;
+
+                    match(input, Token.DOWN, null); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr4731);
+                    a=expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr4735);
+                    b=expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    match(input, Token.UP, null); if (state.failed) return retval;
+
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 596:36: -> infix_binary_expr(a=$a.stop=\"!=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "!=").put("b", (b!=null?b.st:null)));
@@ -7863,17 +7876,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 21 :
-                    // Generator.g:591:9: ^( INSTANCEOF expr type )
+                    // Generator.g:597:9: ^( INSTANCEOF expr type )
                     {
-                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr4727); if (state.failed) return retval;
+                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr4764); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4729);
+                    pushFollow(FOLLOW_expr_in_expr4766);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr4731);
+                    pushFollow(FOLLOW_type_in_expr4768);
                     type();
 
                     state._fsp--;
@@ -7884,17 +7897,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 22 :
-                    // Generator.g:592:9: ^( LESS_OR_EQUAL a= expr b= expr )
+                    // Generator.g:598:9: ^( LESS_OR_EQUAL a= expr b= expr )
                     {
-                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr4743); if (state.failed) return retval;
+                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr4780); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4747);
+                    pushFollow(FOLLOW_expr_in_expr4784);
                     a=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4751);
+                    pushFollow(FOLLOW_expr_in_expr4788);
                     b=expr();
 
                     state._fsp--;
@@ -7905,7 +7918,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 592:41: -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st)
+                      // 598:41: -> infix_binary_expr(a=$a.stop=\"<=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<=").put("b", (b!=null?b.st:null)));
@@ -7915,40 +7928,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 23 :
-                    // Generator.g:593:9: ^( GREATER_OR_EQUAL a= expr b= expr )
+                    // Generator.g:599:9: ^( GREATER_OR_EQUAL a= expr b= expr )
                     {
-                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr4781); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4785);
-                    a=expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr4789);
-                    b=expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
-
-
-                    // TEMPLATE REWRITE
-                    if ( state.backtracking==0 ) {
-                      // 593:43: -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st)
-                      {
-                          retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">=").put("b", (b!=null?b.st:null)));
-                      }
-
-                    }
-                    }
-                    break;
-                case 24 :
-                    // Generator.g:594:9: ^( BIT_SHIFT_RIGHT a= expr b= expr )
-                    {
-                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr4818); if (state.failed) return retval;
+                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr4818); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4822);
@@ -7967,19 +7949,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 594:42: -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st)
+                      // 599:43: -> infix_binary_expr(a=$a.stop=\">=\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>>").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">=").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 25 :
-                    // Generator.g:595:9: ^( SHIFT_RIGHT a= expr b= expr )
+                case 24 :
+                    // Generator.g:600:9: ^( BIT_SHIFT_RIGHT a= expr b= expr )
                     {
-                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr4855); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr4855); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4859);
@@ -7998,19 +7980,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 595:38: -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st)
+                      // 600:42: -> infix_binary_expr(a=$a.stop=\">>>\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>>").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 26 :
-                    // Generator.g:596:9: ^( GREATER_THAN a= expr b= expr )
+                case 25 :
+                    // Generator.g:601:9: ^( SHIFT_RIGHT a= expr b= expr )
                     {
-                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr4892); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr4892); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4896);
@@ -8029,19 +8011,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 596:39: -> infix_binary_expr(a=$a.stop=\">\"b=$b.st)
+                      // 601:38: -> infix_binary_expr(a=$a.stop=\">>\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">>").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 27 :
-                    // Generator.g:597:9: ^( SHIFT_LEFT a= expr b= expr )
+                case 26 :
+                    // Generator.g:602:9: ^( GREATER_THAN a= expr b= expr )
                     {
-                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr4929); if (state.failed) return retval;
+                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr4929); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4933);
@@ -8060,19 +8042,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 597:37: -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st)
+                      // 602:39: -> infix_binary_expr(a=$a.stop=\">\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<<").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", ">").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 28 :
-                    // Generator.g:598:9: ^( LESS_THAN a= expr b= expr )
+                case 27 :
+                    // Generator.g:603:9: ^( SHIFT_LEFT a= expr b= expr )
                     {
-                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr4966); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr4966); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr4970);
@@ -8091,19 +8073,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 598:36: -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st)
+                      // 603:37: -> infix_binary_expr(a=$a.stop=\"<<\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<<").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 29 :
-                    // Generator.g:599:9: ^( PLUS a= expr b= expr )
+                case 28 :
+                    // Generator.g:604:9: ^( LESS_THAN a= expr b= expr )
                     {
-                    match(input,PLUS,FOLLOW_PLUS_in_expr5003); if (state.failed) return retval;
+                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr5003); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr5007);
@@ -8122,19 +8104,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 599:31: -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st)
+                      // 604:36: -> infix_binary_expr(a=$a.stop=\"<\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "+").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "<").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 30 :
-                    // Generator.g:600:9: ^( MINUS a= expr b= expr )
+                case 29 :
+                    // Generator.g:605:9: ^( PLUS a= expr b= expr )
                     {
-                    match(input,MINUS,FOLLOW_MINUS_in_expr5040); if (state.failed) return retval;
+                    match(input,PLUS,FOLLOW_PLUS_in_expr5040); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr5044);
@@ -8153,19 +8135,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 600:32: -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st)
+                      // 605:31: -> infix_binary_expr(a=$a.stop=\"+\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "-").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "+").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 31 :
-                    // Generator.g:601:9: ^( STAR a= expr b= expr )
+                case 30 :
+                    // Generator.g:606:9: ^( MINUS a= expr b= expr )
                     {
-                    match(input,STAR,FOLLOW_STAR_in_expr5077); if (state.failed) return retval;
+                    match(input,MINUS,FOLLOW_MINUS_in_expr5077); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr5081);
@@ -8184,19 +8166,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 601:31: -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st)
+                      // 606:32: -> infix_binary_expr(a=$a.stop=\"-\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "*").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "-").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 32 :
-                    // Generator.g:602:9: ^( DIV a= expr b= expr )
+                case 31 :
+                    // Generator.g:607:9: ^( STAR a= expr b= expr )
                     {
-                    match(input,DIV,FOLLOW_DIV_in_expr5114); if (state.failed) return retval;
+                    match(input,STAR,FOLLOW_STAR_in_expr5114); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr5118);
@@ -8215,19 +8197,19 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 602:30: -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st)
+                      // 607:31: -> infix_binary_expr(a=$a.stop=\"*\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
-                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "/").put("b", (b!=null?b.st:null)));
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "*").put("b", (b!=null?b.st:null)));
                       }
 
                     }
                     }
                     break;
-                case 33 :
-                    // Generator.g:603:9: ^( MOD a= expr b= expr )
+                case 32 :
+                    // Generator.g:608:9: ^( DIV a= expr b= expr )
                     {
-                    match(input,MOD,FOLLOW_MOD_in_expr5151); if (state.failed) return retval;
+                    match(input,DIV,FOLLOW_DIV_in_expr5151); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr5155);
@@ -8246,7 +8228,38 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 603:30: -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st)
+                      // 608:30: -> infix_binary_expr(a=$a.stop=\"/\"b=$b.st)
+                      {
+                          retval.st = templateLib.getInstanceOf("infix_binary_expr",
+                        new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "/").put("b", (b!=null?b.st:null)));
+                      }
+
+                    }
+                    }
+                    break;
+                case 33 :
+                    // Generator.g:609:9: ^( MOD a= expr b= expr )
+                    {
+                    match(input,MOD,FOLLOW_MOD_in_expr5188); if (state.failed) return retval;
+
+                    match(input, Token.DOWN, null); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr5192);
+                    a=expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr5196);
+                    b=expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    match(input, Token.UP, null); if (state.failed) return retval;
+
+
+                    // TEMPLATE REWRITE
+                    if ( state.backtracking==0 ) {
+                      // 609:30: -> infix_binary_expr(a=$a.stop=\"\\%\"b=$b.st)
                       {
                           retval.st = templateLib.getInstanceOf("infix_binary_expr",
                         new STAttrMap().put("a", (a!=null?a.st:null)).put("op", "%").put("b", (b!=null?b.st:null)));
@@ -8256,12 +8269,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 34 :
-                    // Generator.g:604:9: ^( UNARY_PLUS a= expr )
+                    // Generator.g:610:9: ^( UNARY_PLUS a= expr )
                     {
-                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr5188); if (state.failed) return retval;
+                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr5225); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5192);
+                    pushFollow(FOLLOW_expr_in_expr5229);
                     a=expr();
 
                     state._fsp--;
@@ -8272,7 +8285,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 604:30: -> prefix_unary_expr(op=\"+\"a=$a.st)
+                      // 610:30: -> prefix_unary_expr(op=\"+\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "+").put("a", (a!=null?a.st:null)));
@@ -8282,12 +8295,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 35 :
-                    // Generator.g:605:9: ^( UNARY_MINUS a= expr )
+                    // Generator.g:611:9: ^( UNARY_MINUS a= expr )
                     {
-                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr5217); if (state.failed) return retval;
+                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr5254); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5221);
+                    pushFollow(FOLLOW_expr_in_expr5258);
                     a=expr();
 
                     state._fsp--;
@@ -8298,7 +8311,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 605:31: -> prefix_unary_expr(op=\"-\"a=$a.st)
+                      // 611:31: -> prefix_unary_expr(op=\"-\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "-").put("a", (a!=null?a.st:null)));
@@ -8308,12 +8321,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 36 :
-                    // Generator.g:606:9: ^( PRE_INC a= expr )
+                    // Generator.g:612:9: ^( PRE_INC a= expr )
                     {
-                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr5247); if (state.failed) return retval;
+                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr5284); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5251);
+                    pushFollow(FOLLOW_expr_in_expr5288);
                     a=expr();
 
                     state._fsp--;
@@ -8324,7 +8337,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 606:27: -> prefix_unary_expr(op=\"++\"a=$a.st)
+                      // 612:27: -> prefix_unary_expr(op=\"++\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "++").put("a", (a!=null?a.st:null)));
@@ -8334,12 +8347,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 37 :
-                    // Generator.g:607:9: ^( PRE_DEC a= expr )
+                    // Generator.g:613:9: ^( PRE_DEC a= expr )
                     {
-                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr5276); if (state.failed) return retval;
+                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr5313); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5280);
+                    pushFollow(FOLLOW_expr_in_expr5317);
                     a=expr();
 
                     state._fsp--;
@@ -8350,7 +8363,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 607:27: -> prefix_unary_expr(op=\"--\"a=$a.st)
+                      // 613:27: -> prefix_unary_expr(op=\"--\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "--").put("a", (a!=null?a.st:null)));
@@ -8360,12 +8373,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 38 :
-                    // Generator.g:608:9: ^( POST_INC a= expr )
+                    // Generator.g:614:9: ^( POST_INC a= expr )
                     {
-                    match(input,POST_INC,FOLLOW_POST_INC_in_expr5305); if (state.failed) return retval;
+                    match(input,POST_INC,FOLLOW_POST_INC_in_expr5342); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5309);
+                    pushFollow(FOLLOW_expr_in_expr5346);
                     a=expr();
 
                     state._fsp--;
@@ -8376,7 +8389,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 608:28: -> postfix_unary_expr(op=\"++\"a=$a.st)
+                      // 614:28: -> postfix_unary_expr(op=\"++\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("postfix_unary_expr",
                         new STAttrMap().put("op", "++").put("a", (a!=null?a.st:null)));
@@ -8386,12 +8399,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 39 :
-                    // Generator.g:609:9: ^( POST_DEC a= expr )
+                    // Generator.g:615:9: ^( POST_DEC a= expr )
                     {
-                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr5334); if (state.failed) return retval;
+                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr5371); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5338);
+                    pushFollow(FOLLOW_expr_in_expr5375);
                     a=expr();
 
                     state._fsp--;
@@ -8402,7 +8415,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 609:28: -> postfix_unary_expr(op=\"--\"a=$a.st)
+                      // 615:28: -> postfix_unary_expr(op=\"--\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("postfix_unary_expr",
                         new STAttrMap().put("op", "--").put("a", (a!=null?a.st:null)));
@@ -8412,12 +8425,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 40 :
-                    // Generator.g:610:9: ^( NOT a= expr )
+                    // Generator.g:616:9: ^( NOT a= expr )
                     {
-                    match(input,NOT,FOLLOW_NOT_in_expr5363); if (state.failed) return retval;
+                    match(input,NOT,FOLLOW_NOT_in_expr5400); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5367);
+                    pushFollow(FOLLOW_expr_in_expr5404);
                     a=expr();
 
                     state._fsp--;
@@ -8428,7 +8441,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 610:23: -> prefix_unary_expr(op=\"!\"a=$a.st)
+                      // 616:23: -> prefix_unary_expr(op=\"!\"a=$a.st)
                       {
                           retval.st = templateLib.getInstanceOf("prefix_unary_expr",
                         new STAttrMap().put("op", "!").put("a", (a!=null?a.st:null)));
@@ -8438,12 +8451,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 41 :
-                    // Generator.g:611:9: ^( LOGICAL_NOT a= expr )
+                    // Generator.g:617:9: ^( LOGICAL_NOT a= expr )
                     {
-                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr5392); if (state.failed) return retval;
+                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr5429); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5396);
+                    pushFollow(FOLLOW_expr_in_expr5433);
                     a=expr();
 
                     state._fsp--;
@@ -8454,17 +8467,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 42 :
-                    // Generator.g:612:9: ^( CAST_EXPR type expr )
+                    // Generator.g:618:9: ^( CAST_EXPR type expr )
                     {
-                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr5408); if (state.failed) return retval;
+                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr5445); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr5410);
+                    pushFollow(FOLLOW_type_in_expr5447);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr5412);
+                    pushFollow(FOLLOW_expr_in_expr5449);
                     expr();
 
                     state._fsp--;
@@ -8475,9 +8488,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 43 :
-                    // Generator.g:613:9: primaryExpression
+                    // Generator.g:619:9: primaryExpression
                     {
-                    pushFollow(FOLLOW_primaryExpression_in_expr5423);
+                    pushFollow(FOLLOW_primaryExpression_in_expr5460);
                     primaryExpression77=primaryExpression();
 
                     state._fsp--;
@@ -8509,7 +8522,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "primaryExpression"
-    // Generator.g:616:1: primaryExpression : ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS pExp= primaryExpression expression ) -> arrayElementAccess(primaryExpression=$pExp.stexpression=$expression.st) | literal | comment | newExpression | THIS -> template() \"$this->\" | arrayTypeDeclarator | SUPER -> template() \"parent::\");
+    // Generator.g:622:1: primaryExpression : ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS pExp= primaryExpression expression ) -> arrayElementAccess(primaryExpression=$pExp.stexpression=$expression.st) | literal | comment | newExpression | THIS -> template() \"$this->\" | arrayTypeDeclarator | SUPER -> template() \"parent::\");
     public final Generator.primaryExpression_return primaryExpression() throws RecognitionException {
         Generator.primaryExpression_return retval = new Generator.primaryExpression_return();
         retval.start = input.LT(1);
@@ -8541,7 +8554,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // Generator.g:617:5: ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS pExp= primaryExpression expression ) -> arrayElementAccess(primaryExpression=$pExp.stexpression=$expression.st) | literal | comment | newExpression | THIS -> template() \"$this->\" | arrayTypeDeclarator | SUPER -> template() \"parent::\")
+            // Generator.g:623:5: ( ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments ) -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS pExp= primaryExpression expression ) -> arrayElementAccess(primaryExpression=$pExp.stexpression=$expression.st) | literal | comment | newExpression | THIS -> template() \"$this->\" | arrayTypeDeclarator | SUPER -> template() \"parent::\")
             int alt96=12;
             switch ( input.LA(1) ) {
             case DOT:
@@ -8625,12 +8638,12 @@ public class Generator extends TreeParser {
 
             switch (alt96) {
                 case 1 :
-                    // Generator.g:617:9: ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) )
+                    // Generator.g:623:9: ^( DOT (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS ) )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_primaryExpression5451); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_primaryExpression5488); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // Generator.g:618:13: (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS )
+                    // Generator.g:624:13: (pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\") | primitiveType CLASS | VOID CLASS )
                     int alt94=3;
                     switch ( input.LA(1) ) {
                     case DOT:
@@ -8687,14 +8700,14 @@ public class Generator extends TreeParser {
 
                     switch (alt94) {
                         case 1 :
-                            // Generator.g:618:17: pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
+                            // Generator.g:624:17: pexr= primaryExpression ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression5471);
+                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression5508);
                             pexr=primaryExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            // Generator.g:619:17: ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
+                            // Generator.g:625:17: ( IDENT -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\" | THIS -> template(exp=$pexr.st) \"<exp>.this\" | SUPER -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\" | iexp= innerNewExpression -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\" | CLASS -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\")
                             int alt93=5;
                             switch ( input.LA(1) ) {
                             case IDENT:
@@ -8732,14 +8745,14 @@ public class Generator extends TreeParser {
 
                             switch (alt93) {
                                 case 1 :
-                                    // Generator.g:619:21: IDENT
+                                    // Generator.g:625:21: IDENT
                                     {
-                                    IDENT78=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5500); if (state.failed) return retval;
+                                    IDENT78=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5537); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 619:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\"
+                                      // 625:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>-><id>\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>-><id>",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)).put("id", (IDENT78!=null?IDENT78.getText():null)));
@@ -8749,14 +8762,14 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 2 :
-                                    // Generator.g:620:21: THIS
+                                    // Generator.g:626:21: THIS
                                     {
-                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression5556); if (state.failed) return retval;
+                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression5593); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 620:46: -> template(exp=$pexr.st) \"<exp>.this\"
+                                      // 626:46: -> template(exp=$pexr.st) \"<exp>.this\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>.this",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)));
@@ -8766,14 +8779,14 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 3 :
-                                    // Generator.g:621:21: SUPER
+                                    // Generator.g:627:21: SUPER
                                     {
-                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression5626); if (state.failed) return retval;
+                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression5663); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 621:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\"
+                                      // 627:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.super\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>.super",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)).put("id", (IDENT78!=null?IDENT78.getText():null)));
@@ -8783,9 +8796,9 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 4 :
-                                    // Generator.g:622:21: iexp= innerNewExpression
+                                    // Generator.g:628:21: iexp= innerNewExpression
                                     {
-                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression5684);
+                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression5721);
                                     iexp=innerNewExpression();
 
                                     state._fsp--;
@@ -8794,7 +8807,7 @@ public class Generator extends TreeParser {
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 622:46: -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\"
+                                      // 628:46: -> template(pexp=$pexr.stiexp=$iexp.st) \"<pexp>-><iexp>\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<pexp>-><iexp>",
                                         new STAttrMap().put("pexp", (pexr!=null?pexr.st:null)).put("iexp", (iexp!=null?iexp.st:null)));
@@ -8804,14 +8817,14 @@ public class Generator extends TreeParser {
                                     }
                                     break;
                                 case 5 :
-                                    // Generator.g:623:21: CLASS
+                                    // Generator.g:629:21: CLASS
                                     {
-                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5722); if (state.failed) return retval;
+                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5759); if (state.failed) return retval;
 
 
                                     // TEMPLATE REWRITE
                                     if ( state.backtracking==0 ) {
-                                      // 623:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\"
+                                      // 629:46: -> template(exp=$pexr.stid=$IDENT.text) \"<exp>.class\"
                                       {
                                           retval.st = new StringTemplate(templateLib, "<exp>.class",
                                         new STAttrMap().put("exp", (pexr!=null?pexr.st:null)).put("id", (IDENT78!=null?IDENT78.getText():null)));
@@ -8827,22 +8840,22 @@ public class Generator extends TreeParser {
                             }
                             break;
                         case 2 :
-                            // Generator.g:625:17: primitiveType CLASS
+                            // Generator.g:631:17: primitiveType CLASS
                             {
-                            pushFollow(FOLLOW_primitiveType_in_primaryExpression5792);
+                            pushFollow(FOLLOW_primitiveType_in_primaryExpression5829);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5794); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5831); if (state.failed) return retval;
 
                             }
                             break;
                         case 3 :
-                            // Generator.g:626:17: VOID CLASS
+                            // Generator.g:632:17: VOID CLASS
                             {
-                            match(input,VOID,FOLLOW_VOID_in_primaryExpression5812); if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5814); if (state.failed) return retval;
+                            match(input,VOID,FOLLOW_VOID_in_primaryExpression5849); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression5851); if (state.failed) return retval;
 
                             }
                             break;
@@ -8855,9 +8868,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:629:9: parenthesizedExpression
+                    // Generator.g:635:9: parenthesizedExpression
                     {
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression5848);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression5885);
                     parenthesizedExpression79=parenthesizedExpression();
 
                     state._fsp--;
@@ -8869,9 +8882,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Generator.g:630:9: IDENT
+                    // Generator.g:636:9: IDENT
                     {
-                    IDENT80=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5860); if (state.failed) return retval;
+                    IDENT80=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression5897); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
 
                                 String _ident = (IDENT80!=null?IDENT80.getText():null);
@@ -8904,17 +8917,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // Generator.g:657:9: ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments )
+                    // Generator.g:663:9: ^( METHOD_CALL pexp= primaryExpression ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression5908); if (state.failed) return retval;
+                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression5945); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5912);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5949);
                     pexp=primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // Generator.g:657:46: ( genericTypeArgumentList )?
+                    // Generator.g:663:46: ( genericTypeArgumentList )?
                     int alt95=2;
                     int LA95_0 = input.LA(1);
 
@@ -8925,7 +8938,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression5914);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression5951);
                             genericTypeArgumentList81=genericTypeArgumentList();
 
                             state._fsp--;
@@ -8936,7 +8949,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression5917);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression5954);
                     arguments82=arguments();
 
                     state._fsp--;
@@ -8947,7 +8960,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 658:9: -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst)
+                      // 664:9: -> methodcall(primaryExpression=$pexp.stgenericTypeArgumentList=$genericTypeArgumentList.starguments=$arguments.lst)
                       {
                           retval.st = templateLib.getInstanceOf("methodcall",
                         new STAttrMap().put("primaryExpression", (pexp!=null?pexp.st:null)).put("genericTypeArgumentList", (genericTypeArgumentList81!=null?genericTypeArgumentList81.st:null)).put("arguments", (arguments82!=null?arguments82.lst:null)));
@@ -8957,9 +8970,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // Generator.g:659:9: explicitConstructorCall
+                    // Generator.g:665:9: explicitConstructorCall
                     {
-                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression5955);
+                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression5992);
                     explicitConstructorCall83=explicitConstructorCall();
 
                     state._fsp--;
@@ -8971,17 +8984,17 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // Generator.g:660:9: ^( ARRAY_ELEMENT_ACCESS pExp= primaryExpression expression )
+                    // Generator.g:666:9: ^( ARRAY_ELEMENT_ACCESS pExp= primaryExpression expression )
                     {
-                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression5968); if (state.failed) return retval;
+                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression6005); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression5972);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression6009);
                     pExp=primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_primaryExpression5974);
+                    pushFollow(FOLLOW_expression_in_primaryExpression6011);
                     expression84=expression();
 
                     state._fsp--;
@@ -8992,7 +9005,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 661:9: -> arrayElementAccess(primaryExpression=$pExp.stexpression=$expression.st)
+                      // 667:9: -> arrayElementAccess(primaryExpression=$pExp.stexpression=$expression.st)
                       {
                           retval.st = templateLib.getInstanceOf("arrayElementAccess",
                         new STAttrMap().put("primaryExpression", (pExp!=null?pExp.st:null)).put("expression", (expression84!=null?expression84.st:null)));
@@ -9002,9 +9015,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // Generator.g:662:9: literal
+                    // Generator.g:668:9: literal
                     {
-                    pushFollow(FOLLOW_literal_in_primaryExpression6007);
+                    pushFollow(FOLLOW_literal_in_primaryExpression6044);
                     literal85=literal();
 
                     state._fsp--;
@@ -9016,9 +9029,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // Generator.g:663:9: comment
+                    // Generator.g:669:9: comment
                     {
-                    pushFollow(FOLLOW_comment_in_primaryExpression6019);
+                    pushFollow(FOLLOW_comment_in_primaryExpression6056);
                     comment();
 
                     state._fsp--;
@@ -9027,9 +9040,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // Generator.g:664:9: newExpression
+                    // Generator.g:670:9: newExpression
                     {
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression6029);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression6066);
                     newExpression86=newExpression();
 
                     state._fsp--;
@@ -9041,14 +9054,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // Generator.g:665:9: THIS
+                    // Generator.g:671:9: THIS
                     {
-                    match(input,THIS,FOLLOW_THIS_in_primaryExpression6041); if (state.failed) return retval;
+                    match(input,THIS,FOLLOW_THIS_in_primaryExpression6078); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 665:14: -> template() \"$this->\"
+                      // 671:14: -> template() \"$this->\"
                       {
                           retval.st = new StringTemplate(templateLib, "$this->");
                       }
@@ -9057,9 +9070,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // Generator.g:666:9: arrayTypeDeclarator
+                    // Generator.g:672:9: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression6059);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression6096);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -9068,14 +9081,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // Generator.g:667:9: SUPER
+                    // Generator.g:673:9: SUPER
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression6069); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression6106); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 667:15: -> template() \"parent::\"
+                      // 673:15: -> template() \"parent::\"
                       {
                           retval.st = new StringTemplate(templateLib, "parent::");
                       }
@@ -9104,14 +9117,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "explicitConstructorCall"
-    // Generator.g:670:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
+    // Generator.g:676:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
     public final Generator.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException {
         Generator.explicitConstructorCall_return retval = new Generator.explicitConstructorCall_return();
         retval.start = input.LT(1);
         int explicitConstructorCall_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // Generator.g:671:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
+            // Generator.g:677:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
             int alt100=2;
             int LA100_0 = input.LA(1);
 
@@ -9130,12 +9143,12 @@ public class Generator extends TreeParser {
             }
             switch (alt100) {
                 case 1 :
-                    // Generator.g:671:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
+                    // Generator.g:677:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall6097); if (state.failed) return retval;
+                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall6134); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // Generator.g:671:33: ( genericTypeArgumentList )?
+                    // Generator.g:677:33: ( genericTypeArgumentList )?
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
@@ -9146,7 +9159,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6099);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6136);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -9157,7 +9170,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6102);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6139);
                     arguments();
 
                     state._fsp--;
@@ -9168,12 +9181,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:672:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
+                    // Generator.g:678:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6114); if (state.failed) return retval;
+                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6151); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // Generator.g:672:34: ( primaryExpression )?
+                    // Generator.g:678:34: ( primaryExpression )?
                     int alt98=2;
                     int LA98_0 = input.LA(1);
 
@@ -9184,7 +9197,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: primaryExpression
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall6116);
+                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall6153);
                             primaryExpression();
 
                             state._fsp--;
@@ -9195,7 +9208,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    // Generator.g:672:53: ( genericTypeArgumentList )?
+                    // Generator.g:678:53: ( genericTypeArgumentList )?
                     int alt99=2;
                     int LA99_0 = input.LA(1);
 
@@ -9206,7 +9219,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6119);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6156);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -9217,7 +9230,7 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6122);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall6159);
                     arguments();
 
                     state._fsp--;
@@ -9248,20 +9261,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arrayTypeDeclarator"
-    // Generator.g:675:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
+    // Generator.g:681:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
     public final Generator.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException {
         Generator.arrayTypeDeclarator_return retval = new Generator.arrayTypeDeclarator_return();
         retval.start = input.LT(1);
         int arrayTypeDeclarator_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // Generator.g:676:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
-            // Generator.g:676:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
+            // Generator.g:682:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
+            // Generator.g:682:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
-            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6143); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6180); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // Generator.g:676:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
+            // Generator.g:682:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
             int alt101=3;
             switch ( input.LA(1) ) {
             case ARRAY_DECLARATOR:
@@ -9297,9 +9310,9 @@ public class Generator extends TreeParser {
 
             switch (alt101) {
                 case 1 :
-                    // Generator.g:676:29: arrayTypeDeclarator
+                    // Generator.g:682:29: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6146);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6183);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -9308,9 +9321,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:676:51: qualifiedIdentifier
+                    // Generator.g:682:51: qualifiedIdentifier
                     {
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6150);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6187);
                     qualifiedIdentifier();
 
                     state._fsp--;
@@ -9319,9 +9332,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Generator.g:676:73: primitiveType
+                    // Generator.g:682:73: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator6154);
+                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator6191);
                     primitiveType();
 
                     state._fsp--;
@@ -9361,7 +9374,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "newExpression"
-    // Generator.g:679:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) -> newExpression(qualifiedTypeIdent=$newExpression::qualifiedTypeIdentSTarguments=$arguments.lstgenericTypeArgumentList=$genericTypeArgumentList.stclassTopLevelScope=$classTopLevelScope.st));
+    // Generator.g:685:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) -> newExpression(qualifiedTypeIdent=$newExpression::qualifiedTypeIdentSTarguments=$arguments.lstgenericTypeArgumentList=$genericTypeArgumentList.stclassTopLevelScope=$classTopLevelScope.st));
     public final Generator.newExpression_return newExpression() throws RecognitionException {
         newExpression_stack.push(new newExpression_scope());
         Generator.newExpression_return retval = new Generator.newExpression_return();
@@ -9381,7 +9394,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // Generator.g:686:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) -> newExpression(qualifiedTypeIdent=$newExpression::qualifiedTypeIdentSTarguments=$arguments.lstgenericTypeArgumentList=$genericTypeArgumentList.stclassTopLevelScope=$classTopLevelScope.st))
+            // Generator.g:692:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) -> newExpression(qualifiedTypeIdent=$newExpression::qualifiedTypeIdentSTarguments=$arguments.lstgenericTypeArgumentList=$genericTypeArgumentList.stclassTopLevelScope=$classTopLevelScope.st))
             int alt106=2;
             int LA106_0 = input.LA(1);
 
@@ -9400,12 +9413,12 @@ public class Generator extends TreeParser {
             }
             switch (alt106) {
                 case 1 :
-                    // Generator.g:686:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
+                    // Generator.g:692:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
                     {
-                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6186); if (state.failed) return retval;
+                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6223); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // Generator.g:687:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
+                    // Generator.g:693:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
                     int alt103=2;
                     int LA103_0 = input.LA(1);
 
@@ -9424,14 +9437,14 @@ public class Generator extends TreeParser {
                     }
                     switch (alt103) {
                         case 1 :
-                            // Generator.g:687:17: primitiveType newArrayConstruction
+                            // Generator.g:693:17: primitiveType newArrayConstruction
                             {
-                            pushFollow(FOLLOW_primitiveType_in_newExpression6204);
+                            pushFollow(FOLLOW_primitiveType_in_newExpression6241);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6206);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6243);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -9440,9 +9453,9 @@ public class Generator extends TreeParser {
                             }
                             break;
                         case 2 :
-                            // Generator.g:688:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
+                            // Generator.g:694:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
                             {
-                            // Generator.g:688:17: ( genericTypeArgumentList )?
+                            // Generator.g:694:17: ( genericTypeArgumentList )?
                             int alt102=2;
                             int LA102_0 = input.LA(1);
 
@@ -9453,7 +9466,7 @@ public class Generator extends TreeParser {
                                 case 1 :
                                     // Generator.g:0:0: genericTypeArgumentList
                                     {
-                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6224);
+                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6261);
                                     genericTypeArgumentList();
 
                                     state._fsp--;
@@ -9464,12 +9477,12 @@ public class Generator extends TreeParser {
 
                             }
 
-                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6227);
+                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6264);
                             qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6229);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression6266);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -9486,12 +9499,12 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:691:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
+                    // Generator.g:697:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
                     {
-                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6264); if (state.failed) return retval;
+                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6301); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // Generator.g:691:34: ( genericTypeArgumentList )?
+                    // Generator.g:697:34: ( genericTypeArgumentList )?
                     int alt104=2;
                     int LA104_0 = input.LA(1);
 
@@ -9502,7 +9515,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6266);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression6303);
                             genericTypeArgumentList89=genericTypeArgumentList();
 
                             state._fsp--;
@@ -9513,17 +9526,17 @@ public class Generator extends TreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6269);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression6306);
                     qualifiedTypeIdent87=qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arguments_in_newExpression6271);
+                    pushFollow(FOLLOW_arguments_in_newExpression6308);
                     arguments88=arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // Generator.g:691:88: ( classTopLevelScope )?
+                    // Generator.g:697:88: ( classTopLevelScope )?
                     int alt105=2;
                     int LA105_0 = input.LA(1);
 
@@ -9534,7 +9547,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: classTopLevelScope
                             {
-                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression6273);
+                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression6310);
                             classTopLevelScope90=classTopLevelScope();
 
                             state._fsp--;
@@ -9559,7 +9572,7 @@ public class Generator extends TreeParser {
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 698:9: -> newExpression(qualifiedTypeIdent=$newExpression::qualifiedTypeIdentSTarguments=$arguments.lstgenericTypeArgumentList=$genericTypeArgumentList.stclassTopLevelScope=$classTopLevelScope.st)
+                      // 704:9: -> newExpression(qualifiedTypeIdent=$newExpression::qualifiedTypeIdentSTarguments=$arguments.lstgenericTypeArgumentList=$genericTypeArgumentList.stclassTopLevelScope=$classTopLevelScope.st)
                       {
                           retval.st = templateLib.getInstanceOf("newExpression",
                         new STAttrMap().put("qualifiedTypeIdent", ((newExpression_scope)newExpression_stack.peek()).qualifiedTypeIdentST).put("arguments", (arguments88!=null?arguments88.lst:null)).put("genericTypeArgumentList", (genericTypeArgumentList89!=null?genericTypeArgumentList89.st:null)).put("classTopLevelScope", (classTopLevelScope90!=null?classTopLevelScope90.st:null)));
@@ -9590,20 +9603,20 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "innerNewExpression"
-    // Generator.g:701:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
+    // Generator.g:707:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
     public final Generator.innerNewExpression_return innerNewExpression() throws RecognitionException {
         Generator.innerNewExpression_return retval = new Generator.innerNewExpression_return();
         retval.start = input.LT(1);
         int innerNewExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // Generator.g:702:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
-            // Generator.g:702:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
+            // Generator.g:708:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
+            // Generator.g:708:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
-            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6340); if (state.failed) return retval;
+            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6377); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // Generator.g:702:34: ( genericTypeArgumentList )?
+            // Generator.g:708:34: ( genericTypeArgumentList )?
             int alt107=2;
             int LA107_0 = input.LA(1);
 
@@ -9614,7 +9627,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // Generator.g:0:0: genericTypeArgumentList
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression6342);
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression6379);
                     genericTypeArgumentList();
 
                     state._fsp--;
@@ -9625,13 +9638,13 @@ public class Generator extends TreeParser {
 
             }
 
-            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression6345); if (state.failed) return retval;
-            pushFollow(FOLLOW_arguments_in_innerNewExpression6347);
+            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression6382); if (state.failed) return retval;
+            pushFollow(FOLLOW_arguments_in_innerNewExpression6384);
             arguments();
 
             state._fsp--;
             if (state.failed) return retval;
-            // Generator.g:702:75: ( classTopLevelScope )?
+            // Generator.g:708:75: ( classTopLevelScope )?
             int alt108=2;
             int LA108_0 = input.LA(1);
 
@@ -9642,7 +9655,7 @@ public class Generator extends TreeParser {
                 case 1 :
                     // Generator.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression6349);
+                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression6386);
                     classTopLevelScope();
 
                     state._fsp--;
@@ -9677,14 +9690,14 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "newArrayConstruction"
-    // Generator.g:705:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
+    // Generator.g:711:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
     public final Generator.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         Generator.newArrayConstruction_return retval = new Generator.newArrayConstruction_return();
         retval.start = input.LT(1);
         int newArrayConstruction_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // Generator.g:706:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
+            // Generator.g:712:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
             int alt111=2;
             int LA111_0 = input.LA(1);
 
@@ -9703,14 +9716,14 @@ public class Generator extends TreeParser {
             }
             switch (alt111) {
                 case 1 :
-                    // Generator.g:706:9: arrayDeclaratorList arrayInitializer
+                    // Generator.g:712:9: arrayDeclaratorList arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6374);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6411);
                     arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction6376);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction6413);
                     arrayInitializer();
 
                     state._fsp--;
@@ -9719,9 +9732,9 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:707:9: ( expression )+ ( arrayDeclaratorList )?
+                    // Generator.g:713:9: ( expression )+ ( arrayDeclaratorList )?
                     {
-                    // Generator.g:707:9: ( expression )+
+                    // Generator.g:713:9: ( expression )+
                     int cnt109=0;
                     loop109:
                     do {
@@ -9737,7 +9750,7 @@ public class Generator extends TreeParser {
                     	case 1 :
                     	    // Generator.g:0:0: expression
                     	    {
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction6386);
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction6423);
                     	    expression();
 
                     	    state._fsp--;
@@ -9756,7 +9769,7 @@ public class Generator extends TreeParser {
                         cnt109++;
                     } while (true);
 
-                    // Generator.g:707:21: ( arrayDeclaratorList )?
+                    // Generator.g:713:21: ( arrayDeclaratorList )?
                     int alt110=2;
                     int LA110_0 = input.LA(1);
 
@@ -9767,7 +9780,7 @@ public class Generator extends TreeParser {
                         case 1 :
                             // Generator.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6389);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction6426);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -9803,7 +9816,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "arguments"
-    // Generator.g:710:1: arguments returns [List<StringTemplate> lst] : ^( ARGUMENT_LIST ( expression )* ) ;
+    // Generator.g:716:1: arguments returns [List<StringTemplate> lst] : ^( ARGUMENT_LIST ( expression )* ) ;
     public final Generator.arguments_return arguments() throws RecognitionException {
         Generator.arguments_return retval = new Generator.arguments_return();
         retval.start = input.LT(1);
@@ -9816,14 +9829,14 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // Generator.g:714:5: ( ^( ARGUMENT_LIST ( expression )* ) )
-            // Generator.g:714:9: ^( ARGUMENT_LIST ( expression )* )
+            // Generator.g:720:5: ( ^( ARGUMENT_LIST ( expression )* ) )
+            // Generator.g:720:9: ^( ARGUMENT_LIST ( expression )* )
             {
-            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments6421); if (state.failed) return retval;
+            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments6458); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // Generator.g:714:25: ( expression )*
+                // Generator.g:720:25: ( expression )*
                 loop112:
                 do {
                     int alt112=2;
@@ -9836,9 +9849,9 @@ public class Generator extends TreeParser {
 
                     switch (alt112) {
                 	case 1 :
-                	    // Generator.g:714:26: expression
+                	    // Generator.g:720:26: expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_arguments6424);
+                	    pushFollow(FOLLOW_expression_in_arguments6461);
                 	    expression91=expression();
 
                 	    state._fsp--;
@@ -9880,7 +9893,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "literal"
-    // Generator.g:717:1: literal : ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\");
+    // Generator.g:723:1: literal : ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\");
     public final Generator.literal_return literal() throws RecognitionException {
         Generator.literal_return retval = new Generator.literal_return();
         retval.start = input.LT(1);
@@ -9897,7 +9910,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
-            // Generator.g:718:5: ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\")
+            // Generator.g:724:5: ( HEX_LITERAL -> template(v=$HEX_LITERAL.text) \"<v>\" | OCTAL_LITERAL -> template(v=$OCTAL_LITERAL.text) \"<v>\" | DECIMAL_LITERAL -> template(v=$DECIMAL_LITERAL.text) \"<v>\" | FLOATING_POINT_LITERAL -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\" | CHARACTER_LITERAL -> template(v=$CHARACTER_LITERAL.text) \"<v>\" | STRING_LITERAL -> template(v=$STRING_LITERAL.text) \"<v>\" | TRUE -> template(v=$TRUE.text) \"<v>\" | FALSE -> template(v=$FALSE.text) \"<v>\" | NULL -> template(v=$NULL.text) \"<v>\")
             int alt113=9;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -9955,14 +9968,14 @@ public class Generator extends TreeParser {
 
             switch (alt113) {
                 case 1 :
-                    // Generator.g:718:9: HEX_LITERAL
+                    // Generator.g:724:9: HEX_LITERAL
                     {
-                    HEX_LITERAL92=(CommonTree)match(input,HEX_LITERAL,FOLLOW_HEX_LITERAL_in_literal6449); if (state.failed) return retval;
+                    HEX_LITERAL92=(CommonTree)match(input,HEX_LITERAL,FOLLOW_HEX_LITERAL_in_literal6486); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 718:21: -> template(v=$HEX_LITERAL.text) \"<v>\"
+                      // 724:21: -> template(v=$HEX_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (HEX_LITERAL92!=null?HEX_LITERAL92.getText():null)));
@@ -9972,14 +9985,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:719:9: OCTAL_LITERAL
+                    // Generator.g:725:9: OCTAL_LITERAL
                     {
-                    OCTAL_LITERAL93=(CommonTree)match(input,OCTAL_LITERAL,FOLLOW_OCTAL_LITERAL_in_literal6470); if (state.failed) return retval;
+                    OCTAL_LITERAL93=(CommonTree)match(input,OCTAL_LITERAL,FOLLOW_OCTAL_LITERAL_in_literal6507); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 719:23: -> template(v=$OCTAL_LITERAL.text) \"<v>\"
+                      // 725:23: -> template(v=$OCTAL_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (OCTAL_LITERAL93!=null?OCTAL_LITERAL93.getText():null)));
@@ -9989,14 +10002,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Generator.g:720:9: DECIMAL_LITERAL
+                    // Generator.g:726:9: DECIMAL_LITERAL
                     {
-                    DECIMAL_LITERAL94=(CommonTree)match(input,DECIMAL_LITERAL,FOLLOW_DECIMAL_LITERAL_in_literal6491); if (state.failed) return retval;
+                    DECIMAL_LITERAL94=(CommonTree)match(input,DECIMAL_LITERAL,FOLLOW_DECIMAL_LITERAL_in_literal6528); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 720:25: -> template(v=$DECIMAL_LITERAL.text) \"<v>\"
+                      // 726:25: -> template(v=$DECIMAL_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (DECIMAL_LITERAL94!=null?DECIMAL_LITERAL94.getText():null)));
@@ -10006,14 +10019,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // Generator.g:721:9: FLOATING_POINT_LITERAL
+                    // Generator.g:727:9: FLOATING_POINT_LITERAL
                     {
-                    FLOATING_POINT_LITERAL95=(CommonTree)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal6512); if (state.failed) return retval;
+                    FLOATING_POINT_LITERAL95=(CommonTree)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal6549); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 721:32: -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\"
+                      // 727:32: -> template(v=$FLOATING_POINT_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (FLOATING_POINT_LITERAL95!=null?FLOATING_POINT_LITERAL95.getText():null)));
@@ -10023,14 +10036,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // Generator.g:722:9: CHARACTER_LITERAL
+                    // Generator.g:728:9: CHARACTER_LITERAL
                     {
-                    CHARACTER_LITERAL96=(CommonTree)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal6533); if (state.failed) return retval;
+                    CHARACTER_LITERAL96=(CommonTree)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal6570); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 722:27: -> template(v=$CHARACTER_LITERAL.text) \"<v>\"
+                      // 728:27: -> template(v=$CHARACTER_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (CHARACTER_LITERAL96!=null?CHARACTER_LITERAL96.getText():null)));
@@ -10040,14 +10053,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // Generator.g:723:9: STRING_LITERAL
+                    // Generator.g:729:9: STRING_LITERAL
                     {
-                    STRING_LITERAL97=(CommonTree)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal6554); if (state.failed) return retval;
+                    STRING_LITERAL97=(CommonTree)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal6591); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 723:24: -> template(v=$STRING_LITERAL.text) \"<v>\"
+                      // 729:24: -> template(v=$STRING_LITERAL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (STRING_LITERAL97!=null?STRING_LITERAL97.getText():null)));
@@ -10057,14 +10070,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // Generator.g:724:9: TRUE
+                    // Generator.g:730:9: TRUE
                     {
-                    TRUE98=(CommonTree)match(input,TRUE,FOLLOW_TRUE_in_literal6575); if (state.failed) return retval;
+                    TRUE98=(CommonTree)match(input,TRUE,FOLLOW_TRUE_in_literal6612); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 724:14: -> template(v=$TRUE.text) \"<v>\"
+                      // 730:14: -> template(v=$TRUE.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (TRUE98!=null?TRUE98.getText():null)));
@@ -10074,14 +10087,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // Generator.g:725:9: FALSE
+                    // Generator.g:731:9: FALSE
                     {
-                    FALSE99=(CommonTree)match(input,FALSE,FOLLOW_FALSE_in_literal6596); if (state.failed) return retval;
+                    FALSE99=(CommonTree)match(input,FALSE,FOLLOW_FALSE_in_literal6633); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 725:15: -> template(v=$FALSE.text) \"<v>\"
+                      // 731:15: -> template(v=$FALSE.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (FALSE99!=null?FALSE99.getText():null)));
@@ -10091,14 +10104,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // Generator.g:726:9: NULL
+                    // Generator.g:732:9: NULL
                     {
-                    NULL100=(CommonTree)match(input,NULL,FOLLOW_NULL_in_literal6617); if (state.failed) return retval;
+                    NULL100=(CommonTree)match(input,NULL,FOLLOW_NULL_in_literal6654); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 726:14: -> template(v=$NULL.text) \"<v>\"
+                      // 732:14: -> template(v=$NULL.text) \"<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "<v>",
                         new STAttrMap().put("v", (NULL100!=null?NULL100.getText():null)));
@@ -10128,7 +10141,7 @@ public class Generator extends TreeParser {
     };
 
     // $ANTLR start "comment"
-    // Generator.g:729:1: comment : ( COMMENT -> template(v=$COMMENT.text) \"/*<v>*/\" | LINE_COMMENT -> template(v=$LINE_COMMENT.text) \"//<v>\");
+    // Generator.g:735:1: comment : ( COMMENT -> template(v=$COMMENT.text) \"/*<v>*/\" | LINE_COMMENT -> template(v=$LINE_COMMENT.text) \"//<v>\");
     public final Generator.comment_return comment() throws RecognitionException {
         Generator.comment_return retval = new Generator.comment_return();
         retval.start = input.LT(1);
@@ -10138,7 +10151,7 @@ public class Generator extends TreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
-            // Generator.g:730:5: ( COMMENT -> template(v=$COMMENT.text) \"/*<v>*/\" | LINE_COMMENT -> template(v=$LINE_COMMENT.text) \"//<v>\")
+            // Generator.g:736:5: ( COMMENT -> template(v=$COMMENT.text) \"/*<v>*/\" | LINE_COMMENT -> template(v=$LINE_COMMENT.text) \"//<v>\")
             int alt114=2;
             int LA114_0 = input.LA(1);
 
@@ -10157,14 +10170,14 @@ public class Generator extends TreeParser {
             }
             switch (alt114) {
                 case 1 :
-                    // Generator.g:730:9: COMMENT
+                    // Generator.g:736:9: COMMENT
                     {
-                    COMMENT101=(CommonTree)match(input,COMMENT,FOLLOW_COMMENT_in_comment6651); if (state.failed) return retval;
+                    COMMENT101=(CommonTree)match(input,COMMENT,FOLLOW_COMMENT_in_comment6688); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 730:17: -> template(v=$COMMENT.text) \"/*<v>*/\"
+                      // 736:17: -> template(v=$COMMENT.text) \"/*<v>*/\"
                       {
                           retval.st = new StringTemplate(templateLib, "/*<v>*/",
                         new STAttrMap().put("v", (COMMENT101!=null?COMMENT101.getText():null)));
@@ -10174,14 +10187,14 @@ public class Generator extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Generator.g:731:9: LINE_COMMENT
+                    // Generator.g:737:9: LINE_COMMENT
                     {
-                    LINE_COMMENT102=(CommonTree)match(input,LINE_COMMENT,FOLLOW_LINE_COMMENT_in_comment6672); if (state.failed) return retval;
+                    LINE_COMMENT102=(CommonTree)match(input,LINE_COMMENT,FOLLOW_LINE_COMMENT_in_comment6709); if (state.failed) return retval;
 
 
                     // TEMPLATE REWRITE
                     if ( state.backtracking==0 ) {
-                      // 731:22: -> template(v=$LINE_COMMENT.text) \"//<v>\"
+                      // 737:22: -> template(v=$LINE_COMMENT.text) \"//<v>\"
                       {
                           retval.st = new StringTemplate(templateLib, "//<v>",
                         new STAttrMap().put("v", (LINE_COMMENT102!=null?LINE_COMMENT102.getText():null)));
@@ -10206,10 +10219,10 @@ public class Generator extends TreeParser {
 
     // $ANTLR start synpred125_Generator
     public final void synpred125_Generator_fragment() throws RecognitionException {   
-        // Generator.g:529:35: ( switchCaseLabel )
-        // Generator.g:529:35: switchCaseLabel
+        // Generator.g:535:35: ( switchCaseLabel )
+        // Generator.g:535:35: switchCaseLabel
         {
-        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_Generator3638);
+        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_Generator3675);
         switchCaseLabel();
 
         state._fsp--;
@@ -10224,10 +10237,10 @@ public class Generator extends TreeParser {
         List list_expressions=null;
         Generator.expression_return expressions = null;
          expressions = null;
-        // Generator.g:544:13: ( (expressions+= expression )* )
-        // Generator.g:544:13: (expressions+= expression )*
+        // Generator.g:550:13: ( (expressions+= expression )* )
+        // Generator.g:550:13: (expressions+= expression )*
         {
-        // Generator.g:544:13: (expressions+= expression )*
+        // Generator.g:550:13: (expressions+= expression )*
         loop145:
         do {
             int alt145=2;
@@ -10240,9 +10253,9 @@ public class Generator extends TreeParser {
 
             switch (alt145) {
         	case 1 :
-        	    // Generator.g:544:14: expressions+= expression
+        	    // Generator.g:550:14: expressions+= expression
         	    {
-        	    pushFollow(FOLLOW_expression_in_synpred132_Generator3778);
+        	    pushFollow(FOLLOW_expression_in_synpred132_Generator3815);
         	    expressions=expression();
 
         	    state._fsp--;
@@ -10510,278 +10523,278 @@ public class Generator extends TreeParser {
     public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2773 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_BLOCK_SCOPE_in_block2804 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_blockStatement_in_block2807 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_blockStatement2868 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2894 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2896 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration2898 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2900 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_block_in_statement2960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASSERT_in_statement2973 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement2977 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement2981 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IF_in_statement3015 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3017 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3021 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3025 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_in_statement3065 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_forInit_in_statement3067 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_forCondition_in_statement3069 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_forUpdater_in_statement3071 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3075 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_EACH_in_statement3119 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_statement3121 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_statement3123 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement3125 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement3127 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3131 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_WHILE_in_statement3181 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3183 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3187 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DO_in_statement3221 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_statement_in_statement3225 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3227 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TRY_in_statement3261 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_statement3265 = new BitSet(new long[]{0x0000000000000008L,0x00A0000000000000L});
-    public static final BitSet FOLLOW_catches_in_statement3267 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_statement3272 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_in_statement3313 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3315 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_switchBlockLabels_in_statement3317 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement3329 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3331 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_statement3333 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_RETURN_in_statement3364 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement3366 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THROW_in_statement3396 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement3398 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BREAK_in_statement3427 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement3429 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement3459 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement3461 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement3491 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement3493 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement3497 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_statement3527 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement3546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches3583 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_catchClause_in_catches3585 = new BitSet(new long[]{0x0800000000000008L});
-    public static final BitSet FOLLOW_CATCH_in_catchClause3611 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause3613 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_catchClause3615 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3636 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3638 = new BitSet(new long[]{0x8400000000000008L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels3641 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3644 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel3674 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel3676 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel3678 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel3704 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel3706 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_FOR_INIT_in_forInit3732 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit3760 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_forInit3778 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition3849 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forCondition3852 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater3881 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forUpdater3886 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3932 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression3934 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXPR_in_expression3975 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expression3977 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ASSIGN_in_expr4000 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4004 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4008 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr4037 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2863 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_blockStatement2905 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2931 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2933 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration2935 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2937 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_block_in_statement2997 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSERT_in_statement3010 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement3014 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_statement3018 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IF_in_statement3052 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3054 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3058 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3062 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_in_statement3102 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_forInit_in_statement3104 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_forCondition_in_statement3106 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_forUpdater_in_statement3108 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3112 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_EACH_in_statement3156 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_statement3158 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_statement3160 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement3162 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_statement3164 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3168 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_WHILE_in_statement3218 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3220 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3224 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DO_in_statement3258 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_statement_in_statement3262 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3264 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TRY_in_statement3298 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_statement3302 = new BitSet(new long[]{0x0000000000000008L,0x00A0000000000000L});
+    public static final BitSet FOLLOW_catches_in_statement3304 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_statement3309 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_in_statement3350 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3352 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_switchBlockLabels_in_statement3354 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement3366 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement3368 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_statement3370 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_RETURN_in_statement3401 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement3403 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THROW_in_statement3433 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement3435 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BREAK_in_statement3464 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement3466 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement3496 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement3498 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement3528 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement3530 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement3534 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_statement3564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement3583 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches3620 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_catchClause_in_catches3622 = new BitSet(new long[]{0x0800000000000008L});
+    public static final BitSet FOLLOW_CATCH_in_catchClause3648 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause3650 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_catchClause3652 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels3673 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3675 = new BitSet(new long[]{0x8400000000000008L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels3678 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels3681 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel3711 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel3713 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel3715 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel3741 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel3743 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_FOR_INIT_in_forInit3769 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit3797 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_forInit3815 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition3886 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forCondition3889 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater3918 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forUpdater3923 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression3969 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression3971 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXPR_in_expression4012 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expression4014 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ASSIGN_in_expr4037 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4041 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4045 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr4074 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr4074 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4078 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4082 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr4111 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr4111 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4115 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4119 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr4148 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr4148 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4152 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4156 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_expr4185 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr4185 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4189 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4193 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_expr4222 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_expr4222 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4226 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4230 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr4259 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_expr4259 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4263 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4267 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr4296 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr4296 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4300 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4304 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4333 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr4333 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4337 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4341 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4370 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr4370 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4374 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4378 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4407 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr4407 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4411 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4415 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUESTION_in_expr4444 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr4444 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4448 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4452 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4454 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_expr4467 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4471 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4475 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_expr4505 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4509 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4513 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_in_expr4542 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4452 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUESTION_in_expr4481 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4485 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4489 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4491 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_expr4504 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4508 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4512 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_expr4542 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4546 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4550 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_in_expr4579 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_OR_in_expr4579 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4583 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4587 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_in_expr4616 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_XOR_in_expr4616 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4620 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4624 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EQUAL_in_expr4653 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_AND_in_expr4653 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4657 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4661 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_expr4690 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_EQUAL_in_expr4690 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4694 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4698 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_expr4727 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4729 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_expr4731 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr4743 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4747 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4751 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr4781 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr4785 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr4789 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr4818 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_expr4727 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4731 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4735 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_expr4764 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4766 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_expr4768 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr4780 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr4784 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr4788 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr4818 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4822 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4826 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr4855 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr4855 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4859 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4863 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_expr4892 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr4892 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4896 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4900 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr4929 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_expr4929 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4933 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4937 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_THAN_in_expr4966 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr4966 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr4970 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr4974 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_in_expr5003 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LESS_THAN_in_expr5003 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr5007 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr5011 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_in_expr5040 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_PLUS_in_expr5040 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr5044 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr5048 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_in_expr5077 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_MINUS_in_expr5077 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr5081 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr5085 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_in_expr5114 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_STAR_in_expr5114 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr5118 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr5122 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_in_expr5151 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_DIV_in_expr5151 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr5155 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr5159 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_PLUS_in_expr5188 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5192 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_MINUS_in_expr5217 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5221 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_INC_in_expr5247 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5251 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_DEC_in_expr5276 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5280 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_INC_in_expr5305 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5309 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_DEC_in_expr5334 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5338 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_in_expr5363 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5367 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr5392 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr5396 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CAST_EXPR_in_expr5408 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_expr5410 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr5412 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primaryExpression_in_expr5423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression5451 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5471 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression5500 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression5556 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression5626 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression5684 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression5722 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression5792 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression5794 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression5812 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression5814 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression5848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression5860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression5908 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5912 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression5914 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression5917 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression5955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression5968 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5972 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_primaryExpression5974 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression6007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_comment_in_primaryExpression6019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression6029 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression6041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression6059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression6069 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall6097 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6099 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6102 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6114 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall6116 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6119 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6122 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6143 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6146 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6150 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator6154 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6186 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression6204 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6206 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6224 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6227 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6229 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6264 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6266 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6269 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_newExpression6271 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression6273 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6340 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression6342 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression6345 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression6347 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression6349 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6374 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction6376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction6386 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments6421 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments6424 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_HEX_LITERAL_in_literal6449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OCTAL_LITERAL_in_literal6470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DECIMAL_LITERAL_in_literal6491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal6512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal6533 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_literal6554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_literal6575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_literal6596 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NULL_in_literal6617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COMMENT_in_comment6651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LINE_COMMENT_in_comment6672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_Generator3638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_synpred132_Generator3778 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
+    public static final BitSet FOLLOW_MOD_in_expr5188 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5192 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5196 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_PLUS_in_expr5225 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5229 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_MINUS_in_expr5254 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5258 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_INC_in_expr5284 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5288 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_DEC_in_expr5313 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5317 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_INC_in_expr5342 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5346 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_DEC_in_expr5371 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5375 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_in_expr5400 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5404 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr5429 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr5433 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CAST_EXPR_in_expr5445 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_expr5447 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x00001FF0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr5449 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primaryExpression_in_expr5460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression5488 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5508 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression5537 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression5593 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression5663 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression5721 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression5759 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression5829 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression5831 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression5849 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression5851 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression5885 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression5897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression5945 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression5949 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression5951 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression5954 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression5992 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression6005 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression6009 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_primaryExpression6011 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression6044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_comment_in_primaryExpression6056 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression6066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression6078 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression6096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression6106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall6134 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6136 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6139 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall6151 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall6153 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall6156 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall6159 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator6180 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator6183 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator6187 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator6191 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression6223 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression6241 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6243 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6261 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6264 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression6266 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression6301 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression6303 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression6306 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_newExpression6308 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression6310 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression6377 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression6379 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression6382 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression6384 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression6386 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6411 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction6413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction6423 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction6426 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments6458 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_arguments6461 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_HEX_LITERAL_in_literal6486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OCTAL_LITERAL_in_literal6507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DECIMAL_LITERAL_in_literal6528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal6549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal6570 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_literal6591 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_literal6612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_literal6633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NULL_in_literal6654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMENT_in_comment6688 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LINE_COMMENT_in_comment6709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_Generator3675 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_synpred132_Generator3815 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
 
 }

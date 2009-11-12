@@ -274,7 +274,7 @@ variableDeclaratorId
 variableInitializer
     :   arrayInitializer
     |   expression
-        -> template(v={$expression.st}) "<v>;"
+        -> template(v={$expression.st}) "<v>"
     ;
 
 arrayDeclarator
@@ -469,11 +469,17 @@ scope{
 @init {
   $block::statements = new ArrayList<StringTemplate>();
 }
-    :   ^(BLOCK_SCOPE (blockStatement {if ($blockStatement.st!=null) $block::statements.add($blockStatement.st);})*) -> block(statements={$block::statements})
+    :   ^(BLOCK_SCOPE (blockStatement {if ($blockStatement.st!=null) $block::statements.add($blockStatement.st);})*) 
+        {
+          for(StringTemplate st : $block::statements)
+            System.out.println("[["+st.toString()+"]]");
+        }
+        -> block(statements={$block::statements})
     ;
     
 blockStatement
-    :   localVariableDeclaration {$blockStatement.st = $localVariableDeclaration.st;}
+    :   localVariableDeclaration 
+        -> template(v={$localVariableDeclaration.st}) "<v>;"
     |   typeDeclaration {$blockStatement.st = $typeDeclaration.st;}
     |   statement {$blockStatement.st = $statement.st;}
     ;
