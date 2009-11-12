@@ -147,3 +147,5 @@ methodcall(primaryExpression, genericTypeArgumentList, arguments) ::= <<<primary
 newExpression(qualifiedTypeIdent, arguments, genericTypeArgumentList, classTopLevelScope) ::= <<
   new <qualifiedTypeIdent>(<arguments; separator=", ">)
 >>
+
+arrayElementAccess(primaryExpression, expression) ::= "<primaryExpression>[<expression>]"
