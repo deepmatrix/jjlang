@@ -656,7 +656,8 @@ primaryExpression
     |   ^(METHOD_CALL pexp=primaryExpression genericTypeArgumentList? arguments)
         -> methodcall(primaryExpression={$pexp.st}, genericTypeArgumentList={$genericTypeArgumentList.st}, arguments={$arguments.lst})
     |   explicitConstructorCall {$primaryExpression.st = $explicitConstructorCall.st;}
-    |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
+    |   ^(ARRAY_ELEMENT_ACCESS pExp=primaryExpression expression)
+        -> arrayElementAccess(primaryExpression={$pExp.st}, expression={$expression.st})
     |   literal {$primaryExpression.st = $literal.st;}
     |   comment
     |   newExpression {$primaryExpression.st = $newExpression.st;}

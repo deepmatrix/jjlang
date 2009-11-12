@@ -7,7 +7,7 @@ class Main {
     {
     for ( $i = 0  ; $i < $args->length; $i++) 
       {
-      $this->doFile(  new File());
+      $this->doFile(  new File($args[$i]));
       }
     }
    else 
@@ -23,7 +23,7 @@ class Main {
     {
       $files = $f->list() 
     for ( $i = 0  ; $i < $files->length; $i++) 
-      $this->doFile(  new File($f));
+      $this->doFile(  new File($f, $files[$i]));
     }
    else 
     if ( ( $f->getName()->length() > 5 ) && $f->getName()->substring($f->getName()->length() - 5)->equals(".java") ) 
